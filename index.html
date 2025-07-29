@@ -1,1 +1,154 @@
-<!-- index.html --><!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8" />  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  <title>Your Name - Portfolio</title>  <link rel="stylesheet" href="style.css" /></head><body>  <header>    <h1>Your Name</h1>    <p>Student | Aspiring [Career] | Passionate Learner</p>  </header>  <section id="about">    <h2>About Me</h2>    <p>Write a short bio here.</p>  </section>  <section id="projects">    <h2>Projects</h2>    <ul>      <li><strong>Project 1</strong> – Description</li>      <li><strong>Project 2</strong> – Description</li>    </ul>  </section>  <section id="skills">    <h2>Skills</h2>    <p>List your technical and soft skills here.</p>  </section>  <section id="contact">    <h2>Contact</h2>    <p>Email: yourname@email.com</p>    <p>LinkedIn: <a href="#">Your Profile</a></p>  </section>  <footer>    <p>© 2025 Your Name</p>  </footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Name Personal Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      padding: 40px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+    .sidebar.open {
+      right: 0;
+    }
+    .sidebar a {
+      display: block;
+      margin: 20px 0;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .about {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    .about img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .blog-post {
+      margin-bottom: 60px;
+    }
+    .blog-post img {
+      width: 100%;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Name Personal Portfolio</h1>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <nav class="sidebar" id="sidebar">
+      <a href="blog.html">Blog</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="updates.html">Updates</a>
+      <a href="academic.html">Academic Experience</a>
+      <a href="work.html">Work Experience</a>
+      <a href="fun.html">Fun Facts</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about">
+      <img src="https://upload.wikimedia.org/wikipedia/en/7/76/Darth_Vader.jpg" alt="Darth Vader" />
+      <div>
+        <h2>About Me</h2>
+        <p>I am Darth Vader, Dark Lord of the Sith, enforcer of the Galactic Empire, and father of the most complicated family in the galaxy. I enjoy lightsaber dueling, breathing loudly in silent rooms, and long walks on Imperial Star Destroyers. This is my personal space for reflection, updates, and galactic domination goals.</p>
+      </div>
+    </section>
+
+    <section class="blog-post">
+      <h2>1. Reflections from the Death Star</h2>
+      <img src="https://starwars-visualguide.com/assets/img/starships/9.jpg" alt="Death Star" />
+      <p>The construction of the Death Star was a monumental task that required not only vast resources, but also unwavering resolve. I oversaw many elements personally, ensuring the project's success. Contrary to rebel propaganda, it was not simply a tool of fear, but a statement of the Empire’s technological superiority. While the outcome was... explosive, the lessons remain with me.</p>
+    </section>
+
+    <section class="blog-post">
+      <h2>2. Raising Skywalkers</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/en/9/9b/Luke_Skywalker.png" alt="Luke Skywalker" />
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f6/Leia_Organa.png" alt="Leia Organa" />
+      <img src="https://upload.wikimedia.org/wikipedia/en/3/32/Anakin_Skywalker.png" alt="Anakin Skywalker" />
+      <p>Fatherhood is... complicated. Especially when your children are leaders of the rebellion you swore to crush. Luke and Leia, despite their rebellion, have shown incredible strength. It’s a strange feeling, battling the very beings you helped create. But there’s a deep connection, and perhaps... hope. Even for someone like me.</p>
+    </section>
+
+    <section class="blog-post">
+      <h2>3. Meditation in the Dark</h2>
+      <img src="https://static1.srcdn.com/wordpress/wp-content/uploads/2021/05/Vader-Meditation-Chamber.jpg" alt="Meditation Chamber" />
+      <p>Many believe the dark side consumes you, that it leaves no room for introspection. They are wrong. My meditation chamber provides a place of solitude, where I can reflect, focus, and plan. It is within the stillness of the void that I gain my strength. True power comes not just from the Force, but from clarity of purpose.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 My Name</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
