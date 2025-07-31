@@ -1,10 +1,10 @@
-<!-- TEMPLATE SUBPAGE FILE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contacts</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
       margin: 0;
@@ -64,13 +64,43 @@
     }
     main {
       padding: 40px 20px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .profile-pic {
+      flex: 1 1 200px;
+      max-width: 250px;
+      text-align: center;
+    }
+    .profile-pic img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 50%;
+    }
+    .contacts {
+      flex: 2 1 300px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    .contact-item i {
+      font-size: 1.5rem;
+      color: #333;
+      width: 30px;
       text-align: center;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Contacs</h1>
+    <h1>Contacts</h1>
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     <nav class="sidebar" id="sidebar">
       <div class="flags">
@@ -89,7 +119,15 @@
   </header>
 
   <main>
-    <p>This is a blank page.</p>
+    <div class="profile-pic">
+      <img src="https://upload.wikimedia.org/wikipedia/en/7/76/Darth_Vader.jpg" alt="Profile Picture">
+    </div>
+    <div class="contacts">
+      <div class="contact-item"><i class="fas fa-phone"></i> +420 123 456 789</div>
+      <div class="contact-item"><i class="fas fa-envelope"></i> example@email.com</div>
+      <div class="contact-item"><i class="fab fa-instagram"></i> @your_instagram</div>
+      <div class="contact-item"><i class="fab fa-facebook"></i> /your.facebook.name</div>
+    </div>
   </main>
 
   <script>
