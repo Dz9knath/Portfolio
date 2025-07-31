@@ -1,0 +1,101 @@
+<!-- TEMPLATE SUBPAGE FILE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      padding: 40px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+    .sidebar.open {
+      right: 0;
+    }
+    .sidebar .flags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .sidebar .flags img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .sidebar a {
+      display: block;
+      margin: 20px 0;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Gallerz</h1>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <nav class="sidebar" id="sidebar">
+      <div class="flags">
+        <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
+        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
+        <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+      </div>
+      <a href="index.html">Blog</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="updates.html">Updates</a>
+      <a href="academic.html">Academic Experience</a>
+      <a href="work.html">Work Experience</a>
+      <a href="fun.html">Fun Facts</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </header>
+
+  <main>
+    <p>This is a blank page.</p>
+  </main>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
