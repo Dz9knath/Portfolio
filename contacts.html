@@ -66,7 +66,7 @@
       padding: 40px 20px;
       display: flex;
       gap: 40px;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -96,6 +96,13 @@
       width: 30px;
       text-align: center;
     }
+    .contact-item a {
+      color: #333;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -123,10 +130,11 @@
       <img src="https://upload.wikimedia.org/wikipedia/en/7/76/Darth_Vader.jpg" alt="Profile Picture">
     </div>
     <div class="contacts">
-      <div class="contact-item"><i class="fas fa-phone"></i> +420 123 456 789</div>
-      <div class="contact-item"><i class="fas fa-envelope"></i> example@email.com</div>
-      <div class="contact-item"><i class="fab fa-instagram"></i> @your_instagram</div>
-      <div class="contact-item"><i class="fab fa-facebook"></i> /your.facebook.name</div>
+      <div class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+420123456789">+420 123 456 789</a></div>
+      <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:ben.hejda@gmail.com">ben.hejda@gmail.com</a></div>
+      <div class="contact-item"><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ben.hejda/" target="_blank">@ben.hejda</a></div>
+      <div class="contact-item"><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/benhejda/" target="_blank">Benjamin Hejda</a></div>
+      <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benjamin-hejda" target="_blank">linkedin.com/in/benjamin-hejda</a></div>
     </div>
   </main>
 
