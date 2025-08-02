@@ -1,10 +1,10 @@
+<!-- TEMPLATE SUBPAGE FILE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fun Facts</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
       margin: 0;
@@ -66,56 +66,29 @@
       padding: 40px 20px;
       text-align: center;
     }
-    .intro {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
-    }
     .buttons button {
+      margin: 10px;
       padding: 10px 20px;
       font-size: 1rem;
       cursor: pointer;
-      border: 1px solid #444;
-      background-color: #f9f9f9;
-      transition: background-color 0.2s;
-    }
-    .buttons button:hover {
-      background-color: #eee;
     }
     .fact-box {
-      background-color: white;
-      border: 1px solid #ddd;
-      padding: 30px;
-      max-width: 600px;
-      margin: 0 auto;
-      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
     }
-    .fact-text {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-    }
-    .source {
-      font-size: 0.9rem;
-      color: #666;
-    }
-    .source i {
-      margin-right: 5px;
+    .source-link {
+      display: block;
+      margin-top: 10px;
+      color: #007BFF;
+      text-decoration: none;
     }
     .next-button {
       margin-top: 20px;
-      padding: 10px 20px;
+      padding: 8px 16px;
       font-size: 1rem;
       cursor: pointer;
-      border: none;
-      background-color: #444;
-      color: white;
     }
   </style>
 </head>
@@ -140,60 +113,95 @@
   </header>
 
   <main>
-    <p class="intro">Since many of my friends know me for my deep and often random knowledge of fun and useless trivia, I thought it would be fitting to include a selection of them in my portfolio.</p>
-
+    <p>Since many of my friends know me for my extensive knowledge of trivia and quirky facts, I decided to include some in my portfolio.</p>
     <div class="buttons">
-      <button onclick="showFact('common')">Well-Known Fun Facts</button>
-      <button onclick="showFact('rare')">Fun Facts You Probably Never Heard Before</button>
-      <button onclick="showFact('personal')">Fun Facts About Me</button>
+      <button onclick="showFact('wellKnown')">Well-Known Fun Facts</button>
+      <button onclick="showFact('unknown')">Fun Facts You Probably Never Heard Before</button>
+      <button onclick="showFact('aboutMe')">Fun Facts About Me</button>
     </div>
-
     <div class="fact-box" id="factBox">
-      <div class="fact-text" id="factText"></div>
-      <div class="source" id="factSource"></div>
-      <button class="next-button" onclick="nextFact()">Next</button>
+      <p id="factText">Click one of the buttons above to see a fun fact!</p>
+      <a id="factSource" class="source-link" href="#" target="_blank" style="display:none;">🔍 Source</a>
+      <button id="nextButton" class="next-button" onclick="nextFact()" style="display:none;">Next</button>
     </div>
   </main>
 
   <script>
     const facts = {
-      common: [
-        { text: "Bananas are berries, but strawberries aren't.", source: "https://www.britannica.com/story/why-are-bananas-berries-but-strawberries-arent" },
-        { text: "Honey never spoils. Archaeologists found pots of honey in ancient Egyptian tombs that were still edible.", source: "https://www.nationalgeographic.com/science/article/honey-most-amazing-preservative" }
+      wellKnown: [
+        { text: "Wombats have square poo." },
+        { text: "Sharks have infinite teeth." },
+        { text: "Croissants aren’t French." },
+        { text: "In a vacuum, a cannonball and a feather fall at the same speed." },
+        { text: "LEGO is the largest tyre manufacturer in the world.", source: "https://www.guinnessworldrecords.com/world-records/100909-largest-tyre-manufacture-per-annum" },
+        { text: "Leeches have 32 brains." },
+        { text: "You can't hum with your nose closed." },
+        { text: "The Ottoman Empire was founded in 1299 and fell in 1922." },
+        { text: "Spiral staircases are clockwise so that defenders could fight while staying protected." },
+        { text: "\"Are you as bored as I am\" can be said backwards with the same meaning." },
+        { text: "Dancers say 5,6,7,8 because musicians took 1,2,3,4." },
+        { text: "Four times more people speak English as a second language than as a native one." },
+        { text: "US grenades in WWII were made to match the weight and shape of baseballs." },
+        { text: "The first bomb to ever hit Berlin in WWII killed an elephant in a zoo." },
+        { text: "The 100 folds in a chef's hat represent the 100 ways to cook an egg." },
+        { text: "The national animal of Scotland is the unicorn." },
+        { text: "Phone numbers are grouped into 3–4 digits because it's easier to remember that way." },
+        { text: "King Henry VIII had 6 wives." },
+        { text: "REM sleep stands for Rapid Eye Movement – your eyes move rapidly during that phase." },
+        { text: "The phrase \"goodbye\" comes from \"God be with you.\"" },
+        { text: "Napoleon was once attacked by rabbits." },
+        { text: "All British tanks designed after WWII have tea kettles." },
+        { text: "Alexander the Great named over 20 cities after himself." },
+        { text: "The last time Liechtenstein went to war, 80 soldiers left and 81 returned." },
+        { text: "Each human cell has over 2 meters of DNA." },
+        { text: "Hitler had one testicle." },
+        { text: "Charles Darwin married his cousin." },
+        { text: "Greek statues used to be colorful; the color faded over time." },
+        { text: "Sneezing can expel air at speeds up to 160 km/h (100 mph)." },
+        { text: "We are now as far from WWII as WWII was from the American Civil War." }
       ],
-      rare: [
-        { text: "Octopuses have three hearts and blue blood.", source: "https://ocean.si.edu/ocean-life/invertebrates/common-octopus" },
-        { text: "Sharks are older than trees. They've existed for around 400 million years.", source: "https://www.nhm.ac.uk/discover/are-sharks-older-than-trees.html" }
+      unknown: [
+        { text: "Buttholes have their own fingerprint." },
+        { text: "The model for Botticelli’s Birth of Venus was the cousin of Amerigo Vespucci, who gave his name to America." }
       ],
-      personal: [
-        { text: "I once memorized over 100 digits of pi just for fun.", source: "#" },
-        { text: "My weirdest party trick is explaining how medieval siege engines work... in detail.", source: "#" }
+      aboutMe: [
+        { text: "Temporarily unavailable – still working on this. Try another category." }
       ]
     };
 
-    let currentCategory = '';
+    let currentCategory = null;
     let currentIndex = 0;
-
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
 
     function showFact(category) {
       currentCategory = category;
-      currentIndex = Math.floor(Math.random() * facts[category].length);
-      updateFact();
-      document.getElementById('factBox').style.display = 'block';
+      currentIndex = 0;
+      displayFact();
     }
 
     function nextFact() {
-      currentIndex = Math.floor(Math.random() * facts[currentCategory].length);
-      updateFact();
+      currentIndex = (currentIndex + 1) % facts[currentCategory].length;
+      displayFact();
     }
 
-    function updateFact() {
+    function displayFact() {
       const fact = facts[currentCategory][currentIndex];
-      document.getElementById('factText').textContent = fact.text;
-      document.getElementById('factSource').innerHTML = `<i class="fas fa-info-circle"></i> <a href="${fact.source}" target="_blank">Source</a>`;
+      const factBox = document.getElementById("factBox");
+      const factText = document.getElementById("factText");
+      const factSource = document.getElementById("factSource");
+      const nextButton = document.getElementById("nextButton");
+
+      factText.textContent = fact.text;
+      if (fact.source) {
+        factSource.href = fact.source;
+        factSource.style.display = 'inline';
+      } else {
+        factSource.style.display = 'none';
+      }
+      nextButton.style.display = 'inline';
+    }
+
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('open');
     }
   </script>
 </body>
