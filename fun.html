@@ -1,10 +1,10 @@
-<!-- TEMPLATE SUBPAGE FILE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fun Facts</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * {
       margin: 0;
@@ -66,6 +66,57 @@
       padding: 40px 20px;
       text-align: center;
     }
+    .intro {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .buttons button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: 1px solid #444;
+      background-color: #f9f9f9;
+      transition: background-color 0.2s;
+    }
+    .buttons button:hover {
+      background-color: #eee;
+    }
+    .fact-box {
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 30px;
+      max-width: 600px;
+      margin: 0 auto;
+      display: none;
+    }
+    .fact-text {
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+    }
+    .source {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .source i {
+      margin-right: 5px;
+    }
+    .next-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      background-color: #444;
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -89,12 +140,60 @@
   </header>
 
   <main>
-    <p>This is a blank page.</p>
+    <p class="intro">Since many of my friends know me for my deep and often random knowledge of fun and useless trivia, I thought it would be fitting to include a selection of them in my portfolio.</p>
+
+    <div class="buttons">
+      <button onclick="showFact('common')">Well-Known Fun Facts</button>
+      <button onclick="showFact('rare')">Fun Facts You Probably Never Heard Before</button>
+      <button onclick="showFact('personal')">Fun Facts About Me</button>
+    </div>
+
+    <div class="fact-box" id="factBox">
+      <div class="fact-text" id="factText"></div>
+      <div class="source" id="factSource"></div>
+      <button class="next-button" onclick="nextFact()">Next</button>
+    </div>
   </main>
 
   <script>
+    const facts = {
+      common: [
+        { text: "Bananas are berries, but strawberries aren't.", source: "https://www.britannica.com/story/why-are-bananas-berries-but-strawberries-arent" },
+        { text: "Honey never spoils. Archaeologists found pots of honey in ancient Egyptian tombs that were still edible.", source: "https://www.nationalgeographic.com/science/article/honey-most-amazing-preservative" }
+      ],
+      rare: [
+        { text: "Octopuses have three hearts and blue blood.", source: "https://ocean.si.edu/ocean-life/invertebrates/common-octopus" },
+        { text: "Sharks are older than trees. They've existed for around 400 million years.", source: "https://www.nhm.ac.uk/discover/are-sharks-older-than-trees.html" }
+      ],
+      personal: [
+        { text: "I once memorized over 100 digits of pi just for fun.", source: "#" },
+        { text: "My weirdest party trick is explaining how medieval siege engines work... in detail.", source: "#" }
+      ]
+    };
+
+    let currentCategory = '';
+    let currentIndex = 0;
+
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('open');
+    }
+
+    function showFact(category) {
+      currentCategory = category;
+      currentIndex = Math.floor(Math.random() * facts[category].length);
+      updateFact();
+      document.getElementById('factBox').style.display = 'block';
+    }
+
+    function nextFact() {
+      currentIndex = Math.floor(Math.random() * facts[currentCategory].length);
+      updateFact();
+    }
+
+    function updateFact() {
+      const fact = facts[currentCategory][currentIndex];
+      document.getElementById('factText').textContent = fact.text;
+      document.getElementById('factSource').innerHTML = `<i class="fas fa-info-circle"></i> <a href="${fact.source}" target="_blank">Source</a>`;
     }
   </script>
 </body>
