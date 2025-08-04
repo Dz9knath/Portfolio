@@ -66,6 +66,60 @@
       padding: 40px 20px;
       text-align: center;
     }
+    .experience-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.experience-card {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.experience-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.experience-card h3 {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.experience-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.tags li {
+  background-color: #e0e0e0;
+  color: #333;
+  font-size: 0.85rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
   </style>
 </head>
 <body>
@@ -89,8 +143,70 @@
   </header>
 
   <main>
-    <p>This is a blank page.</p>
-  </main>
+  <section class="experience-container">
+
+    <!-- Rugbz coach -->
+    <div class="experience-card">
+      <h2>🏉 Volunteer Rugby Coach</h2>
+      <h3>Independent | 2022—Present</h3>
+      <p>Trained a team of 10–12-year-olds, focusing on skill development, discipline, and team spirit. Organized two survival camps where kids learned essential outdoor and teamwork skills through fun and challenge.</p>
+      <ul class="tags">
+        <li>Youth mentoring</li>
+        <li>Team leadership</li>
+        <li>Program design</li>
+      </ul>
+    </div>
+
+    <!-- RAYP -->
+    <div class="experience-card">
+      <h2>🏕️ Coach & Camp Animator</h2>
+      <h3>Rugby Academy Yves Perrot (RAYP) | Seasonal</h3>
+      <p>Assisted in leading physical training for kids of various age groups. Supported daily camp life and created dynamic activities that taught resilience and collaboration.</p>
+      <ul class="tags">
+        <li>Coaching</li>
+        <li>Camp facilitation</li>
+        <li>Child engagement</li>
+      </ul>
+    </div>
+
+    <!-- PPA-->
+    <div class="experience-card">
+      <h2>🎯 Staff Member</h2>
+      <h3>Paintball Arena (PPA) | 2022–2024</h3>
+      <p>Worked with customers during games, handling gear and safety briefings. Provided friendly service and resolved issues quickly in a fast-paced environment.</p>
+      <ul class="tags">
+        <li>Customer service</li>
+        <li>Equipment handling</li>
+        <li>Problem-solving</li>
+      </ul>
+    </div>
+
+    <!-- 4PRO -->
+    <div class="experience-card">
+      <h2>🍴 Event Marketing & Catering</h2>
+      <h3>4PRO | 2023–2024</h3>
+      <p>Helped organize and run food and drink stalls at concerts and events. Focused on quick, friendly customer service under high demand, often multitasking with setup or cleanup.</p>
+      <ul class="tags">
+        <li>Event operations</li>
+        <li>Food service</li>
+        <li>Teamwork under pressure</li>
+      </ul>
+    </div>
+
+    <!-- Concert -->
+    <div class="experience-card">
+      <h2>🎸 Vendor/Support</h2>
+      <h3>Various Concerts & Festivals | Occasional</h3>
+      <p>Sold food and beverages, interacted with diverse customers, handled cash and mobile payments, and helped set up temporary event infrastructure.</p>
+      <ul class="tags">
+        <li>Sales</li>
+        <li>Festival logistics</li>
+        <li>Adaptability</li>
+      </ul>
+    </div>
+
+  </section>
+</main>
 
   <script>
     function toggleMenu() {
@@ -99,4 +215,5 @@
   </script>
 </body>
 </html>
+
 
