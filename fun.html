@@ -73,10 +73,15 @@
       cursor: pointer;
     }
     .fact-box {
-      margin-top: 30px;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%; /* about half the page width */
+    max-width: 700px; /* roughly A4 width */
+    min-height: 120px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
     .source-link {
       display: block;
@@ -244,6 +249,7 @@
 
     function showFact(category) {
       currentCategory = category;
+      facts[category] = facts[category].sort(() => Math.random() - 0.5);
       currentIndex = 0;
       displayFact();
     }
@@ -254,21 +260,27 @@
     }
 
     function displayFact() {
-      const fact = facts[currentCategory][currentIndex];
-      const factBox = document.getElementById("factBox");
-      const factText = document.getElementById("factText");
-      const factSource = document.getElementById("factSource");
-      const nextButton = document.getElementById("nextButton");
+  const fact = facts[currentCategory][currentIndex];
+  const factBox = document.getElementById("factBox");
+  const factText = document.getElementById("factText");
+  const factSource = document.getElementById("factSource");
+  const nextButton = document.getElementById("nextButton");
 
-      factText.textContent = fact.text;
-      if (fact.source) {
-        factSource.href = fact.source;
-        factSource.style.display = 'inline';
-      } else {
-        factSource.style.display = 'none';
-      }
-      nextButton.style.display = 'inline';
-    }
+  factText.textContent = fact.text;
+  if (fact.source) {
+    factSource.href = fact.source;
+    factSource.style.display = 'inline';
+  } else {
+    factSource.style.display = 'none';
+  }
+  
+  if (currentCategory === 'aboutMe') {
+    nextButton.style.display = 'none';
+  } else {
+    nextButton.style.display = 'inline-block';
+  }
+}
+
 
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('open');
@@ -276,5 +288,6 @@
   </script>
 </body>
 </html>
+
 
 
