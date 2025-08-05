@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -89,6 +89,8 @@
       margin: 20px 0;
       color: #666;
     }
+
+    /* Filter buttons with colors */
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
@@ -99,36 +101,52 @@
     .filter-bar button {
       padding: 10px 20px;
       border: none;
-      background: #eee;
       cursor: pointer;
       border-radius: 5px;
+      color: white;
+      transition: background-color 0.3s ease;
+      font-weight: 500;
     }
     .filter-bar button.active {
-      background: #333;
-      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
     }
+    .filter-bar button[data-tag="All"] { background: #666; }
+    .filter-bar button[data-tag="Sport"] { background: #0a3d62; }
+    .filter-bar button[data-tag="Exchange"] { background: #44bd32; }
+    .filter-bar button[data-tag="Internship"] { background: #e84118; }
+    .filter-bar button[data-tag="Language"] { background: #273c75; }
+    .filter-bar button[data-tag="Self-Development"] { background: #8c7ae6; }
+    .filter-bar button[data-tag="Education"] { background: #fbc531; color: #333; }
+
+    /* Cards grid and card style */
     .cards {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
-      transition: all 0.4s ease;
     }
     .card {
       background: #f9f9f9;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      position: relative;
       cursor: pointer;
+      transition: 
+        opacity 0.4s ease, 
+        transform 0.4s ease,
+        box-shadow 0.3s ease;
       opacity: 1;
       transform: translateY(0);
-      flex: 1 1 calc(33% - 20px);
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
     .card.hide {
       opacity: 0;
-      transform: translateY(-50px);
       pointer-events: none;
+      transform: translateY(-50px);
     }
     .card h3 {
       margin-bottom: 10px;
@@ -141,6 +159,7 @@
       font-size: 0.85rem;
       color: #888;
     }
+
     .overlay {
       position: fixed;
       top: 0;
@@ -181,9 +200,9 @@
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     <nav class="sidebar" id="sidebar">
       <div class="flags">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
-        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
-        <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+        <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech" />
+        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English" />
+        <img src="https://flagcdn.com/w40/de.png" alt="German" title="German" />
       </div>
       <a href="index.html">Blog</a>
       <a href="gallery.html">Gallery</a>
@@ -205,13 +224,13 @@
     </div>
 
     <div class="filter-bar">
-      <button onclick="filterTag('All')" class="active">All</button>
-      <button onclick="filterTag('Sport')">Sport</button>
-      <button onclick="filterTag('Exchange')">Exchange</button>
-      <button onclick="filterTag('Internship')">Internship</button>
-      <button onclick="filterTag('Language')">Language</button>
-      <button onclick="filterTag('Self-Development')">Self-Development</button>
-      <button onclick="filterTag('Education')">Education</button>
+      <button data-tag="All" class="active">All</button>
+      <button data-tag="Sport">Sport</button>
+      <button data-tag="Exchange">Exchange</button>
+      <button data-tag="Internship">Internship</button>
+      <button data-tag="Language">Language</button>
+      <button data-tag="Self-Development">Self-Development</button>
+      <button data-tag="Education">Education</button>
     </div>
 
     <div class="cards" id="cardContainer"></div>
@@ -253,6 +272,7 @@
     ];
 
     const container = document.getElementById("cardContainer");
+    const filterButtons = document.querySelectorAll(".filter-bar button");
 
     function createCards() {
       container.innerHTML = cardsData.map((card, index) => `
@@ -277,9 +297,9 @@
     }
 
     function filterTag(tag) {
-      document.querySelectorAll('.filter-bar button').forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`.filter-bar button[onclick*='${tag}']`).classList.add('active');
-      const quoteBox = document.getElementById('tagQuote');
+      filterButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tag === tag);
+      });
 
       document.querySelectorAll('.card').forEach(card => {
         const tags = JSON.parse(card.getAttribute('data-tags'));
@@ -290,7 +310,8 @@
         }
       });
 
-         const quotes = {
+      const quoteBox = document.getElementById('tagQuote');
+      const quotes = {
         Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
         Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
         Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
@@ -298,7 +319,6 @@
         "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
         Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
       };
-     
       quoteBox.textContent = tag === 'All'
         ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
         : quotes[tag] || "";
@@ -309,10 +329,13 @@
     }
 
     createCards();
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => filterTag(btn.dataset.tag));
+    });
   </script>
 </body>
 </html>
-
 
 
 
