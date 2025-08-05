@@ -1,262 +1,245 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Growth & Learning</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #333;
-    }
-    header {
-      background: url('https://i.imgur.com/Tpt260a.jpeg') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .intro {
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-      text-align: center;
-    }
-    .quote {
-      font-style: italic;
-      text-align: center;
-      margin: 20px 0;
-      color: #666;
-    }
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-    .filter-bar button {
-      padding: 10px 20px;
-      border: none;
-      background: #eee;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .filter-bar button.active {
-      background: #333;
-      color: #fff;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      opacity: 1;
-      transition: all 0.3s ease;
-    }
-    .card.hide {
-      opacity: 0;
-      transform: scale(0.95);
-      pointer-events: none;
-    }
-    .card h3 {
-      margin-bottom: 10px;
-    }
-    .card p {
-      font-size: 0.95rem;
-    }
-    .tags {
-      margin-top: 10px;
-      font-size: 0.85rem;
-      color: #888;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #aaa;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Growth & Learning</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-      <div class="flags">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
-        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
-        <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
+
+const categories = [
+  "Exchange",
+  "Language",
+  "Self-Development",
+  "Education",
+  "Internship",
+  "Sport",
+];
+
+const experiences = [
+  {
+    title: "Semester in Ohio, USA",
+    description: "Spent half a year immersed in American culture and education, improving language skills and gaining a global perspective.",
+    category: "Exchange",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/d0/Ohio_Statehouse_columbus.jpg",
+  },
+  {
+    title: "IBDP High School — Gymnázium a SOŠ Rokycany",
+    description: "Pursuing the rigorous International Baccalaureate Diploma Programme, focusing on biology, math, languages, and critical thinking.",
+    category: "Education",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/65/IB_DP_Logo.png",
+  },
+  {
+    title: "Church Grammar School (Secondary Education)",
+    description: "Completed foundational secondary education, building strong academic habits and discipline.",
+    category: "Education",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/2e/School_icon.png",
+  },
+  {
+    title: "Exchange Program — Portugal",
+    description: "Engaged in a student exchange in Portugal, enhancing language abilities and cultural adaptability.",
+    category: "Exchange",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Portugal_flag_icon.png",
+  },
+  {
+    title: "Exchange Program — Slovakia",
+    description: "Participated in a Slovakian exchange program, broadening horizons through immersion and social collaboration.",
+    category: "Exchange",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg",
+  },
+  {
+    title: "German",
+    description: "Intermediate proficiency developed through formal education and conversational practice.",
+    category: "Language",
+    image: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg",
+  },
+  {
+    title: "Norwegian",
+    description: "Currently learning Norwegian, embracing new challenges and broadening cultural understanding.",
+    category: "Language",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/d9/Flag_of_Norway.svg",
+  },
+  {
+    title: "English",
+    description: "Fluent in English, a key language for academic success and international communication.",
+    category: "Language",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg",
+  },
+  {
+    title: "Portuguese",
+    description: "Intermediate level, strengthened by exchange experience and ongoing practice.",
+    category: "Language",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Portugal_flag_icon.png",
+  },
+  {
+    title: "Military Internship",
+    description: "Gained discipline, leadership, and teamwork skills through practical military training and fieldwork.",
+    category: "Internship",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Czech_Army_Paratroopers_in_Afghanistan.jpg",
+  },
+  {
+    title: "Rugby",
+    description: "Eleven years of playing rugby, including time at one of the top Czech clubs, developing teamwork, resilience, and strategic thinking.",
+    category: "Sport",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/89/Rugby_Ball_in_Try_Area.jpg",
+  },
+  {
+    title: "Running",
+    description: "Passionate about long-distance running, completed multiple half marathons, emphasizing endurance and mental toughness.",
+    category: "Sport",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e6/Running_marathon_runners.jpg",
+  },
+  {
+    title: "Obstacle Course Racing (OCR)",
+    description: "Regularly compete in OCR events, testing physical strength, agility, and problem-solving under pressure.",
+    category: "Sport",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Military_obstacle_course.jpg",
+  },
+  {
+    title: "Swimming",
+    description: "Active swimmer focusing on technique and fitness, supporting overall athletic development.",
+    category: "Sport",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/fd/Swimming_pool_water_surface.jpg",
+  },
+  {
+    title: "Calisthenics",
+    description: "Dedicated to bodyweight strength training, promoting functional fitness and discipline.",
+    category: "Sport",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/5c/Calisthenics_bar_workout.jpg",
+  },
+  {
+    title: "American Football",
+    description: "Experience in American football, enhancing teamwork, coordination, and competitive spirit.",
+    category: "Sport",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/American_football_iran.jpg",
+  },
+  {
+    title: "Wrestling",
+    description: "Training in wrestling to build strength, strategy, and perseverance.",
+    category: "Sport",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6b/Freestyle_wrestling.jpg",
+  },
+  {
+    title: "Krav Maga",
+    description: "Practiced Krav Maga for one year to develop self-defense skills, confidence, and mental resilience.",
+    category: "Sport",
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Krav_Maga_training.jpg",
+  },
+];
+
+const categoryColors = {
+  Exchange: "bg-indigo-100 text-indigo-800",
+  Language: "bg-pink-100 text-pink-800",
+  "Self-Development": "bg-gray-100 text-gray-800",
+  Education: "bg-green-100 text-green-800",
+  Internship: "bg-red-100 text-red-800",
+  Sport: "bg-blue-100 text-blue-800",
+};
+
+export default function GrowthAndLearning() {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [expanded, setExpanded] = useState(null);
+
+  const filtered = selectedCategory === "All"
+    ? experiences
+    : experiences.filter((e) => e.category === selectedCategory);
+
+  return (
+    <div className="p-4">
+      <div className="mb-6 flex flex-wrap gap-2">
+        <Button
+          variant={selectedCategory === "All" ? "default" : "outline"}
+          onClick={() => setSelectedCategory("All")}
+        >
+          All
+        </Button>
+        {categories.map((cat) => (
+          <Button
+            key={cat}
+            variant={selectedCategory === cat ? "default" : "outline"}
+            onClick={() => setSelectedCategory(cat)}
+          >
+            {cat}
+          </Button>
+        ))}
       </div>
-      <a href="index.html">Blog</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="updates.html">Updates</a>
-      <a href="academic.html">Growth & Learning</a>
-      <a href="work.html">Experience</a>
-      <a href="fun.html">Fun Facts</a>
-      <a href="contacts.html">Contacts</a>
-    </nav>
-  </header>
 
-  <main>
-    <div class="intro">
-      <p><em>"I believe that we live the life we create for ourselves, and in hard work. I try to be every day a little better than the previous one, striving to be better than everyone else and aiming to become a polymath."</em></p>
+      <motion.div
+        layout
+        className="grid sm:grid-cols-2 md:grid-cols-3 gap-4"
+      >
+        <AnimatePresence>
+          {filtered.map((exp, idx) => (
+            <motion.div
+              key={idx}
+              layout
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.4 }}
+            >
+              <Card
+                onClick={() => setExpanded(exp)}
+                className="hover:shadow-lg cursor-pointer relative"
+              >
+                <img
+                  src={exp.image}
+                  alt={exp.title}
+                  className="h-48 w-full object-cover rounded-t-xl"
+                />
+                <CardContent className="p-4">
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="font-semibold text-lg">{exp.title}</h3>
+                    <Badge className={categoryColors[exp.category] || ""}>
+                      {exp.category}
+                    </Badge>
+                  </div>
+                  <p className="text-sm text-muted-foreground">
+                    {exp.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
+
+      <AnimatePresence>
+        {expanded && (
+          <motion.div
+            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              className="bg-white rounded-xl shadow-xl max-w-xl w-full p-6 relative z-60"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+            >
+              <Button
+                variant="ghost"
+                size="icon"
+                className="absolute top-2 right-2"
+                onClick={() => setExpanded(null)}
+              >
+                <X className="h-5 w-5" />
+              </Button>
+              <img
+                src={expanded.image}
+                alt={expanded.title}
+                className="rounded-lg mb-4 w-full h-56 object-cover"
+              />
+              <h2 className="text-2xl font-bold mb-2">{expanded.title}</h2>
+              <Badge className={categoryColors[expanded.category] || ""}>
+                {expanded.category}
+              </Badge>
+              <p className="mt-4 text-muted-foreground">
+                {expanded.description}
+              </p>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
-
-    <div class="quote" id="tagQuote">
-      “Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi
-    </div>
-
-    <div class="filter-bar">
-      <button onclick="filterTag('All')" class="active">All</button>
-      <button onclick="filterTag('Sport')">Sport</button>
-      <button onclick="filterTag('Exchange')">Exchange</button>
-      <button onclick="filterTag('Internship')">Internship</button>
-      <button onclick="filterTag('Language')">Language</button>
-      <button onclick="filterTag('Self-Development')">Self-Development</button>
-      <button onclick="filterTag('Education')">Education</button>
-    </div>
-
-    <div class="cards" id="cardContainer"></div>
-  </main>
-
-  <footer>
-    <p>© 2025 Benjamin Hejda</p>
-  </footer>
-
-  <script>
-    const cardsData = [
-      { title: "Semester in Ohio, USA", description: "Spent half a year immersed in American culture and education, improving language skills and gaining a global perspective.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "IBDP High School — Gymnázium a SOŠ Rokycany", description: "Pursuing the rigorous International Baccalaureate Diploma Programme, focusing on biology, math, languages, and critical thinking.", tags: ["Education", "Self-Development"] },
-      { title: "Church Grammar School (Secondary Education)", description: "Completed foundational secondary education, building strong academic habits and discipline.", tags: ["Education"] },
-      { title: "Exchange Program — Portugal", description: "Engaged in a student exchange in Portugal, enhancing language abilities and cultural adaptability.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "Exchange Program — Slovakia", description: "Participated in a Slovakian exchange program, broadening horizons through immersion and social collaboration.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "German", description: "Intermediate proficiency developed through formal education and conversational practice.", tags: ["Language", "Self-Development"] },
-      { title: "Norwegian", description: "Currently learning Norwegian, embracing new challenges and broadening cultural understanding.", tags: ["Language", "Self-Development"] },
-      { title: "English", description: "Fluent in English, a key language for academic success and international communication.", tags: ["Language", "Self-Development"] },
-      { title: "Portuguese", description: "Intermediate level, strengthened by exchange experience and ongoing practice.", tags: ["Language", "Self-Development"] },
-      { title: "Military Internship", description: "Gained discipline, leadership, and teamwork skills through practical military training and fieldwork.", tags: ["Internship", "Self-Development"] },
-      { title: "Rugby", description: "Eleven years of playing rugby, including time at one of the top Czech clubs, developing teamwork, resilience, and strategic thinking.", tags: ["Sport", "Self-Development"] },
-      { title: "Running", description: "Passionate about long-distance running, completed multiple half marathons, emphasizing endurance and mental toughness.", tags: ["Sport", "Self-Development"] },
-      { title: "Obstacle Course Racing (OCR)", description: "Regularly compete in OCR events, testing physical strength, agility, and problem-solving under pressure.", tags: ["Sport", "Self-Development"] },
-      { title: "Swimming", description: "Active swimmer focusing on technique and fitness, supporting overall athletic development.", tags: ["Sport", "Self-Development"] },
-      { title: "Calisthenics", description: "Dedicated to bodyweight strength training, promoting functional fitness and discipline.", tags: ["Sport", "Self-Development"] },
-      { title: "American Football", description: "Experience in American football, enhancing teamwork, coordination, and competitive spirit.", tags: ["Sport", "Self-Development"] },
-      { title: "Wrestling", description: "Training in wrestling to build strength, strategy, and perseverance.", tags: ["Sport", "Self-Development"] },
-      { title: "Krav Maga", description: "Practiced Krav Maga for one year to develop self-defense skills, confidence, and mental resilience.", tags: ["Sport", "Self-Development"] }
-    ];
-
-    const quotes = {
-      Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
-      Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
-      Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
-      Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
-      "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
-      Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
-    };
-
-    const container = document.getElementById("cardContainer");
-
-    function createCards() {
-      container.innerHTML = cardsData.map((card) => `
-        <div class="card" data-tags='${JSON.stringify(card.tags)}'>
-          <h3>${card.title}</h3>
-          <p>${card.description}</p>
-          <div class="tags">${card.tags.join(", ")}</div>
-        </div>
-      `).join("");
-    }
-
-    function filterTag(tag) {
-      document.querySelectorAll('.filter-bar button').forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`.filter-bar button[onclick*="'${tag}'"]`).classList.add('active');
-
-      const quoteBox = document.getElementById('tagQuote');
-
-      document.querySelectorAll('.card').forEach(card => {
-        const tags = JSON.parse(card.getAttribute('data-tags'));
-        if (tag === 'All' || tags.includes(tag)) {
-          card.classList.remove('hide');
-        } else {
-          card.classList.add('hide');
-        }
-      });
-
-      quoteBox.textContent = tag === 'All'
-        ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
-        : quotes[tag] || "";
-    }
-
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
-
-    createCards();
-  </script>
-</body>
-</html>
+  );
+}
