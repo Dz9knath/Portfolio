@@ -1,4 +1,3 @@
-<!-- TEMPLATE: GROWTH & LEARNING PAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,17 +6,30 @@
   <title>Growth & Learning</title>
   <style>
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
     body {
       font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
     }
     header {
-      background: none;
-      padding: 0;
+      background: url('https://i.imgur.com/Tpt260a.jpeg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
       position: relative;
+    }
+    header h1 {
+      font-size: 3rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
     }
     .hamburger {
       position: absolute;
@@ -61,23 +73,21 @@
       text-decoration: none;
       font-size: 1.2rem;
     }
-
     main {
       padding: 40px 20px;
-      max-width: 1100px;
+      max-width: 1000px;
       margin: auto;
     }
     .intro {
-      font-size: 1.2rem;
       margin-bottom: 20px;
+      font-size: 1.2rem;
       text-align: center;
     }
-    .tag-quotes {
-      text-align: center;
+    .quote {
       font-style: italic;
-      color: #555;
-      margin-bottom: 30px;
-      min-height: 40px;
+      text-align: center;
+      margin: 20px 0;
+      color: #666;
     }
     .filter-bar {
       display: flex;
@@ -86,48 +96,56 @@
       gap: 10px;
       margin-bottom: 30px;
     }
-    .filter-btn {
-      padding: 8px 15px;
-      border: 1px solid #ccc;
-      border-radius: 20px;
-      background-color: #f0f0f0;
+    .filter-bar button {
+      padding: 10px 20px;
+      border: none;
+      background: #eee;
       cursor: pointer;
-      transition: background 0.3s;
+      border-radius: 5px;
     }
-    .filter-btn.active {
-      background-color: #444;
-      color: white;
+    .filter-bar button.active {
+      background: #333;
+      color: #fff;
     }
-    .cards-grid {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
     .card {
-      background-color: #f9f9f9;
-      border-radius: 10px;
+      background: #f9f9f9;
       padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      opacity: 1;
+      transition: all 0.3s ease;
     }
-    .card:hover {
-      transform: translateY(-4px);
+    .card.hide {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
     }
     .card h3 {
       margin-bottom: 10px;
     }
     .card p {
       font-size: 0.95rem;
-      margin-bottom: 10px;
     }
-    .card .tags {
-      font-size: 0.8rem;
-      color: #666;
+    .tags {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
   <header>
+    <h1>Growth & Learning</h1>
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     <nav class="sidebar" id="sidebar">
       <div class="flags">
@@ -148,55 +166,97 @@
   <main>
     <div class="intro">
       <p><em>"I believe that we live the life we create for ourselves, and in hard work. I try to be every day a little better than the previous one, striving to be better than everyone else and aiming to become a polymath."</em></p>
-      <p><strong>“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi</strong></p>
     </div>
-    <div class="tag-quotes" id="tagQuote"></div>
+
+    <div class="quote" id="tagQuote">
+      “Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi
+    </div>
 
     <div class="filter-bar">
-      <div class="filter-btn" onclick="filterCards('All')">All</div>
-      <div class="filter-btn" onclick="filterCards('Sport')">Sport</div>
-      <div class="filter-btn" onclick="filterCards('Exchange')">Exchange</div>
-      <div class="filter-btn" onclick="filterCards('Internship')">Internship</div>
-      <div class="filter-btn" onclick="filterCards('Language')">Language</div>
-      <div class="filter-btn" onclick="filterCards('Self-Development')">Self-Development</div>
-      <div class="filter-btn" onclick="filterCards('Education')">Education</div>
+      <button onclick="filterTag('All')" class="active">All</button>
+      <button onclick="filterTag('Sport')">Sport</button>
+      <button onclick="filterTag('Exchange')">Exchange</button>
+      <button onclick="filterTag('Internship')">Internship</button>
+      <button onclick="filterTag('Language')">Language</button>
+      <button onclick="filterTag('Self-Development')">Self-Development</button>
+      <button onclick="filterTag('Education')">Education</button>
     </div>
 
-    <div class="cards-grid" id="cardsGrid">
-      <!-- Cards will be added here -->
-    </div>
+    <div class="cards" id="cardContainer"></div>
   </main>
 
+  <footer>
+    <p>© 2025 Benjamin Hejda</p>
+  </footer>
+
   <script>
+    const cardsData = [
+      { title: "Semester in Ohio, USA", description: "Spent half a year immersed in American culture and education, improving language skills and gaining a global perspective.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "IBDP High School — Gymnázium a SOŠ Rokycany", description: "Pursuing the rigorous International Baccalaureate Diploma Programme, focusing on biology, math, languages, and critical thinking.", tags: ["Education", "Self-Development"] },
+      { title: "Church Grammar School (Secondary Education)", description: "Completed foundational secondary education, building strong academic habits and discipline.", tags: ["Education"] },
+      { title: "Exchange Program — Portugal", description: "Engaged in a student exchange in Portugal, enhancing language abilities and cultural adaptability.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "Exchange Program — Slovakia", description: "Participated in a Slovakian exchange program, broadening horizons through immersion and social collaboration.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "German", description: "Intermediate proficiency developed through formal education and conversational practice.", tags: ["Language", "Self-Development"] },
+      { title: "Norwegian", description: "Currently learning Norwegian, embracing new challenges and broadening cultural understanding.", tags: ["Language", "Self-Development"] },
+      { title: "English", description: "Fluent in English, a key language for academic success and international communication.", tags: ["Language", "Self-Development"] },
+      { title: "Portuguese", description: "Intermediate level, strengthened by exchange experience and ongoing practice.", tags: ["Language", "Self-Development"] },
+      { title: "Military Internship", description: "Gained discipline, leadership, and teamwork skills through practical military training and fieldwork.", tags: ["Internship", "Self-Development"] },
+      { title: "Rugby", description: "Eleven years of playing rugby, including time at one of the top Czech clubs, developing teamwork, resilience, and strategic thinking.", tags: ["Sport", "Self-Development"] },
+      { title: "Running", description: "Passionate about long-distance running, completed multiple half marathons, emphasizing endurance and mental toughness.", tags: ["Sport", "Self-Development"] },
+      { title: "Obstacle Course Racing (OCR)", description: "Regularly compete in OCR events, testing physical strength, agility, and problem-solving under pressure.", tags: ["Sport", "Self-Development"] },
+      { title: "Swimming", description: "Active swimmer focusing on technique and fitness, supporting overall athletic development.", tags: ["Sport", "Self-Development"] },
+      { title: "Calisthenics", description: "Dedicated to bodyweight strength training, promoting functional fitness and discipline.", tags: ["Sport", "Self-Development"] },
+      { title: "American Football", description: "Experience in American football, enhancing teamwork, coordination, and competitive spirit.", tags: ["Sport", "Self-Development"] },
+      { title: "Wrestling", description: "Training in wrestling to build strength, strategy, and perseverance.", tags: ["Sport", "Self-Development"] },
+      { title: "Krav Maga", description: "Practiced Krav Maga for one year to develop self-defense skills, confidence, and mental resilience.", tags: ["Sport", "Self-Development"] }
+    ];
+
     const quotes = {
-      Sport: "\"Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity.\" – John F. Kennedy",
-      Exchange: "\"Travel is fatal to prejudice, bigotry, and narrow-mindedness.\" — Mark Twain",
-      Internship: "\"The best way to predict your future is to create it.\" — Abraham Lincoln",
-      Language: "\"To learn a language is to have one more window from which to look at the world.\" — Chinese proverb",
-      "Self-Development": "\"He who conquers himself is the mightiest warrior.\" — Confucius",
-      Education: "\"Education is not the learning of facts, but the training of the mind to think.\" — Albert Einstein"
+      Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
+      Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
+      Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
+      Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
+      "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
+      Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
     };
+
+    const container = document.getElementById("cardContainer");
+
+    function createCards() {
+      container.innerHTML = cardsData.map((card) => `
+        <div class="card" data-tags='${JSON.stringify(card.tags)}'>
+          <h3>${card.title}</h3>
+          <p>${card.description}</p>
+          <div class="tags">${card.tags.join(", ")}</div>
+        </div>
+      `).join("");
+    }
+
+    function filterTag(tag) {
+      document.querySelectorAll('.filter-bar button').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.filter-bar button[onclick*="'${tag}'"]`).classList.add('active');
+
+      const quoteBox = document.getElementById('tagQuote');
+
+      document.querySelectorAll('.card').forEach(card => {
+        const tags = JSON.parse(card.getAttribute('data-tags'));
+        if (tag === 'All' || tags.includes(tag)) {
+          card.classList.remove('hide');
+        } else {
+          card.classList.add('hide');
+        }
+      });
+
+      quoteBox.textContent = tag === 'All'
+        ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
+        : quotes[tag] || "";
+    }
 
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('open');
     }
 
-    function filterCards(tag) {
-      const cards = document.querySelectorAll('.card');
-      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      cards.forEach(card => {
-        if (tag === 'All' || card.dataset.tags.includes(tag)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      const quoteBox = document.getElementById('tagQuote');
-      quoteBox.textContent = tag === 'All' ? '' : quotes[tag] || '';
-    }
+    createCards();
   </script>
 </body>
 </html>
