@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -99,26 +99,29 @@
     .filter-bar button {
       padding: 10px 20px;
       border: none;
+      background: #eee;
       cursor: pointer;
       border-radius: 5px;
-      transition: background 0.3s, color 0.3s;
     }
     .filter-bar button.active {
-      font-weight: bold;
-      color: white;
+      background: #333;
+      color: #fff;
     }
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
+      transition: all 0.3s ease;
     }
     .card {
       background: #f9f9f9;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      opacity: 1;
+      transition: all 0.4s ease-in-out;
+      position: relative;
       cursor: pointer;
-      transition: transform 0.3s ease, opacity 0.3s ease;
     }
     .card.hide {
       opacity: 0;
@@ -134,10 +137,7 @@
     .tags {
       margin-top: 10px;
       font-size: 0.85rem;
-      font-weight: bold;
-      padding: 5px;
-      border-radius: 5px;
-      display: inline-block;
+      color: #888;
     }
     .overlay {
       position: fixed;
@@ -145,18 +145,17 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      justify-content: center;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
       align-items: center;
-      z-index: 1002;
+      justify-content: center;
+      z-index: 2000;
     }
     .expanded-card {
       background: white;
-      max-width: 600px;
-      width: 90%;
       padding: 30px;
-      border-radius: 10px;
+      max-width: 600px;
+      border-radius: 12px;
       position: relative;
     }
     .close-btn {
@@ -165,6 +164,7 @@
       right: 15px;
       font-size: 1.5rem;
       cursor: pointer;
+      color: #666;
     }
     footer {
       text-align: center;
@@ -203,33 +203,33 @@
     </div>
 
     <div class="filter-bar">
-      <button style="background:#999" onclick="filterTag('All')" class="active">All</button>
-      <button style="background:#e74c3c" onclick="filterTag('Sport')">Sport</button>
-      <button style="background:#3498db" onclick="filterTag('Exchange')">Exchange</button>
-      <button style="background:#f39c12" onclick="filterTag('Internship')">Internship</button>
-      <button style="background:#2c3e50" onclick="filterTag('Language')">Language</button>
-      <button style="background:#9b59b6" onclick="filterTag('Self-Development')">Self-Development</button>
-      <button style="background:#2ecc71" onclick="filterTag('Education')">Education</button>
+      <button onclick="filterTag('All')" class="active">All</button>
+      <button onclick="filterTag('Sport')">Sport</button>
+      <button onclick="filterTag('Exchange')">Exchange</button>
+      <button onclick="filterTag('Internship')">Internship</button>
+      <button onclick="filterTag('Language')">Language</button>
+      <button onclick="filterTag('Self-Development')">Self-Development</button>
+      <button onclick="filterTag('Education')">Education</button>
     </div>
 
     <div class="cards" id="cardContainer"></div>
   </main>
 
-  <footer>
-    <p>© 2025 Benjamin Hejda</p>
-  </footer>
-
-  <div id="overlay" class="overlay" style="display:none">
-    <div class="expanded-card">
-      <span class="close-btn" onclick="closeOverlay()">&times;</span>
+  <div class="overlay" id="overlay">
+    <div class="expanded-card" id="expandedCard">
+      <span class="close-btn" onclick="closeExpanded()">&times;</span>
       <h3 id="expandedTitle"></h3>
       <p id="expandedDescription"></p>
       <div class="tags" id="expandedTags"></div>
     </div>
   </div>
 
+  <footer>
+    <p>© 2025 Benjamin Hejda</p>
+  </footer>
+
   <script>
-     const cardsData = [
+    const cardsData = [
       { title: "Semester in Ohio, USA", description: "Spent half a year immersed in American culture and education, improving language skills and gaining a global perspective.", tags: ["Exchange", "Language", "Self-Development"] },
       { title: "IBDP High School — Gymnázium a SOŠ Rokycany", description: "Pursuing the rigorous International Baccalaureate Diploma Programme, focusing on biology, math, languages, and critical thinking.", tags: ["Education", "Self-Development"] },
       { title: "Church Grammar School (Secondary Education)", description: "Completed foundational secondary education, building strong academic habits and discipline.", tags: ["Education"] },
@@ -250,36 +250,33 @@
       { title: "Krav Maga", description: "Practiced Krav Maga for one year to develop self-defense skills, confidence, and mental resilience.", tags: ["Sport", "Self-Development"] }
     ];
 
-     const quotes = {
-      Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
-      Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
-      Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
-      Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
-      "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
-      Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
-     };
     const container = document.getElementById("cardContainer");
+    const overlay = document.getElementById("overlay");
+    const expandedCard = document.getElementById("expandedCard");
+    const expandedTitle = document.getElementById("expandedTitle");
+    const expandedDescription = document.getElementById("expandedDescription");
+    const expandedTags = document.getElementById("expandedTags");
 
     function createCards() {
-      container.innerHTML = cardsData.map((card, i) => `
-        <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${i})">
+      container.innerHTML = cardsData.map((card, index) => `
+        <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
           <h3>${card.title}</h3>
           <p>${card.description}</p>
-          <div class="tags" style="background:${getTagColor(card.tags[0])}">${card.tags.join(", ")}</div>
+          <div class="tags">${card.tags.join(", ")}</div>
         </div>
       `).join("");
     }
 
-    function getTagColor(tag) {
-      const colors = {
-        "Sport": "#e74c3c",
-        "Exchange": "#3498db",
-        "Internship": "#f39c12",
-        "Language": "#2c3e50",
-        "Self-Development": "#9b59b6",
-        "Education": "#2ecc71"
-      };
-      return colors[tag] || "#ccc";
+    function expandCard(index) {
+      const card = cardsData[index];
+      expandedTitle.textContent = card.title;
+      expandedDescription.textContent = card.description;
+      expandedTags.textContent = card.tags.join(", ");
+      overlay.style.display = "flex";
+    }
+
+    function closeExpanded() {
+      overlay.style.display = "none";
     }
 
     function filterTag(tag) {
@@ -297,21 +294,18 @@
         }
       });
 
+      const quotes = {
+        Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
+        Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
+        Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
+        Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
+        "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
+        Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
+      };
+
       quoteBox.textContent = tag === 'All'
         ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
         : quotes[tag] || "";
-    }
-
-    function expandCard(index) {
-      const card = cardsData[index];
-      document.getElementById('expandedTitle').textContent = card.title;
-      document.getElementById('expandedDescription').textContent = card.description;
-      document.getElementById('expandedTags').textContent = card.tags.join(', ');
-      document.getElementById('overlay').style.display = 'flex';
-    }
-
-    function closeOverlay() {
-      document.getElementById('overlay').style.display = 'none';
     }
 
     function toggleMenu() {
@@ -322,3 +316,5 @@
   </script>
 </body>
 </html>
+
+
