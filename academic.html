@@ -1,10 +1,10 @@
-<!-- TEMPLATE SUBPAGE FILE -->
+<!-- TEMPLATE: GROWTH & LEARNING PAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Academic Experience</title>
+  <title>Growth & Learning</title>
   <style>
     * {
       margin: 0;
@@ -15,9 +15,8 @@
       font-family: Arial, sans-serif;
     }
     header {
-      background-color: #111;
-      color: white;
-      padding: 20px;
+      background: none;
+      padding: 0;
       position: relative;
     }
     .hamburger {
@@ -62,15 +61,73 @@
       text-decoration: none;
       font-size: 1.2rem;
     }
+
     main {
       padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .intro {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
       text-align: center;
+    }
+    .tag-quotes {
+      text-align: center;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 30px;
+      min-height: 40px;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .filter-btn {
+      padding: 8px 15px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .filter-btn.active {
+      background-color: #444;
+      color: white;
+    }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+    }
+    .card .tags {
+      font-size: 0.8rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Academic Expirience</h1>
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     <nav class="sidebar" id="sidebar">
       <div class="flags">
@@ -89,15 +146,57 @@
   </header>
 
   <main>
-    <p>This is a blank page.</p>
+    <div class="intro">
+      <p><em>"I believe that we live the life we create for ourselves, and in hard work. I try to be every day a little better than the previous one, striving to be better than everyone else and aiming to become a polymath."</em></p>
+      <p><strong>“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi</strong></p>
+    </div>
+    <div class="tag-quotes" id="tagQuote"></div>
+
+    <div class="filter-bar">
+      <div class="filter-btn" onclick="filterCards('All')">All</div>
+      <div class="filter-btn" onclick="filterCards('Sport')">Sport</div>
+      <div class="filter-btn" onclick="filterCards('Exchange')">Exchange</div>
+      <div class="filter-btn" onclick="filterCards('Internship')">Internship</div>
+      <div class="filter-btn" onclick="filterCards('Language')">Language</div>
+      <div class="filter-btn" onclick="filterCards('Self-Development')">Self-Development</div>
+      <div class="filter-btn" onclick="filterCards('Education')">Education</div>
+    </div>
+
+    <div class="cards-grid" id="cardsGrid">
+      <!-- Cards will be added here -->
+    </div>
   </main>
 
   <script>
+    const quotes = {
+      Sport: "\"Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity.\" – John F. Kennedy",
+      Exchange: "\"Travel is fatal to prejudice, bigotry, and narrow-mindedness.\" — Mark Twain",
+      Internship: "\"The best way to predict your future is to create it.\" — Abraham Lincoln",
+      Language: "\"To learn a language is to have one more window from which to look at the world.\" — Chinese proverb",
+      "Self-Development": "\"He who conquers himself is the mightiest warrior.\" — Confucius",
+      Education: "\"Education is not the learning of facts, but the training of the mind to think.\" — Albert Einstein"
+    };
+
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('open');
+    }
+
+    function filterCards(tag) {
+      const cards = document.querySelectorAll('.card');
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (tag === 'All' || card.dataset.tags.includes(tag)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const quoteBox = document.getElementById('tagQuote');
+      quoteBox.textContent = tag === 'All' ? '' : quotes[tag] || '';
     }
   </script>
 </body>
 </html>
-
-
