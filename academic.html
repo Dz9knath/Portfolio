@@ -171,6 +171,52 @@
       padding: 20px;
       color: #aaa;
     }
+    .tags span {
+    display: inline-block;
+    margin: 3px 5px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  .tag-Sport {
+    background-color: #b03b3b;
+  }
+  .tag-Exchange {
+    background-color: #3b7a78;
+  }
+  .tag-Internship {
+    background-color: #c96f28;
+  }
+  .tag-Language {
+    background-color: #2b4f81;
+  }
+  .tag-Self-Development {
+    background-color: #3b7737;
+  }
+  .tag-Education {
+    background-color: #6d3bb0;
+  }
+
+  .filter-bar button[data-tag="Sport"].active {
+    background-color: #b03b3b;
+  }
+  .filter-bar button[data-tag="Exchange"].active {
+    background-color: #3b7a78;
+  }
+  .filter-bar button[data-tag="Internship"].active {
+    background-color: #c96f28;
+  }
+  .filter-bar button[data-tag="Language"].active {
+    background-color: #2b4f81;
+  }
+  .filter-bar button[data-tag="Self-Development"].active {
+    background-color: #3b7737;
+  }
+  .filter-bar button[data-tag="Education"].active {
+    background-color: #6d3bb0;
+  }
   </style>
 </head>
 <body>
@@ -258,14 +304,17 @@
     const expandedTags = document.getElementById("expandedTags");
 
     function createCards() {
-      container.innerHTML = cardsData.map((card, index) => `
-        <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
-          <h3>${card.title}</h3>
-          <p>${card.description}</p>
-          <div class="tags">${card.tags.join(", ")}</div>
-        </div>
-      `).join("");
-    }
+  container.innerHTML = cardsData.map((card, index) => {
+    const tagSpans = card.tags.map(tag => `<span class="tag-${tag.replace(/\s+/g, '-')}">${tag}</span>`).join(" ");
+    return `
+      <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
+        <h3>${card.title}</h3>
+        <p>${card.description}</p>
+        <div class="tags">${tagSpans}</div>
+      </div>
+    `;
+  }).join("");
+}
 
     function expandCard(index) {
       const card = cardsData[index];
@@ -316,5 +365,6 @@
   </script>
 </body>
 </html>
+
 
 
