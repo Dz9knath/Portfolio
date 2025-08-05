@@ -271,71 +271,103 @@
       { title: "Krav Maga", description: "Practiced Krav Maga for one year to develop self-defense skills, confidence, and mental resilience.", tags: ["Sport", "Self-Development"] }
     ];
 
-    const container = document.getElementById("cardContainer");
-    const filterButtons = document.querySelectorAll(".filter-bar button");
+  const container = document.getElementById("cardContainer");
+const filterButtons = document.querySelectorAll(".filter-bar button");
 
-    function createCards() {
-      container.innerHTML = cardsData.map((card, index) => `
-        <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
-          <h3>${card.title}</h3>
-          <p>${card.description}</p>
-          <div class="tags">${card.tags.join(", ")}</div>
-        </div>
-      `).join("");
+function createCards() {
+  container.innerHTML = cardsData.map((card, index) => `
+    <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
+      <h3>${card.title}</h3>
+      <p>${card.description}</p>
+      <div class="tags">${card.tags.join(", ")}</div>
+    </div>
+  `).join("");
+}
+
+// FLIP animation on filtering
+function filterTag(tag) {
+  filterButtons.forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.tag === tag);
+  });
+
+  const cards = [...document.querySelectorAll('.card')];
+
+  // 1. Get initial positions
+  const firstRects = cards.map(card => card.getBoundingClientRect());
+
+  // 2. Toggle visibility
+  cards.forEach(card => {
+    const tags = JSON.parse(card.getAttribute('data-tags'));
+    if (tag === 'All' || tags.includes(tag)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
     }
+  });
 
-    function expandCard(index) {
-      const card = cardsData[index];
-      document.getElementById("expandedTitle").textContent = card.title;
-      document.getElementById("expandedDescription").textContent = card.description;
-      document.getElementById("expandedTags").textContent = card.tags.join(", ");
-      document.getElementById("overlay").style.display = "flex";
-    }
+  // 3. Get new positions
+  const lastRects = cards.map(card => card.getBoundingClientRect());
 
-    function closeExpanded() {
-      document.getElementById("overlay").style.display = "none";
-    }
+  // 4. Invert and play animation
+  cards.forEach((card, i) => {
+    const dx = firstRects[i].left - lastRects[i].left;
+    const dy = firstRects[i].top - lastRects[i].top;
 
-    function filterTag(tag) {
-      filterButtons.forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.tag === tag);
-      });
+    // Apply transform to invert position change
+    card.style.transition = 'none';
+    card.style.transform = `translate(${dx}px, ${dy}px)`;
 
-      document.querySelectorAll('.card').forEach(card => {
-        const tags = JSON.parse(card.getAttribute('data-tags'));
-        if (tag === 'All' || tags.includes(tag)) {
-          card.classList.remove('hide');
-        } else {
-          card.classList.add('hide');
-        }
-      });
-
-      const quoteBox = document.getElementById('tagQuote');
-      const quotes = {
-        Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
-        Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
-        Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
-        Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
-        "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
-        Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
-      };
-      quoteBox.textContent = tag === 'All'
-        ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
-        : quotes[tag] || "";
-    }
-
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
-
-    createCards();
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => filterTag(btn.dataset.tag));
+    requestAnimationFrame(() => {
+      card.style.transition = 'transform 0.4s ease';
+      card.style.transform = '';
     });
-  </script>
+  });
+
+  // Update quote text
+  const quoteBox = document.getElementById('tagQuote');
+  const quotes = {
+    Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
+    Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
+    Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
+    Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
+    "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
+    Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
+  };
+  quoteBox.textContent = tag === 'All'
+    ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
+    : quotes[tag] || "";
+}
+
+function expandCard(index) {
+  const card = cardsData[index];
+  document.getElementById("expandedTitle").textContent = card.title;
+  document.getElementById("expandedDescription").textContent = card.description;
+  document.getElementById("expandedTags").textContent = card.tags.join(", ");
+  document.getElementById("overlay").style.display = "flex";
+}
+
+function closeExpanded() {
+  document.getElementById("overlay").style.display = "none";
+}
+
+function toggleMenu() {
+  document.getElementById('sidebar').classList.toggle('open');
+}
+
+// Create cards on load
+createCards();
+
+// Attach click handlers to filter buttons
+filterButtons.forEach(btn => {
+  btn.addEventListener('click', () => filterTag(btn.dataset.tag));
+});
+
+// Show all initially
+filterTag('All');
+ <script>
 </body>
 </html>
+
 
 
 
