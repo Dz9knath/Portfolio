@@ -108,8 +108,8 @@
       color: #fff;
     }
     .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 20px;
       transition: all 0.4s ease;
     }
@@ -118,11 +118,12 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: all 0.4s ease-in-out;
+      transition: transform 0.4s ease, opacity 0.4s ease;
       position: relative;
       cursor: pointer;
       opacity: 1;
       transform: translateY(0);
+      flex: 1 1 calc(33% - 20px);
     }
     .card.hide {
       opacity: 0;
@@ -289,7 +290,7 @@
         }
       });
 
-       const quotes = {
+         const quotes = {
         Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
         Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
         Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
@@ -297,6 +298,7 @@
         "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
         Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
       };
+     
       quoteBox.textContent = tag === 'All'
         ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
         : quotes[tag] || "";
@@ -310,6 +312,7 @@
   </script>
 </body>
 </html>
+
 
 
 
