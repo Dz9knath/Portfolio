@@ -109,10 +109,10 @@
     }
     .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 280px));
-  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
-    }  
+  transition: all 0.3s ease;
+    }
     .card {
       background: #f9f9f9;
       padding: 20px;
@@ -370,6 +370,7 @@
   </script>
 </body>
 </html>
+
 
 
 
