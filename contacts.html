@@ -63,12 +63,13 @@
       font-size: 1.2rem;
     }
     main {
-      padding: 40px 20px;
+      min-height: calc(100vh - 80px); /* Adjusts for header height */
       display: flex;
-      gap: 40px;
-      align-items: flex-start;
-      justify-content: center;
+      align-items: center; /* Vertically center */
+      justify-content: center; /* Horizontally center */
       flex-wrap: wrap;
+      gap: 40px;
+      padding: 40px 20px;
     }
     .profile-pic {
       flex: 1 1 200px;
@@ -145,6 +146,7 @@
   </script>
 </body>
 </html>
+
 
 
 
