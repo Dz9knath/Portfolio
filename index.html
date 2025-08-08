@@ -90,16 +90,17 @@
     }
 
     .hamburger {
-  position: fixed;      /* keeps it pinned to the screen */
+  position: absolute;
   top: 20px;
   right: 20px;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 2001;         /* ensures it's always above content */
-  background: rgba(0,0,0,0.4);
-  padding: 8px 12px;
-  border-radius: 8px;
-  color: white;
+  z-index: 1001;
+  color: black;
+  background: none;
+}
+.hamburger.hidden {
+  display: none;
 }
 
     /* SIDEBAR MENU */
@@ -241,9 +242,17 @@
 
   <script>
     function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
+  const sidebar = document.getElementById('sidebar');
+  const burger = document.querySelector('.hamburger');
 
+  sidebar.classList.toggle('open');
+
+  if (sidebar.classList.contains('open')) {
+    burger.classList.add('hidden');
+  } else {
+    burger.classList.remove('hidden');
+  }
+}
     // Changelog data
     const changelogEntries = [
       { date: '2025-08-08', version: 'v1.2', number: '#5', text: 'Added "Growth & Learning" section with tag filtering for sports, languages, and experiences.' },
