@@ -1,4 +1,3 @@
-<!-- BLOG PAGE FILE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,40 +63,50 @@
     }
     main {
       padding: 40px 20px;
-      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .intro {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: #333;
     }
     .blog-post {
-      max-width: 700px;
-      margin: 40px auto;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      border-bottom: 1px solid #ccc;
+      padding: 20px 0;
       text-align: left;
     }
-    .blog-post img {
-      max-width: 100%;
-      border-radius: 4px;
-      margin: 20px 0;
-    }
     .blog-post h2 {
-      font-size: 1.8rem;
       margin-bottom: 10px;
     }
     .blog-post .date {
       font-size: 0.9rem;
-      color: gray;
+      color: #777;
       margin-bottom: 10px;
     }
-    .blog-navigation {
-      display: flex;
-      justify-content: space-between;
-      max-width: 700px;
-      margin: 20px auto;
+    .blog-post img {
+      max-width: 100%;
+      height: auto;
+      margin: 15px 0;
     }
-    .blog-navigation button {
-      padding: 10px 20px;
-      font-size: 1rem;
+    .nav-arrows {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .nav-arrows button {
+      font-size: 1.5rem;
+      margin: 0 10px;
       cursor: pointer;
+      background: none;
+      border: none;
+    }
+    @media (max-width: 600px) {
+      .blog-post {
+        display: none;
+      }
+      .blog-post.active {
+        display: block;
+      }
     }
   </style>
 </head>
@@ -122,10 +131,29 @@
   </header>
 
   <main>
-    <div id="blog-container"></div>
-    <div class="blog-navigation">
-      <button onclick="previousPost()">Previous</button>
-      <button onclick="nextPost()">Next</button>
+    <div class="intro">
+      <p>Welcome to my blog! Here you'll find my thoughts, experiences, updates, and reflections. I’ll share stories, projects I’m working on, and insights from my journey. Enjoy browsing through the posts below – newest first!</p>
+    </div>
+
+    <div id="blogContainer">
+      <div class="blog-post active">
+        <h2>Example Blog Post Title</h2>
+        <div class="date">August 7, 2025</div>
+        <img src="https://via.placeholder.com/600x300" alt="Post image">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget urna quis sapien cursus lacinia. Integer ut enim in velit luctus rutrum.</p>
+      </div>
+
+      <div class="blog-post">
+        <h2>Older Blog Post Title</h2>
+        <div class="date">July 28, 2025</div>
+        <img src="https://via.placeholder.com/600x300" alt="Post image">
+        <p>Vivamus in leo a est euismod fermentum. Pellentesque vitae risus sit amet neque malesuada lacinia. Sed eu neque sem.</p>
+      </div>
+    </div>
+
+    <div class="nav-arrows">
+      <button onclick="prevPost()">&#8592;</button>
+      <button onclick="nextPost()">&#8594;</button>
     </div>
   </main>
 
@@ -134,52 +162,28 @@
       document.getElementById('sidebar').classList.toggle('open');
     }
 
-    // Sample blog posts
-    const blogPosts = [
-      {
-        title: "First Post!",
-        date: "2025-08-07",
-        image: "https://via.placeholder.com/600x300",
-        text: "Welcome to the blog! This is the first entry."
-      },
-      {
-        title: "Exploring New Ideas",
-        date: "2025-08-05",
-        image: "https://via.placeholder.com/600x300",
-        text: "Here’s a quick summary of some thoughts I’ve had recently..."
+    let currentPost = 0;
+    const posts = document.querySelectorAll('.blog-post');
+
+    function showPost(index) {
+      posts.forEach((post, i) => {
+        post.classList.toggle('active', i === index);
+      });
+    }
+
+    function prevPost() {
+      if (currentPost > 0) {
+        currentPost--;
+        showPost(currentPost);
       }
-    ];
-
-    let currentPostIndex = 0;
-
-    function renderPost() {
-      const container = document.getElementById('blog-container');
-      const post = blogPosts[currentPostIndex];
-      container.innerHTML = `
-        <div class="blog-post">
-          <h2>${post.title}</h2>
-          <p class="date">${post.date}</p>
-          <img src="${post.image}" alt="${post.title}" />
-          <p>${post.text}</p>
-        </div>
-      `;
     }
 
     function nextPost() {
-      if (currentPostIndex < blogPosts.length - 1) {
-        currentPostIndex++;
-        renderPost();
+      if (currentPost < posts.length - 1) {
+        currentPost++;
+        showPost(currentPost);
       }
     }
-
-    function previousPost() {
-      if (currentPostIndex > 0) {
-        currentPostIndex--;
-        renderPost();
-      }
-    }
-
-    renderPost();
   </script>
 </body>
 </html>
