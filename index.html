@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Benjamin Hejda Personal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -11,27 +12,102 @@
       box-sizing: border-box;
     }
     body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fa;
+      color: #222;
+      overflow-x: hidden;
     }
-    header {
-      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
       height: 100vh;
+      flex-wrap: wrap;
+    }
+    .hero-left {
+      flex: 1;
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      min-height: 50vh;
+    }
+    /* Floating keywords */
+    .keywords {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+    .keyword {
+      position: absolute;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: rgba(255,255,255,0.8);
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); opacity: 0.8; }
+      50% { transform: translateY(-15px); opacity: 1; }
+    }
+
+    .hero-right {
+      flex: 1;
+      padding: 4rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      position: relative;
+      background: #fff;
     }
-    header h1 {
+    .hero-right h1 {
+      font-family: 'Montserrat', sans-serif;
       font-size: 3rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
+      margin-bottom: 1rem;
     }
+    .hero-right h2 {
+      font-size: 1.4rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .hero-right blockquote {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: #0066cc;
+    }
+    .hero-right p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .cta-btn {
+      background: #0066cc;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      align-self: flex-start;
+    }
+    .cta-btn:hover {
+      background: #004c99;
+    }
+
+    /* LANGUAGE SELECTOR */
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 60px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 1001;
+    }
+
+    /* BURGER MENU ICON */
     .hamburger {
       position: absolute;
       top: 20px;
@@ -40,6 +116,7 @@
       cursor: pointer;
       z-index: 1001;
     }
+    /* SIDEBAR MENU */
     .sidebar {
       position: fixed;
       top: 0;
@@ -74,73 +151,110 @@
       text-decoration: none;
       font-size: 1.2rem;
     }
-    main {
+
+    /* SCROLL CUE */
+    .scroll-cue {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: white;
+      animation: bounce 1.5s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, -10px); }
+    }
+
+    /* VERSION UPDATE SECTION */
+    .version-update {
       max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    .about {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-    .about img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-    }
-    .blog-post {
-      margin-bottom: 60px;
-    }
-    .blog-post img {
-      width: 100%;
-      margin: 10px 0;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: #fff;
       border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #aaa;
+    .version-update h3 {
+      margin-bottom: 1rem;
+    }
+    .version-item {
+      border-left: 4px solid #0066cc;
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+    }
+    .version-item small {
+      display: block;
+      color: #888;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-right {
+        padding: 2rem;
+      }
+      .hero-right h1 {
+        font-size: 2.2rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Benjamin Hejda Personal Portfolio</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-      <div class="flags">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
-        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
-        <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+
+  <section class="hero">
+    <div class="hero-left">
+      <div class="keywords">
+        <span class="keyword" style="top: 20%; left: 10%;">Rugby</span>
+        <span class="keyword" style="top: 50%; left: 30%;">Exchange</span>
+        <span class="keyword" style="top: 70%; left: 60%;">Languages</span>
+        <span class="keyword" style="top: 40%; left: 80%;">Growth</span>
+        <span class="keyword" style="top: 10%; left: 70%;">Polymath</span>
       </div>
-      <a href="index.html">Home</a>
-      <a href="updates.html">Blog</a> 
-      <a href="academic.html">Growth & Learning</a>
-      <a href="work.html">Experience</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="fun.html">Fun Facts</a>
-      <a href="contacts.html">Contacts</a>
-    </nav>
-  </header>
+      <div class="language-selector">🌐</div>
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+      <div class="scroll-cue">⬇</div>
+    </div>
+    <div class="hero-right">
+      <h1>Benjamin Hejda</h1>
+      <h2>Student | Athlete | Explorer | Polymath in Progress</h2>
+      <blockquote>"We live the life we create for ourselves."</blockquote>
+      <p>I’m Benjamin — a Czech student with a passion for movement, learning, and real-world experience. From exchange semesters in the US and Portugal to rugby fields, I aim to become a little better every day.</p>
+      <button class="cta-btn" onclick="toggleMenu()">Explore My Portfolio</button>
+    </div>
+  </section>
 
-  <main>
-    <section class="about">
-      <img src="https://upload.wikimedia.org/wikipedia/en/7/76/Darth_Vader.jpg" alt="Darth Vader" />
-      <div>
-        <h2>About Me</h2>
-        <p>I am Darth Vader, Dark Lord of the Sith, enforcer of the Galactic Empire, and father of the most complicated family in the galaxy...</p>
-      </div>
-    </section>
+  <!-- SIDEBAR MENU -->
+  <nav class="sidebar" id="sidebar">
+    <div class="flags">
+      <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
+      <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
+      <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+      <img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese">
+    </div>
+    <a href="index.html">Home</a>
+    <a href="updates.html">Blog</a> 
+    <a href="academic.html">Growth & Learning</a>
+    <a href="work.html">Experience</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="fun.html">Fun Facts</a>
+    <a href="contacts.html">Contacts</a>
+  </nav>
 
-    <!-- Blog posts (same as before) -->
-    <!-- [omitted here for brevity, you already have this content] -->
-  </main>
+  <!-- VERSION UPDATE -->
+  <section class="version-update">
+    <h3>Latest Updates</h3>
+    <div class="version-item">
+      <small>2025-08-08 — v1.2</small>
+      Added "Growth & Learning" section with tag filtering for sports, languages, and experiences.
+    </div>
+  </section>
 
-  <footer>
-    <p>© 2025 Benjamin Hejda</p>
+  <footer style="text-align:center; padding:20px; color:#888;">
+    © 2025 Benjamin Hejda
   </footer>
 
   <script>
