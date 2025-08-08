@@ -2,71 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Benjamin Hejda - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benjamin Hejda Personal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body, html {
+    * {
       margin: 0;
       padding: 0;
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      background: #f8f8f8;
-      color: #333;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fa;
+      color: #222;
+      overflow-x: hidden;
     }
 
-    /* Layout */
+    /* HERO SECTION */
     .hero {
       display: flex;
       height: 100vh;
       flex-wrap: wrap;
+      position: relative;
     }
     .hero-left {
       flex: 1;
-      background: url('https://via.placeholder.com/800x1000') center/cover no-repeat;
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
     }
+
     .hero-right {
       flex: 1;
+      padding: 4rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 2rem;
-      box-sizing: border-box;
+      background: #fff;
     }
     .hero-right h1 {
+      font-family: 'Montserrat', sans-serif;
       font-size: 3rem;
-      margin: 0;
+      margin-bottom: 1rem;
     }
     .hero-right h2 {
-      font-weight: 400;
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: #555;
+      margin-bottom: 2rem;
     }
     .hero-right blockquote {
       font-size: 1.5rem;
-      margin: 2rem 0;
-      color: #0077cc;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: #0066cc;
     }
     .hero-right p {
+      font-size: 1rem;
       line-height: 1.6;
+      margin-bottom: 2rem;
     }
-    .cta-button {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.8rem 1.5rem;
-      background: #0077cc;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background 0.3s;
+    .cta-btn {
+      background: #0066cc;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
       cursor: pointer;
+      transition: background 0.3s;
+      align-self: flex-start;
     }
-    .cta-button:hover {
-      background: #005fa3;
+    .cta-btn:hover {
+      background: #004c99;
     }
 
-    /* Burger menu */
+    /* LANGUAGE SELECTOR */
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 60px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 1001;
+    }
+
     .hamburger {
       position: absolute;
       top: 20px;
@@ -81,147 +103,144 @@
       display: none;
     }
 
-    /* Sidebar menu */
+    /* SIDEBAR MENU */
     .sidebar {
       position: fixed;
       top: 0;
-      right: -100%;
+      right: -300px;
+      width: 300px;
       height: 100%;
-      width: 250px;
-      background: #111;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      background-color: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      padding: 40px 20px;
       transition: right 0.3s ease;
       z-index: 1000;
     }
     .sidebar.open {
       right: 0;
     }
-    .sidebar a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.5rem;
-      margin: 1rem 0;
+    .sidebar .flags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
     }
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
+    .sidebar .flags img {
+      width: 30px;
+      height: 20px;
       cursor: pointer;
+      border-radius: 4px;
+    }
+    .sidebar a {
+      display: block;
+      margin: 20px 0;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
     }
 
-    /* Changelog */
-    .changelog {
+    /* CHANGELOG SECTION */
+    .version-update {
+      max-width: 800px;
+      margin: 4rem auto;
       padding: 2rem;
-      background: #eee;
-      text-align: center;
-    }
-    .changelog h2 {
-      margin-bottom: 1rem;
-    }
-    .changelog-box {
-      display: inline-block;
-      background: white;
-      padding: 1rem 2rem;
+      background: #fff;
       border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       position: relative;
     }
-    .changelog-box p {
-      margin: 0.3rem 0;
+    .version-update h3 {
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
     }
-    .nav-arrows {
+    .version-item {
+      border-left: 4px solid #0066cc;
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+    }
+    .version-item small {
+      display: block;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    /* Changelog arrows */
+    .changelog-nav {
       position: absolute;
-      bottom: -1.5rem;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
-    }
-    .nav-arrows span {
-      margin: 0 0.5rem;
+      display: flex;
+      gap: 20px;
+      font-size: 1.5rem;
       cursor: pointer;
-      font-weight: bold;
+      color: #0066cc;
+      user-select: none;
     }
 
-    @media(max-width: 768px) {
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
       .hero {
         flex-direction: column;
       }
-      .hero-left, .hero-right {
-        flex: unset;
-        height: 50vh;
+      .hero-right {
+        padding: 2rem;
+      }
+      .hero-right h1 {
+        font-size: 2.2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Burger Menu -->
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-  
-  <!-- Sidebar -->
-  <div id="sidebar" class="sidebar">
-    <div class="close-btn" onclick="toggleMenu()">×</div>
-    <a href="#about">About</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#contact">Contact</a>
-  </div>
-
-  <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-left"></div>
+    <div class="hero-left">
+      <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    </div>
     <div class="hero-right">
       <h1>Benjamin Hejda</h1>
       <h2>Student | Athlete | Explorer | Polymath in Progress</h2>
       <blockquote>"We live the life we create for ourselves."</blockquote>
-      <p>
-        I’m Benjamin — a Czech student with a passion for movement, learning, and real-world experience.
-        From exchange semesters in the US and Portugal to rugby fields, I aim to become a little better every day.
-      </p>
-      <div class="cta-button" onclick="toggleMenu()">Explore My Portfolio</div>
+      <p>I’m Benjamin — a Czech student with a passion for movement, learning, and real-world experience. From exchange semesters in the US and Portugal to rugby fields, I aim to become a little better every day.</p>
+      <button class="cta-btn" onclick="toggleMenu()">Explore My Portfolio</button>
     </div>
   </section>
 
-  <!-- Changelog -->
-  <section class="changelog">
-    <h2>Changelog</h2>
-    <div class="changelog-box">
-      <p id="changelog-date">2025-08-08</p>
-      <p id="changelog-version">V1.2 | #5</p>
-      <p id="changelog-desc">Added "Growth & Learning" section with tag filtering for sports, languages, and experiences.</p>
-      <div class="nav-arrows">
-        <span onclick="prevChangelog()">&lt;</span>
-        <span onclick="nextChangelog()">&gt;</span>
-      </div>
+  <!-- SIDEBAR MENU -->
+  <nav class="sidebar" id="sidebar">
+    <div class="flags">
+      <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
+      <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
+      <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+      <img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese">
+    </div>
+    <a href="index.html">Home</a>
+    <a href="updates.html">Blog</a> 
+    <a href="academic.html">Growth & Learning</a>
+    <a href="work.html">Experience</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="fun.html">Fun Facts</a>
+    <a href="contacts.html">Contacts</a>
+  </nav>
+
+  <!-- CHANGELOG -->
+  <section class="version-update">
+    <h3>Changelog</h3>
+    <div class="version-item">
+      <small>2025-08-08 — v1.2 — #5</small>
+      Added "Growth & Learning" section with tag filtering for sports, languages, and experiences.
+    </div>
+    <div class="changelog-nav">
+      <div onclick="prevLog()">&lt;</div>
+      <div onclick="nextLog()">&gt;</div>
     </div>
   </section>
+
+  <footer style="text-align:center; padding:20px; color:#888;">
+    © 2025 Benjamin Hejda
+  </footer>
 
   <script>
-    const changelogs = [
-      { date: '2025-08-08', version: 'V1.2', number: '#5', desc: 'Added "Growth & Learning" section with tag filtering for sports, languages, and experiences.' },
-      { date: '2025-08-01', version: 'V1.1', number: '#4', desc: 'Improved hero section with responsive design.' },
-      { date: '2025-07-25', version: 'V1.0', number: '#3', desc: 'Initial site launch with portfolio sections.' }
-    ];
-    let currentIndex = 0;
-
-    function updateChangelog() {
-      document.getElementById('changelog-date').innerText = changelogs[currentIndex].date;
-      document.getElementById('changelog-version').innerText = `${changelogs[currentIndex].version} | ${changelogs[currentIndex].number}`;
-      document.getElementById('changelog-desc').innerText = changelogs[currentIndex].desc;
-    }
-
-    function prevChangelog() {
-      currentIndex = (currentIndex - 1 + changelogs.length) % changelogs.length;
-      updateChangelog();
-    }
-
-    function nextChangelog() {
-      currentIndex = (currentIndex + 1) % changelogs.length;
-      updateChangelog();
-    }
-
     function toggleMenu() {
       const sidebar = document.getElementById('sidebar');
       const burger = document.querySelector('.hamburger');
@@ -234,7 +253,31 @@
         burger.classList.remove('hidden');
       }
     }
-  </script>
+    // Changelog data
+    const changelogEntries = [
+      { date: '2025-08-08', version: 'v1.2', number: '#5', text: 'Added "Growth & Learning" section with tag filtering for sports, languages, and experiences.' },
+      { date: '2025-07-15', version: 'v1.1', number: '#4', text: 'Updated portfolio layout and improved responsiveness on mobile.' },
+      { date: '2025-07-01', version: 'v1.0', number: '#3', text: 'Initial launch of the portfolio website with basic sections.' }
+    ];
+    let currentLogIndex = 0;
 
+    function renderLog() {
+      const log = changelogEntries[currentLogIndex];
+      document.querySelector('.version-item').innerHTML = `
+        <small>${log.date} — ${log.version} — ${log.number}</small>
+        ${log.text}
+      `;
+    }
+    function prevLog() {
+      currentLogIndex = (currentLogIndex - 1 + changelogEntries.length) % changelogEntries.length;
+      renderLog();
+    }
+    function nextLog() {
+      currentLogIndex = (currentLogIndex + 1) % changelogEntries.length;
+      renderLog();
+    }
+    // Initially render the first changelog entry
+    renderLog();
+  </script>
 </body>
 </html>
