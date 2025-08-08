@@ -1,280 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
-            position: relative;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        /* Burger menu */
-        .burger-menu {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            cursor: pointer;
-        }
-
-        .burger-menu div {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 5px 0;
-        }
-
-        .side-menu {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            right: 0;
-            background-color: #333;
-            overflow-x: hidden;
-            transition: 0.3s;
-            padding-top: 60px;
-            z-index: 2;
-        }
-
-        .side-menu a {
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            color: white;
-            display: block;
-            transition: 0.2s;
-        }
-
-        .side-menu a:hover {
-            background-color: #575757;
-        }
-
-        .side-menu .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 20px;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-
-        /* Blog layout */
-        main {
-            padding: 20px;
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .intro {
-            background-color: #eee;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .blog-post {
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
-            cursor: pointer;
-        }
-
-        .blog-post img {
-            max-width: 100%;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-
-        .date {
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 5px;
-        }
-
-        /* Single post view */
-        .single-post {
-            background-color: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0,0,0,0.1);
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        .nav-buttons button {
-            background-color: #333;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .nav-buttons button:hover {
-            background-color: #555;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog</title>
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
+      color: white;
+      user-select: none;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      padding: 40px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+    .sidebar.open {
+      right: 0;
+    }
+    .sidebar .flags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .sidebar .flags img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .sidebar a {
+      display: block;
+      margin: 20px 0;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .intro {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: #222;
+    }
+    .post {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+    .post:hover {
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .post img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+    .post-title {
+      margin-bottom: 10px;
+      color: #0077cc;
+      font-size: 1.5rem;
+    }
+    .post-date {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    .nav-arrows {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .arrow {
+      padding: 8px 16px;
+      background: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .arrow:disabled {
+      background: #cccccc;
+      cursor: default;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 16px;
+      background: #555;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      user-select: none;
+    }
+    .back-btn:hover {
+      background: #333;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>Blog</h1>
-    <div class="burger-menu" onclick="openMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
+  <h1>Blog</h1>
+  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
 </header>
 
-<div id="sideMenu" class="side-menu">
-    <span class="close-btn" onclick="closeMenu()">&times;</span>
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="updates.html">Blog</a>
-    <a href="academic.html">Academic Experience</a>
-    <a href="work.html">Work Experience</a>
-    <a href="funfacts.html">Fun Facts</a>
-    <a href="contacts.html">Contacts</a>
-</div>
+<nav class="sidebar" id="sidebar">
+  <div class="flags">
+    <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
+    <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
+    <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+  </div>
+  <a href="index.html">Home</a>
+  <a href="updates.html">Blog</a>
+  <a href="academic.html">Growth & Learning</a>
+  <a href="work.html">Experience</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="fun.html">Fun Facts</a>
+  <a href="contacts.html">Contacts</a>
+</nav>
 
 <main>
-    <div id="mainView">
-        <div class="intro">
-            Hey! Welcome to my blog. Here you'll find updates, stories, and interesting thoughts from my journey.
-        </div>
-
-        <div id="blogList"></div>
+  <div id="mainView">
+    <div class="intro">
+      Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.
     </div>
+    <div id="blogList"></div>
+  </div>
 
-    <div id="singleView" style="display:none;"></div>
+  <div id="singleView" style="display:none;"></div>
 </main>
 
 <script>
-    const blogPosts = [
-        {
-            title: "Newest Blog Post",
-            date: "2025-08-08",
-            content: "This is my latest post, and it's right at the top!",
-            image: "https://via.placeholder.com/800x400"
-        },
-        {
-            title: "Exploring the Mountains",
-            date: "2025-08-07",
-            content: "A short post about my recent mountain trip.",
-            image: "https://via.placeholder.com/800x400"
-        },
-        {
-            title: "A Day in the City",
-            date: "2025-08-06",
-            content: "City vibes, coffee shops, and interesting encounters.",
-            image: ""
-        },
-        {
-            title: "Reflections on Learning",
-            date: "2025-08-05",
-            content: "A long post with over 500 characters. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat magna et erat fringilla, eu sodales odio fermentum. Morbi porttitor, nunc sit amet volutpat volutpat, urna nisl scelerisque velit, a laoreet libero eros nec neque. Suspendisse potenti. Pellentesque porttitor magna in nisl sodales blandit. Duis non lacus sed orci hendrerit luctus. Etiam ac augue vitae justo feugiat sollicitudin vel sed neque. Vestibulum fermentum eros sit amet sapien facilisis, at hendrerit urna pulvinar. Nullam ut sodales ligula. Suspendisse tempus neque magna, sed euismod velit pretium vel.",
-            image: "https://via.placeholder.com/800x400"
-        },
-        {
-            title: "My First Blog Post",
-            date: "2025-08-04",
-            content: "This is where it all began.",
-            image: ""
-        }
-    ];
-
-    function openMenu() {
-        document.getElementById("sideMenu").style.width = "250px";
+  const posts = [
+    {
+      title: "Newest Blog Post",
+      date: "2025-08-08",
+      content: "This is my latest post, and it's right at the top!",
+      image: "https://via.placeholder.com/800x400"
+    },
+    {
+      title: "Exploring the Mountains",
+      date: "2025-08-07",
+      content: "A short post about my recent mountain trip.",
+      image: "https://via.placeholder.com/800x400"
+    },
+    {
+      title: "A Day in the City",
+      date: "2025-08-06",
+      content: "City vibes, coffee shops, and interesting encounters.",
+      image: ""
+    },
+    {
+      title: "Reflections on Learning",
+      date: "2025-08-05",
+      content: "A long post with over 500 characters. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat magna et erat fringilla, eu sodales odio fermentum. Morbi porttitor, nunc sit amet volutpat volutpat, urna nisl scelerisque velit, a laoreet libero eros nec neque. Suspendisse potenti. Pellentesque porttitor magna in nisl sodales blandit. Duis non lacus sed orci hendrerit luctus. Etiam ac augue vitae justo feugiat sollicitudin vel sed neque. Vestibulum fermentum eros sit amet sapien facilisis, at hendrerit urna pulvinar. Nullam ut sodales ligula. Suspendisse tempus neque magna, sed euismod velit pretium vel.",
+      image: "https://via.placeholder.com/800x400"
+    },
+    {
+      title: "My First Blog Post",
+      date: "2025-08-04",
+      content: "This is where it all began.",
+      image: ""
     }
+  ];
 
-    function closeMenu() {
-        document.getElementById("sideMenu").style.width = "0";
+  const blogListEl = document.getElementById('blogList');
+  const mainView = document.getElementById('mainView');
+  const singleView = document.getElementById('singleView');
+
+  // Sort posts newest first by date
+  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  function renderList() {
+    blogListEl.innerHTML = '';
+    posts.forEach((post, i) => {
+      const postDiv = document.createElement('div');
+      postDiv.className = 'post';
+      postDiv.innerHTML = `
+        <div class="post-date">${post.date}</div>
+        <h2 class="post-title">${post.title}</h2>
+        <p>${post.content.substring(0, 150)}${post.content.length > 150 ? '...' : ''}</p>
+        ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ''}
+      `;
+      postDiv.onclick = () => showPost(i);
+      blogListEl.appendChild(postDiv);
+    });
+    mainView.style.display = 'block';
+    singleView.style.display = 'none';
+  }
+
+  function showPost(index) {
+    const post = posts[index];
+    singleView.innerHTML = `
+      <div class="post-date">${post.date}</div>
+      <h2 class="post-title">${post.title}</h2>
+      <p>${post.content}</p>
+      ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ''}
+      <div class="nav-arrows">
+        <button class="arrow" onclick="prevPost(${index})" ${index === 0 ? 'disabled' : ''}>&larr; Previous</button>
+        <button class="arrow" onclick="nextPost(${index})" ${index === posts.length - 1 ? 'disabled' : ''}>Next &rarr;</button>
+      </div>
+      <button class="back-btn" onclick="renderList()">Return to Blog</button>
+    `;
+    mainView.style.display = 'none';
+    singleView.style.display = 'block';
+  }
+
+  function prevPost(currentIndex) {
+    if (currentIndex > 0) showPost(currentIndex - 1);
+  }
+
+  function nextPost(currentIndex) {
+    if (currentIndex < posts.length - 1) showPost(currentIndex + 1);
+  }
+
+  // Burger menu toggle
+  const sidebar = document.getElementById('sidebar');
+  const burger = document.querySelector('.hamburger');
+  function toggleMenu() {
+    sidebar.classList.toggle('open');
+    if (sidebar.classList.contains('open')) {
+      burger.style.display = 'none';
+    } else {
+      burger.style.display = 'block';
     }
+  }
 
-    function showPosts() {
-        const blogList = document.getElementById("blogList");
-        blogList.innerHTML = "";
-        blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        blogPosts.forEach((post, index) => {
-            const postDiv = document.createElement("div");
-            postDiv.className = "blog-post";
-            postDiv.innerHTML = `
-                <div class="date">${post.date}</div>
-                <h2>${post.title}</h2>
-                <p>${post.content.substring(0, 100)}...</p>
-                ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
-            `;
-            postDiv.onclick = () => showSinglePost(index);
-            blogList.appendChild(postDiv);
-        });
-    }
-
-    function showSinglePost(index) {
-        document.getElementById("mainView").style.display = "none";
-        const singleView = document.getElementById("singleView");
-        singleView.style.display = "block";
-        const post = blogPosts.sort((a, b) => new Date(b.date) - new Date(a.date))[index];
-        singleView.innerHTML = `
-            <div class="single-post">
-                <div class="date">${post.date}</div>
-                <h2>${post.title}</h2>
-                <p>${post.content}</p>
-                ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
-                <div class="nav-buttons">
-                    <button onclick="nextPost(${index})">&larr; Previous</button>
-                    <button onclick="prevPost(${index})">Next &rarr;</button>
-                </div>
-                <div class="nav-buttons" style="justify-content:center; margin-top:10px;">
-                    <button onclick="returnToBlog()">Return to Blog</button>
-                </div>
-            </div>
-        `;
-    }
-
-    function prevPost(index) {
-        if (index > 0) {
-            showSinglePost(index - 1);
-        }
-    }
-
-    function nextPost(index) {
-        if (index < blogPosts.length - 1) {
-            showSinglePost(index + 1);
-        }
-    }
-
-    function returnToBlog() {
-        document.getElementById("singleView").style.display = "none";
-        document.getElementById("mainView").style.display = "block";
-    }
-
-    showPosts();
+  renderList();
 </script>
 
 </body>
 </html>
-
-
