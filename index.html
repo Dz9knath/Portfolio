@@ -89,15 +89,18 @@
       z-index: 1001;
     }
 
-    /* BURGER MENU ICON - FIXED TOP RIGHT */
     .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
+  position: fixed;      /* keeps it pinned to the screen */
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2001;         /* ensures it's always above content */
+  background: rgba(0,0,0,0.4);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+}
 
     /* SIDEBAR MENU */
     .sidebar {
@@ -191,7 +194,6 @@
 
   <section class="hero">
     <div class="hero-left">
-      <div class="language-selector">🌐</div>
       <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     </div>
     <div class="hero-right">
