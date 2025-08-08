@@ -244,8 +244,8 @@
                 <p>${post.content}</p>
                 ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
                 <div class="nav-buttons">
-                    <button onclick="prevPost(${index})">&larr; Previous</button>
-                    <button onclick="nextPost(${index})">Next &rarr;</button>
+                    <button onclick="prevPost(${index})">Next &rarr;</button>
+                    <button onclick="nextPost(${index})">&larr; Previous</button>
                 </div>
                 <div class="nav-buttons" style="justify-content:center; margin-top:10px;">
                     <button onclick="returnToBlog()">Return to Blog</button>
@@ -276,3 +276,4 @@
 
 </body>
 </html>
+
