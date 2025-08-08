@@ -213,7 +213,7 @@
       {
         title: "Long Reflection",
         content: "Sometimes we all need to slow down and think about where we are headed. This week I spent a lot of time reflecting on my goals, dreams, and the steps I need to take to get there. I realized that progress is often made in small, consistent actions rather than huge leaps forward. This blog will be my space to track those small victories, as well as share my challenges along the way. I hope that by writing more frequently, I'll keep myself accountable and maybe even inspire someone else to take their first step toward something they've been putting off.",
-        image: "https://via.placeholder.com/700x350"
+        image: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F5.imimg.com%2Fdata5%2FHD%2FAB%2FBV%2FSELLER-30072121%2Fbamboo-house-500x500.jpg&f=1&nofb=1&ipt=8e43e55c3e166c5ffb843950fc8c18158fd0683127d26d988be23ba79e11dee1"
       },
       {
         title: "Quick Update",
@@ -254,8 +254,8 @@
           ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
           <p>${post.content}</p>
           <div class="nav-arrows">
-            <button class="arrow" onclick="nextPost()" ${index === 0 ? 'disabled style="opacity:0.5;cursor:default;"' : ''}>&#8592; Previous</button>
-            <button class="arrow" onclick="prevPost()" ${index === posts.length - 1 ? 'disabled style="opacity:0.5;cursor:default;"' : ''}>Next &#8594;</button>
+            <button class="arrow" onclick="prevPost()" ${index === 0 ? 'disabled style="opacity:0.5;cursor:default;"' : ''}>&#8592; Previous</button>
+            <button class="arrow" onclick="nextPost()" ${index === posts.length - 1 ? 'disabled style="opacity:0.5;cursor:default;"' : ''}>Next &#8594;</button>
           </div>
           <button class="back-btn" onclick="renderList()">Back to Blog</button>
         </div>
@@ -285,3 +285,4 @@
   </script>
 </body>
 </html>
+
