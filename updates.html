@@ -1,228 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blog</title>
-  <link rel="stylesheet" href="style.css"/>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background-color: #f4f4f4;
-    }
-    /* Burger Menu */
-    .menu-btn {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 2000;
-      cursor: pointer;
-    }
-    .menu-btn div {
-      width: 25px;
-      height: 3px;
-      background: #333;
-      margin: 5px 0;
-      transition: 0.4s;
-    }
-    .side-menu {
-      position: fixed;
-      right: -250px;
-      top: 0;
-      width: 250px;
-      height: 100%;
-      background: #fff;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      transition: 0.4s;
-      padding-top: 60px;
-      z-index: 1500;
-    }
-    .side-menu a {
-      display: block;
-      padding: 15px 20px;
-      color: #333;
-      text-decoration: none;
-      border-bottom: 1px solid #ddd;
-    }
-    .side-menu a:hover {
-      background: #f0f0f0;
-    }
-    .flags {
-      display: flex;
-      justify-content: space-around;
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-    }
-    .flags img {
-      width: 24px;
-      height: auto;
-      cursor: pointer;
-    }
-    .side-menu.open {
-      right: 0;
-    }
-    /* Blog layout */
-    .container {
-      max-width: 800px;
-      margin: 80px auto;
-      padding: 20px;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .intro {
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-      border-bottom: 2px solid #ddd;
-    }
-    .post {
-      margin-bottom: 30px;
-      cursor: pointer;
-    }
-    .post img {
-      max-width: 100%;
-      height: auto;
-      margin: 10px 0;
-    }
-    .post h2 {
-      margin: 0;
-    }
-    .navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-    }
-    .nav-btn {
-      background: #333;
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      cursor: pointer;
-    }
-    .nav-btn:hover {
-      background: #555;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+
+  header {
+    background-color: #222;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu {
+    position: fixed;
+    right: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    padding-top: 60px;
+    transition: right 0.3s;
+  }
+  .menu a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+  }
+  .menu a:hover {
+    background-color: #575757;
+  }
+  .burger {
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .blog-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+  }
+  .intro {
+    background: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  .post {
+    background: white;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+  .post img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  .navigation {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .navigation button {
+    background-color: #333;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+  }
+  .navigation button:hover {
+    background-color: #555;
+  }
+  .return-btn {
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding: 8px 15px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    width: fit-content;
+  }
+</style>
 </head>
 <body>
-  <!-- Burger Menu -->
-  <div class="menu-btn" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-  <div class="side-menu" id="sideMenu">
-    <div class="flags">
-      <img src="flag_cz.png" alt="Czech">
-      <img src="flag_en.png" alt="English">
-      <img src="flag_de.png" alt="German">
-    </div>
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="updates.html">Blog</a>
-    <a href="academic.html">Growth & Learning</a>
-    <a href="work.html">Experience</a>
-    <a href="fun.html">Fun Facts</a>
-    <a href="contacts.html">Contacts</a>
-  </div>
 
-  <!-- Blog Content -->
-  <div class="container">
-    <div class="intro" id="intro">
-      <h1>Welcome to My Blog</h1>
-      <p>Here you’ll find updates, stories, and insights from my projects, studies, travels, and experiences. Scroll through to read my latest posts, or click one to dive deeper.</p>
-    </div>
-    <div id="blog-list"></div>
-    <div id="single-post" style="display:none;"></div>
+<header>
+  <h1>My Blog</h1>
+  <span class="burger" onclick="toggleMenu()">&#9776;</span>
+</header>
+
+<div class="menu" id="sideMenu">
+  <a href="index.html">Home</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="updates.html">Blog</a>
+  <a href="academic.html">Growth & Learning</a>
+  <a href="work.html">Experience</a>
+  <a href="fun.html">Fun Facts</a>
+  <a href="contacts.html">Contacts</a>
+</div>
+
+<div class="blog-container" id="blogContainer">
+  <!-- Intro -->
+  <div class="intro" id="intro">
+    <h2>Welcome to my blog!</h2>
+    <p>Here you will find updates, stories, and random thoughts — from short announcements to long rambles, with some photos along the way.</p>
   </div>
 
-  <script>
-    const posts = [
-      {
-        title: "A Walk in the Forest",
-        date: "2025-08-05",
-        content: "I went for a walk in the nearby forest today. The sunlight was filtering through the leaves, the birds were singing, and everything felt peaceful.",
-        image: "forest.jpg"
-      },
-      {
-        title: "My Longest Post Yet",
-        date: "2025-08-04",
-        content: "This is a much longer post designed to test the layout performance with a lot of text. ".repeat(20),
-        image: "writing.jpg"
-      },
-      {
-        title: "Quick Study Update",
-        date: "2025-08-03",
-        content: "IB life is intense, but today I finally got around to organizing my Biology notes.",
-        image: null
-      },
-      {
-        title: "Weekend Rugby Match",
-        date: "2025-08-02",
-        content: "We played a fantastic rugby match this weekend. The weather was perfect, and the energy on the field was electric.",
-        image: "rugby.jpg"
-      },
-      {
-        title: "Trying Out a New Recipe",
-        date: "2025-08-01",
-        content: "Cooked a new pasta dish today. Simple ingredients, but the flavor was amazing!",
-        image: "pasta.jpg"
-      }
-    ];
+  <!-- Posts -->
+</div>
 
-    let currentPostIndex = 0;
+<script>
+const posts = [
+  { title: "First Post", content: "This is my very first blog post — just testing things out.", img: "https://via.placeholder.com/800x300" },
+  { title: "Photo Adventure", content: "Went out to the park today, took some pictures.", img: "https://via.placeholder.com/800x400" },
+  { title: "Random Thoughts", content: "Just sharing a few random ideas and experiences from the past week." },
+  { title: "Long Story", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ".repeat(50), img: "https://via.placeholder.com/800x500" },
+  { title: "Small Update", content: "Nothing much, just keeping things moving." }
+];
 
-    function displayList() {
-      document.getElementById("single-post").style.display = "none";
-      document.getElementById("intro").style.display = "block";
-      const blogList = document.getElementById("blog-list");
-      blogList.innerHTML = "";
-      posts.forEach((post, index) => {
-        const div = document.createElement("div");
-        div.className = "post";
-        div.onclick = () => displayPost(index);
-        div.innerHTML = `<h2>${post.title}</h2>
-                         <small>${post.date}</small>
-                         ${post.image ? `<img src="${post.image}" alt="">` : ""}
-                         <p>${post.content.substring(0, 150)}...</p>`;
-        blogList.appendChild(div);
-      });
-    }
+let currentPostIndex = null;
 
-    function displayPost(index) {
-      currentPostIndex = index;
-      document.getElementById("intro").style.display = "none";
-      document.getElementById("blog-list").innerHTML = "";
-      const post = posts[index];
-      const singlePostDiv = document.getElementById("single-post");
-      singlePostDiv.style.display = "block";
-      singlePostDiv.innerHTML = `<h2>${post.title}</h2>
-                                 <small>${post.date}</small>
-                                 ${post.image ? `<img src="${post.image}" alt="">` : ""}
-                                 <p>${post.content}</p>
-                                 <div class="navigation">
-                                   <button class="nav-btn" onclick="prevPost()">&#8592; Previous</button>
-                                   <button class="nav-btn" onclick="nextPost()">Next &#8594;</button>
-                                 </div>`;
-    }
+function renderList() {
+  const container = document.getElementById("blogContainer");
+  document.getElementById("intro").style.display = "block";
+  container.innerHTML = document.getElementById("intro").outerHTML;
 
-    function prevPost() {
-      if (currentPostIndex > 0) {
-        displayPost(currentPostIndex - 1);
-      }
-    }
+  posts.forEach((post, index) => {
+    const div = document.createElement("div");
+    div.className = "post";
+    div.innerHTML = `<h2>${post.title}</h2><p>${post.content}</p>${post.img ? `<img src="${post.img}">` : ""}`;
+    div.addEventListener("click", () => openPost(index));
+    container.appendChild(div);
+  });
+}
 
-    function nextPost() {
-      if (currentPostIndex < posts.length - 1) {
-        displayPost(currentPostIndex + 1);
-      }
-    }
+function openPost(index) {
+  currentPostIndex = index;
+  const container = document.getElementById("blogContainer");
+  container.innerHTML = "";
 
-    function toggleMenu() {
-      document.getElementById("sideMenu").classList.toggle("open");
-    }
+  const post = posts[index];
+  const div = document.createElement("div");
+  div.className = "post";
+  div.innerHTML = `<h2>${post.title}</h2><p>${post.content}</p>${post.img ? `<img src="${post.img}">` : ""}`;
+  container.appendChild(div);
 
-    displayList();
-  </script>
+  const nav = document.createElement("div");
+  nav.className = "navigation";
+  nav.innerHTML = `
+    <button onclick="prevPost()">&#8592; Previous</button>
+    <button onclick="nextPost()">Next &#8594;</button>
+  `;
+  container.appendChild(nav);
+
+  const backBtn = document.createElement("a");
+  backBtn.className = "return-btn";
+  backBtn.href = "#";
+  backBtn.textContent = "Return to blog";
+  backBtn.onclick = (e) => { e.preventDefault(); renderList(); };
+  container.appendChild(backBtn);
+}
+
+function prevPost() {
+  if (currentPostIndex > 0) {
+    openPost(currentPostIndex - 1);
+  }
+}
+
+function nextPost() {
+  if (currentPostIndex < posts.length - 1) {
+    openPost(currentPostIndex + 1);
+  }
+}
+
+function toggleMenu() {
+  const menu = document.getElementById("sideMenu");
+  menu.style.right = (menu.style.right === "0px") ? "-250px" : "0px";
+}
+
+renderList();
+</script>
+
 </body>
 </html>
