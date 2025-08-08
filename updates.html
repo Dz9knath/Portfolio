@@ -2,26 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      color: #333;
-    }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 20px;
-      position: relative;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.5rem;
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fa;
+      color: #222;
+      overflow-x: hidden;
     }
     .hamburger {
       position: absolute;
@@ -30,8 +24,13 @@
       font-size: 2rem;
       cursor: pointer;
       z-index: 1001;
-      color: white;
+      color: black;
+      background: none;
+      border: none;
       user-select: none;
+    }
+    .hamburger.hidden {
+      display: none;
     }
     .sidebar {
       position: fixed;
@@ -39,7 +38,7 @@
       right: -300px;
       width: 300px;
       height: 100%;
-      background: white;
+      background-color: white;
       box-shadow: -2px 0 5px rgba(0,0,0,0.5);
       padding: 40px 20px;
       transition: right 0.3s ease;
@@ -67,19 +66,25 @@
       text-decoration: none;
       font-size: 1.2rem;
     }
-    main {
+
+    .container {
       max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
+      margin: 80px auto 40px;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 1rem;
     }
     .intro {
+      margin-bottom: 30px;
+      padding: 15px;
       background: white;
-      padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
       font-size: 1.1rem;
-      color: #222;
+      line-height: 1.5;
     }
     .post {
       background: white;
@@ -88,9 +93,10 @@
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       cursor: pointer;
+      transition: box-shadow 0.3s ease;
     }
     .post:hover {
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
     .post img {
       max-width: 100%;
@@ -98,45 +104,64 @@
       margin: 10px 0;
     }
     .post-title {
-      margin-bottom: 10px;
-      color: #0077cc;
+      margin: 0 0 10px;
+      color: #0066cc;
       font-size: 1.5rem;
     }
-    .post-date {
-      font-size: 0.9rem;
-      color: #666;
-      margin-bottom: 10px;
-      font-style: italic;
+
+    /* Single post view */
+    .single-post {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      font-size: 1.1rem;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 40px auto;
+      position: relative;
+    }
+    .single-post img {
+      max-width: 100%;
+      border-radius: 6px;
+      margin: 20px 0;
+    }
+    .single-post h1 {
+      color: #0066cc;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
     .nav-arrows {
       display: flex;
       justify-content: space-between;
-      margin-top: 20px;
+      margin-top: 30px;
     }
     .arrow {
-      padding: 8px 16px;
-      background: #0077cc;
+      padding: 10px 22px;
+      background: #0066cc;
       color: white;
       border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    .arrow:disabled {
-      background: #cccccc;
-      cursor: default;
-    }
-    .back-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 8px 16px;
-      background: #555;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
       font-size: 1rem;
       user-select: none;
+      transition: background 0.3s ease;
+    }
+    .arrow:hover {
+      background: #004c99;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 10px 20px;
+      background: #555;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s ease;
     }
     .back-btn:hover {
       background: #333;
@@ -144,136 +169,119 @@
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Blog</h1>
-  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-</header>
-
-<nav class="sidebar" id="sidebar">
-  <div class="flags">
-    <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
-    <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
-    <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
-  </div>
-  <a href="index.html">Home</a>
-  <a href="updates.html">Blog</a>
-  <a href="academic.html">Growth & Learning</a>
-  <a href="work.html">Experience</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="fun.html">Fun Facts</a>
-  <a href="contacts.html">Contacts</a>
-</nav>
-
-<main>
-  <div id="mainView">
-    <div class="intro">
-      Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.
+  <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+  <nav class="sidebar" id="sidebar">
+    <div class="flags">
+      <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech" />
+      <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English" />
+      <img src="https://flagcdn.com/w40/de.png" alt="German" title="German" />
+      <img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese" />
     </div>
-    <div id="blogList"></div>
+    <a href="index.html">Home</a>
+    <a href="updates.html">Blog</a>
+    <a href="academic.html">Growth & Learning</a>
+    <a href="work.html">Experience</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="fun.html">Fun Facts</a>
+    <a href="contacts.html">Contacts</a>
+  </nav>
+
+  <div class="container" id="blogContainer">
+    <h1>My Blog</h1>
+    <div class="intro" id="intro">
+      <p>Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.</p>
+    </div>
   </div>
 
-  <div id="singleView" style="display:none;"></div>
-</main>
+  <script>
+    const posts = [
+      {
+        title: "First Post",
+        content: "This is my very first blog post. It's short, sweet, and to the point.",
+        image: "https://via.placeholder.com/800x400"
+      },
+      {
+        title: "A Day in the City",
+        content: "Spent the day exploring the streets, trying new food, and soaking in the architecture.",
+        image: "https://via.placeholder.com/600x300"
+      },
+      {
+        title: "Nature Hike Adventure",
+        content: "Today I went hiking in the nearby hills. The weather was perfect, and the view from the top was breathtaking.",
+        image: ""
+      },
+      {
+        title: "Long Reflection",
+        content: "Sometimes we all need to slow down and think about where we are headed. This week I spent a lot of time reflecting on my goals, dreams, and the steps I need to take to get there. I realized that progress is often made in small, consistent actions rather than huge leaps forward. This blog will be my space to track those small victories, as well as share my challenges along the way. I hope that by writing more frequently, I'll keep myself accountable and maybe even inspire someone else to take their first step toward something they've been putting off.",
+        image: "https://via.placeholder.com/700x350"
+      },
+      {
+        title: "Quick Update",
+        content: "Just a small update to say everything is going well!",
+        image: ""
+      }
+    ];
 
-<script>
-  const posts = [
-    {
-      title: "Newest Blog Post",
-      date: "2025-08-08",
-      content: "This is my latest post, and it's right at the top!",
-      image: "https://via.placeholder.com/800x400"
-    },
-    {
-      title: "Exploring the Mountains",
-      date: "2025-08-07",
-      content: "A short post about my recent mountain trip.",
-      image: "https://via.placeholder.com/800x400"
-    },
-    {
-      title: "A Day in the City",
-      date: "2025-08-06",
-      content: "City vibes, coffee shops, and interesting encounters.",
-      image: ""
-    },
-    {
-      title: "Reflections on Learning",
-      date: "2025-08-05",
-      content: "A long post with over 500 characters. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat magna et erat fringilla, eu sodales odio fermentum. Morbi porttitor, nunc sit amet volutpat volutpat, urna nisl scelerisque velit, a laoreet libero eros nec neque. Suspendisse potenti. Pellentesque porttitor magna in nisl sodales blandit. Duis non lacus sed orci hendrerit luctus. Etiam ac augue vitae justo feugiat sollicitudin vel sed neque. Vestibulum fermentum eros sit amet sapien facilisis, at hendrerit urna pulvinar. Nullam ut sodales ligula. Suspendisse tempus neque magna, sed euismod velit pretium vel.",
-      image: "https://via.placeholder.com/800x400"
-    },
-    {
-      title: "My First Blog Post",
-      date: "2025-08-04",
-      content: "This is where it all began.",
-      image: ""
+    const container = document.getElementById("blogContainer");
+    let currentPost = null;
+
+    function renderList() {
+      container.innerHTML = `
+        <h1>My Blog</h1>
+        <div class="intro" id="intro">
+          <p>Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.</p>
+        </div>`;
+      posts.forEach((post, index) => {
+        const postEl = document.createElement("div");
+        postEl.className = "post";
+        postEl.onclick = () => showPost(index);
+        postEl.innerHTML = `
+          <h2 class="post-title">${post.title}</h2>
+          ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
+          <p>${post.content}</p>
+        `;
+        container.appendChild(postEl);
+      });
+      currentPost = null;
     }
-  ];
 
-  const blogListEl = document.getElementById('blogList');
-  const mainView = document.getElementById('mainView');
-  const singleView = document.getElementById('singleView');
-
-  // Sort posts newest first by date
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-  function renderList() {
-    blogListEl.innerHTML = '';
-    posts.forEach((post, i) => {
-      const postDiv = document.createElement('div');
-      postDiv.className = 'post';
-      postDiv.innerHTML = `
-        <div class="post-date">${post.date}</div>
-        <h2 class="post-title">${post.title}</h2>
-        <p>${post.content.substring(0, 150)}${post.content.length > 150 ? '...' : ''}</p>
-        ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ''}
+    function showPost(index) {
+      currentPost = index;
+      const post = posts[index];
+      container.innerHTML = `
+        <div class="single-post">
+          <h1>${post.title}</h1>
+          ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
+          <p>${post.content}</p>
+          <div class="nav-arrows">
+            <button class="arrow" onclick="nextPost()" ${index === 0 ? 'disabled style="opacity:0.5;cursor:default;"' : ''}>&#8592; Previous</button>
+            <button class="arrow" onclick="prevPost()" ${index === posts.length - 1 ? 'disabled style="opacity:0.5;cursor:default;"' : ''}>Next &#8594;</button>
+          </div>
+          <button class="back-btn" onclick="renderList()">Back to Blog</button>
+        </div>
       `;
-      postDiv.onclick = () => showPost(i);
-      blogListEl.appendChild(postDiv);
-    });
-    mainView.style.display = 'block';
-    singleView.style.display = 'none';
-  }
-
-  function showPost(index) {
-    const post = posts[index];
-    singleView.innerHTML = `
-      <div class="post-date">${post.date}</div>
-      <h2 class="post-title">${post.title}</h2>
-      <p>${post.content}</p>
-      ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ''}
-      <div class="nav-arrows">
-        <button class="arrow" onclick="prevPost(${index})" ${index === 0 ? 'disabled' : ''}>&larr; Previous</button>
-        <button class="arrow" onclick="nextPost(${index})" ${index === posts.length - 1 ? 'disabled' : ''}>Next &rarr;</button>
-      </div>
-      <button class="back-btn" onclick="renderList()">Return to Blog</button>
-    `;
-    mainView.style.display = 'none';
-    singleView.style.display = 'block';
-  }
-
-  function prevPost(currentIndex) {
-    if (currentIndex > 0) showPost(currentIndex - 1);
-  }
-
-  function nextPost(currentIndex) {
-    if (currentIndex < posts.length - 1) showPost(currentIndex + 1);
-  }
-
-  // Burger menu toggle
-  const sidebar = document.getElementById('sidebar');
-  const burger = document.querySelector('.hamburger');
-  function toggleMenu() {
-    sidebar.classList.toggle('open');
-    if (sidebar.classList.contains('open')) {
-      burger.style.display = 'none';
-    } else {
-      burger.style.display = 'block';
     }
-  }
 
-  renderList();
-</script>
+    function prevPost() {
+      if (currentPost > 0) showPost(currentPost - 1);
+    }
 
+    function nextPost() {
+      if (currentPost < posts.length - 1) showPost(currentPost + 1);
+    }
+
+    function toggleMenu() {
+      const sidebar = document.getElementById('sidebar');
+      const burger = document.querySelector('.hamburger');
+      sidebar.classList.toggle('open');
+      if (sidebar.classList.contains('open')) {
+        burger.classList.add('hidden');
+      } else {
+        burger.classList.remove('hidden');
+      }
+    }
+
+    renderList();
+  </script>
 </body>
 </html>
