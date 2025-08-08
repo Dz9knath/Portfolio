@@ -1,189 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog</title>
+<style>
     body {
-      font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f4f4f4;
+        color: #333;
     }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 20px;
-      position: relative;
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 20px;
     }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 40px 20px;
-      max-width: 800px;
-      margin: 0 auto;
+    h1 {
+        text-align: center;
     }
     .intro {
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-      color: #333;
+        margin-bottom: 30px;
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-    .blog-post {
-      border-bottom: 1px solid #ccc;
-      padding: 20px 0;
-      text-align: left;
+    .post {
+        background: white;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        cursor: pointer;
     }
-    .blog-post h2 {
-      margin-bottom: 10px;
+    .post img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin: 10px 0;
     }
-    .blog-post .date {
-      font-size: 0.9rem;
-      color: #777;
-      margin-bottom: 10px;
-    }
-    .blog-post img {
-      max-width: 100%;
-      height: auto;
-      margin: 15px 0;
+    .post-title {
+        margin: 0 0 10px;
+        color: #0077cc;
     }
     .nav-arrows {
-      text-align: center;
-      margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
     }
-    .nav-arrows button {
-      font-size: 1.5rem;
-      margin: 0 10px;
-      cursor: pointer;
-      background: none;
-      border: none;
+    .arrow {
+        padding: 8px 16px;
+        background: #0077cc;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
     }
-    @media (max-width: 600px) {
-      .blog-post {
-        display: none;
-      }
-      .blog-post.active {
-        display: block;
-      }
+    .back-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 6px 12px;
+        background: #555;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
     }
-  </style>
+</style>
 </head>
 <body>
-  <header>
-    <h1>Blog</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-      <div class="flags">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
-        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
-        <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
-      </div>
-      <a href="index.html">Home</a>
-      <a href="updates.html">Blog</a>
-      <a href="academic.html">Growth & Learning</a>
-      <a href="work.html">Experience</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="fun.html">Fun Facts</a>
-      <a href="contacts.html">Contacts</a>
-    </nav>
-  </header>
-
-  <main>
-    <div class="intro">
-      <p>Welcome to my blog! Here you'll find my thoughts, experiences, updates, and reflections. I’ll share stories, projects I’m working on, and insights from my journey. Enjoy browsing through the posts below – newest first!</p>
+<div class="container" id="blogContainer">
+    <h1>My Blog</h1>
+    <div class="intro" id="intro">
+        <p>Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.</p>
     </div>
+</div>
 
-    <div id="blogContainer">
-      <div class="blog-post active">
-        <h2>Example Blog Post Title</h2>
-        <div class="date">August 7, 2025</div>
-        <img src="https://via.placeholder.com/600x300" alt="Post image">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget urna quis sapien cursus lacinia. Integer ut enim in velit luctus rutrum.</p>
-      </div>
-
-      <div class="blog-post">
-        <h2>Older Blog Post Title</h2>
-        <div class="date">July 28, 2025</div>
-        <img src="https://via.placeholder.com/600x300" alt="Post image">
-        <p>Vivamus in leo a est euismod fermentum. Pellentesque vitae risus sit amet neque malesuada lacinia. Sed eu neque sem.</p>
-      </div>
-    </div>
-
-    <div class="nav-arrows">
-      <button onclick="prevPost()">&#8592;</button>
-      <button onclick="nextPost()">&#8594;</button>
-    </div>
-  </main>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
+<script>
+const posts = [
+    {
+        title: "First Post",
+        content: "This is my very first blog post. It's short, sweet, and to the point.",
+        image: "https://via.placeholder.com/800x400"
+    },
+    {
+        title: "A Day in the City",
+        content: "Spent the day exploring the streets, trying new food, and soaking in the architecture.",
+        image: "https://via.placeholder.com/600x300"
+    },
+    {
+        title: "Nature Hike Adventure",
+        content: "Today I went hiking in the nearby hills. The weather was perfect, and the view from the top was breathtaking.",
+        image: ""
+    },
+    {
+        title: "Long Reflection",
+        content: "Sometimes we all need to slow down and think about where we are headed. This week I spent a lot of time reflecting on my goals, dreams, and the steps I need to take to get there. I realized that progress is often made in small, consistent actions rather than huge leaps forward. This blog will be my space to track those small victories, as well as share my challenges along the way. I hope that by writing more frequently, I'll keep myself accountable and maybe even inspire someone else to take their first step toward something they've been putting off.",
+        image: "https://via.placeholder.com/700x350"
+    },
+    {
+        title: "Quick Update",
+        content: "Just a small update to say everything is going well!",
+        image: ""
     }
+];
 
-    let currentPost = 0;
-    const posts = document.querySelectorAll('.blog-post');
+const container = document.getElementById("blogContainer");
+let currentPost = null;
 
-    function showPost(index) {
-      posts.forEach((post, i) => {
-        post.classList.toggle('active', i === index);
-      });
-    }
+function renderList() {
+    container.innerHTML = `<h1>My Blog</h1>
+        <div class="intro" id="intro">
+            <p>Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.</p>
+        </div>`;
+    posts.forEach((post, index) => {
+        const postEl = document.createElement("div");
+        postEl.className = "post";
+        postEl.onclick = () => showPost(index);
+        postEl.innerHTML = `<h2 class="post-title">${post.title}</h2>
+                            ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
+                            <p>${post.content}</p>`;
+        container.appendChild(postEl);
+    });
+}
 
-    function prevPost() {
-      if (currentPost > 0) {
-        currentPost--;
-        showPost(currentPost);
-      }
-    }
+function showPost(index) {
+    currentPost = index;
+    const post = posts[index];
+    container.innerHTML = `<h1>${post.title}</h1>
+        ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
+        <p>${post.content}</p>
+        <div class="nav-arrows">
+            <button class="arrow" onclick="prevPost()">&#8592; Previous</button>
+            <button class="arrow" onclick="nextPost()">Next &#8594;</button>
+        </div>
+        <a href="#" class="back-btn" onclick="renderList()">Back to Blog</a>`;
+}
 
-    function nextPost() {
-      if (currentPost < posts.length - 1) {
-        currentPost++;
-        showPost(currentPost);
-      }
-    }
-  </script>
+function prevPost() {
+    if (currentPost > 0) showPost(currentPost - 1);
+}
+
+function nextPost() {
+    if (currentPost < posts.length - 1) showPost(currentPost + 1);
+}
+
+renderList();
+</script>
 </body>
 </html>
