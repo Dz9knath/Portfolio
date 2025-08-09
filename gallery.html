@@ -1,224 +1,250 @@
-<!-- TEMPLATE SUBPAGE FILE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gallery</title>
   <style>
-  body {
-    font-family: Arial, sans-serif;
-    background: white;
-    color: black;
-  }
-  header {
-    background: transparent;
-    color: black;
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 100;
-  }
-  header h1 {
-    font-size: 1.5rem;
-  }
-  .hamburger {
-    font-size: 2rem;
-    cursor: pointer;
-    color: black;
-    z-index: 1001;
-  }
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100%;
-    background-color: white;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-    padding: 40px 20px;
-    transition: right 0.3s ease;
-    z-index: 1000;
-  }
-  .sidebar.open {
-    right: 0;
-  }
-  .sidebar .flags {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  .sidebar .flags img {
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  .sidebar a {
-    display: block;
-    margin: 20px 0;
-    color: #333;
-    text-decoration: none;
-    font-size: 1.2rem;
-  }
-
-  /* Masonry layout */
-  main {
-    padding: 20px;
-  }
-  .masonry {
-    column-count: 1;
-    column-gap: 15px;
-  }
-  @media (min-width: 600px) {
-    .masonry { column-count: 2; }
-  }
-  @media (min-width: 900px) {
-    .masonry { column-count: 3; }
-  }
-  @media (min-width: 1200px) {
-    .masonry { column-count: 4; }
-  }
-  @media (min-width: 1600px) {
-    .masonry { column-count: 5; }
-  }
-
-  .masonry-item {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    margin-bottom: 15px;
-    overflow: hidden;
-    cursor: pointer;
-    break-inside: avoid; /* prevents column gaps */
-  }
-
-  .masonry-item img {
-    width: 100%;
-    display: block;
-    transition: transform 0.35s ease;
-  }
-
-  .masonry-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(50, 50, 50, 0.5);
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: opacity 0.35s ease;
-  }
-
-  .masonry-item .overlay span {
-    color: white;
-    font-size: 1.2rem;
-    font-family: 'Segoe UI', sans-serif;
-    text-align: center;
-    padding: 0 10px;
-  }
-
-  /* Hover effect */
-  @media (hover: hover) {
-    .masonry-item:hover img {
-      transform: scale(1.05);
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: Arial, sans-serif; background: #fff; color: #000; -webkit-font-smoothing:antialiased; }
+    /* HEADER / SIDEBAR (kept as requested, but with transparent header + black text) */
+    header {
+      position: sticky;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      height: 56px;
+      background: transparent; /* removed black header */
+      z-index: 1100;
     }
-    .masonry-item:hover .overlay {
-      opacity: 1;
+    header h1 { font-size: 1.25rem; color: #000; font-weight:600; }
+    .hamburger {
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #000;
+      background: transparent;
+      border: none;
+      padding: 6px;
     }
-  }
 
-  /* Mobile tap effect */
-  @media (hover: none) {
-    .masonry-item.active img {
-      transform: scale(1.05);
+    /* Sidebar (hidden by default using transform; .open -> visible) */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 300px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.12);
+      padding: 40px 20px;
+      transform: translateX(100%); /* hidden */
+      transition: transform 0.32s ease;
+      z-index: 1200;
     }
-    .masonry-item.active .overlay {
-      opacity: 1;
+    .sidebar.open { transform: translateX(0); }
+    .flags { display:flex; justify-content:center; gap:10px; margin-bottom:20px; }
+    .flags img { width:30px; height:20px; border-radius:4px; cursor:pointer; }
+    .sidebar a { display:block; margin:18px 0; color:#333; text-decoration:none; font-size:1.05rem; }
+
+    /* MAIN / MASONRY */
+    main { padding: 16px; }
+    .masonry-wrap { max-width: 1600px; margin: 0 auto; } /* limits very-wide screens so columns appear */
+    .masonry {
+      column-count: 1;
+      column-gap: 16px;
+      column-fill: auto;
     }
-  }
-</style>
-  
+
+    /* Responsive column counts (1 -> 5) */
+    @media (min-width: 600px)  { .masonry { column-count: 2; } }
+    @media (min-width: 900px)  { .masonry { column-count: 3; } }
+    @media (min-width: 1100px) { .masonry { column-count: 4; } } /* desktop: 4 */
+    @media (min-width: 1400px) { .masonry { column-count: 5; } } /* wide desktop: 5 */
+
+    .masonry-item {
+      display: inline-block;
+      width: 100%;
+      margin: 0 0 16px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #eee;
+      break-inside: avoid-column;               /* avoid being split between columns */
+      -webkit-column-break-inside: avoid;
+      -moz-column-break-inside: avoid;
+    }
+
+    .masonry-item img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform .35s ease;
+      will-change: transform;
+    }
+
+    .masonry-item .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(50,50,50,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .35s ease;
+      pointer-events: none; /* allow clicks to hit the item itself */
+    }
+    .masonry-item .caption {
+      color: #fff;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: 1rem;
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    /* Hover (desktop) */
+    @media (hover: hover) {
+      .masonry-item:hover img { transform: scale(1.05); }
+      .masonry-item:hover .overlay { opacity: 1; }
+    }
+
+    /* Tap (mobile): .active toggles overlay */
+    @media (hover: none) {
+      .masonry-item.active img { transform: scale(1.05); }
+      .masonry-item.active .overlay { opacity: 1; pointer-events: auto; }
+    }
+  </style>
 </head>
 <body>
   <header>
-  <h1>Gallery</h1>
-  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-  <nav class="sidebar" id="sidebar">
-    <div class="flags">
-      <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
-      <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
-      <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
-    </div>
-    <a href="index.html">Home</a>
-    <a href="updates.html">Blog</a>
-    <a href="academic.html">Growth & Learning</a>
-    <a href="work.html">Experience</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="fun.html">Fun Facts</a>
-    <a href="contacts.html">Contacts</a>
-  </nav>
-</header>
-  
-<main>
-  <div class="masonry">
-    <div class="masonry-item">
-      <img src="https://picsum.photos/500/700?random=1" alt="Gallery Image 1">
-      <div class="overlay"><span>Caption 1</span></div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/500/600?random=2" alt="Gallery Image 2">
-      <div class="overlay"><span>Caption 2</span></div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/500/800?random=3" alt="Gallery Image 3">
-      <div class="overlay"><span>Caption 3</span></div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/500/650?random=4" alt="Gallery Image 4">
-      <div class="overlay"><span>Caption 4</span></div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/500/750?random=5" alt="Gallery Image 5">
-      <div class="overlay"><span>Caption 5</span></div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/500/500?random=6" alt="Gallery Image 6">
-      <div class="overlay"><span>Caption 6</span></div>
-    </div>
-  </div>
-</main>
+    <h1>Gallery</h1>
+    <button id="hambtn" class="hamburger" aria-label="Toggle menu" aria-expanded="false" onclick="toggleMenu()">&#9776;</button>
 
+    <nav class="sidebar" id="sidebar" aria-hidden="true">
+      <div class="flags">
+        <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
+        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
+        <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+      </div>
+      <a href="index.html">Home</a>
+      <a href="updates.html">Blog</a>
+      <a href="academic.html">Growth & Learning</a>
+      <a href="work.html">Experience</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="fun.html">Fun Facts</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="masonry-wrap">
+      <div class="masonry" id="masonry">
+        <!-- placeholder images (replace with your list) -->
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/750?random=1" alt="Image 1">
+          <div class="overlay"><div class="caption">Caption 1</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/500?random=2" alt="Image 2">
+          <div class="overlay"><div class="caption">Caption 2</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/900?random=3" alt="Image 3">
+          <div class="overlay"><div class="caption">Caption 3</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/650?random=4" alt="Image 4">
+          <div class="overlay"><div class="caption">Caption 4</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/550?random=5" alt="Image 5">
+          <div class="overlay"><div class="caption">Caption 5</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/800?random=6" alt="Image 6">
+          <div class="overlay"><div class="caption">Caption 6</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/720?random=7" alt="Image 7">
+          <div class="overlay"><div class="caption">Caption 7</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/480?random=8" alt="Image 8">
+          <div class="overlay"><div class="caption">Caption 8</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/820?random=9" alt="Image 9">
+          <div class="overlay"><div class="caption">Caption 9</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/600?random=10" alt="Image 10">
+          <div class="overlay"><div class="caption">Caption 10</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/880?random=11" alt="Image 11">
+          <div class="overlay"><div class="caption">Caption 11</div></div>
+        </div>
+        <div class="masonry-item">
+          <img src="https://picsum.photos/600/540?random=12" alt="Image 12">
+          <div class="overlay"><div class="caption">Caption 12</div></div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script>
-  function toggleMenu() {
-    document.getElementById('sidebar').classList.toggle('open');
-  }
+    // ensure menu closed on load; toggle function updates aria attributes
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebar = document.getElementById('sidebar');
+      const hambtn = document.getElementById('hambtn');
 
-  // Mobile tap overlay
-  if (window.matchMedia("(hover: none)").matches) {
-    document.querySelectorAll('.masonry-item').forEach(item => {
-      item.addEventListener('click', function () {
-        document.querySelectorAll('.masonry-item').forEach(i => {
-          if (i !== item) i.classList.remove('active');
-        });
-        item.classList.toggle('active');
+      sidebar.classList.remove('open');
+      sidebar.setAttribute('aria-hidden', 'true');
+      hambtn.setAttribute('aria-expanded', 'false');
+
+      window.toggleMenu = function toggleMenu() {
+        const isOpen = sidebar.classList.toggle('open');
+        sidebar.setAttribute('aria-hidden', String(!isOpen));
+        hambtn.setAttribute('aria-expanded', String(!!isOpen));
+      };
+
+      // close on ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          sidebar.classList.remove('open');
+          sidebar.setAttribute('aria-hidden', 'true');
+          hambtn.setAttribute('aria-expanded', 'false');
+        }
       });
-    });
-  }
-</script>
 
+      // click outside to close (if open)
+      document.addEventListener('click', (e) => {
+        if (!sidebar.contains(e.target) && !hambtn.contains(e.target) && sidebar.classList.contains('open')) {
+          sidebar.classList.remove('open');
+          sidebar.setAttribute('aria-hidden', 'true');
+          hambtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // mobile: tap an image to toggle overlay
+      if (window.matchMedia('(hover: none)').matches) {
+        document.querySelectorAll('.masonry-item').forEach(item => {
+          item.addEventListener('click', (ev) => {
+            const wasActive = item.classList.contains('active');
+            document.querySelectorAll('.masonry-item.active').forEach(i => i.classList.remove('active'));
+            if (!wasActive) item.classList.add('active');
+          });
+        });
+
+        // tapping outside images removes overlay
+        document.addEventListener('click', (e) => {
+          if (!e.target.closest('.masonry-item')) {
+            document.querySelectorAll('.masonry-item.active').forEach(i => i.classList.remove('active'));
+          }
+        }, { capture: true });
+      }
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
