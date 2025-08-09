@@ -6,67 +6,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 20px;
-      position: relative;
-    }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 40px 20px;
-      text-align: center;
-    }
-     /* Masonry layout */
+  body {
+    font-family: Arial, sans-serif;
+    background: white;
+    color: black;
+  }
+  header {
+    background: transparent;
+    color: black;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 100;
+  }
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .hamburger {
+    font-size: 2rem;
+    cursor: pointer;
+    color: black;
+    z-index: 1001;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    padding: 40px 20px;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  .sidebar.open {
+    right: 0;
+  }
+  .sidebar .flags {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .sidebar .flags img {
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  .sidebar a {
+    display: block;
+    margin: 20px 0;
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+
+  /* Masonry layout */
+  main {
+    padding: 20px;
+  }
   .masonry {
     column-count: 1;
     column-gap: 15px;
@@ -91,6 +94,7 @@
     margin-bottom: 15px;
     overflow: hidden;
     cursor: pointer;
+    break-inside: avoid; /* prevents column gaps */
   }
 
   .masonry-item img {
@@ -121,7 +125,7 @@
     padding: 0 10px;
   }
 
-  /* Hover effect (desktop) */
+  /* Hover effect */
   @media (hover: hover) {
     .masonry-item:hover img {
       transform: scale(1.05);
@@ -140,31 +144,31 @@
       opacity: 1;
     }
   }
-  </style>
+</style>
+  
 </head>
 <body>
   <header>
-    <h1>Gallery</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-      <div class="flags">
-        <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
-        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
-        <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
-      </div>
-      <a href="index.html">Home</a>
-      <a href="updates.html">Blog</a>
-      <a href="academic.html">Growth & Learning</a>
-      <a href="work.html">Experience</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="fun.html">Fun Facts</a>
-      <a href="contacts.html">Contacts</a>
-    </nav>
-  </header>
-
- <main>
+  <h1>Gallery</h1>
+  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+  <nav class="sidebar" id="sidebar">
+    <div class="flags">
+      <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
+      <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
+      <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+    </div>
+    <a href="index.html">Home</a>
+    <a href="updates.html">Blog</a>
+    <a href="academic.html">Growth & Learning</a>
+    <a href="work.html">Experience</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="fun.html">Fun Facts</a>
+    <a href="contacts.html">Contacts</a>
+  </nav>
+</header>
+  
+<main>
   <div class="masonry">
-    <!-- Example images, replace src with your own -->
     <div class="masonry-item">
       <img src="https://picsum.photos/500/700?random=1" alt="Gallery Image 1">
       <div class="overlay"><span>Caption 1</span></div>
@@ -194,26 +198,26 @@
 
 
   <script>
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
-  // Mobile tap to activate overlay
+  function toggleMenu() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+
+  // Mobile tap overlay
   if (window.matchMedia("(hover: none)").matches) {
     document.querySelectorAll('.masonry-item').forEach(item => {
       item.addEventListener('click', function () {
-        // Remove active from others
         document.querySelectorAll('.masonry-item').forEach(i => {
           if (i !== item) i.classList.remove('active');
         });
-        // Toggle active state
         item.classList.toggle('active');
       });
     });
   }
+</script>
 
-  </script>
 </body>
 </html>
+
 
 
 
