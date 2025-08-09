@@ -66,6 +66,80 @@
       padding: 40px 20px;
       text-align: center;
     }
+     /* Masonry layout */
+  .masonry {
+    column-count: 1;
+    column-gap: 15px;
+  }
+  @media (min-width: 600px) {
+    .masonry { column-count: 2; }
+  }
+  @media (min-width: 900px) {
+    .masonry { column-count: 3; }
+  }
+  @media (min-width: 1200px) {
+    .masonry { column-count: 4; }
+  }
+  @media (min-width: 1600px) {
+    .masonry { column-count: 5; }
+  }
+
+  .masonry-item {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 15px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .masonry-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  .masonry-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(50, 50, 50, 0.5);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.35s ease;
+  }
+
+  .masonry-item .overlay span {
+    color: white;
+    font-size: 1.2rem;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  /* Hover effect (desktop) */
+  @media (hover: hover) {
+    .masonry-item:hover img {
+      transform: scale(1.05);
+    }
+    .masonry-item:hover .overlay {
+      opacity: 1;
+    }
+  }
+
+  /* Mobile tap effect */
+  @media (hover: none) {
+    .masonry-item.active img {
+      transform: scale(1.05);
+    }
+    .masonry-item.active .overlay {
+      opacity: 1;
+    }
+  }
   </style>
 </head>
 <body>
@@ -88,17 +162,59 @@
     </nav>
   </header>
 
-  <main>
-    <p>This is a blank page.</p>
-  </main>
+ <main>
+  <div class="masonry">
+    <!-- Example images, replace src with your own -->
+    <div class="masonry-item">
+      <img src="https://picsum.photos/500/700?random=1" alt="Gallery Image 1">
+      <div class="overlay"><span>Caption 1</span></div>
+    </div>
+    <div class="masonry-item">
+      <img src="https://picsum.photos/500/600?random=2" alt="Gallery Image 2">
+      <div class="overlay"><span>Caption 2</span></div>
+    </div>
+    <div class="masonry-item">
+      <img src="https://picsum.photos/500/800?random=3" alt="Gallery Image 3">
+      <div class="overlay"><span>Caption 3</span></div>
+    </div>
+    <div class="masonry-item">
+      <img src="https://picsum.photos/500/650?random=4" alt="Gallery Image 4">
+      <div class="overlay"><span>Caption 4</span></div>
+    </div>
+    <div class="masonry-item">
+      <img src="https://picsum.photos/500/750?random=5" alt="Gallery Image 5">
+      <div class="overlay"><span>Caption 5</span></div>
+    </div>
+    <div class="masonry-item">
+      <img src="https://picsum.photos/500/500?random=6" alt="Gallery Image 6">
+      <div class="overlay"><span>Caption 6</span></div>
+    </div>
+  </div>
+</main>
+
 
   <script>
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('open');
     }
+  // Mobile tap to activate overlay
+  if (window.matchMedia("(hover: none)").matches) {
+    document.querySelectorAll('.masonry-item').forEach(item => {
+      item.addEventListener('click', function () {
+        // Remove active from others
+        document.querySelectorAll('.masonry-item').forEach(i => {
+          if (i !== item) i.classList.remove('active');
+        });
+        // Toggle active state
+        item.classList.toggle('active');
+      });
+    });
+  }
+
   </script>
 </body>
 </html>
+
 
 
 
