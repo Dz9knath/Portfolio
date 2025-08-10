@@ -92,4 +92,104 @@
   }
 
   .overlay{
-    position:abs
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(50,50,50,0.45);
+    opacity:0;
+    transition:opacity .35s ease;
+    pointer-events:none;
+  }
+  .overlay .caption{
+    color:#fff;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size:1rem;
+    padding:0 8px;
+    text-align:center;
+  }
+
+  /* hover (desktop) */
+  @media (hover: hover){
+    .masonry-item:hover img{ transform:scale(1.05) }
+    .masonry-item:hover .overlay{ opacity:1 }
+  }
+
+  /* mobile tap behavior */
+  @media (hover: none){
+    .masonry-item.active img{ transform:scale(1.05) }
+    .masonry-item.active .overlay{ opacity:1; pointer-events:auto }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Gallery</h1>
+  <button class="hamburger" id="hambtn" aria-label="menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+</header>
+
+<nav class="sidebar" id="sidebar" aria-hidden="true">
+  <div class="flags">
+    <img src="https://flagcdn.com/w40/cz.png" alt="Czech" width="30" height="20">
+    <img src="https://flagcdn.com/w40/gb.png" alt="English" width="30" height="20">
+    <img src="https://flagcdn.com/w40/de.png" alt="German" width="30" height="20">
+  </div>
+  <a href="#">Home</a>
+  <a href="#">Blog</a>
+  <a href="#">Academic</a>
+  <a href="#">Work</a>
+  <a href="#">Gallery</a>
+  <a href="#">Fun</a>
+  <a href="#">Contacts</a>
+</nav>
+
+<main>
+  <div class="masonry" id="masonry">
+    <!-- plenty of placeholders so columns fill -->
+    <div class="masonry-item"><img src="https://picsum.photos/400/600?random=1" alt=""><div class="overlay"><div class="caption">Caption 1</div></div></div>
+    <div class="masonry-item"><img src="https://picsum.photos/400/450?random=2" alt=""><div class="overlay"><div class="caption">Caption 2</div></div></div>
+    <div class="masonry-item"><img src="https://picsum.photos/400/700?random=3" alt=""><div class="overlay"><div class="caption">Caption 3</div></div></div>
+    <div class="masonry-item"><img src="https://picsum.photos/400/520?random=4" alt=""><div class="overlay"><div class="caption">Caption 4</div></div></div>
+    <div class="masonry-item"><img src="https://picsum.photos/400/560?random=5" alt=""><div class="overlay"><div class="caption">Caption 5</div></div></div>
+    <div class="masonry-item"><img src="https://picsum.photos/400/380?random=6" alt=""><div class="overlay"><div class="caption">Caption 6</div></div></div>
+    <div class="masonry-item"><img src="https://picsum.photos/400/660?random=7" alt=""><div class="overlay"><div class="caption">Caption 7</div></div></div>
+    <div class="masonry-item"><img src="https://picsum.photos/400/480?random=8" alt=""><div class="overlay"><div class="caption">Caption 8</div></div></div>
+    <div class="masonry-item"><img src="https://picsum.photos/400/820?random=9" alt=""><div class="overlay"><div class="caption">Caption 9</div></div></div>
+    <div class="masonry-item"><img src="https://picsum.photos/400/360?random=10" alt=""><div class="overlay"><div class="caption">Caption 10</div></div></div>
+  </div>
+</main>
+
+<script>
+  // Sidebar toggle
+  function toggleMenu(){
+    const sb = document.getElementById('sidebar');
+    const btn = document.getElementById('hambtn');
+    const isOpen = sb.classList.toggle('open');
+    sb.setAttribute('aria-hidden', String(!isOpen));
+    btn.setAttribute('aria-expanded', String(!!isOpen));
+  }
+
+  // Mobile tap overlay
+  if (window.matchMedia('(hover: none)').matches){
+    document.querySelectorAll('.masonry-item').forEach(item=>{
+      item.addEventListener('click', (e)=>{
+        // toggle this one, remove others
+        const wasActive = item.classList.contains('active');
+        document.querySelectorAll('.masonry-item.active').forEach(i=>i.classList.remove('active'));
+        if (!wasActive) item.classList.add('active');
+        // stop click from closing via document listener below
+        e.stopPropagation();
+      });
+    });
+
+    // clicking outside items clears active
+    document.addEventListener('click', ()=> {
+      document.querySelectorAll('.masonry-item.active').forEach(i=>i.classList.remove('active'));
+    });
+  }
+</script>
+
+</body>
+</html>
