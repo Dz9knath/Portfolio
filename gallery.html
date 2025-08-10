@@ -1,220 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Gallery</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery — breakout test</title>
 <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-    font-family: Arial, sans-serif;
-  }
-
-  /* Header */
-  header {
-    background-color: white;
-    color: black;
-    padding: 20px;
-    position: relative;
-    border-bottom: 1px solid #ddd;
-  }
-  header h1 {
-    font-size: 1.5rem;
-  }
-  .hamburger {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 1001;
-    color: black;
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff;
+    color:#000;
+    overflow-x:hidden; /* prevents horizontal scrollbar from the breakout */
   }
 
-  /* Sidebar */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100%;
-    background-color: white;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-    padding: 40px 20px;
-    transition: right 0.3s ease;
-    z-index: 1000;
+  /* header (white, black text + burger) */
+  header{
+    position:sticky;
+    top:0;
+    z-index:1200;
+    background:#fff;
+    border-bottom:1px solid #eee;
+    padding:14px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
   }
-  .sidebar.open {
-    right: 0;
-  }
-  .sidebar .flags {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  .sidebar .flags img {
-    width: 30px;
-    height: 20px;
-    cursor: pointer;
-    border-radius: 4px;
-  }
-  .sidebar a {
-    display: block;
-    margin: 20px 0;
-    color: #333;
-    text-decoration: none;
-    font-size: 1.2rem;
+  header h1{font-size:1.2rem;margin:0;color:#000}
+  .hamburger{
+    font-size:1.8rem;
+    color:#000;
+    background:transparent;
+    border:none;
+    cursor:pointer;
   }
 
-  /* Masonry Gallery */
-  main {
-    padding: 15px;
+  /* sidebar fully hidden when closed */
+  .sidebar{
+    position:fixed;
+    top:0;
+    right:-320px; /* fully offscreen (panel width 300px) */
+    width:300px;
+    height:100vh;
+    padding:36px 18px;
+    background:#fff;
+    box-shadow:-2px 0 10px rgba(0,0,0,0.12);
+    transition:right .32s ease;
+    z-index:1400;
   }
-  .masonry {
-    column-count: 5;
-    column-gap: 15px;
-  }
-  @media (max-width: 1200px) {
-    .masonry { column-count: 4; }
-  }
-  @media (max-width: 992px) {
-    .masonry { column-count: 3; }
-  }
-  @media (max-width: 768px) {
-    .masonry { column-count: 2; }
-  }
-  @media (max-width: 500px) {
-    .masonry { column-count: 1; }
+  .sidebar.open{ right:0 }
+  .sidebar .flags{ display:flex; gap:10px; justify-content:center; margin-bottom:18px }
+  .sidebar a{ display:block; margin:12px 0; color:#333; text-decoration:none }
+
+  /* MASONRY — breakout to full viewport width to avoid parent width limits */
+  main{ padding-top:10px; padding-bottom:40px }
+  .masonry{
+    width:100vw;                         /* full viewport width */
+    max-width:none;
+    margin-left: calc(-50vw + 50%);      /* center-breakout trick */
+    padding: 16px;                       /* internal padding for columns */
+    column-count:5;
+    column-gap:16px;
+    -webkit-column-fill: auto;
+    column-fill: auto;
   }
 
-  .masonry-item {
-    display: inline-block;
-    break-inside: avoid;
-    margin-bottom: 15px;
-    width: 100%;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    border-radius: 8px;
-  }
-  .masonry-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.35s ease;
-  }
-  .overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.4);
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: opacity 0.35s ease;
-  }
-  .masonry-item:hover img {
-    transform: scale(1.05);
-  }
-  .masonry-item:hover .overlay {
-    opacity: 1;
-  }
-  @media (hover: none) {
-    .masonry-item:hover img,
-    .masonry-item:hover .overlay {
-      transform: none;
-      opacity: 0;
-    }
-    .masonry-item.active .overlay {
-      opacity: 1;
-    }
-    .masonry-item.active img {
-      transform: scale(1.05);
-    }
-  }
-</style>
-</head>
-<body>
+  /* responsive counts */
+  @media (max-width:1400px){ .masonry{ column-count:4 } }
+  @media (max-width:1100px){ .masonry{ column-count:3 } }
+  @media (max-width:800px) { .masonry{ column-count:2 } }
+  @media (max-width:520px) { .masonry{ column-count:1 } }
 
-<header>
-  <h1>Gallery</h1>
-  <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-  <nav class="sidebar" id="sidebar">
-    <div class="flags">
-      <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
-      <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
-      <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
-    </div>
-    <a href="index.html">Home</a>
-    <a href="updates.html">Blog</a>
-    <a href="academic.html">Growth & Learning</a>
-    <a href="work.html">Experience</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="fun.html">Fun Facts</a>
-    <a href="contacts.html">Contacts</a>
-  </nav>
-</header>
-
-<main>
-  <div class="masonry">
-    <div class="masonry-item">
-      <img src="https://picsum.photos/300/400?random=1" alt="">
-      <div class="overlay">Caption 1</div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/300/500?random=2" alt="">
-      <div class="overlay">Caption 2</div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/300/350?random=3" alt="">
-      <div class="overlay">Caption 3</div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/300/450?random=4" alt="">
-      <div class="overlay">Caption 4</div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/300/380?random=5" alt="">
-      <div class="overlay">Caption 5</div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/300/600?random=6" alt="">
-      <div class="overlay">Caption 6</div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/300/420?random=7" alt="">
-      <div class="overlay">Caption 7</div>
-    </div>
-    <div class="masonry-item">
-      <img src="https://picsum.photos/300/300?random=8" alt="">
-      <div class="overlay">Caption 8</div>
-    </div>
-  </div>
-</main>
-
-<script>
-  function toggleMenu() {
-    document.getElementById('sidebar').classList.toggle('open');
+  .masonry-item{
+    display:inline-block;                /* required for column flow */
+    width:100%;                          /* fits the column width */
+    margin:0 0 16px;
+    break-inside:avoid;
+    -webkit-column-break-inside:avoid;
+    -moz-column-break-inside:avoid;
+    position:relative;
+    overflow:hidden;
+    border-radius:8px;
+    background:#f3f3f3;
+    cursor:pointer;
+  }
+  .masonry-item img{
+    display:block;
+    width:100%;
+    height:auto;
+    transition:transform .35s ease;
   }
 
-  // Mobile tap overlay toggle
-  if (window.matchMedia("(hover: none)").matches) {
-    document.querySelectorAll('.masonry-item').forEach(item => {
-      item.addEventListener('click', () => {
-        item.classList.toggle('active');
-      });
-    });
-  }
-</script>
-
-</body>
-</html>
+  .overlay{
+    position:abs
