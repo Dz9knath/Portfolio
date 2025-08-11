@@ -166,6 +166,30 @@
     .back-btn:hover {
       background: #333;
     }
+    .search-bar {
+  margin: 20px 0;
+  text-align: center;
+}
+.search-bar input {
+  padding: 10px;
+  width: 80%;
+  max-width: 500px;
+}
+.post-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+.tags span {
+  background: #eee;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.related-posts {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
   </style>
 </head>
 <body>
@@ -191,35 +215,23 @@
     <div class="intro" id="intro">
       <p>Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.</p>
     </div>
+    <div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search posts..." oninput="filterPosts()">
+</div>
   </div>
 
   <script>
     const posts = [
+     
       {
-        title: "First Post",
-        content: "This is my very first blog post. It's short, sweet, and to the point.",
-        image: "https://via.placeholder.com/800x400"
-      },
-      {
-        title: "A Day in the City",
-        content: "Spent the day exploring the streets, trying new food, and soaking in the architecture.",
-        image: "https://via.placeholder.com/600x300"
-      },
-      {
-        title: "Nature Hike Adventure",
-        content: "Today I went hiking in the nearby hills. The weather was perfect, and the view from the top was breathtaking.",
-        image: ""
-      },
-      {
-        title: "Long Reflection",
-        content: "Sometimes we all need to slow down and think about where we are headed. This week I spent a lot of time reflecting on my goals, dreams, and the steps I need to take to get there. I realized that progress is often made in small, consistent actions rather than huge leaps forward. This blog will be my space to track those small victories, as well as share my challenges along the way. I hope that by writing more frequently, I'll keep myself accountable and maybe even inspire someone else to take their first step toward something they've been putting off.",
-       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT68EWqK6Tw_BryZmskVdsa3Xh8XdfUzXL0fA&s"
-      },
-      {
-        title: "Quick Update",
-        content: "Just a small update to say everything is going well!",
-        image: ""
-      }
+    title: "First Post",
+    content: "This is my very first blog post.",
+    image: "https://via.placeholder.com/800x400",
+    tags: ["Update"],
+    date: "2025-08-10",
+    readTime: "1 min"
+  },
+      
     ];
 
     const container = document.getElementById("blogContainer");
@@ -260,6 +272,14 @@
           <button class="back-btn" onclick="renderList()">Back to Blog</button>
         </div>
       `;
+      <div class="related-posts">
+  <h3>Related Posts</h3>
+  ${getRelatedPosts(index).map(post => `
+    <div class="related-post" onclick="showPost(${post.index})">
+      ${post.title}
+    </div>
+  `).join("")}
+</div>
     }
 
     function prevPost() {
@@ -281,9 +301,20 @@
       }
     }
 
-    renderList();
+    renderList(
+      <div class="post" onclick="showPost(${index})">
+  <h2>${post.title}</h2>
+  <div class="post-meta">
+    <span class="date">${post.date}</span> •
+    <span class="read-time">${post.readTime}</span> •
+    <span class="tags">${post.tags.map(tag => `<span>${tag}</span>`).join(" ")}</span>
+  </div>
+  ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
+  <p>${post.content.substring(0, 100)}...</p>
+</div>);
   </script>
 </body>
 </html>
+
 
 
