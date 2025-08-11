@@ -102,16 +102,16 @@
       background: #eee;
       cursor: pointer;
       border-radius: 5px;
-      transition: all 0.2s ease;
     }
     .filter-bar button.active {
+      background: #333;
       color: #fff;
     }
     .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  transition: all 0.3s ease;
     }
     .card {
       background: #f9f9f9;
@@ -173,55 +173,52 @@
       padding: 20px;
       color: #aaa;
     }
-    .tags span {
-      display: inline-block;
-      margin: 3px 5px;
-      padding: 4px 8px;
-      border-radius: 5px;
-      font-size: 0.8rem;
-      font-weight: bold;
-      color: #fff;
-    }
-    .tag-Sport {
-      background-color: #b03b3b;
-    }
-    .tag-Exchange {
-      background-color: #3b7a78;
-    }
-    .tag-Internship {
-      background-color: #c96f28;
-    }
-    .tag-Language {
-      background-color: #2b4f81;
-    }
-    .tag-Self-Development {
-      background-color: #3b7737;
-    }
-    .tag-Education {
-      background-color: #6d3bb0;
-    }
-    .filter-bar button[data-tag="All"].active {
-      background-color: #333;
-    }
-    .filter-bar button[data-tag="Sport"].active {
-      background-color: #b03b3b;
-    }
-    .filter-bar button[data-tag="Exchange"].active {
-      background-color: #3b7a78;
-    }
-    .filter-bar button[data-tag="Internship"].active {
-      background-color: #c96f28;
-    }
-    .filter-bar button[data-tag="Language"].active {
-      background-color: #2b4f81;
-    }
-    .filter-bar button[data-tag="Self-Development"].active {
-      background-color: #3b7737;
-    }
-    .filter-bar button[data-tag="Education"].active {
-      background-color: #6d3bb0;
-    }
-  </style>
+  .tags span {
+    display: inline-block;
+    margin: 3px 5px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  .tag-Sport {
+    background-color: #b03b3b;
+  }
+  .tag-Exchange {
+    background-color: #3b7a78;
+  }
+  .tag-Internship {
+    background-color: #c96f28;
+  }
+  .tag-Language {
+    background-color: #2b4f81;
+  }
+  .tag-Self-Development {
+    background-color: #3b7737;
+  }
+  .tag-Education {
+    background-color: #6d3bb0;
+  }
+  .filter-bar button[data-tag="Sport"].active {
+    background-color: #b03b3b;
+  }
+  .filter-bar button[data-tag="Exchange"].active {
+    background-color: #3b7a78;
+  }
+  .filter-bar button[data-tag="Internship"].active {
+    background-color: #c96f28;
+  }
+  .filter-bar button[data-tag="Language"].active {
+    background-color: #2b4f81;
+  }
+  .filter-bar button[data-tag="Self-Development"].active {
+    background-color: #3b7737;
+  }
+  .filter-bar button[data-tag="Education"].active {
+    background-color: #6d3bb0;
+  }
+</style>
 </head>
 <body>
   <header>
@@ -249,18 +246,18 @@
     </div>
 
     <div class="quote" id="tagQuote">
-      "Live as if you were to die tomorrow. Learn as if you were to live forever." — Mahatma Gandhi
+      “Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi
     </div>
 
-    <div class="filter-bar">
-      <button onclick="filterTag('All')" data-tag="All" class="active">All</button>
-      <button onclick="filterTag('Sport')" data-tag="Sport">Sport</button>
-      <button onclick="filterTag('Exchange')" data-tag="Exchange">Exchange</button>
-      <button onclick="filterTag('Internship')" data-tag="Internship">Internship</button>
-      <button onclick="filterTag('Language')" data-tag="Language">Language</button>
-      <button onclick="filterTag('Self-Development')" data-tag="Self-Development">Self-Development</button>
-      <button onclick="filterTag('Education')" data-tag="Education">Education</button>
-    </div>
+<div class="filter-bar">
+  <button onclick="filterTag('All')" class="active">All</button>
+  <button onclick="filterTag('Sport')" data-tag="Sport">Sport</button>
+  <button onclick="filterTag('Exchange')" data-tag="Exchange">Exchange</button>
+  <button onclick="filterTag('Internship')" data-tag="Internship">Internship</button>
+  <button onclick="filterTag('Language')" data-tag="Language">Language</button>
+  <button onclick="filterTag('Self-Development')" data-tag="Self-Development">Self-Development</button>
+  <button onclick="filterTag('Education')" data-tag="Education">Education</button>
+</div>
 
     <div class="cards" id="cardContainer"></div>
   </main>
@@ -306,97 +303,51 @@
     const expandedTitle = document.getElementById("expandedTitle");
     const expandedDescription = document.getElementById("expandedDescription");
     const expandedTags = document.getElementById("expandedTags");
-    let activeTags = [];
 
     function createCards() {
-      container.innerHTML = cardsData.map((card, index) => {
-        const tagSpans = card.tags.map(tag => `<span class="tag-${tag.replace(/\s+/g, '-')}">${tag}</span>`).join(" ");
-        return `
-          <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
-            <h3>${card.title}</h3>
-            <p>${card.description}</p>
-            <div class="tags">${tagSpans}</div>
-          </div>
-        `;
-      }).join("");
-    }
+  container.innerHTML = cardsData.map((card, index) => {
+    const tagSpans = card.tags.map(tag => `<span class="tag-${tag.replace(/\s+/g, '-')}">${tag}</span>`).join(" ");
+    return `
+      <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
+        <h3>${card.title}</h3>
+        <p>${card.description}</p>
+        <div class="tags">${tagSpans}</div>
+      </div>
+    `;
+  }).join("");
+}
 
     function expandCard(index) {
       const card = cardsData[index];
       expandedTitle.textContent = card.title;
       expandedDescription.textContent = card.description;
-      
-      // Format tags with proper styling
-      expandedTags.innerHTML = card.tags.map(tag => 
-        `<span class="tag-${tag.replace(/\s+/g, '-')}">${tag}</span>`
-      ).join(" ");
-      
+      expandedTags.textContent = card.tags.join(", ");
       overlay.style.display = "flex";
     }
 
     function closeExpanded() {
       overlay.style.display = "none";
     }
-
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) {
-        closeExpanded();
-      }
+    overlay.addEventListener('click', function (e) {
+  if (e.target === overlay) {
+    closeExpanded();
+  }
     });
-
     function filterTag(tag) {
-      const btn = document.querySelector(`.filter-bar button[onclick*="'${tag}'"]`);
-      
-      if (tag === 'All') {
-        // Reset all filters when 'All' is selected
-        activeTags = [];
-        document.querySelectorAll('.filter-bar button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      } else {
-        // Toggle the active state of the clicked button
-        btn.classList.toggle('active');
-        
-        // Update the active tags array
-        if (activeTags.includes(tag)) {
-          activeTags = activeTags.filter(t => t !== tag);
-          // If no tags are selected, show all
-          if (activeTags.length === 0) {
-            document.querySelector(`.filter-bar button[data-tag="All"]`).classList.add('active');
-          }
-        } else {
-          activeTags.push(tag);
-          // Ensure 'All' is not active when specific tags are selected
-          document.querySelector(`.filter-bar button[data-tag="All"]`).classList.remove('active');
-        }
-      }
+      document.querySelectorAll('.filter-bar button').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.filter-bar button[onclick*="'${tag}'"]`).classList.add('active');
 
-      filterCards();
-      updateQuote();
-    }
+      const quoteBox = document.getElementById('tagQuote');
 
-    function filterCards() {
-      const cards = document.querySelectorAll('.card');
-      
-      cards.forEach(card => {
-        const cardTags = JSON.parse(card.getAttribute('data-tags'));
-        
-        if (activeTags.length === 0) {
-          // Show all cards if no tags are selected
+      document.querySelectorAll('.card').forEach(card => {
+        const tags = JSON.parse(card.getAttribute('data-tags'));
+        if (tag === 'All' || tags.includes(tag)) {
           card.classList.remove('hide');
         } else {
-          // Show card if it has at least one of the active tags
-          const hasMatchingTag = cardTags.some(tag => activeTags.includes(tag));
-          if (hasMatchingTag) {
-            card.classList.remove('hide');
-          } else {
-            card.classList.add('hide');
-          }
+          card.classList.add('hide');
         }
       });
-    }
 
-    function updateQuote() {
-      const quoteBox = document.getElementById('tagQuote');
       const quotes = {
         Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
         Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
@@ -406,21 +357,20 @@
         Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
       };
 
-      if (activeTags.length === 0) {
-        quoteBox.textContent = "Live as if you were to die tomorrow. Learn as if you were to live forever. — Mahatma Gandhi";
-      } else if (activeTags.length === 1) {
-        quoteBox.textContent = quotes[activeTags[0]] || "Live as if you were to die tomorrow. Learn as if you were to live forever. — Mahatma Gandhi";
-      } else {
-        quoteBox.textContent = "Combining knowledge from different fields leads to wisdom. — Unknown";
-      }
+      quoteBox.textContent = tag === 'All'
+        ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
+        : quotes[tag] || "";
     }
 
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('open');
     }
 
-    // Initialize the page
     createCards();
   </script>
 </body>
 </html>
+
+
+
+
