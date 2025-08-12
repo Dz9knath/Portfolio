@@ -12,9 +12,10 @@
     }
     body {
       font-family: Arial, sans-serif;
-      background: #f8f9fa;
     }
     header {
+      background-color: white;
+      color: black;
       padding: 20px;
       position: relative;
       display: flex;
@@ -23,7 +24,7 @@
     }
     header h1 {
       font-size: 1.5rem;
-      color: #222;
+      color: black;
     }
     .hamburger {
       font-size: 2rem;
@@ -31,8 +32,11 @@
       z-index: 1001;
       background: none;
       border: none;
-      color: #222;
+      color: black;
       user-select: none;
+    }
+    .hamburger.hidden {
+      display: none;
     }
     .sidebar {
       position: fixed;
@@ -69,32 +73,7 @@
       font-size: 1.2rem;
     }
 
-    /* Gallery Filters */
-    .gallery-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      padding: 15px;
-      background: white;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .gallery-filters button {
-      padding: 8px 15px;
-      border: none;
-      background: #eee;
-      cursor: pointer;
-      border-radius: 20px;
-      transition: all 0.3s;
-    }
-    .gallery-filters button.active {
-      background: #0066cc;
-      color: white;
-    }
-
-    /* Masonry Gallery */
+    /* Masonry gallery */
     main {
       padding: 20px;
     }
@@ -102,67 +81,73 @@
       column-count: 1;
       column-gap: 15px;
     }
-    @media (min-width: 600px) { .gallery { column-count: 2; } }
-    @media (min-width: 900px) { .gallery { column-count: 3; } }
-    @media (min-width: 1200px) { .gallery { column-count: 4; } }
+    @media (min-width: 600px) {
+      .gallery { column-count: 2; }
+    }
+    @media (min-width: 900px) {
+      .gallery { column-count: 3; }
+    }
+    @media (min-width: 1200px) {
+      .gallery { column-count: 4; }
+    }
+    @media (min-width: 1500px) {
+      .gallery { column-count: 5; }
+    }
     .gallery-item {
       position: relative;
       margin-bottom: 15px;
+      overflow: hidden;
       break-inside: avoid;
       cursor: pointer;
-      transition: transform 0.3s;
     }
     .gallery-item img {
       width: 100%;
-      border-radius: 8px;
       display: block;
+      transition: transform 0.3s ease;
     }
-    .gallery-item:hover img {
-      transform: scale(1.02);
-    }
-
-    /* Lightbox */
-    .lightbox {
-      display: none;
-      position: fixed;
+    .overlay {
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 2000;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
-    }
-    .close-lightbox {
-      position: absolute;
-      top: 20px;
-      right: 20px;
       color: white;
-      font-size: 2rem;
-      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: opacity 0.3s ease;
     }
-    .lightbox-caption {
-      color: white;
-      text-align: center;
-      margin-top: 10px;
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-item:hover .overlay {
+      opacity: 1;
+    }
+    @media (hover: none) {
+      .gallery-item img.active {
+        transform: scale(1.05);
+      }
+      .gallery-item .overlay.active {
+        opacity: 1;
+      }
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Gallery</h1>
-    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     <nav class="sidebar" id="sidebar">
       <div class="flags">
         <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
         <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
         <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+        <img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese">
       </div>
       <a href="index.html">Home</a>
       <a href="updates.html">Blog</a>
@@ -174,95 +159,57 @@
     </nav>
   </header>
 
-  <div class="gallery-filters">
-    <button onclick="filterGallery('all')" class="active">All</button>
-    <button onclick="filterGallery('sports')">Sports</button>
-    <button onclick="filterGallery('travel')">Travel</button>
-    <button onclick="filterGallery('nature')">Nature</button>
-  </div>
-
   <main>
-    <div class="gallery" id="galleryContainer">
-      <!-- Images will be loaded here by JavaScript -->
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="https://picsum.photos/400/500?random=1" alt="Sample 1">
+        <div class="overlay">Caption 1</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/400/600?random=2" alt="Sample 2">
+        <div class="overlay">Caption 2</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/400/450?random=3" alt="Sample 3">
+        <div class="overlay">Caption 3</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/400/700?random=4" alt="Sample 4">
+        <div class="overlay">Caption 4</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/400/480?random=5" alt="Sample 5">
+        <div class="overlay">Caption 5</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://picsum.photos/400/520?random=6" alt="Sample 6">
+        <div class="overlay">Caption 6</div>
+      </div>
     </div>
   </main>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox">
-    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
-    <img id="lightbox-img" class="lightbox-content">
-    <div id="lightbox-caption" class="lightbox-caption"></div>
-  </div>
-
   <script>
-    // Gallery data (replace with your actual images)
-    const galleryImages = [
-      { src: "https://i.imgur.com/mpBgo3X.jpeg", caption: "Rugby match in Pilsen", tags: ["sports"] },
-      { src: "https://i.imgur.com/Tpt260a.jpeg", caption: "Hiking in the Alps", tags: ["travel", "nature"] },
-      { src: "https://i.imgur.com/M9ceOaE.jpeg", caption: "Exchange program in Portugal", tags: ["travel"] },
-      { src: "https://i.imgur.com/xyz123.jpeg", caption: "OCR competition", tags: ["sports"] },
-      { src: "https://i.imgur.com/abc456.jpeg", caption: "Sunset at the beach", tags: ["nature"] },
-    ];
-
-    // Initialize gallery
-    function initGallery() {
-      const gallery = document.getElementById('galleryContainer');
-      gallery.innerHTML = galleryImages.map(image => `
-        <div class="gallery-item" data-tags="${image.tags.join(',')}" 
-             onclick="openLightbox('${image.src}', '${image.caption}')">
-          <img src="${image.src}" alt="${image.caption}">
-        </div>
-      `).join('');
-    }
-
-    // Filter gallery by tag
-    function filterGallery(tag) {
-      const buttons = document.querySelectorAll('.gallery-filters button');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      const items = document.querySelectorAll('.gallery-item');
-      items.forEach(item => {
-        const tags = item.getAttribute('data-tags').split(',');
-        if (tag === 'all' || tags.includes(tag)) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-
-    // Lightbox functions
-    function openLightbox(src, caption) {
-      const lightbox = document.getElementById('lightbox');
-      const img = document.getElementById('lightbox-img');
-      const cap = document.getElementById('lightbox-caption');
-
-      img.src = src;
-      cap.textContent = caption;
-      lightbox.style.display = 'flex';
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
-    }
-
-    function closeLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
-      document.body.style.overflow = 'auto'; // Re-enable scrolling
-    }
-
-    // Close lightbox when clicking outside the image
-    document.getElementById('lightbox').addEventListener('click', (e) => {
-      if (e.target === document.getElementById('lightbox')) {
-        closeLightbox();
-      }
-    });
-
-    // Toggle sidebar menu
     function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
+      const sidebar = document.getElementById('sidebar');
+      const burger = document.querySelector('.hamburger');
+      sidebar.classList.toggle('open');
+      if (sidebar.classList.contains('open')) {
+        burger.classList.add('hidden');
+      } else {
+        burger.classList.remove('hidden');
+      }
     }
 
-    // Initialize on load
-    window.onload = initGallery;
+    // Mobile tap overlay toggle
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        const overlay = item.querySelector('.overlay');
+        img.classList.toggle('active');
+        overlay.classList.toggle('active');
+      });
+    });
   </script>
+
 </body>
 </html>
