@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #111;
+      color: white;
+      padding: 20px;
+      position: relative;
+    }
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      padding: 40px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+    .sidebar.open {
+      right: 0;
+    }
+    .sidebar .flags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .sidebar .flags img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .sidebar a {
+      display: block;
+      margin: 20px 0;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    main {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center; /* Horizontally center the wrapper */
+}
+
+.contact-wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  width: 100%;
+}
+
+    .profile-pic {
+      flex: 1 1 200px;
+      max-width: 250px;
+      text-align: center;
+    }
+    .profile-pic img {
+      width: 100%;
+      max-width: 200px;
+      border-radius: 50%;
+    }
+    .contacts {
+      flex: 2 1 300px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+    .contact-item i {
+      font-size: 1.5rem;
+      color: #333;
+      width: 30px;
+      text-align: center;
+    }
+    .contact-item a {
+      color: #333;
+      text-decoration: none;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Contacts</h1>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <nav class="sidebar" id="sidebar">
+      <div class="flags">
+        <img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech">
+        <img src="https://flagcdn.com/w40/gb.png" alt="English" title="English">
+        <img src="https://flagcdn.com/w40/de.png" alt="German" title="German">
+        <img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese">
+      </div>
+      <a href="index.html">Home</a>
+      <a href="updates.html">Blog</a>
+      <a href="academic.html">Growth & Learning</a>
+      <a href="work.html">Experience</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="fun.html">Fun Facts</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+  </header>
+
+  <main>
+  <div class="contact-wrapper">
+    <div class="profile-pic">
+      <img src="https://i.imgur.com/M9ceOaE.jpeg" alt="Profile Picture">
+    </div>
+    <div class="contacts">
+      <div class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+420777078420">+420 777 078 420</a></div>
+      <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:ben.hejda@gmail.com">ben.hejda@gmail.com</a></div>
+      <div class="contact-item"><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ben.hejda/" target="_blank">@ben.hejda</a></div>
+      <div class="contact-item"><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/benhejda/" target="_blank">Benjamin Hejda</a></div>
+      <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benjamin-hejda" target="_blank">linkedin.com/in/benjamin-hejda</a></div>
+    </div>
+  </div>
+</main>
+
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
