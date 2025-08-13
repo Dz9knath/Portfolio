@@ -236,29 +236,13 @@
   <script>
     const posts = [
       {
-        title: "First Post",
-        content: "This is my very first blog post. I'm excited to share my thoughts and experiences with you all. Blogging is a new adventure for me, and I hope you'll find my content interesting and valuable.",
-        image: "https://via.placeholder.com/800x400",
-        tags: ["Update", "Introduction"],
-        date: "2025-08-10",
-        readTime: "1 min"
+        title: "Willkommen auf meinem Blog", 
+        content: "Willkommen! Dieser Blog wird mein Raum sein, um zu teilen, was gerade in meinem Leben pasiert, insbesondere im Bereich Selbstentwicklung und Sport. Ich werde darüber sprechen, wie ich mich entwickle, was ich verändere, welche Ziele ich habe, wie sie sich verändern und welche Schritte ich unternehme, um sie zum erreichen. Du kannst auch Beiträge über die Schule erwarten — sei es über meine aktuelle Zeit auf der Gymnasium oder vielleicht später an der Universität — sowie interessante Gedanken und Dinge, die mir unterwegs auffallen. Ich hoffe, du hast Freude daran, meine Reise zu verfolgen, und findest vielleicht Inspiration für deine eigene.", 
+        image: "", 
+        tags: ["Einführung", "Selbstentwicklung", "Bildung", "Leben"], 
+        date: "13.8.2025", 
+        readTime: "2 min" 
       },
-      {
-        title: "Learning Web Development",
-        content: "Today I want to share my journey learning web development. It's been challenging but incredibly rewarding. I started with HTML and CSS, then moved to JavaScript. The more I learn, the more I realize how much there is to discover!",
-        image: "https://via.placeholder.com/800x400?text=Web+Development",
-        tags: ["Learning", "Technology"],
-        date: "2025-08-12",
-        readTime: "2 min"
-      },
-      {
-        title: "Travel Experiences",
-        content: "Traveling has been one of the most enriching experiences of my life. From meeting new people to experiencing different cultures, each journey has taught me something valuable. Here are some highlights from my recent trips.",
-        image: "https://via.placeholder.com/800x400?text=Travel",
-        tags: ["Travel", "Adventure"],
-        date: "2025-08-15",
-        readTime: "3 min"
-      }
     ];
 
     const container = document.getElementById("blogContainer");
@@ -266,9 +250,9 @@
 
     function renderList() {
       container.innerHTML = `
-        <h1>My Blog</h1>
+        <h1>Mein Blog</h1>
         <div class="intro" id="intro">
-          <p>Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.</p>
+          <p>Hallo und willkommen in meinem Blog! Hier findest du meine neuesten Beiträge, Gedanken und Updates. Klicke auf einen Beitrag, um ihn vollständig zu lesen, und navigiere mithilfe der Pfeile zwischen den Beiträgen.</p>
         </div>
         <div class="search-bar">
           <input type="text" id="searchInput" placeholder="Search posts..." oninput="filterPosts()">
@@ -373,4 +357,5 @@
     renderList();
   </script>
 </body>
+
 </html>
