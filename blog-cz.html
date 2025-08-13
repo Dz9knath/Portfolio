@@ -230,7 +230,7 @@
       <p>Ahoj, vítejte na mém blogu! Zde najdete mé nejnovější příspěvky, myšlenky a aktuality. Kliknutím na libovolný příspěvek si jej můžete přečíst v plném znění a pomocí šipek můžete procházet mezi příspěvky.</p>
     </div>
     <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search posts..." oninput="filterPosts()">
+      <input type="text" id="searchInput" placeholder="Vyhledat příspěvek..." oninput="filterPosts()">
     </div>
   </div>
 
@@ -251,12 +251,12 @@
 
     function renderList() {
       container.innerHTML = `
-        <h1>My Blog</h1>
+        <h1>Můj Blog</h1>
         <div class="intro" id="intro">
-          <p>Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.</p>
+          <p>Ahoj, vítejte na mém blogu! Zde najdete mé nejnovější příspěvky, myšlenky a aktuality. Kliknutím na libovolný příspěvek si jej můžete přečíst v plném znění a pomocí šipek můžete procházet mezi příspěvky.</p>
         </div>
         <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="Search posts..." oninput="filterPosts()">
+          <input type="text" id="searchInput" placeholder="Vyhledat příspěvek..." oninput="filterPosts()">
         </div>`;
       
       posts.forEach((post, index) => {
@@ -360,4 +360,5 @@
 </body>
 
 </html>
+
 
