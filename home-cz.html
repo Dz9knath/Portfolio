@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Benjamin Hejda Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fa;
+      color: #222;
+      overflow-x: hidden;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      height: 100vh;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .hero-left {
+      flex: 1;
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50vh;
+    }
+
+    .hero-right {
+      flex: 1;
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: #fff;
+    }
+    .hero-right h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-right h2 {
+      font-size: 1.4rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+    .hero-right blockquote {
+      font-size: 1.5rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: #0066cc;
+    }
+    .hero-right p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .cta-btn {
+      background: #0066cc;
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      align-self: flex-start;
+    }
+    .cta-btn:hover {
+      background: #004c99;
+    }
+
+    /* LANGUAGE SELECTOR */
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 60px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 1001;
+    }
+    .hamburger {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+  color: black;
+  background: none;
+  border: none;
+  user-select: none;
+}
+
+.hamburger.hidden {
+  display: none;
+}
+
+    /* SIDEBAR MENU */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      padding: 40px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+    .sidebar.open {
+      right: 0;
+    }
+    .sidebar .flags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .sidebar .flags img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .sidebar a {
+      display: block;
+      margin: 20px 0;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    /* CHANGELOG SECTION */
+    .version-update {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .version-update h3 {
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .version-item {
+      border-left: 4px solid #0066cc;
+      padding-left: 1rem;
+      margin-bottom: 2rem;
+    }
+    .version-item small {
+      display: block;
+      color: #888;
+      margin-bottom: 0.5rem;
+    }
+    /* Changelog arrows */
+    .changelog-nav {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #0066cc;
+      user-select: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-right {
+        padding: 2rem;
+      }
+      .hero-right h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+<section class="hero">
+  <div class="hero-left">
+  </div>
+    <div class="hero-right">
+      <h1>Benjamin Hejda</h1>
+      <h2>Student | Athlete | Explorer | Polymath in Progress</h2>
+      <blockquote>"We live the life we create for ourselves."</blockquote>
+      <p>I’m Benjamin — a Czech student with a passion for movement, learning, and real-world experience. From exchange semesters in the US and Portugal to rugby fields, I aim to become a little better every day.</p>
+      <button class="cta-btn" onclick="toggleMenu()">Explore My Portfolio</button>
+    </div>
+  </section>
+
+  <!-- SIDEBAR MENU -->
+  <nav class="sidebar" id="sidebar">
+    <div class="flags">
+        <a href="home-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
+        <a href="home.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
+        <a href="home-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
+        <a href="home-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
+      </div>
+       <a href="home-cz.html">Domů</a>
+      <a href="blog-cz.html">Blog</a>
+      <a href="growth-cz.html">Růst a vzdělávání</a>
+      <a href="experience-cz.html">Zkušenosti</a>
+      <a href="gallery-cz.html">Galerie</a>
+      <a href="fun-cz.html">Zajímavosti</a>
+      <a href="contacts-cz.html">Kontakty</a>
+  </nav>
+
+  <!-- CHANGELOG -->
+  <section class="version-update">
+    <h3>Changelog</h3>
+    <div class="version-item">
+      <small>2025-08-08 — v1.2 — #5</small>
+      Added "Growth & Learning" section with tag filtering for sports, languages, and experiences.
+    </div>
+    <div class="changelog-nav">
+      <div onclick="prevLog()">&lt;</div>
+      <div onclick="nextLog()">&gt;</div>
+    </div>
+  </section>
+
+  <footer style="text-align:center; padding:20px; color:#888;">
+    © 2025 Benjamin Hejda
+  </footer>
+
+  <script>
+    function toggleMenu() {
+  const sidebar = document.getElementById('sidebar');
+  const burger = document.querySelector('.hamburger');
+
+  sidebar.classList.toggle('open');
+
+  if (sidebar.classList.contains('open')) {
+    burger.classList.add('hidden');
+  } else {
+    burger.classList.remove('hidden');
+  }
+}
+
+    // Changelog data
+    const changelogEntries = [
+      { date: '2025-08-08', version: 'v1.2', number: '#5', text: 'Added "Growth & Learning" section with tag filtering for sports, languages, and experiences.' },
+      { date: '2025-07-11', version: 'v1.1', number: '#2', text: 'Updated portfolio layout and improved responsiveness on mobile.' },
+      { date: '2025-08-10', version: 'v1.0', number: '#1', text: 'Website almost complete, missing content and translations' }
+    ];
+    let currentLogIndex = 0;
+
+    function renderLog() {
+      const log = changelogEntries[currentLogIndex];
+      document.querySelector('.version-item').innerHTML = `
+        <small>${log.date} — ${log.version} — ${log.number}</small>
+        ${log.text}
+      `;
+    }
+    function prevLog() {
+      currentLogIndex = (currentLogIndex - 1 + changelogEntries.length) % changelogEntries.length;
+      renderLog();
+    }
+    function nextLog() {
+      currentLogIndex = (currentLogIndex + 1) % changelogEntries.length;
+      renderLog();
+    }
+    // Initially render the first changelog entry
+    renderLog();
+  </script>
+</body>
+</html>

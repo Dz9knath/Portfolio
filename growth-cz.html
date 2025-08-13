@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Růst a vzdělávání</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #333;
+    }
+    header {
+      background: url('https://i.imgur.com/mpBgo3X.jpeg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    header h1 {
+      font-size: 3rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .hamburger {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      background-color: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+      padding: 40px 20px;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+    .sidebar.open {
+      right: 0;
+    }
+    .sidebar .flags {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .sidebar .flags img {
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .sidebar a {
+      display: block;
+      margin: 20px 0;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .intro {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .quote {
+      font-style: italic;
+      text-align: center;
+      margin: 20px 0;
+      color: #666;
+    }
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .filter-bar button {
+      padding: 10px 20px;
+      border: none;
+      background: #eee;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .filter-bar button.active {
+      background: #333;
+      color: #fff;
+    }
+    .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  transition: all 0.3s ease;
+    }
+    .card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      opacity: 1;
+      transition: all 0.4s ease-in-out;
+      position: relative;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    }
+    .card.hide {
+      display: none;
+    }
+    .card h3 {
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 0.95rem;
+    }
+    .tags {
+      margin-top: 10px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .expanded-card {
+      background: white;
+      padding: 30px;
+      max-width: 600px;
+      border-radius: 12px;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+    }
+  .tags span {
+    display: inline-block;
+    margin: 3px 5px;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  .tag-Sport {
+    background-color: #b03b3b;
+  }
+  .tag-Exchange {
+    background-color: #3b7a78;
+  }
+  .tag-Internship {
+    background-color: #c96f28;
+  }
+  .tag-Language {
+    background-color: #2b4f81;
+  }
+  .tag-Self-Development {
+    background-color: #3b7737;
+  }
+  .tag-Education {
+    background-color: #6d3bb0;
+  }
+  .filter-bar button[data-tag="Sport"].active {
+    background-color: #b03b3b;
+  }
+  .filter-bar button[data-tag="Exchange"].active {
+    background-color: #3b7a78;
+  }
+  .filter-bar button[data-tag="Internship"].active {
+    background-color: #c96f28;
+  }
+  .filter-bar button[data-tag="Language"].active {
+    background-color: #2b4f81;
+  }
+  .filter-bar button[data-tag="Self-Development"].active {
+    background-color: #3b7737;
+  }
+  .filter-bar button[data-tag="Education"].active {
+    background-color: #6d3bb0;
+  }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Growth & Learning</h1>
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+    <nav class="sidebar" id="sidebar">
+     <div class="flags">
+        <a href="growth-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
+        <a href="growth.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
+        <a href="growth-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
+        <a href="growth-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
+      </div>
+       <a href="home-cz.html">Domů</a>
+      <a href="blog-cz.html">Blog</a>
+      <a href="growth-cz.html">Růst a vzdělávání</a>
+      <a href="experience-cz.html">Zkušenosti</a>
+      <a href="gallery-cz.html">Galerie</a>
+      <a href="fun-cz.html">Zajímavosti</a>
+      <a href="contacts-cz.html">Kontakty</a>
+
+    </nav>
+  </header>
+
+  <main>
+    <div class="intro">
+      <p><em>"I believe that we live the life we create for ourselves, and in hard work. I try to be every day a little better than the previous one, striving to be better than everyone else and aiming to become a polymath."</em></p>
+    </div>
+
+    <div class="quote" id="tagQuote">
+      “Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi
+    </div>
+
+<div class="filter-bar">
+  <button onclick="filterTag('All')" class="active">All</button>
+  <button onclick="filterTag('Sport')" data-tag="Sport">Sport</button>
+  <button onclick="filterTag('Exchange')" data-tag="Exchange">Exchange</button>
+  <button onclick="filterTag('Internship')" data-tag="Internship">Internship</button>
+  <button onclick="filterTag('Language')" data-tag="Language">Language</button>
+  <button onclick="filterTag('Self-Development')" data-tag="Self-Development">Self-Development</button>
+  <button onclick="filterTag('Education')" data-tag="Education">Education</button>
+</div>
+
+    <div class="cards" id="cardContainer"></div>
+  </main>
+
+  <div class="overlay" id="overlay">
+    <div class="expanded-card" id="expandedCard">
+      <span class="close-btn" onclick="closeExpanded()">&times;</span>
+      <h3 id="expandedTitle"></h3>
+      <p id="expandedDescription"></p>
+      <div class="tags" id="expandedTags"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Benjamin Hejda</p>
+  </footer>
+
+  <script>
+    const cardsData = [
+      { title: "Semester in Ohio, USA", description: "Spent half a year immersed in American culture and education, improving language skills and gaining a global perspective.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "IBDP High School — Gymnázium a SOŠ Rokycany", description: "Pursuing the rigorous International Baccalaureate Diploma Programme, focusing on biology, math, languages, and critical thinking.", tags: ["Education", "Self-Development"] },
+      { title: "Church Grammar School (Secondary Education)", description: "Completed foundational secondary education, building strong academic habits and discipline.", tags: ["Education"] },
+      { title: "Exchange Program — Portugal", description: "Engaged in a student exchange in Portugal, enhancing language abilities and cultural adaptability.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "Exchange Program — Slovakia", description: "Participated in a Slovakian exchange program, broadening horizons through immersion and social collaboration.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "German", description: "Intermediate proficiency developed through formal education and conversational practice.", tags: ["Language", "Self-Development"] },
+      { title: "Norwegian", description: "Currently learning Norwegian, embracing new challenges and broadening cultural understanding.", tags: ["Language", "Self-Development"] },
+      { title: "English", description: "Fluent in English, a key language for academic success and international communication.", tags: ["Language", "Self-Development"] },
+      { title: "Portuguese", description: "Intermediate level, strengthened by exchange experience and ongoing practice.", tags: ["Language", "Self-Development"] },
+      { title: "Military Internship", description: "Gained discipline, leadership, and teamwork skills through practical military training and fieldwork.", tags: ["Internship", "Self-Development"] },
+      { title: "Rugby", description: "Eleven years of playing rugby, including time at one of the top Czech clubs, developing teamwork, resilience, and strategic thinking.", tags: ["Sport", "Self-Development"] },
+      { title: "Running", description: "Passionate about long-distance running, completed multiple half marathons, emphasizing endurance and mental toughness.", tags: ["Sport", "Self-Development"] },
+      { title: "Obstacle Course Racing (OCR)", description: "Regularly compete in OCR events, testing physical strength, agility, and problem-solving under pressure.", tags: ["Sport", "Self-Development"] },
+      { title: "Swimming", description: "Active swimmer focusing on technique and fitness, supporting overall athletic development.", tags: ["Sport", "Self-Development"] },
+      { title: "Calisthenics", description: "Dedicated to bodyweight strength training, promoting functional fitness and discipline.", tags: ["Sport", "Self-Development"] },
+      { title: "American Football", description: "Experience in American football, enhancing teamwork, coordination, and competitive spirit.", tags: ["Sport", "Self-Development"] },
+      { title: "Wrestling", description: "Training in wrestling to build strength, strategy, and perseverance.", tags: ["Sport", "Self-Development"] },
+      { title: "Krav Maga", description: "Practiced Krav Maga for one year to develop self-defense skills, confidence, and mental resilience.", tags: ["Sport", "Self-Development"] }
+    ];
+
+    const container = document.getElementById("cardContainer");
+    const overlay = document.getElementById("overlay");
+    const expandedCard = document.getElementById("expandedCard");
+    const expandedTitle = document.getElementById("expandedTitle");
+    const expandedDescription = document.getElementById("expandedDescription");
+    const expandedTags = document.getElementById("expandedTags");
+
+    function createCards() {
+  container.innerHTML = cardsData.map((card, index) => {
+    const tagSpans = card.tags.map(tag => `<span class="tag-${tag.replace(/\s+/g, '-')}">${tag}</span>`).join(" ");
+    return `
+      <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
+        <h3>${card.title}</h3>
+        <p>${card.description}</p>
+        <div class="tags">${tagSpans}</div>
+      </div>
+    `;
+  }).join("");
+}
+
+    function expandCard(index) {
+      const card = cardsData[index];
+      expandedTitle.textContent = card.title;
+      expandedDescription.textContent = card.description;
+      expandedTags.textContent = card.tags.join(", ");
+      overlay.style.display = "flex";
+    }
+
+    function closeExpanded() {
+      overlay.style.display = "none";
+    }
+    overlay.addEventListener('click', function (e) {
+  if (e.target === overlay) {
+    closeExpanded();
+  }
+    });
+    function filterTag(tag) {
+      document.querySelectorAll('.filter-bar button').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`.filter-bar button[onclick*="'${tag}'"]`).classList.add('active');
+
+      const quoteBox = document.getElementById('tagQuote');
+
+      document.querySelectorAll('.card').forEach(card => {
+        const tags = JSON.parse(card.getAttribute('data-tags'));
+        if (tag === 'All' || tags.includes(tag)) {
+          card.classList.remove('hide');
+        } else {
+          card.classList.add('hide');
+        }
+      });
+
+      const quotes = {
+        Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
+        Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
+        Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
+        Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
+        "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
+        Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
+      };
+
+      quoteBox.textContent = tag === 'All'
+        ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
+        : quotes[tag] || "";
+    }
+
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+
+    createCards();
+  </script>
+</body>
+</html>
+
+
+
