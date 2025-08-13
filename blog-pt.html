@@ -225,9 +225,9 @@
   </nav>
 
   <div class="container" id="blogContainer">
-    <h1>My Blog</h1>
+    <h1>Meu Blog</h1>
     <div class="intro" id="intro">
-      <p>Hey, welcome to my blog! Here you'll find my latest posts, thoughts, and updates. Click on any post to read it in full and use the arrows to navigate between posts.</p>
+      <p>Olá e bem-vindo ao meu blogue! Aqui encontrará as minhas publicações mais recentes, pensamentos e atualizações. Clique em qualquer publicação para a ler na totalidade e use as setas para navegar entre publicações.</p>
     </div>
     <div class="search-bar">
       <input type="text" id="searchInput" placeholder="Search posts..." oninput="filterPosts()">
@@ -237,29 +237,13 @@
   <script>
     const posts = [
       {
-        title: "First Post",
-        content: "This is my very first blog post. I'm excited to share my thoughts and experiences with you all. Blogging is a new adventure for me, and I hope you'll find my content interesting and valuable.",
-        image: "https://via.placeholder.com/800x400",
-        tags: ["Update", "Introduction"],
-        date: "2025-08-10",
-        readTime: "1 min"
-      },
-      {
-        title: "Learning Web Development",
-        content: "Today I want to share my journey learning web development. It's been challenging but incredibly rewarding. I started with HTML and CSS, then moved to JavaScript. The more I learn, the more I realize how much there is to discover!",
-        image: "https://via.placeholder.com/800x400?text=Web+Development",
-        tags: ["Learning", "Technology"],
-        date: "2025-08-12",
-        readTime: "2 min"
-      },
-      {
-        title: "Travel Experiences",
-        content: "Traveling has been one of the most enriching experiences of my life. From meeting new people to experiencing different cultures, each journey has taught me something valuable. Here are some highlights from my recent trips.",
-        image: "https://via.placeholder.com/800x400?text=Travel",
-        tags: ["Travel", "Adventure"],
-        date: "2025-08-15",
-        readTime: "3 min"
-      }
+      title: "Bem-vindo ao Meu Blog", 
+        content: "Bem-vindo! Este blog será o meu espaço para compartilhar o que está acontecendo na minha vida, especialmente no que diz respeito ao autodesenvolvimento e ao esporte. Vou falar sobre como estou crescendo, o que estou mudando, meus objetivos, como eles evoluem e os passos que estou dando para alcançá-los. Você também pode esperar publicações sobre a escola — seja sobre minha jornada atual no ensino médio ou, possivelmente, na universidade no futuro — bem como pensamentos interessantes e coisas que percebo pelo caminho. Espero que você goste de acompanhar minha jornada e talvez encontre inspiração para a sua própria.", 
+        image: "", 
+        tags: ["Introdução", "Autodesenvolvimento", "Educação", "Vida"], 
+        date: "XXX", 
+        readTime: "2 min" 
+     },
     ];
 
     const container = document.getElementById("blogContainer");
@@ -374,4 +358,5 @@
     renderList();
   </script>
 </body>
+
 </html>
