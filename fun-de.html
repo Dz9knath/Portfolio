@@ -100,7 +100,7 @@
 </head>
 <body>
   <header>
-    <h1>Fun Facts</h1>
+    <h1>Interessante Fakten</h1>
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     <nav class="sidebar" id="sidebar">
        <div class="flags">
@@ -120,130 +120,128 @@
   </header>
 
   <main>
-    <p>Since many of my friends know me for my extensive knowledge of trivia and quirky facts, I decided to include some in my portfolio.</p>
-    <div class="buttons">
-      <button onclick="showFact('wellKnown')">Well-Known Fun Facts</button>
-      <button onclick="showFact('unknown')">Fun Facts You Probably Never Heard Before</button>
-      <button onclick="showFact('aboutMe')">Fun Facts About Me</button>
-    </div>
-    <div class="fact-box" id="factBox">
-      <p id="factText">Click one of the buttons above to see a fun fact!</p>
-      <a id="factSource" class="source-link" href="#" target="_blank" style="display:none;">🔍 Source</a>
-      <button id="nextButton" class="next-button" onclick="nextFact()" style="display:none;">Next</button>
-    </div>
-  
+	  <p>Da viele meiner Freunde mich für mein umfangreiches Wissen über Trivia und skurrile Fakten kennen, habe ich beschlossen, einige davon in mein Portfolio aufzunehmen.</p>
+	  <div class="buttons">
+		  <button onclick="showFact('wellKnown')">Bekannte Interessante Fakten</button>
+		  <button onclick="showFact('unknown')">Interessante Fakten, die Sie wahrscheinlich noch nie gehört haben</button>
+		  <button onclick="showFact('aboutMe')">Interessante Fakten über mich</button>
+	  </div>
+	  <div class="fact-box" id="factBox">
+		  <p id="factText">Klicken Sie auf eine der obigen Schaltflächen, um einen Interessant Fakt zu sehen!</p>
+		  <a id="factSource" class="source-link" href="#" target="_blank" style="display:none;">🔍 Source</a>
+		  <button id="nextButton" class="next-button" onclick="nextFact()" style="display:none;">Weiter</button>
+	  </div>
   </main>
 
   <script>
     const facts = {
       wellKnown: [
-        { text: "Wombats have square poo." },
-        { text: "Sharks have infinite teeth." },
-        { text: "Croissants aren’t French." },
-        { text: "In a vacuum, a cannonball and a feather fall at the same speed." },
-        { text: "LEGO is the largest tyre manufacturer in the world.", source: "https://www.guinnessworldrecords.com/world-records/100909-largest-tyre-manufacture-per-annum" },
-        { text: "Leeches have 32 brains." },
-        { text: "You can't hum with your nose closed." },
-        { text: "The Ottoman Empire was founded in 1299 and fell in 1922." },
-        { text: "Spiral staircases are clockwise so that defenders could fight while staying protected." },
-        { text: "\"Are you as bored as I am\" can be said backwards with the same meaning." },
-        { text: "Dancers say 5,6,7,8 because musicians took 1,2,3,4." },
-        { text: "Four times more people speak English as a second language than as a native one." },
-        { text: "US grenades in WWII were made to match the weight and shape of baseballs." },
-        { text: "The first bomb to ever hit Berlin in WWII killed an elephant in a zoo." },
-        { text: "The 100 folds in a chef's hat represent the 100 ways to cook an egg." },
-        { text: "The national animal of Scotland is the unicorn." },
-        { text: "Phone numbers are grouped into 3–4 digits because it's easier to remember that way." },
-        { text: "King Henry VIII had 6 wives." },
-        { text: "REM sleep stands for Rapid Eye Movement – your eyes move rapidly during that phase." },
-        { text: "The phrase \"goodbye\" comes from \"God be with you.\"" },
-        { text: "Napoleon was once attacked by rabbits." },
-        { text: "All British tanks designed after WWII have tea kettles." },
-        { text: "Alexander the Great named over 20 cities after himself." },
-        { text: "The last time Liechtenstein went to war, 80 soldiers left and 81 returned." },
-        { text: "Each human cell has over 2 meters of DNA." },
-        { text: "Hitler had one testicle." },
-        { text: "Charles Darwin married his cousin." },
-        { text: "Greek statues used to be colorful; the color faded over time." },
-        { text: "Sneezing can expel air at speeds up to 160 km/h (100 mph)." },
-        { text: "We are now as far from WWII as WWII was from the American Civil War." }
+		{ text: "Wombats haben würfelförmigen Kot." },
+		{ text: "Haie bekommen ihr ganzes Leben lang neue Zähne." },
+		{ text: "Croissants stammen ursprünglich nicht aus Frankreich." },
+		{ text: "Im Vakuum fallen eine Kanonenkugel und eine Feder gleich schnell." },
+		{ text: "LEGO ist der größte Reifenhersteller der Welt.", source: "https://www.guinnessworldrecords.com/world-records/100909-largest-tyre-manufacture-per-annum" },
+		{ text: "Blutegel besitzen 32 Gehirne." },
+		{ text: "Man kann nicht summen, wenn man die Nase zuhält." },
+		{ text: "Das Osmanische Reich wurde 1299 gegründet und 1922 aufgelöst." },			
+		{ text: "Spiral­treppen sind meist im Uhrzeigersinn gebaut, damit Verteidiger im Kampf geschützt bleiben." },
+		{ text: "„Are you as bored as I am“ kann rückwärts gesagt werden und hat trotzdem dieselbe Bedeutung." },
+		{ text: "Tänzer zählen 5,6,7,8, weil Musiker bereits 1,2,3,4 verwenden." },
+		{ text: "Viermal so viele Menschen sprechen Englisch als Zweitsprache wie als Muttersprache." },
+		{ text: "US-Granaten im Zweiten Weltkrieg hatten Form und Gewicht eines Baseballs." },
+		{ text: "Die erste Bombe, die Berlin im Zweiten Weltkrieg traf, tötete einen Elefanten im Zoo." },
+		{ text: "Die 100 Falten in der Mütze eines Kochs stehen für 100 Arten, Eier zuzubereiten." },
+		{ text: "Das Nationaltier Schottlands ist das Einhorn." },
+		{ text: "Telefonnummern werden in Gruppen von 3–4 Ziffern unterteilt, weil man sie so leichter merkt." },
+		{ text: "König Heinrich VIII. hatte sechs Ehefrauen." },
+		{ text: "REM-Schlaf steht für „Rapid Eye Movement“ – in dieser Phase bewegen sich die Augen schnell." },
+		{ text: "Das Wort „goodbye“ stammt von „God be with you“." },
+		{ text: "Napoleon wurde einmal von Kaninchen angegriffen." },
+		{ text: "Alle britischen Panzer nach dem Zweiten Weltkrieg sind mit Wasserkochern ausgestattet." },	
+		{ text: "Alexander der Große benannte über 20 Städte nach sich selbst." },
+		{ text: "Als Liechtenstein zuletzt Krieg führte, zogen 80 Soldaten los und 81 kehrten zurück." },
+		{ text: "Jede menschliche Zelle enthält über zwei Meter DNA." },			
+		{ text: "Hitler hatte nur einen Hoden." },
+		{ text: "Charles Darwin heiratete seine Cousine." },
+		{ text: "Griechische Statuen waren einst bunt bemalt – die Farben sind über die Jahrhunderte verblasst." },
+		{ text: "Niesen kann Luft mit bis zu 160 km/h ausstoßen." },
+		{ text: "Heute sind wir zeitlich genauso weit vom Zweiten Weltkrieg entfernt, wie der Zweite Weltkrieg vom Amerikanischen Bürgerkrieg war." }
       ],
       unknown: [
-        { text: "Buttholes have their own fingerprint." },
-        { text: "The model for Botticelli’s Birth of Venus was the cousin of Amerigo Vespucci, who gave his name to America." },
-        { text: "All British tanks designed after WWII have tea kettles." },
-        { text: "In Eswatini, witches are banned from flying above 150 m (500 feet)." },
-        { text: "John Kellogg invented cornflakes and graham crackers to prevent boys from masturbating." },
-        { text: "The chainsaw was invented for symphysiotomy — a surgical childbirth procedure." },
-        { text: "Pope Gregory IX declared war on cats." },
-        { text: "Abraham Lincoln was a licensed bartender." },
-        { text: "If you're in a relationship, the statistically most likely person to kill you sleeps next to you every night." },
-        { text: "Cleopatra lived closer to the invention of Bitcoin than the building of the first pyramids." },
-        { text: "Penguins can jump as high as 6 feet." },
-        { text: "Romans used human urine as mouthwash." },
-        { text: "Not a single person was burned at the stake during the Salem Witch Trials — they were all hanged." },
-        { text: "Ancient Egypt lasted so long that ancient Egyptians were studying ancient Egyptian history." },
-        { text: "The Spanish Flu likely started in Kansas, USA. It's called the 'Spanish' Flu because Spain, a neutral country in WWI, didn’t censor the press and news about the outbreak." },
-        { text: "Humans glow in the dark, but because of our eyesight we can’t see it." },
-        { text: "Some dolphins, whales, and seals sleep with one eye open — because only half of their brain sleeps at a time." },
-        { text: "The word 'salary' comes from 'salt', because Roman soldiers were often paid with it." },
-        { text: "Some turtles can breathe through their buttholes." },
-        { text: "English stress patterns indicate whether a word is a noun (first syllable) or a verb (second syllable). For example: récord vs. recórd." },
-        { text: "The term “Devil Dogs”, famously used by the U.S. Marine Corps, has far stranger origins than most people realize. The phrase they think they're using — Teufel Hunden — is grammatically incorrect German.The original term is Teufelshunde. \n In late medieval Polish and German folklore, Teufelshund wasn’t a compliment — it was a slur. Catholic priests allegedly used it to explain disturbing cases of dogs being raped, blaming it on the Devil himself. The term evolved into a vicious insult implying someone was the Devil’s bitch — literally, a \"dog of the Devil.\" \n It later got thrown around as a dehumanizing insult for enemies — first by Poles toward outsiders, and then by Germans during WWI. When American troops arrived, they heard the term and, encouraged by the British, misunderstood it as a compliment meaning \"hellhound.\" The Marines adopted it proudly — completely unaware that in origin, it meant  Satan’s sex-pet." },
-        { text: "In the 1989, Pepsi briefly became the 6th largest military in the world - after the Soviet Union traded them 17 submarines, a cruiser, a frigate, and a destroyer in exchange for $3 billion worth of cola" },
-        { text: "Hyphen (-), en-dash (–), and em-dash (—) all serve different purposes: compound words (well-known), ranges (january–march), and inserted thoughts (He wouldn't—couldn't—go home), respectively." },
-        { text: "Norwegians eat the second most tacos, drink the second most coffee, and consume 9% of all Pepsi Max — with just 5 million people." },
-        { text: "Oscar Wilde was 6'3\" (190cm), which in the 1870s would have been the equivalent of  6'7\"-6'9\" (200–205cm) tall. He was so ridiculously huge and awkward that one of his friends described him as looking like a \"great white caterpillar.\"" },
-        { text: "When Napoleon invaded Egypt, the Egyptians wanted to get in his good favour, so they sent along two teenage girls to him for him to use as he pleased. Napoleon was disgusted, because um, no, and he was madly in love with Josephine. So, he sent them back. And, well, the Egyptian ministers must have misunderstood.\nBecause they sent back two ten year old boys." },
-        { text: "In 1925, in his first known courtship of a woman, Montgomery, then in his late thirties, proposed to a 17-year-old girl, Betty Anderson by drawing diagrams in the sand of how he would deploy his tanks and infantry in a future war. She said no." },
-        { text: "In Biertan, Romania, divorcing couples had to share a small church room, containg only a small bed, one chair, one table, one plate, and one spoon, for 2 weeks. Supposedly, only one couple divorced in 300 years." },
-        { text: "In 1940, Princess Juliana of the Netherlands was evacuated to Ottawa, Canada. When her daughter Princess Margriet was born in 1943, Canada declared her hospital rooms extraterritorial so the baby would have only Dutch nationality. As a thank you, Princess Juliana sent 100,000 tulip bulbs to Ottawa after the war, beginning a tradition of annual tulip gifts that continues today" },
-        { text: "Clement Wragge began naming cyclone and hurricanes after politicians he didn’t like. This let him say they were ‘causing great distress’ or ‘wandering aimlessly ‘." },
-        { text: "Historically, real ninjas didn’t dress in all black — because that's actually terrible camouflage. Solid black stands out both in daylight and in the shadows. Actual ninjas wore ordinary clothes or muted tones like dark grey or navy, blending in like any other peasant, merchant, or servant. So where did the black-suited ninja stereotype come from? Japanese theatre. In traditional kabuki, stagehands (called kuroko) wore all black to signal invisibility — audiences were trained to ignore them as they moved props or scenery. At some point, a director had the brilliant idea: what if one of those “invisible” black-clad stagehands suddenly stepped forward and assassinated a character mid-performance? It was electric. The audience lost their minds. And thus, a stage trick became a pop culture archetype: the ninja as invisible assassin, dressed like a stagehand, striking from nowhere." },
-        { text: "The nickname 'Caligula' means 'little sandals', as the emperor wore miniature soldier gear as a child." },
-        { text: "Jimmy Carter once accidentally left nuclear launch codes in his dry cleaning." },
-        { text: "The words 'shit' and 'science' come from the same Indo-European root — one entered English through French, the other through German." },
-        { text: "Your nipples are older than your teeth." },
-        { text: "Reverse cowgirl is statistically the most injury-prone sex position." },
-        { text: "Japanese users have the longest Duolingo streaks; South Americans the shortest." },
-        { text: "Trees evolved before bacteria could digest cellulose, so for a long time, trees didn’t (and couldn’t) rot." },
-        { text: "Roughly every 6 days, a country celebrates independence from Britain. It is the most widely celebrated national holiday in the world" },
-        { text: "Foreskin removed in circumcision is used in cosmetics and medical grafts." },
-        { text: "Circumcised men are 60% more likely to experience alexithymia — difficulty recognizing emotions." },
-        { text: "Castle stairs were uneven on purpose — the residents memorized them, but invaders would trip." },
-        { text: "Kim Il-sung had a baseball-sized tumor on the back of his head." },
-        { text: "Self-immolation means setting yourself on fire, often as a form of political protest." },
-        { text: "You can hear a blue whale’s heartbeat from 2 miles away." },
-        { text: "Humans and galaxies share 97% of the same atoms." },
-        { text: "There’s a study analyzing how you eat Oreos and what it says about you." },
-        { text: "The average horse weighs 1000 lbs and has a 20-inch penis — that’s 50 lbs per inch. Thus, a 200 lb man only needs 4 inches to be 'hung like a horse'." },
-        { text: "After WWII, Soviet vodka reserves lasted only 22 hours." },
-        { text: "Henry VIII had four 'Grooms of the Stool' whose job was to wipe his butt. They were knighted fro their services." },
-        { text: "We don’t know who invented the fire hydrant because the patent burned down." },
-        { text: "April 11th, 1954 was the most boring day of the 20th century — nothing significant happened." },
-        { text: "The word \"witch\" comes from the Old English wicce, meaning \"wise woman,\" as witches were once considered healers and midwives in ancient communities" },
-        { text: "Rabbits can’t vomit." },
-        { text: "Every number shares a letter with its predecessor." },
-        { text: "Bluetooth is named after a Viking king, Harald Bluetooth." },
-        { text: "The Beatles tried to make a Lord of the Rings movie with themselves as the main characters." },
-        { text: "Abraham Lincoln named his youngest son 'Tad' because he was wiggly and had a big head." },
-        { text: "Philip Diehl invented the first sewing machine motor — and later the ceiling fan." },
-        { text: "Pythagoras believed that beans and humans come from the same source. To confirm, he did an experiment that consisted of him smashing a bean, and proclaiming it smells like semen." },
-        { text: "Historically, left-handedness was associated with the Devil — 'sinister' is Latin for 'left-handed'." },
-        { text: "The 'taper fade' haircut can be linguistically traced back to Shakespeare using 'taper' to describe candles in Macbeth." },
-        { text: "Coconuts didn’t originate in the Caribbean — they floated there from Oceania." },
-        { text: "You're statistically more likely to be bitten by someone in New York City than by a shark." },
-        { text: "Squids have donut-shaped brains, with their ingestion tract going through the hole in the middle, meaning they can get brain demage if they eat too much" },
-        { text: "Arctic and Antarctic mean 'with bears' and 'without bears' — based on star constellation, but coincidentally true." },
-        { text: "The Honda SMX is a car designed with sex in mind." },
-        { text: "Mangrove trees are the only trees that grow in saltwater." },
-        { text: "Ejection seats were tested on bears." },
-        { text: "On average, the human body is more dense than some black holes." },
-        { text: "While filming America Psycho, William Dafoe acted out each meeting with Bateman in one of three ways - like he knew, like he had a suspicion, and like he was oblivious. They then pierced together the shots and clips randomly to keep the audience guessing." },
-
-      ],
+       	{ text: "Der After hat seinen eigenen Fingerabdruck." }, 
+		{ text: "Das Modell für Botticellis 'Die Geburt der Venus' war die Cousine von Amerigo Vespucci, nach dem Amerika benannt wurde." },
+		{ text: "Alle britischen Panzer, die nach dem Zweiten Weltkrieg entworfen wurden, haben Teekessel." },
+		{ text: "In Eswatini ist es Hexen verboten, über 150 m zu fliegen." },
+		{ text: "John Kellogg erfand Cornflakes und Graham-Cracker, um Jungen vom Masturbieren abzuhalten." },
+		{ text: "Die Kettensäge wurde für die Symphysiotomie erfunden — ein chirurgisches Geburtsverfahren." },
+		{ text: "Papst Gregor IX. erklärte den Katzen den Krieg." },
+		{ text: "Abraham Lincoln war lizenzierter Barkeeper." },
+		{ text: "Wenn Sie in einer Beziehung sind, schläft die Person, die statistisch am wahrscheinlichsten Sie töten würde, jede Nacht neben Ihnen." },
+		{ text: "Kleopatra lebte näher an der Erfindung von Bitcoin als am Bau der ersten Pyramiden." },
+		{ text: "Pinguine können bis zu 1,8 Meter hoch springen." },
+		{ text: "Die Römer benutzten menschlichen Urin als Mundwasser." },
+		{ text: "Während der Hexenprozesse von Salem wurde niemand verbrannt — alle wurden gehängt." },
+		{ text: "Das alte Ägypten dauerte so lange, dass die alten Ägypter schon die Geschichte des alten Ägypten studierten." },
+		{ text: "Die Spanische Grippe begann wahrscheinlich in Kansas, USA. Sie heißt 'Spanische Grippe', weil Spanien, ein neutrales Land im Ersten Weltkrieg, die Presse nicht zensierte." },
+		{ text: "Menschen leuchten im Dunkeln, aber unsere Augen können es nicht sehen." },
+		{ text: "Einige Delfine, Wale und Robben schlafen mit einem offenen Auge — nur die Hälfte ihres Gehirns schläft jeweils." },
+		{ text: "Das Wort 'Gehalt' stammt von 'Salz', weil römische Soldaten oft damit bezahlt wurden." },
+		{ text: "Manche Schildkröten können durch ihren After atmen." },
+		{ text: "Englische Betonung zeigt an, ob ein Wort ein Substantiv (erste Silbe) oder ein Verb (zweite Silbe) ist. Beispiel: récord vs. recórd." },
+		{ text: "Der Begriff 'Devil Dogs', bekannt vom US Marine Corps, hat viel seltsamere Ursprünge, als die meisten wissen. Sie dachten, sie benutzen 'Teufel Hunden', das grammatisch falsch ist. Richtig ist 'Teufelshunde'. \n Im spätmittelalterlichen polnischen und deutschen Volksglauben war 'Teufelshund' kein Kompliment — es war eine Beleidigung, benutzt von katholischen Priestern, um verstörende Fälle von Hundevergewaltigung zu erklären, die sie dem Teufel zuschrieben. Später wurde es als entmenschlichende Beleidigung gegen Feinde benutzt — zuerst von Polen, dann von Deutschen im Ersten Weltkrieg. Als amerikanische Truppen davon hörten, dachten sie, es bedeute 'Höllenhund' und nahmen es stolz an — ohne zu wissen, dass es ursprünglich 'Teufels Sex-Tier' bedeutete." },
+		{ text: "1989 wurde Pepsi kurzzeitig die sechstgrößte Militärmacht der Welt — nachdem die Sowjetunion 17 U-Boote, einen Kreuzer, eine Fregatte und einen Zerstörer gegen 3 Milliarden Dollar Cola getauscht hatte." },
+		{ text: "Bindestrich (-), Gedankenstrich (–) und Geviertstrich (—) haben unterschiedliche Funktionen: zusammengesetzte Wörter (well-known), Bereiche (Januar–März) und eingeschobene Gedanken (Er würde nicht — konnte nicht — nach Hause gehen)." },
+		{ text: "Norweger essen die zweitmeisten Tacos, trinken den zweitmeisten Kaffee und konsumieren 9 % des gesamten Pepsi Max — bei nur 5 Millionen Menschen." },
+		{ text: "Oscar Wilde war 1,90 m groß, was in den 1870er Jahren etwa 2,00–2,05 m entsprach. Er war so riesig und unbeholfen, dass ein Freund ihn als 'große weiße Raupe' beschrieb." },
+		{ text: "Als Napoleon Ägypten einnahm, schickten die Ägypter zwei Teenager-Mädchen, um ihn zu erfreuen. Napoleon, verliebt in Josephine, lehnte ab und schickte sie zurück. Die Minister missverstanden wohl — sie schickten zwei zehnjährige Jungen zurück." },
+		{ text: "1925, in seiner ersten bekannten Annäherung an eine Frau, machte Montgomery, damals fast 40, Betty Anderson (17) einen Antrag, indem er Diagramme in den Sand zeichnete, wie er Panzer und Infanterie im Krieg einsetzen würde. Sie lehnte ab." },
+		{ text: "In Biertan, Rumänien, mussten sich scheidende Paare zwei Wochen ein kleines Kirchenzimmer teilen — mit nur einem Bett, einem Stuhl, einem Tisch, einem Teller und einem Löffel. Angeblich hat sich in 300 Jahren nur ein Paar scheiden lassen." },
+		{ text: "1940 wurde Prinzessin Juliana der Niederlande nach Ottawa evakuiert. Als ihre Tochter Margriet 1943 geboren wurde, erklärte Kanada das Krankenhauszimmer zu extraterritorial, sodass das Kind nur die niederländische Staatsangehörigkeit erhielt. Zum Dank schickte Juliana 100.000 Tulpenzwiebeln nach Ottawa, eine Tradition, die bis heute anhält." },
+		{ text: "Clement Wragge begann, Zyklone und Hurrikane nach Politikern zu benennen, die er nicht mochte, um sagen zu können, sie verursachten 'großes Leid' oder 'irrten ziellos umher'." },
+		{ text: "Historisch trugen echte Ninjas kein komplett schwarzes Outfit — schlechte Tarnung. Sie trugen normale Kleidung oder gedeckte Farben. Der schwarze Ninja-Stereotyp stammt aus dem Kabuki-Theater, wo Bühnenhelfer (kuroko) schwarz trugen, um 'unsichtbar' zu sein. Ein Regisseur ließ einen 'unsichtbaren' Kuroko mitten in der Aufführung einen Charakter ermorden — das Publikum war begeistert und der Mythos war geboren." },
+		{ text: "Der Spitzname 'Caligula' bedeutet 'kleine Sandalen', da der Kaiser als Kind Mini-Soldatenausrüstung trug." },
+		{ text: "Jimmy Carter vergaß einmal versehentlich die nuklearen Startcodes in der Reinigung." },
+		{ text: "Die Wörter 'shit' und 'science' stammen aus derselben indoeuropäischen Wurzel — eines kam über Französisch ins Englische, das andere über Deutsch." },
+		{ text: "Deine Brustwarzen sind älter als deine Zähne." },
+		{ text: "Reverse Cowgirl ist statistisch die sexuell riskanteste Position." },
+		{ text: "Japanische Nutzer haben die längsten Duolingo-Serien; Südamerikaner die kürzesten." },
+		{ text: "Bäume entwickelten sich, bevor Bakterien Zellulose verdauen konnten, daher verrotteten Bäume lange nicht." },
+		{ text: "Im Durchschnitt feiert alle 6 Tage ein Land seine Unabhängigkeit von Großbritannien. Es ist der weltweit am meisten gefeierte Nationalfeiertag." },
+		{ text: "Das bei der Beschneidung entfernte Vorhautgewebe wird in Kosmetik und medizinischen Transplantaten verwendet." },
+		{ text: "Beschneidete Männer haben 60 % höhere Wahrscheinlichkeit für Alexithymie — Schwierigkeiten, Emotionen zu erkennen." },
+		{ text: "Burgtreppen waren absichtlich unregelmäßig — Bewohner kannten sie, Eindringlinge stolperten." },
+		{ text: "Kim Il-sung hatte einen tumor in der Größe eines Baseballs am Hinterkopf." },
+		{ text: "Selbstverbrennung bedeutet, sich selbst in Brand zu setzen, oft als politischer Protest." },
+		{ text: "Man kann den Herzschlag eines Blauwals aus 3 km Entfernung hören." },
+		{ text: "Menschen und Galaxien teilen 97 % derselben Atome." },
+		{ text: "Es gibt eine Studie, die untersucht, wie man Oreos isst und was das über einen aussagt." },
+		{ text: "Ein durchschnittliches Pferd wiegt 450 kg und hat einen 50 cm langen Penis — also 1 kg pro cm. Ein 90-kg-Mann bräuchte nur 10 cm, um 'pferdeähnlich bestückt' zu sein." },
+		{ text: "Nach dem Zweiten Weltkrieg hielten die Wodka-Reserven der Sowjets nur 22 Stunden." },
+		{ text: "Heinrich VIII. hatte vier 'Grooms of the Stool', deren Aufgabe es war, seinen Hintern zu säubern — sie wurden für ihren Dienst geadelt." },
+		{ text: "Wir wissen nicht, wer den Hydranten erfunden hat, weil das Patent verbrannte." },
+		{ text: "Der 11. April 1954 war der langweiligste Tag des 20. Jahrhunderts — nichts Bedeutendes geschah." },
+		{ text: "Das Wort 'witch' kommt aus dem Altenglischen 'wicce', was 'weise Frau' bedeutet, da Hexen einst als Heilerinnen und Hebammen galten." },
+		{ text: "Kaninchen können nicht erbrechen." },
+		{ text: "Jede Zahl teilt einen Buchstaben mit ihrer Vorgängerzahl." },
+		{ text: "Bluetooth ist nach einem Wikingerkönig, Harald Bluetooth, benannt." },
+		{ text: "Die Beatles versuchten, einen Herr-der-Ringe-Film mit sich selbst als Hauptfiguren zu machen." },
+		{ text: "Abraham Lincoln nannte seinen jüngsten Sohn 'Tad', weil er zappelig war und einen großen Kopf hatte." },
+		{ text: "Philip Diehl erfand den ersten Motor für Nähmaschinen — und später den Deckenventilator." },
+		{ text: "Pythagoras glaubte, dass Bohnen und Menschen aus derselben Quelle stammen. Um das zu beweisen, zerdrückte er eine Bohne und erklärte, sie rieche nach Samen." },
+		{ text: "Historisch galt Linkshändigkeit als teuflisch — 'sinister' ist Latein für 'linkshändig'." },
+		{ text: "Der 'Taper Fade'-Haarschnitt lässt sich linguistisch auf Shakespeare zurückführen, der 'taper' in Macbeth für Kerzen benutzte." },
+		{ text: "Kokosnüsse stammen nicht aus der Karibik — sie schwammen von Ozeanien dorthin." },
+		{ text: "Man wird statistisch eher von jemandem in New York gebissen als von einem Hai." },
+		{ text: "Tintenfische haben ringförmige Gehirne, durch die ihr Verdauungstrakt geht — sie können also Hirnschäden bekommen, wenn sie zu viel essen." },
+		{ text: "Arktis und Antarktis bedeuten 'mit Bären' und 'ohne Bären' — basierend auf Sternbildern, zufällig aber wahr." },
+		{ text: "Der Honda SMX ist ein Auto, das mit Sex im Hinterkopf entworfen wurde." },
+		{ text: "Mangrovenbäume sind die einzigen Bäume, die in Salzwasser wachsen." },
+		{ text: "Schleudersitze wurden an Bären getestet." },
+		{ text: "Im Durchschnitt ist der menschliche Körper dichter als einige Schwarze Löcher." },
+		{ text: "Während der Dreharbeiten zu American Psycho spielte Willem Dafoe jedes Treffen mit Bateman auf drei Arten — als wüsste er es, als hätte er eine Vermutung, und als wäre er ahnungslos. Die Szenen wurden zufällig zusammengeschnitten, um das Publikum zu verwirren." },
+ 	],
       aboutMe: [
-        { text: "Temporarily unavailable – still working on this. Try another category." }
+        { text: "Vorübergehend nicht verfügbar – Ich arbeite noch daran. Versuchen Sie eine andere Kategorie." }
       ]
     };
 
@@ -292,6 +290,7 @@
   </script>
 </body>
 </html>
+
 
 
 
