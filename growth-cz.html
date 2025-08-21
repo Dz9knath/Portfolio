@@ -222,7 +222,7 @@
 </head>
 <body>
   <header>
-    <h1>Growth & Learning</h1>
+    <h1>Růst a vzdělávání</h1>
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     <nav class="sidebar" id="sidebar">
      <div class="flags">
@@ -254,7 +254,7 @@
 <div class="filter-bar">
   <button onclick="filterTag('All')" class="active">Vše</button>
   <button onclick="filterTag('Sport')" data-tag="Sport">Sport</button>
-  <button onclick="filterTag('Exchange')" data-tag="Exchange">Výměna</button>
+  <button onclick="filterTag('Exchange')" data-tag="Exchange">Výměný pobyt</button>
   <button onclick="filterTag('Internship')" data-tag="Internship">Stáž</button>
   <button onclick="filterTag('Language')" data-tag="Language">Jazyk</button>
   <button onclick="filterTag('Self-Development')" data-tag="Self-Development">Sebezdokonalování</button>
@@ -279,24 +279,33 @@
 
   <script>
     const cardsData = [
-      { title: "Semester in Ohio, USA", description: "Spent half a year immersed in American culture and education, improving language skills and gaining a global perspective.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "IBDP High School — Gymnázium a SOŠ Rokycany", description: "Pursuing the rigorous International Baccalaureate Diploma Programme, focusing on biology, math, languages, and critical thinking.", tags: ["Education", "Self-Development"] },
-      { title: "Church Grammar School (Secondary Education)", description: "Completed foundational secondary education, building strong academic habits and discipline.", tags: ["Education"] },
-      { title: "Exchange Program — Portugal", description: "Engaged in a student exchange in Portugal, enhancing language abilities and cultural adaptability.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "Exchange Program — Slovakia", description: "Participated in a Slovakian exchange program, broadening horizons through immersion and social collaboration.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "German", description: "Intermediate proficiency developed through formal education and conversational practice.", tags: ["Language", "Self-Development"] },
-      { title: "Norwegian", description: "Currently learning Norwegian, embracing new challenges and broadening cultural understanding.", tags: ["Language", "Self-Development"] },
-      { title: "English", description: "Fluent in English, a key language for academic success and international communication.", tags: ["Language", "Self-Development"] },
-      { title: "Portuguese", description: "Intermediate level, strengthened by exchange experience and ongoing practice.", tags: ["Language", "Self-Development"] },
-      { title: "Military Internship", description: "Gained discipline, leadership, and teamwork skills through practical military training and fieldwork.", tags: ["Internship", "Self-Development"] },
-      { title: "Rugby", description: "Eleven years of playing rugby, including time at one of the top Czech clubs, developing teamwork, resilience, and strategic thinking.", tags: ["Sport", "Self-Development"] },
-      { title: "Running", description: "Passionate about long-distance running, completed multiple half marathons, emphasizing endurance and mental toughness.", tags: ["Sport", "Self-Development"] },
-      { title: "Obstacle Course Racing (OCR)", description: "Regularly compete in OCR events, testing physical strength, agility, and problem-solving under pressure.", tags: ["Sport", "Self-Development"] },
-      { title: "Swimming", description: "Active swimmer focusing on technique and fitness, supporting overall athletic development.", tags: ["Sport", "Self-Development"] },
-      { title: "Calisthenics", description: "Dedicated to bodyweight strength training, promoting functional fitness and discipline.", tags: ["Sport", "Self-Development"] },
-      { title: "American Football", description: "Experience in American football, enhancing teamwork, coordination, and competitive spirit.", tags: ["Sport", "Self-Development"] },
-      { title: "Wrestling", description: "Training in wrestling to build strength, strategy, and perseverance.", tags: ["Sport", "Self-Development"] },
-      { title: "Krav Maga", description: "Practiced Krav Maga for one year to develop self-defense skills, confidence, and mental resilience.", tags: ["Sport", "Self-Development"] }
+      { title: "Semestr v Ohiu, USA", description: "Strávil půl roku ponořený do americké kultury a vzdělávání, zlepšil jazykové schopnosti a získal globální perspektivu.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "IBDP High School — Gymnázium a SOŠ Rokycany", description: "Studium náročného International Baccalaureate Diploma Programme se zaměřením na biologii, matematiku, historii a angličtinu.", tags: ["Education", "Self-Development"] },
+      { title: "Církevní Gymnázium (2. stupeň)", description: "Dokončení základního středního vzdělání, budování pevných akademických návyků a disciplíny.", tags: ["Education"] },
+      { title: "Program výměny — Portugalsko", description: "Účast na studentské výměně v Portugalsku, zlepšení jazykových schopností a kulturní adaptability.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "Program výměny — Slovensko", description: "Účast na slovenské výměně, rozšíření obzorů prostřednictvím ponoření a sociální spolupráce.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "Němčina", description: "Středně pokročilá znalost získaná formálním vzděláváním a konverzační praxí.", tags: ["Language", "Self-Development"] },
+      { title: "Norština", description: "Momentálně se učím norštinu, přijímám nové výzvy a rozšiřuji kulturní povědomí.", tags: ["Language", "Self-Development"] },
+      { title: "Angličtina", description: "Plynulá angličtina od dětství, klíčový jazyk pro akademický úspěch a mezinárodní komunikaci.", tags: ["Language", "Self-Development"] },
+      { title: "Portugalština", description: "Střední úroveň, posílena zkušenostmi z výměny a průběžnou praxí.", tags: ["Language", "Self-Development"] },
+      { title: "Stáž u armády", description: "Získání cenných dovedností a perspektiv spoluprací s armádou.", tags: ["Internship", "Self-Development"] },
+      { title: "Rugby", description: "Jedenáct let hraní ragby, včetně působení v jednom z nejlepších českých klubů, rozvoj týmové práce, odolnosti a strategického myšlení.", tags: ["Sport", "Self-Development"] },
+      { title: "Běhání", description: "Vášeň pro běh, absolvováno několik půlmaratonů, důraz na výdrž a mentální odolnost.", tags: ["Sport", "Self-Development"] },
+      { title: "Překážkový beh (OCR)", description: "Pravidelná účast na OCR závodech, testování fyzické síly, obratnosti a řešení problémů pod tlakem.", tags: ["Sport", "Self-Development"] },
+      { title: "Plavání", description: "Aktivní plavec, zaměření na techniku a kondici, podporuje celkový atletický rozvoj.", tags: ["Sport", "Self-Development"] },
+      { title: "Kalistenika", description: "Oddaný tréninku s vlastní vahou, podporující funkční kondici a disciplínu.", tags: ["Sport", "Self-Development"] },
+      { title: "Americký fotbal", description: "Zkušenosti s americkým fotbalem, zlepšení týmové spolupráce, koordinace, soutěživého ducha a kulturního povědomí o USA.", tags: ["Sport", "Self-Development"] },
+      { title: "Vrest", description: "Trénink zápasení pro rozvoj síly, strategie a vytrvalosti.", tags: ["Sport", "Self-Development"] },
+      { title: "Krav Maga", description: "Rok tréninku Krav Magy pro rozvoj sebeobranných schopností, sebevědomí a mentální odolnosti.", tags: ["Sport", "Self-Development"] },
+      { title: "Dobrovolník na IASE 2024", description: "Dobrovolnictví na konferenci International Association for Special Education, podpora globálních vzdělávacích iniciativ.", tags: ["Self-Development"] },
+      { title: "Návrat do USA na maturitní ples", description: "Návštěva USA, setkání s přáteli a účast na plese, posílení kulturních a osobních vazeb.", tags: ["Exchange", "Self-Development"] },
+      { title: "Predator Weekend", description: "Účast na Predator OCR Master víkendu, překonávání fyzických a mentálních limitů v závodech vytrvalosti, uběhnuto 30 kilometrů (18,6 mil) s více než 75 překážkami.", tags: ["Sport", "Self-Development"] },
+      { title: "Půlmaraton", description: "Dokončen půlmaraton, ukázka vytrvalosti, přípravy a odhodlání.", tags: ["Sport", "Self-Development"] },
+      { title: "Pochod Praha–Prčice", description: "Dokončena slavná túra Praha–Prčice, prokázána vytrvalost a láska k venkovním výzvám, ujeto 80 km (50 mil).", tags: ["Sport", "Self-Development"] },
+      { title: "Jaderné dny v Praze", description: "Účast na Nuclear Days, zapojení se do vědeckých prezentací a rozšíření znalostí v oblasti energie a fyziky.", tags: ["Education", "Self-Development"] },
+      { title: "Komparz v televizních minisériích", description: "Práce jako komparzista ve dvou minisériích: jako ministrant a hráč ragby.", tags: ["Self-Development"] },
+      { title: "IT a jazyková podpora během DOD", description: "Poskytování IT podpory během DOD na gymnáziu v Rokycanech, asistence přednášejícím s technikou a překlad do angličtiny pro ty co to potřebují.", tags: ["Internship", "Self-Development"] },
+      { title: "Trénink na triatlon", description: "Trénink ve plavání, cyklistice a běhu s cílem dokončit závod Ironman 70.3 v létě 2026.", tags: ["Sport", "Self-Development"] },
     ];
 
     const container = document.getElementById("cardContainer");
@@ -351,16 +360,16 @@
       });
 
       const quotes = {
-        Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
-        Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
-        Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
-        Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
-        "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
-        Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
+        Sport: "Tělesná kondice není jen jedním z nejdůležitějších klíčů ke zdravému tělu, je základem dynamické a tvořivé duševní činnosti. – John F. Kennedy",
+        Exchange: "Cestování je smrtelné pro předsudky, bigotnost a úzkoprsost. — Mark Twain",
+        Internship: "Budoucnost nemůžeme předpovědět, ale můžeme ji vynalézt. — Dennis Gabor",
+        Language: "Naučit se jazyk znamená mít další okno, kterým se díváme na svět. — Čínské přísloví",
+        "Self-Development": "Kdo zvítězí sám nad sebou, je nejmocnější válečník. — Konfucius",
+        Education: "Vzdělání není učení se faktům, ale výcvik mysli k myšlení. — Albert Einstein"
       };
 
       quoteBox.textContent = tag === 'All'
-        ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
+        ? "„Žij, jako bys měl zítra zemřít. Uč se, jako bys měl žít navždy.“ — Mahátma Gándhí"
         : quotes[tag] || "";
     }
 
@@ -372,6 +381,7 @@
   </script>
 </body>
 </html>
+
 
 
 
