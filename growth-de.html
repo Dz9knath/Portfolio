@@ -222,7 +222,7 @@
 </head>
 <body>
   <header>
-    <h1>Growth & Learning</h1>
+    <h1>Wachstum & Lernen</h1>
     <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
     <nav class="sidebar" id="sidebar">
      <div class="flags">
@@ -278,24 +278,33 @@
 
   <script>
     const cardsData = [
-      { title: "Semester in Ohio, USA", description: "Spent half a year immersed in American culture and education, improving language skills and gaining a global perspective.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "IBDP High School — Gymnázium a SOŠ Rokycany", description: "Pursuing the rigorous International Baccalaureate Diploma Programme, focusing on biology, math, languages, and critical thinking.", tags: ["Education", "Self-Development"] },
-      { title: "Church Grammar School (Secondary Education)", description: "Completed foundational secondary education, building strong academic habits and discipline.", tags: ["Education"] },
-      { title: "Exchange Program — Portugal", description: "Engaged in a student exchange in Portugal, enhancing language abilities and cultural adaptability.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "Exchange Program — Slovakia", description: "Participated in a Slovakian exchange program, broadening horizons through immersion and social collaboration.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "German", description: "Intermediate proficiency developed through formal education and conversational practice.", tags: ["Language", "Self-Development"] },
-      { title: "Norwegian", description: "Currently learning Norwegian, embracing new challenges and broadening cultural understanding.", tags: ["Language", "Self-Development"] },
-      { title: "English", description: "Fluent in English, a key language for academic success and international communication.", tags: ["Language", "Self-Development"] },
-      { title: "Portuguese", description: "Intermediate level, strengthened by exchange experience and ongoing practice.", tags: ["Language", "Self-Development"] },
-      { title: "Military Internship", description: "Gained discipline, leadership, and teamwork skills through practical military training and fieldwork.", tags: ["Internship", "Self-Development"] },
-      { title: "Rugby", description: "Eleven years of playing rugby, including time at one of the top Czech clubs, developing teamwork, resilience, and strategic thinking.", tags: ["Sport", "Self-Development"] },
-      { title: "Running", description: "Passionate about long-distance running, completed multiple half marathons, emphasizing endurance and mental toughness.", tags: ["Sport", "Self-Development"] },
-      { title: "Obstacle Course Racing (OCR)", description: "Regularly compete in OCR events, testing physical strength, agility, and problem-solving under pressure.", tags: ["Sport", "Self-Development"] },
-      { title: "Swimming", description: "Active swimmer focusing on technique and fitness, supporting overall athletic development.", tags: ["Sport", "Self-Development"] },
-      { title: "Calisthenics", description: "Dedicated to bodyweight strength training, promoting functional fitness and discipline.", tags: ["Sport", "Self-Development"] },
-      { title: "American Football", description: "Experience in American football, enhancing teamwork, coordination, and competitive spirit.", tags: ["Sport", "Self-Development"] },
-      { title: "Wrestling", description: "Training in wrestling to build strength, strategy, and perseverance.", tags: ["Sport", "Self-Development"] },
-      { title: "Krav Maga", description: "Practiced Krav Maga for one year to develop self-defense skills, confidence, and mental resilience.", tags: ["Sport", "Self-Development"] }
+      { title: "Semester in Ohio, USA", description: "Ein halbes Jahr in die amerikanische Kultur und Bildung eingetaucht, Sprachkenntnisse verbessert und eine globale Perspektive gewonnen.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "IBDP Gymnasium — Gymnázium a SOŠ Rokycany", description: "Im anspruchsvollen International Baccalaureate Diploma Programme, Schwerpunkt auf Biologie, Mathematik, Geschichte und Englisch.", tags: ["Education", "Self-Development"] },
+      { title: "Church Grammar School (Sekundarbildung)", description: "Grundlegende Sekundarbildung abgeschlossen, starke akademische Gewohnheiten und Disziplin aufgebaut.", tags: ["Education"] },
+      { title: "Austauschprogramm — Portugal", description: "Teilnahme an einem Schüleraustausch in Portugal, Sprachfähigkeiten verbessert und kulturelle Anpassungsfähigkeit gestärkt.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "Austauschprogramm — Slowakei", description: "Teilnahme an einem Austauschprogramm in der Slowakei, Horizonte durch Immersion und soziale Zusammenarbeit erweitert.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "Deutsch", description: "Mittleres Niveau durch formale Bildung und Konversationspraxis entwickelt.", tags: ["Language", "Self-Development"] },
+      { title: "Norwegisch", description: "Lernt derzeit Norwegisch, nimmt neue Herausforderungen an und erweitert das kulturelle Verständnis.", tags: ["Language", "Self-Development"] },
+      { title: "Englisch", description: "Seit der Kindheit fließend in Englisch, eine Schlüssel­sprache für akademischen Erfolg und internationale Kommunikation.", tags: ["Language", "Self-Development"] },
+      { title: "Portugiesisch", description: "Mittleres Niveau, gestärkt durch Austauscherfahrung und kontinuierliches Üben.", tags: ["Language", "Self-Development"] },
+      { title: "Militärisches Praktikum", description: "Wertvolle Fähigkeiten und Perspektiven durch Zusammenarbeit mit der Armee erworben.", tags: ["Internship", "Self-Development"] },
+      { title: "Rugby", description: "Elf Jahre Rugby gespielt, darunter bei einem der besten tschechischen Clubs, Teamarbeit, Belastbarkeit und strategisches Denken entwickelt.", tags: ["Sport", "Self-Development"] },
+      { title: "Laufen", description: "Leidenschaftlicher Läufer, mehrere Halbmarathons absolviert, mit Schwerpunkt auf Ausdauer und mentaler Stärke.", tags: ["Sport", "Self-Development"] },
+      { title: "Hindernislauf (OCR)", description: "Regelmäßige Teilnahme an OCR-Wettbewerben, Test von körperlicher Stärke, Beweglichkeit und Problemlösung unter Druck.", tags: ["Sport", "Self-Development"] },
+      { title: "Schwimmen", description: "Aktiver Schwimmer mit Fokus auf Technik und Fitness, unterstützt die allgemeine sportliche Entwicklung.", tags: ["Sport", "Self-Development"] },
+      { title: "Calisthenics", description: "Widmet sich dem Training mit dem eigenen Körpergewicht, fördert funktionale Fitness und Disziplin.", tags: ["Sport", "Self-Development"] },
+      { title: "American Football", description: "Erfahrung im American Football, förderte nicht nur Teamarbeit, Koordination und Wettkampfgeist, sondern auch das Verständnis der US-Kultur.", tags: ["Sport", "Self-Development"] },
+      { title: "Ringen", description: "Ringertraining zur Stärkung von Kraft, Strategie und Ausdauer.", tags: ["Sport", "Self-Development"] },
+      { title: "Krav Maga", description: "Ein Jahr Krav Maga praktiziert, um Selbstverteidigungsfähigkeiten, Selbstvertrauen und mentale Widerstandsfähigkeit zu entwickeln.", tags: ["Sport", "Self-Development"] },
+      { title: "Freiwilliger bei IASE 2024", description: "Freiwilligenarbeit bei der Konferenz der International Association for Special Education, Unterstützung globaler Bildungsinitiativen.", tags: ["Self-Development"] },
+      { title: "Rückkehr in die USA für den Abschlussball", description: "In die USA gereist, um Freunde wiederzutreffen und am Abschlussball teilzunehmen, kulturelle und persönliche Bindungen gestärkt.", tags: ["Exchange", "Self-Development"] },
+      { title: "Predator-Wochenende", description: "Teilnahme am Predator OCR Master Weekend, physische und mentale Grenzen beim Ausdauerrennen überschritten, insgesamt 30 km mit mehr als 75 Hindernissen gelaufen.", tags: ["Sport", "Self-Development"] },
+      { title: "Halbmarathon", description: "Einen Halbmarathon absolviert, Ausdauer, Vorbereitung und Entschlossenheit gezeigt.", tags: ["Sport", "Self-Development"] },
+      { title: "Wanderung Prag–Prčice", description: "Berühmte Wanderung Prag–Prčice absolviert, Ausdauer und Liebe zu Outdoor-Herausforderungen bewiesen, 80 km zu Fuß zurückgelegt.", tags: ["Sport", "Self-Development"] },
+      { title: "Nuclear Days in Prag", description: "Teilnahme an Nuclear Days, wissenschaftliche Präsentationen besucht und Wissen in Energie und Physik erweitert.", tags: ["Education", "Self-Development"] },
+      { title: "Schauspiel in TV-Miniserie", description: "Als Statist in zwei Miniserien mitgewirkt: als Ministrant und als Rugbyspieler.", tags: ["Self-Development"] },
+      { title: "IT- und Sprachsupport bei Tagen der offenen Tür", description: "Während der Tage der offenen Tür IT-Support geleistet, Präsentatoren technisch unterstützt und ins Englische übersetzt.", tags: ["Internship", "Self-Development"] },
+      { title: "Triathlon-Training", description: "Training in Schwimmen, Radfahren und Laufen mit dem Ziel, im Sommer 2026 einen Ironman 70.3 zu absolvieren.", tags: ["Sport", "Self-Development"] },
     ];
 
     const container = document.getElementById("cardContainer");
@@ -350,16 +359,16 @@
       });
 
       const quotes = {
-        Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
-        Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
-        Internship: "The best way to predict your future is to create it. — Abraham Lincoln",
-        Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
-        "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
-        Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
+        Sport: "Körperliche Fitness ist nicht nur einer der wichtigsten Schlüssel zu einem gesunden Körper, sie ist die Grundlage für dynamische und kreative geistige Aktivität. – John F. Kennedy",
+        Exchange: "Reisen ist tödlich für Vorurteile, Bigotterie und Engstirnigkeit. — Mark Twain",
+        Internship: "Wir können die Zukunft nicht vorhersagen, aber wir können sie erfinden. — Dennis Gabor",
+        Language: "Eine Sprache zu lernen bedeutet, ein weiteres Fenster zu haben, durch das man auf die Welt schaut. — Chinesisches Sprichwort",
+        "Self-Development": "Wer sich selbst besiegt, ist der mächtigste Krieger. — Konfuzius",
+        Education: "Bildung ist nicht das Erlernen von Fakten, sondern die Schulung des Geistes zum Denken. — Albert Einstein"
       };
 
       quoteBox.textContent = tag === 'All'
-        ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
+        ? "„Lebe, als würdest du morgen sterben. Lerne, als würdest du ewig leben.“ — Mahatma Gandhi"
         : quotes[tag] || "";
     }
 
@@ -371,6 +380,7 @@
   </script>
 </body>
 </html>
+
 
 
 
