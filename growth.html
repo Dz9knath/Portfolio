@@ -247,7 +247,7 @@
     </div>
 
     <div class="quote" id="tagQuote">
-      “Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi
+      “Live as if you were to die tomorrow. Learn as if you were to live forever.” - Mahatma Gandhi
     </div>
 
 <div class="filter-bar">
@@ -279,10 +279,10 @@
   <script>
     const cardsData = [
       { title: "Semester in Ohio, USA", description: "Spent half a year immersed in American culture and education, improving language skills and gaining a global perspective.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "IBDP High School — Gymnázium a SOŠ Rokycany", description: "Pursuing the rigorous International Baccalaureate Diploma Programme, focusing on biology, math, history, and egnlish.", tags: ["Education", "Self-Development"] },
+      { title: "IBDP High School - Gymnázium a SOŠ Rokycany", description: "Pursuing the rigorous International Baccalaureate Diploma Programme, focusing on biology, math, history, and egnlish.", tags: ["Education", "Self-Development"] },
       { title: "Church Grammar School (Secondary Education)", description: "Completed foundational secondary education, building strong academic habits and discipline.", tags: ["Education"] },
-      { title: "Exchange Program — Portugal", description: "Engaged in a student exchange in Portugal, enhancing language abilities and cultural adaptability.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "Exchange Program — Slovakia", description: "Participated in a Slovakian exchange program, broadening horizons through immersion and social collaboration.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "Exchange Program - Portugal", description: "Engaged in a student exchange in Portugal, enhancing language abilities and cultural adaptability.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "Exchange Program - Slovakia", description: "Participated in a Slovakian exchange program, broadening horizons through immersion and social collaboration.", tags: ["Exchange", "Language", "Self-Development"] },
       { title: "German", description: "Intermediate proficiency developed through formal education and conversational practice.", tags: ["Language", "Self-Development"] },
       { title: "Norwegian", description: "Currently learning Norwegian, embracing new challenges and broadening cultural understanding.", tags: ["Language", "Self-Development"] },
       { title: "English", description: "Fluent in English since childhood, a key language for academic success and international communication.", tags: ["Language", "Self-Development"] },
@@ -300,11 +300,27 @@
       { title: "Return to the US for Prom", description: "Visited the US to reconnect with friends and attend prom, strengthening cultural and personal ties.", tags: ["Exchange", "Self-Development"] },
       { title: "Predator Weekend", description: "Participated in Predator OCR master weekend, pushing physical and mental limits in endurance racing, running a total of 30 kilometrs (18.6 miles) with more than 75 obsticles.", tags: ["Sport", "Self-Development"] },
       { title: "Half Marathon", description: "Completed a half marathon, showcasing endurance, preparation, and determination.", tags: ["Sport", "Self-Development"] },
-      { title: "Prague–Prčice Hike", description: "Completed the famous Prague–Prčice hike, demonstrating persistence and love for outdoor challenges, while walking 80 km (50 miles).", tags: ["Sport", "Self-Development"] },
+      { title: "Prague-Prčice Hike", description: "Completed the famous Prague–Prčice hike, demonstrating persistence and love for outdoor challenges, while walking 80 km (50 miles).", tags: ["Sport", "Self-Development"] },
       { title: "Nuclear Days in Prague", description: "Attended Nuclear Days, engaging with scientific presentations and expanding knowledge in energy and physics.", tags: ["Education", "Self-Development"] },
       { title: "Acting in TV Miniseries", description: "Worked as a background actor in two miniseries: as an altar boy and as a rugby player.", tags: ["Self-Development"] },
       { title: "IT and language Support at Open Days", description: "Provided IT support during open days at school, assisted presenters with technical needs, and also translated to enlgish for those in need", tags: ["Internship", "Self-Development"] },
       { title: "Triathlon Training", description: "Training across swimming, cycling, and running with the goal of completing an Ironman 70.3 in summer of 2026.", tags: ["Sport", "Self-Development"] },
+      { title: "Early Cross-Cultural Communication", description: "Assisted foreign visitors with communication from a young age, developing confidence in intercultural interaction early in life.", tags: ["Language", "Self-Development"] },
+      { title: "Leadership Through Sport Environment", description: "Developed leadership habits through long-term participation in competitive team sports environments.", tags: ["Sport", "Self-Development"] },
+      { title: "Adapting to New Educational Systems", description: "Successfully transitioned between different educational systems and learning environments abroad.", tags: ["Exchange", "Education", "Self-Development"] },
+      { title: "Independent International Travel Experience", description: "Traveled internationally independently, managing logistics, adaptation, and communication in foreign environments.", tags: ["Exchange", "Self-Development"] },
+      { title: "Community Engagement Through Volunteering", description: "Regularly contributing to school and community initiatives through volunteering and event support.", tags: ["Self-Development"] },
+      { title: "Performance Under Pressure", description: "Experience performing and competing in demanding physical and social environments requiring resilience and adaptability.", tags: ["Sport", "Self-Development"] },
+      { title: "Mentorship of Younger Students", description: "Supporting younger athletes and participants through coaching, guidance, and structured activities.", tags: ["Self-Development", "Sport"] },
+      { title: "Cheerleading", description: "Recently started cheerleading, developing coordination, teamwork, and performance skills in a completely new sporting environment.", tags: ["Sport", "Self-Development"] },
+      { title: "Euroweek International Program", description: "Participated in Euroweek, collaborating with students from across Europe, improving communication skills and intercultural cooperation.", tags: ["Exchange", "Language", "Self-Development"] },
+      { title: "International Friendship - France Visit", description: "Invited to France for New Year’s celebrations by friends met during Euroweek, strengthening long-term international connections.", tags: ["Exchange", "Self-Development"] },
+      { title: "International Networking - Dutch Collaboration", description: "Maintaining ongoing international friendships formed through Euroweek, including planned future meetings and cultural exchange.", tags: ["Exchange", "Language"] },
+      { title: "Youth Rugby Coaching Leadership", description: "Leading young athletes not only in sport but also in discipline, responsibility, and teamwork development.", tags: ["Sport", "Self-Development"] },
+      { title: "Outdoor Survival Camp Organization", description: "Co-organized survival camps for young rugby players, teaching independence, cooperation, and practical outdoor skills.", tags: ["Sport", "Self-Development"] },
+      { title: "Refereeing Rugby Tournaments", description: "Acted as referee at rugby tournaments, developing decision-making, authority, and conflict management skills.", tags: ["Sport", "Self-Development"] },
+      { title: "Camp Activity Program Design", description: "Designing games and structured activities for children of various ages and group sizes.", tags: ["Internship", "Self-Development"] },
+      { title: "Portuguese Exchange Program Organization", description: "Helped organize activities for visiting Portuguese exchange students, including planning and guiding a trip to the Military Museum in Rokycany.", tags: ["Exchange", "Self-Development", "Education"] },
     ];
 
     const container = document.getElementById("cardContainer");
@@ -360,15 +376,15 @@
 
       const quotes = {
         Sport: "Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity. – John F. Kennedy",
-        Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. — Mark Twain",
-        Internship: "We cannot predict the future, but we can invent it. — Dennis Gabor",
-        Language: "To learn a language is to have one more window from which to look at the world. — Chinese proverb",
-        "Self-Development": "He who conquers himself is the mightiest warrior. — Confucius",
-        Education: "Education is not the learning of facts, but the training of the mind to think. — Albert Einstein"
+        Exchange: "Travel is fatal to prejudice, bigotry, and narrow-mindedness. - Mark Twain",
+        Internship: "We cannot predict the future, but we can invent it. - Dennis Gabor",
+        Language: "To learn a language is to have one more window from which to look at the world. - Chinese proverb",
+        "Self-Development": "He who conquers himself is the mightiest warrior. - Confucius",
+        Education: "Education is not the learning of facts, but the training of the mind to think. - Albert Einstein"
       };
 
       quoteBox.textContent = tag === 'All'
-        ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” — Mahatma Gandhi"
+        ? "“Live as if you were to die tomorrow. Learn as if you were to live forever.” - Mahatma Gandhi"
         : quotes[tag] || "";
     }
 
@@ -380,6 +396,7 @@
   </script>
 </body>
 </html>
+
 
 
 
