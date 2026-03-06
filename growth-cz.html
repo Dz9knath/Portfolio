@@ -185,10 +185,10 @@
   .tag-Sport {
     background-color: #b03b3b;
   }
-  .tag-Exchange {
-    background-color: #3b7a78;
+  .tag-Vymenny-pobyt {
+  background-color: #3b7a78;
   }
-  .tag-Stáž {
+  .tag-Staz {
     background-color: #c96f28;
   }
   .tag-Jazyk {
@@ -197,13 +197,13 @@
   .tag-Self-Development {
     background-color: #3b7737;
   }
-  .tag-Vzdělání {
+  .tag-Vzdelani {
     background-color: #6d3bb0;
   }
   .filter-bar button[data-tag="Sport"].active {
     background-color: #b03b3b;
   }
-  .filter-bar button[data-tag="Exchange"].active {
+  .filter-bar button[data-tag="Výměnný pobyt"].active {
     background-color: #3b7a78;
   }
   .filter-bar button[data-tag="Stáž"].active {
@@ -254,7 +254,7 @@
 <div class="filter-bar">
   <button onclick="filterTag('All')" class="active">Vše</button>
   <button onclick="filterTag('Sport')" data-tag="Sport">Sport</button>
-  <button onclick="filterTag('Exchange')" data-tag="Exchange">Exchange</button>
+  <button onclick="filterTag('Výměnný pobyt')" data-tag="Výměnný pobyt">Výměnný pobyt</button>
   <button onclick="filterTag('Stáž')" data-tag="Stáž">Stáž</button>
   <button onclick="filterTag('Jazyk')" data-tag="Jazyk">Jazyk</button>
   <button onclick="filterTag('Self-Development')" data-tag="Self-Development">Self-Development</button>
@@ -279,11 +279,11 @@
 
   <script>
     const cardsData = [
-      { title: "Semestr v Ohiu, USA", description: "Strávil půl roku ponořený do americké kultury a vzdělávání, zlepšil jazykové schopnosti a získal globální perspektivu.", tags: ["Exchange", "Jazyk", "Self-Development"] },
+      { title: "Semestr v Ohiu, USA", description: "Strávil půl roku ponořený do americké kultury a vzdělávání, zlepšil jazykové schopnosti a získal globální perspektivu.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
       { title: "IBDP High School - Gymnázium a SOŠ Rokycany", description: "Studium náročného International Baccalaureate Diploma Programme se zaměřením na biologii, matematiku, historii a angličtinu.", tags: ["Vzdělání", "Self-Development"] },
       { title: "Církevní Gymnázium (2. stupeň)", description: "Dokončení základního středního vzdělání, budování pevných akademických návyků a disciplíny.", tags: ["Vzdělání"] },
-      { title: "Program výměny - Portugalsko", description: "Účast na studentské výměně v Portugalsku, zlepšení jazykových schopností a kulturní adaptability.", tags: ["Exchange", "Jazyk", "Self-Development"] },
-      { title: "Program výměny - Slovensko", description: "Účast na slovenské výměně, rozšíření obzorů prostřednictvím ponoření a sociální spolupráce.", tags: ["Exchange", "Jazyk", "Self-Development"] },
+      { title: "Program výměny - Portugalsko", description: "Účast na studentské výměně v Portugalsku, zlepšení jazykových schopností a kulturní adaptability.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
+      { title: "Program výměny - Slovensko", description: "Účast na slovenské výměně, rozšíření obzorů prostřednictvím ponoření a sociální spolupráce.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
       { title: "Němčina", description: "Středně pokročilá znalost získaná formálním vzděláváním a konverzační praxí.", tags: ["Jazyk", "Self-Development"] },
       { title: "Norština", description: "Momentálně se učím norštinu, přijímám nové výzvy a rozšiřuji kulturní povědomí.", tags: ["Jazyk", "Self-Development"] },
       { title: "Angličtina", description: "Plynulá angličtina od dětství, klíčový jazyk pro akademický úspěch a mezinárodní komunikaci.", tags: ["Jazyk", "Self-Development"] },
@@ -295,10 +295,10 @@
       { title: "Plavání", description: "Aktivní plavec, zaměření na techniku a kondici, podporuje celkový atletický rozvoj.", tags: ["Sport", "Self-Development"] },
       { title: "Kalistenika", description: "Oddaný tréninku s vlastní vahou, podporující funkční kondici a disciplínu.", tags: ["Sport", "Self-Development"] },
       { title: "Americký fotbal", description: "Zkušenosti s americkým fotbalem, zlepšení týmové spolupráce, koordinace, soutěživého ducha a kulturního povědomí o USA.", tags: ["Sport", "Self-Development"] },
-      { title: "Vrest", description: "Trénink zápasení pro rozvoj síly, strategie a vytrvalosti.", tags: ["Sport", "Self-Development"] },
+      { title: "Wrestling", description: "Trénink zápasení pro rozvoj síly, strategie a vytrvalosti.", tags: ["Sport", "Self-Development"] },
       { title: "Krav Maga", description: "Rok tréninku Krav Magy pro rozvoj sebeobranných schopností, sebevědomí a mentální odolnosti.", tags: ["Sport", "Self-Development"] },
       { title: "Dobrovolník na IASE 2024", description: "Dobrovolnictví na konferenci International Association for Special Vzdělání, podpora globálních vzdělávacích iniciativ.", tags: ["Self-Development"] },
-      { title: "Návrat do USA na maturitní ples", description: "Návštěva USA, setkání s přáteli a účast na plese, posílení kulturních a osobních vazeb.", tags: ["Exchange", "Self-Development"] },
+      { title: "Návrat do USA na maturitní ples", description: "Návštěva USA, setkání s přáteli a účast na plese, posílení kulturních a osobních vazeb.", tags: ["Výměnný pobyt", "Self-Development"] },
       { title: "Predator Weekend", description: "Účast na Predator OCR Master víkendu, překonávání fyzických a mentálních limitů v závodech vytrvalosti, uběhnuto 30 kilometrů (18,6 mil) s více než 75 překážkami.", tags: ["Sport", "Self-Development"] },
       { title: "Půlmaraton", description: "Dokončen půlmaraton, ukázka vytrvalosti, přípravy a odhodlání.", tags: ["Sport", "Self-Development"] },
       { title: "Pochod Praha-Prčice", description: "Dokončena slavná túra Praha-Prčice, prokázána vytrvalost a láska k venkovním výzvám, ujeto 80 km (50 mil).", tags: ["Sport", "Self-Development"] },
@@ -306,21 +306,21 @@
       { title: "Komparz v televizních minisériích", description: "Práce jako komparzista ve dvou minisériích: jako ministrant a hráč ragby.", tags: ["Self-Development"] },
       { title: "IT a jazyková podpora během DOD", description: "Poskytování IT podpory během DOD na gymnáziu v Rokycanech, asistence přednášejícím s technikou a překlad do angličtiny pro ty co to potřebují.", tags: ["Stáž", "Self-Development"] },
       { title: "Trénink na triatlon", description: "Trénink ve plavání, cyklistice a běhu s cílem dokončit závod Ironman 70.3 v létě 2026.", tags: ["Sport", "Self-Development"] },
-      { title: "Raný rozvoj mezikulturní komunikace", description: "Od útlého věku jsem pomáhal zahraničním návštěvníkům s komunikací a rozvíjel tak sebejistotu v mezikulturníhc interakcích.", tags: ["Jazyk", "Self-Development"] },
+      { title: "Raný rozvoj mezikulturní komunikace", description: "Od útlého věku jsem pomáhal zahraničním návštěvníkům s komunikací a rozvíjel tak sebejistotu v mezikulturních interakcích.", tags: ["Jazyk", "Self-Development"] },
       { title: "Leadership prostřednictvím sportovního prostředí", description: "Rozvíjel jsem vůdčí návyky prostřednictvím dlouhodobé účasti v týmovém sportu.", tags: ["Sport", "Self-Development"] },
-      { title: "Adaptace na nové vzdělávací systémy", description: "Úspěšně jsem přešel mezi různými vzdělávacími systémy a vzdělávacími prostředími doma i v zahraničí.", tags: ["Exchange", "Vzdělání", "Self-Development"] },
+      { title: "Adaptace na nové vzdělávací systémy", description: "Úspěšně jsem přešel mezi různými vzdělávacími systémy a vzdělávacími prostředími doma i v zahraničí.", tags: ["Výměnný pobyt", "Vzdělání", "Self-Development"] },
       { title: "Samostatná mezinárodní cestovatelská zkušenost", description: "Cestoval jsem samostatně do zahraničí a zvládal logistiku, adaptaci i komunikaci v cizím prostředí.", tags: ["Self-Development"] },
       { title: "Zapojení do komunity prostřednictvím dobrovolnictví", description: "Pravidelně jsem přispíval ke školním i komunitním iniciativám prostřednictvím dobrovolnictví a podpory akcí.", tags: ["Self-Development"] },
       { title: "Výkon pod tlakem", description: "Zkušenosti s vystupováním a soutěžením v náročných fyzických i sociálních podmínkách vyžadujících odolnost a přizpůsobivost.", tags: ["Sport", "Self-Development"] },
       { title: "Mentoring mladších studentů", description: "Podpora mladších sportovců a účastníků prostřednictvím trénování, vedení a strukturovaných aktivit.", tags: ["Self-Development", "Sport"] },
       { title: "Cheerleading", description: "Nedávno jsem začal s cheerleadingem a rozvíjím koordinaci, týmovou spolupráci a prezentační dovednosti v novém sportovním prostředí.", tags: ["Sport", "Self-Development"] },
-      { title: "Mezinárodní program EuroWeek", description: "Zúčastnil jsem se programu EuroWeek, kde jsem spolupracoval s více než 180 studenty z celé Evropy prostřednictvím kulturní výměny, týmových aktivit a mezinárodní komunikace.", tags: ["Exchange", "Jazyk", "Self-Development"] },
-      { title: "Mezinárodní přátelství a kulturní výměna EuroWeek", description: "Pokračoval jsem v kontaktech z EuroWeeku prostřednictvím mezinárodního cestování, včetně novoroční návštěvy Francie s pobytem v hostitelské rodině a udržováním dlouhodobých evropských přátelství.", tags: ["Exchange", "Jazyk", "Self-Development"] },
+      { title: "Mezinárodní program EuroWeek", description: "Zúčastnil jsem se programu EuroWeek, kde jsem spolupracoval s více než 180 studenty z celé Evropy prostřednictvím kulturní výměny, týmových aktivit a mezinárodní komunikace.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
+      { title: "Mezinárodní přátelství a kulturní výměna EuroWeek", description: "Pokračoval jsem v kontaktech z EuroWeeku prostřednictvím mezinárodního cestování, včetně novoroční návštěvy Francie s pobytem v hostitelské rodině a udržováním dlouhodobých evropských přátelství.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
       { title: "Trénování mládežnického rugby", description: "Vedl jsem mladé sportovce nejen ve sportu, ale také v disciplíně, odpovědnosti a rozvoji týmové spolupráce.", tags: ["Sport", "Self-Development"] },
       { title: "Organizace outdoorového survival kempu", description: "Spoluorganizoval jsem survival kempy pro mladé ragbisty, kde jsem učil samostatnosti, spolupráci a praktickým dovednostem v přírodě.", tags: ["Sport", "Self-Development"] },
       { title: "Rozhodčí na ragbyových turnajích", description: "Působil jsem jako rozhodčí na ragbyových turnajích a rozvíjel schopnost rozhodování, autoritu a řešení konfliktů.", tags: ["Sport", "Self-Development"] },
       { title: "Tvorba programu táborových aktivit", description: "Navrhování her a strukturovaných aktivit pro děti různého věku a velikosti skupin.", tags: ["Stáž", "Self-Development"] },
-      { title: "Organizace portugalského výměnného programu", description: "Pomáhal jsem organizovat aktivity pro portugalské výměnné studenty, včetně plánování a vedení výletu do Vojenského muzea v Rokycanech.", tags: ["Exchange", "Self-Development", "Vzdělání"] },
+      { title: "Organizace portugalského výměnného programu", description: "Pomáhal jsem organizovat aktivity pro portugalské výměnné studenty, včetně plánování a vedení výletu do Vojenského muzea v Rokycanech.", tags: ["Výměnný pobyt", "Self-Development", "Vzdělání"] },
     ];
 
     const container = document.getElementById("cardContainer");
@@ -331,8 +331,11 @@
     const expandedTags = document.getElementById("expandedTags");
 
     function createCards() {
-  container.innerHTML = cardsData.map((card, index) => {
-    const tagSpans = card.tags.map(tag => `<span class="tag-${tag.replace(/\s+/g, '-')}">${tag}</span>`).join(" ");
+  container.innerHTML = cardsData.map((card, index) =>
+    {const tagSpans = card.tags.map(tag => {
+      const safeTag = tag.replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      return `<span class="tag-${safeTag}">${tag}</span>`;
+    }).join(" ");
     return `
       <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
         <h3>${card.title}</h3>
@@ -347,7 +350,10 @@
       const card = cardsData[index];
       expandedTitle.textContent = card.title;
       expandedDescription.textContent = card.description;
-      expandedTags.textContent = card.tags.join(", ");
+      expandedTags.innerHTML = card.tags.map(tag => {
+        const safeTag = tag.replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        return `<span class="tag-${safeTag}">${tag}</span>`;
+      }).join(" ");
       overlay.style.display = "flex";
     }
 
@@ -361,8 +367,11 @@
     });
     function filterTag(tag) {
       document.querySelectorAll('.filter-bar button').forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`.filter-bar button[onclick*="'${tag}'"]`).classList.add('active');
-
+      document.querySelectorAll('.filter-bar button').forEach(btn => {
+  if (btn.dataset.tag === tag || (tag === "All" && btn.textContent.trim() === "Vše")) {
+    btn.classList.add('active');
+  }
+});
       const quoteBox = document.getElementById('tagQuote');
 
       document.querySelectorAll('.card').forEach(card => {
@@ -376,7 +385,7 @@
 
       const quotes = {
         Sport: "Tělesná kondice není jen jedním z nejdůležitějších klíčů ke zdravému tělu, je základem dynamické a tvořivé duševní činnosti. - John F. Kennedy",
-        Exchange: "Cestování je smrtelné pro předsudky, bigotnost a úzkoprsost. - Mark Twain",
+        "Výměnný pobyt": "Cestování je smrtelné pro předsudky, bigotnost a úzkoprsost. - Mark Twain",
         Stáž: "Budoucnost nemůžeme předpovědět, ale můžeme ji vynalézt. - Dennis Gabor",
         Jazyk: "Naučit se jazyk znamená mít další okno, kterým se díváme na svět. - Čínské přísloví",
         "Self-Development": "Kdo zvítězí sám nad sebou, je nejmocnější válečník. - Konfucius",
@@ -396,6 +405,7 @@
   </script>
 </body>
 </html>
+
 
 
 
