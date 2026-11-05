@@ -1,364 +1,125 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt" data-lang="pt">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <title>Blog | Benjamin Hejda</title>
+  <meta name="description" content="Blog – portfólio de Benjamin Hejda, estudante, atleta e explorador checo." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8f9fa;
-      color: #222;
-      overflow-x: hidden;
-    }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-      color: black;
-      background: none;
-      border: none;
-      user-select: none;
-    }
-    .hamburger.hidden {
-      display: none;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 80px auto 40px;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      font-family: 'Montserrat', sans-serif;
-      margin-bottom: 1rem;
-    }
-    .intro {
-      margin-bottom: 30px;
-      padding: 15px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      font-size: 1.1rem;
-      line-height: 1.5;
-    }
-    .post {
-      background: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: box-shadow 0.3s ease;
-    }
-    .post:hover {
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    }
-    .post img {
-      max-width: 100%;
-      border-radius: 5px;
-      margin: 10px 0;
-    }
-    .post-title {
-      margin: 0 0 10px;
-      color: #0066cc;
-      font-size: 1.5rem;
-    }
-
-    /* Single post view */
-    .single-post {
-      background: white;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      font-size: 1.1rem;
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 40px auto;
-      position: relative;
-    }
-    .single-post img {
-      max-width: 100%;
-      border-radius: 6px;
-      margin: 20px 0;
-    }
-    .single-post h1 {
-      color: #0066cc;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
-    .nav-arrows {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 30px;
-    }
-    .arrow {
-      padding: 10px 22px;
-      background: #0066cc;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 1rem;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-    .arrow:hover {
-      background: #004c99;
-    }
-    .back-btn {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 10px 20px;
-      background: #555;
-      color: white;
-      text-decoration: none;
-      border-radius: 6px;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-    .back-btn:hover {
-      background: #333;
-    }
-    .search-bar {
-      margin: 20px 0;
-      text-align: center;
-    }
-    .search-bar input {
-      padding: 10px;
-      width: 80%;
-      max-width: 500px;
-    }
-    .post-meta {
-      color: #666;
-      font-size: 0.9rem;
-      margin-bottom: 10px;
-    }
-    .tags span {
-      background: #eee;
-      padding: 2px 6px;
-      border-radius: 3px;
-      margin-right: 5px;
-      font-size: 0.8rem;
-    }
-    .related-posts {
-      margin-top: 30px;
-      border-top: 1px solid #eee;
-      padding-top: 20px;
-    }
-    .related-post {
-      margin: 10px 0;
-      padding: 8px;
-      background: #f5f5f5;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .related-post:hover {
-      background: #e0e0e0;
-    }
+    .intro { margin-bottom: 20px; font-size: 1.05rem; }
+    .search-bar { margin-bottom: 24px; }
+    .search-bar input { width: 100%; padding: 12px 16px; border: 1px solid var(--line); border-radius: 10px; font: inherit; background: #fff; }
+    .post { margin-bottom: 16px; }
+    .post-title { color: var(--blue); font-size: 1.4rem; margin-bottom: 8px; }
+    .post-meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .post img, .single-post img { border-radius: 8px; margin: 12px 0; }
+    .single-post h1 { color: var(--blue); font-size: 2rem; margin-bottom: 12px; }
+    .single-post .content { font-size: 1.08rem; }
+    .related-posts { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 20px; }
+    .related-posts h3 { margin-bottom: 10px; }
+    .related-post { display: block; width: 100%; text-align: left; margin: 8px 0; padding: 10px 14px; background: var(--bg); border: none; border-radius: 8px; cursor: pointer; font: inherit; }
+    .related-post:hover { background: #e7ebf0; }
+    .nav-arrows { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; }
+    .back-row { margin-top: 16px; }
+    .empty { text-align: center; color: var(--muted); }
   </style>
 </head>
-<body>
-  <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
-  <nav class="sidebar" id="sidebar">
-    <div class="flags">
-        <a href="blog-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
-        <a href="blog.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
-        <a href="blog-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
-        <a href="blog-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
-      </div>
-      <a href="home-pt.html">Início</a>
-      <a href="blog-pt.html">Blog</a>
-      <a href="growth-pt.html">Crescimento & Aprendizagem</a>
-      <a href="experience-pt.html">Experiência</a>
-      <a href="gallery-pt.html">Galeria</a>
-      <a href="fun-pt.html">Curiosidades</a>
-      <a href="contacts-pt.html">Contactos</a>
+<body data-page="blog">
+  <!-- The burger menu is added automatically by assets/site.js -->
 
-  </nav>
+<header class="page-header">
+    <h1>Blog</h1>
+  </header>
 
-  <div class="container" id="blogContainer">
-    <h1>Meu Blog</h1>
-    <div class="intro" id="intro">
-      <p>Olá e bem-vindo ao meu blogue! Aqui encontrará as minhas publicações mais recentes, pensamentos e atualizações. Clique em qualquer publicação para a ler na totalidade e use as setas para navegar entre publicações.</p>
-    </div>
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Pesquisar publicações..." oninput="filterPosts()">
-    </div>
-  </div>
+  <main>
+    <div class="wrap-narrow" id="blogContainer"></div>
+  </main>
 
+  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
+
+  <script src="assets/site.js"></script>
   <script>
+    // Add new posts at the TOP of this list.
     const posts = [
       {
-      title: "Bem-vindo ao Meu Blog", 
-        content: "Bem-vindo! Este blog será o meu espaço para compartilhar o que está acontecendo na minha vida, especialmente no que diz respeito ao autodesenvolvimento e ao esporte. Vou falar sobre como estou crescendo, o que estou mudando, meus objetivos, como eles evoluem e os passos que estou dando para alcançá-los. Você também pode esperar publicações sobre a escola — seja sobre minha jornada atual no ensino médio ou, possivelmente, na universidade no futuro — bem como pensamentos interessantes e coisas que percebo pelo caminho. Espero que você goste de acompanhar minha jornada e talvez encontre inspiração para a sua própria.", 
-        image: "", 
-        tags: ["Introdução", "Autodesenvolvimento", "Educação", "Vida"], 
-        date: "XXX", 
-        readTime: "2 min" 
-     },
+        "title": "Bem-vindo ao Meu Blog",
+        "date": "13.8.2025",
+        "readTime": "2 min",
+        "image": "",
+        "tags": [
+          "Introdução",
+          "Autodesenvolvimento",
+          "Educação",
+          "Vida"
+        ],
+        "content": "Bem-vindo! Este blog será o meu espaço para partilhar o que está a acontecer na minha vida, especialmente no que diz respeito ao autodesenvolvimento e ao desporto. Vou falar sobre como estou a crescer, o que estou a mudar, os meus objetivos, como evoluem e os passos que estou a dar para os alcançar. Também pode esperar publicações sobre a escola – seja sobre o meu percurso atual no secundário ou, possivelmente, a universidade no futuro – bem como pensamentos interessantes e coisas que vou notando pelo caminho. Espero que goste de acompanhar a minha jornada e talvez encontre inspiração para a sua."
+      }
     ];
-
-    const container = document.getElementById("blogContainer");
+    const UI = {"h":"O Meu Blog","intro":"Olá e bem-vindo ao meu blog! Aqui encontrará as minhas publicações mais recentes, pensamentos e atualizações. Clique em qualquer publicação para a ler na totalidade e use as setas para navegar entre publicações.","search":"Pesquisar publicações…","related":"Publicações relacionadas","prev":"← Anterior","next":"Seguinte →","back":"Voltar ao Blog","none":"Nenhuma publicação encontrada."};
+    const esc = Site.escape;
+    const container = document.getElementById('blogContainer');
     let currentPost = null;
-
+    
+    const meta = p => '<div class="post-meta"><span>' + esc(p.date) + '</span>·<span>' + esc(p.readTime) + '</span>·' +
+      p.tags.map(t => '<span class="pill">' + esc(t) + '</span>').join('') + '</div>';
+    
     function renderList() {
-      container.innerHTML = `
-        <h1>Meu Blog</h1>
-        <div class="intro" id="intro">
-          <p>Olá e bem-vindo ao meu blogue! Aqui encontrará as minhas publicações mais recentes, pensamentos e atualizações. Clique em qualquer publicação para a ler na totalidade e use as setas para navegar entre publicações.</p>
-        </div>
-        <div class="search-bar">
-          <input type="text" id="searchInput" placeholder="Pesquisar publicações..." oninput="filterPosts()">
-        </div>`;
-      
-      posts.forEach((post, index) => {
-        const postEl = document.createElement("div");
-        postEl.className = "post";
-        postEl.onclick = () => showPost(index);
-        postEl.innerHTML = `
-          <h2 class="post-title">${post.title}</h2>
-          <div class="post-meta">
-            <span class="date">${post.date}</span> •
-            <span class="read-time">${post.readTime}</span> •
-            <span class="tags">${post.tags.map(tag => `<span>${tag}</span>`).join("")}</span>
-          </div>
-          ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
-          <p>${post.content.substring(0, 100)}...</p>
-        `;
-        container.appendChild(postEl);
-      });
       currentPost = null;
+      container.innerHTML =
+        '<h2 class="section-title" style="font-size:1.6rem;margin-bottom:12px">' + UI.h + '</h2>' +
+        '<p class="intro">' + UI.intro + '</p>' +
+        '<div class="search-bar"><input type="search" id="searchInput" placeholder="' + UI.search + '" aria-label="' + UI.search + '"></div>' +
+        '<div id="postList">' + posts.map((p, i) =>
+          '<button class="card clickable post" type="button" data-index="' + i + '">' +
+          '<h3 class="post-title">' + esc(p.title) + '</h3>' + meta(p) +
+          (p.image ? '<img src="' + p.image + '" alt="' + esc(p.title) + '">' : '') +
+          '<p>' + esc(p.content.substring(0, 140)) + '…</p></button>').join('') +
+        '</div><p class="empty" id="noPosts" hidden>' + UI.none + '</p>';
+      document.getElementById('searchInput').addEventListener('input', filterPosts);
     }
-
+    
     function showPost(index) {
       currentPost = index;
-      const post = posts[index];
-      container.innerHTML = `
-        <div class="single-post">
-          <h1>${post.title}</h1>
-          <div class="post-meta">
-            <span class="date">${post.date}</span> •
-            <span class="read-time">${post.readTime}</span> •
-            <span class="tags">${post.tags.map(tag => `<span>${tag}</span>`).join("")}</span>
-          </div>
-          ${post.image ? `<img src="${post.image}" alt="${post.title}">` : ""}
-          <p>${post.content}</p>
-          <div class="related-posts">
-            <h3>Related Posts</h3>
-            ${getRelatedPosts(index).map(related => `
-              <div class="related-post" onclick="showPost(${related.index})">
-                ${related.title}
-              </div>
-            `).join("")}
-          </div>
-          <div class="nav-arrows">
-            <button class="arrow" onclick="prevPost()" ${index === 0 ? 'disabled style="opacity:0.5;cursor:default;"' : ''}>&#8592; Previous</button>
-            <button class="arrow" onclick="nextPost()" ${index === posts.length - 1 ? 'disabled style="opacity:0.5;cursor:default;"' : ''}>Next &#8594;</button>
-          </div>
-          <button class="back-btn" onclick="renderList()">Back to Blog</button>
-        </div>
-      `;
+      const p = posts[index];
+      const related = posts.map((x, i) => ({ ...x, i }))
+        .filter(x => x.i !== index && x.tags.some(t => p.tags.includes(t))).slice(0, 3);
+      container.innerHTML =
+        '<article class="card single-post"><h1>' + esc(p.title) + '</h1>' + meta(p) +
+        (p.image ? '<img src="' + p.image + '" alt="' + esc(p.title) + '">' : '') +
+        '<div class="content"><p>' + esc(p.content) + '</p></div>' +
+        (related.length ? '<div class="related-posts"><h3>' + UI.related + '</h3>' +
+          related.map(r => '<button class="related-post" type="button" data-index="' + r.i + '">' + esc(r.title) + '</button>').join('') + '</div>' : '') +
+        '<div class="nav-arrows"><button class="btn" type="button" id="prevPost"' + (index === 0 ? ' disabled' : '') + '>' + UI.prev + '</button>' +
+        '<button class="btn" type="button" id="nextPost"' + (index === posts.length - 1 ? ' disabled' : '') + '>' + UI.next + '</button></div>' +
+        '<div class="back-row"><button class="btn ghost" type="button" id="backBtn">' + UI.back + '</button></div></article>';
+      document.getElementById('prevPost').onclick = () => index > 0 && showPost(index - 1);
+      document.getElementById('nextPost').onclick = () => index < posts.length - 1 && showPost(index + 1);
+      document.getElementById('backBtn').onclick = renderList;
+      window.scrollTo({ top: 0 });
     }
-
-    function getRelatedPosts(currentIndex) {
-      const currentPost = posts[currentIndex];
-      // Find posts with at least one matching tag (excluding current post)
-      return posts
-        .map((post, index) => ({...post, index}))
-        .filter((post, index) => index !== currentIndex && 
-               post.tags.some(tag => currentPost.tags.includes(tag)))
-        .slice(0, 3); // Return max 3 related posts
-    }
-
+    
     function filterPosts() {
-      const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-      const allPosts = document.querySelectorAll('.post');
-      
-      allPosts.forEach(post => {
-        const title = post.querySelector('.post-title').textContent.toLowerCase();
-        const content = post.querySelector('p').textContent.toLowerCase();
-        const tags = post.querySelector('.tags').textContent.toLowerCase();
-        
-        if (title.includes(searchTerm) || content.includes(searchTerm) || tags.includes(searchTerm)) {
-          post.style.display = 'block';
-        } else {
-          post.style.display = 'none';
-        }
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      let shown = 0;
+      document.querySelectorAll('#postList .post').forEach(el => {
+        const p = posts[el.dataset.index];
+        const hit = (p.title + ' ' + p.content + ' ' + p.tags.join(' ')).toLowerCase().includes(q);
+        el.hidden = !hit; if (hit) shown++;
       });
+      document.getElementById('noPosts').hidden = shown > 0;
     }
-
-    function prevPost() {
-      if (currentPost > 0) showPost(currentPost - 1);
-    }
-
-    function nextPost() {
-      if (currentPost < posts.length - 1) showPost(currentPost + 1);
-    }
-
-    function toggleMenu() {
-      const sidebar = document.getElementById('sidebar');
-      const burger = document.querySelector('.hamburger');
-      sidebar.classList.toggle('open');
-      if (sidebar.classList.contains('open')) {
-        burger.classList.add('hidden');
-      } else {
-        burger.classList.remove('hidden');
-      }
-    }
-
-    // Initialize the blog
+    
+    container.addEventListener('click', e => {
+      const el = e.target.closest('.post, .related-post');
+      if (el) showPost(Number(el.dataset.index));
+    });
+    
     renderList();
   </script>
 </body>
-
 </html>
-
-

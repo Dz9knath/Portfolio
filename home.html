@@ -1,292 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Benjamin Hejda Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <title>Benjamin Hejda – Portfolio</title>
+  <meta name="description" content="Portfolio – portfolio of Benjamin Hejda, a Czech student, athlete and explorer." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8f9fa;
-      color: #222;
-      overflow-x: hidden;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      display: flex;
-      height: 100vh;
-      flex-wrap: wrap;
-      position: relative;
-    }
-    .hero-left {
-      flex: 1;
-      position: relative;
-      background: url('https://i.imgur.com/t1spQG4.jpeg') no-repeat center center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50vh;
-    }
-
-    .hero-right {
-      flex: 1;
-      padding: 4rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: #fff;
-    }
-    .hero-right h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .hero-right h2 {
-      font-size: 1.4rem;
-      color: #555;
-      margin-bottom: 2rem;
-    }
-    .hero-right blockquote {
-      font-size: 1.5rem;
-      font-style: italic;
-      margin-bottom: 1.5rem;
-      color: #0066cc;
-    }
-    .hero-right p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-    .cta-btn {
-      background: #0066cc;
-      color: white;
-      padding: 0.8rem 1.6rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: background 0.3s;
-      align-self: flex-start;
-    }
-    .cta-btn:hover {
-      background: #004c99;
-    }
-
-    /* LANGUAGE SELECTOR */
-    .language-selector {
-      position: absolute;
-      top: 20px;
-      right: 60px;
-      cursor: pointer;
-      font-size: 1.5rem;
-      z-index: 1001;
-    }
-    .hamburger {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 2rem;
-  cursor: pointer;
-  z-index: 1001;
-  color: black;
-  background: none;
-  border: none;
-  user-select: none;
-}
-
-.hamburger.hidden {
-  display: none;
-}
-
-    /* SIDEBAR MENU */
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-
-    /* CHANGELOG SECTION */
-    .version-update {
-      max-width: 800px;
-      margin: 4rem auto;
-      padding: 2rem;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      position: relative;
-    }
-    .version-update h3 {
-      margin-bottom: 1rem;
-      font-family: 'Montserrat', sans-serif;
-    }
-    .version-item {
-      border-left: 4px solid #0066cc;
-      padding-left: 1rem;
-      margin-bottom: 2rem;
-    }
-    .version-item small {
-      display: block;
-      color: #888;
-      margin-bottom: 0.5rem;
-    }
-    /* Changelog arrows */
-    .changelog-nav {
-      position: absolute;
-      bottom: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 20px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #0066cc;
-      user-select: none;
-    }
-
-    /* RESPONSIVE */
+    .hero { display: flex; min-height: 100vh; flex-wrap: wrap; }
+    .hero-left { flex: 1 1 420px; min-height: 50vh; background: url('https://i.imgur.com/t1spQG4.jpeg') center / cover no-repeat; }
+    .hero-right { flex: 1 1 420px; padding: 4rem; display: flex; flex-direction: column; justify-content: center; background: #fff; }
+    .hero-right h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 0.75rem; }
+    .hero-right h2 { font-family: var(--font-body); font-weight: 500; font-size: 1.15rem; color: var(--muted); margin-bottom: 2rem; }
+    .hero-right blockquote { font-size: 1.4rem; font-style: italic; color: var(--blue); margin-bottom: 1.25rem; }
+    .hero-right p { margin-bottom: 2rem; max-width: 560px; }
+    .hero-right .btn { align-self: flex-start; font-size: 1.05rem; padding: 13px 26px; }
+    
+    .section-title { font-size: 1.6rem; margin-bottom: 20px; }
+    .now { border-left: 5px solid var(--blue); margin-bottom: 56px; }
+    .now .label { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; font-weight: 600; color: var(--blue); }
+    .now h2 { font-size: 1.5rem; margin: 6px 0 10px; }
+    .now .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    
+    .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 56px; }
+    .tile { display: block; text-decoration: none; color: inherit; }
+    .tile h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .tile h3 span { margin-right: 6px; }
+    .tile p { color: var(--muted); font-size: 0.95rem; }
+    
+    .changelog { text-align: left; }
+    .version-item { border-left: 4px solid var(--blue); padding-left: 16px; min-height: 80px; }
+    .version-item small { display: block; color: var(--muted); margin-bottom: 6px; }
+    .changelog-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; gap: 12px; }
+    .changelog-nav .count { color: var(--muted); font-size: 0.9rem; }
+    
     @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-      }
-      .hero-right {
-        padding: 2rem;
-      }
-      .hero-right h1 {
-        font-size: 2.2rem;
-      }
+      .hero { flex-direction: column; }
+      .hero-left { min-height: 45vh; flex: none; }
+      .hero-right { padding: 2rem 1.25rem 2.5rem; }
     }
   </style>
 </head>
-<body>
+<body data-page="home">
+  <!-- The burger menu is added automatically by assets/site.js -->
 
- <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
 <section class="hero">
-  <div class="hero-left">
-  </div>
+    <div class="hero-left" role="img" aria-label="Benjamin Hejda"></div>
     <div class="hero-right">
       <h1>Benjamin Hejda</h1>
       <h2>Student | Athlete | Explorer | Polymath in Progress</h2>
-      <blockquote>"We live the life we create for ourselves."</blockquote>
-      <p>I’m Benjamin - a Czech student with a passion for movement, learning, and real-world experience. From exchange semesters in the US and Portugal to rugby fields, I aim to become a little better every day.</p>
-      <button class="cta-btn" onclick="toggleMenu()">Explore My Portfolio</button>
+      <blockquote>“We live the life we create for ourselves.”</blockquote>
+      <p>I’m Benjamin – a Czech student with a passion for movement, learning and real-world experience. From exchange semesters in the US and Portugal to rugby pitches, I aim to get a little better every day.</p>
+      <a class="btn" href="#explore">Explore My Portfolio</a>
     </div>
   </section>
 
-  <!-- SIDEBAR MENU -->
-  <nav class="sidebar" id="sidebar">
-    <div class="flags">
-      <a href="home-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
-      <a href="home.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
-      <a href="home-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
-      <a href="home-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
-    </div>
-    <a href="home.html">Home</a>
-      <a href="blog.html">Blog</a>
-      <a href="growth.html">Growth & Learning</a>
-      <a href="experience.html">Experience</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="fun.html">Fun Facts</a>
-      <a href="contacts.html">Contacts</a>
-  </nav>
+  <main>
+    <div class="wrap">
+      <section class="card now">
+        <div class="label">Right now</div>
+        <h2>Studying at Tetr College of Business</h2>
+        <p>After graduating with the IB Diploma in summer 2026, I was accepted into Tetr College of Business – a global undergraduate business programme that takes students across several countries. I’m currently studying in New Delhi, India.</p>
+        <div class="pills"><span class="pill">📍 New Delhi, India</span><span class="pill">🎓 IB Diploma 2026</span><span class="pill">🏉 11 years of rugby</span></div>
+      </section>
 
-  <!-- CHANGELOG -->
-  <section class="version-update">
-    <h3>Changelog</h3>
-    <div class="version-item">
-      <small>2025-08-08 — v1.2 — #5</small>
-      Added "Growth & Learning" section with tag filtering for sports, languages, and experiences.
-    </div>
-    <div class="changelog-nav">
-      <div onclick="prevLog()">&lt;</div>
-      <div onclick="nextLog()">&gt;</div>
-    </div>
-  </section>
+      <section id="explore">
+        <h2 class="section-title">Explore</h2>
+        <div class="tiles">
+          <a class="card clickable tile" href="growth.html"><h3><span>🌱</span>Growth & Learning</h3><p>Sports, languages, exchanges and everything that shaped me.</p></a>
+          <a class="card clickable tile" href="experience.html"><h3><span>💼</span>Experience</h3><p>Coaching, events and the jobs I’ve done.</p></a>
+          <a class="card clickable tile" href="gallery.html"><h3><span>📸</span>Gallery</h3><p>Moments from races, exchanges and camps.</p></a>
+          <a class="card clickable tile" href="blog.html"><h3><span>✍️</span>Blog</h3><p>Thoughts on growth, sport and school.</p></a>
+          <a class="card clickable tile" href="fun.html"><h3><span>🧠</span>Fun Facts</h3><p>The trivia I can’t stop telling people.</p></a>
+          <a class="card clickable tile" href="contacts.html"><h3><span>✉️</span>Contacts</h3><p>Get in touch.</p></a>
+        </div>
+      </section>
 
-  <footer style="text-align:center; padding:20px; color:#888;">
-    © 2025 Benjamin Hejda
-  </footer>
+      <section class="card changelog">
+        <h2 class="section-title">Changelog</h2>
+        <div class="version-item" aria-live="polite">
+          <small>2026-11-05 — v2.0 — #7</small>
+          <span>Big redesign: one shared look and font on every page, a new menu that turns into a ✕ and closes properly, click-to-open Experience cards, fact-checked Fun Facts with sources (plus an NSFW button), merged Growth cards, a Tetr section and translation fixes.</span>
+        </div>
+        <div class="changelog-nav">
+          <button class="btn ghost" id="prevLog" type="button">← Newer</button>
+          <span class="count" id="logCount">1 / 7</span>
+          <button class="btn ghost" id="nextLog" type="button">Older →</button>
+        </div>
+      </section>
+    </div>
+  </main>
 
+  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
+
+  <script src="assets/site.js"></script>
   <script>
-    function toggleMenu() {
-  const sidebar = document.getElementById('sidebar');
-  const burger = document.querySelector('.hamburger');
-
-  sidebar.classList.toggle('open');
-
-  if (sidebar.classList.contains('open')) {
-    burger.classList.add('hidden');
-  } else {
-    burger.classList.remove('hidden');
-  }
-}
-
-    // Changelog data
+    // Changelog – newest first. Add new entries at the TOP of this list.
     const changelogEntries = [
-      { date: '2025-08-13', version: 'v1.2', number: '#3', text: 'Added Czech and Portuguese. German, Czech and Portuguese version now fully functional and available' },
-      { date: '2025-08-12', version: 'v1.1', number: '#2', text: 'Added German into the website, made prepparations to add Czech and Portuguese' },
-      { date: '2025-08-10', version: 'v1.0', number: '#1', text: 'Website almost complete, missing content and translations' }
+      {
+        "date": "2026-11-05",
+        "version": "v2.0",
+        "number": "#7",
+        "text": "Big redesign: one shared look and font on every page, a new menu that turns into a ✕ and closes properly, click-to-open Experience cards, fact-checked Fun Facts with sources (plus an NSFW button), merged Growth cards, a Tetr section and translation fixes."
+      },
+      {
+        "date": "2026-08-04",
+        "version": "v1.5",
+        "number": "#6",
+        "text": "Gallery filled with 10 real photos and captions, replacing the placeholder images, in all languages."
+      },
+      {
+        "date": "2026-03-06",
+        "version": "v1.4",
+        "number": "#5",
+        "text": "Growth & Learning expanded from 27 to 43 cards (EuroWeek, coaching, refereeing, cheerleading and more), refreshed header colours and updated translations."
+      },
+      {
+        "date": "2025-10-10",
+        "version": "v1.3",
+        "number": "#4",
+        "text": "New homepage hero photo."
+      },
+      {
+        "date": "2025-08-13",
+        "version": "v1.2",
+        "number": "#3",
+        "text": "Added Czech and Portuguese. German, Czech and Portuguese versions now fully functional and available."
+      },
+      {
+        "date": "2025-08-12",
+        "version": "v1.1",
+        "number": "#2",
+        "text": "Added German to the website and prepared Czech and Portuguese."
+      },
+      {
+        "date": "2025-08-10",
+        "version": "v1.0",
+        "number": "#1",
+        "text": "Website almost complete, missing content and translations."
+      }
     ];
     let currentLogIndex = 0;
-
+    const prevBtn = document.getElementById('prevLog');
+    const nextBtn = document.getElementById('nextLog');
+    
     function renderLog() {
       const log = changelogEntries[currentLogIndex];
-      document.querySelector('.version-item').innerHTML = `
-        <small>${log.date} — ${log.version} — ${log.number}</small>
-        ${log.text}
-      `;
+      const item = document.querySelector('.version-item');
+      item.querySelector('small').textContent = log.date + ' — ' + log.version + ' — ' + log.number;
+      item.querySelector('span').textContent = log.text;
+      document.getElementById('logCount').textContent = (currentLogIndex + 1) + ' / ' + changelogEntries.length;
+      prevBtn.disabled = currentLogIndex === 0;
+      nextBtn.disabled = currentLogIndex === changelogEntries.length - 1;
     }
-    function prevLog() {
-      currentLogIndex = (currentLogIndex - 1 + changelogEntries.length) % changelogEntries.length;
-      renderLog();
-    }
-    function nextLog() {
-      currentLogIndex = (currentLogIndex + 1) % changelogEntries.length;
-      renderLog();
-    }
-    // Initially render the first changelog entry
+    prevBtn.addEventListener('click', () => { if (currentLogIndex > 0) { currentLogIndex--; renderLog(); } });
+    nextBtn.addEventListener('click', () => { if (currentLogIndex < changelogEntries.length - 1) { currentLogIndex++; renderLog(); } });
     renderLog();
   </script>
 </body>
-
 </html>
-
-
-
-
-

@@ -1,232 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" data-lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galerie</title>
+  <title>Galerie | Benjamin Hejda</title>
+  <meta name="description" content="Galerie – Portfolio von Benjamin Hejda, tschechischer Student, Sportler und Entdecker." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background-color: white;
-      color: black;
-      padding: 20px;
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    header h1 {
-      font-size: 1.5rem;
-      color: black;
-    }
-    .hamburger {
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-      background: none;
-      border: none;
-      color: black;
-      user-select: none;
-    }
-    .hamburger.hidden {
-      display: none;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-
-    /* Masonry gallery */
-    main {
-      padding: 20px;
-    }
-    .gallery {
-      column-count: 1;
-      column-gap: 15px;
-    }
-    @media (min-width: 600px) {
-      .gallery { column-count: 2; }
-    }
-    @media (min-width: 900px) {
-      .gallery { column-count: 3; }
-    }
-    @media (min-width: 1200px) {
-      .gallery { column-count: 4; }
-    }
-    @media (min-width: 1500px) {
-      .gallery { column-count: 5; }
-    }
-    .gallery-item {
-      position: relative;
-      margin-bottom: 15px;
-      overflow: hidden;
-      break-inside: avoid;
-      cursor: pointer;
-    }
-    .gallery-item img {
-      width: 100%;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      opacity: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.2rem;
-      font-weight: bold;
-      transition: opacity 0.3s ease;
-    }
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-    .gallery-item:hover .overlay {
-      opacity: 1;
-    }
-    @media (hover: none) {
-      .gallery-item img.active {
-        transform: scale(1.05);
-      }
-      .gallery-item .overlay.active {
-        opacity: 1;
-      }
-    }
+    .gallery { column-count: 1; column-gap: 16px; }
+    @media (min-width: 600px) { .gallery { column-count: 2; } }
+    @media (min-width: 900px) { .gallery { column-count: 3; } }
+    @media (min-width: 1300px) { .gallery { column-count: 4; } }
+    .gallery-item { position: relative; display: block; width: 100%; margin-bottom: 16px; padding: 0; border: none; border-radius: 10px; overflow: hidden; break-inside: avoid; cursor: zoom-in; background: #ddd; }
+    .gallery-item img { width: 100%; display: block; transition: transform 0.35s ease; }
+    .gallery-item figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 14px 12px; color: #fff; font-weight: 600; text-align: left; background: linear-gradient(transparent, rgba(0, 0, 0, 0.7)); opacity: 0; transition: opacity 0.3s ease; }
+    .gallery-item:hover img, .gallery-item:focus-visible img { transform: scale(1.04); }
+    .gallery-item:hover figcaption, .gallery-item:focus-visible figcaption { opacity: 1; }
+    @media (hover: none) { .gallery-item figcaption { opacity: 1; } }
+    .gallery-wrap { max-width: 1400px; margin: 0 auto; }
   </style>
 </head>
-<body>
+<body data-page="gallery">
+  <!-- The burger menu is added automatically by assets/site.js -->
 
-  <header>
-    <h1>Gallery</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-     <div class="flags">
-        <a href="gallery-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
-        <a href="gallery.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
-        <a href="gallery-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
-        <a href="gallery-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
-      </div>
-		<a href="home-de.html">Startseite</a>
-		<a href="blog-de.html">Blog</a>
-		<a href="growth-de.html">Wachstum & Lernen</a>
-		<a href="experience-de.html">Erfahrung</a>
-     	<a href="gallery-de.html">Galerie</a>
-     	<a href="fun-de.html">Interessante Fakten</a>
- 		<a href="contacts-de.html">Kontakt</a>
-    </nav>
+<header class="page-header">
+    <h1>Galerie</h1>
+    <p class="lead">Klicke auf ein Foto, um es zu vergrößern.</p>
   </header>
 
- <main>
-    <div class="gallery">
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/k0N1tTc.jpeg" alt="Beispiel 1">
-        <div class="overlay">Mein erste Triathlon</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/gECqNYq.jpeg" alt="Beispiel 2">
-        <div class="overlay">Semester in Ohio, USA</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/phbQO4i.jpeg" alt="Beispiel 3">
-        <div class="overlay">Freiwilligenarbeit bei der IASE 2024</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/3qTckOr.jpeg" alt="Beispiel 4">
-        <div class="overlay">Austauschprogramm in Aveiro, Portugal</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/43lO1pf.jpeg" alt="Beispiel 5">
-        <div class="overlay">Mein erstes Turnier als Trainer</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/BrPiljt.jpeg" alt="Beispiel 6">
-        <div class="overlay">Abschluss der Oberstufe</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/GTKJ5c5.jpeg" alt="Beispiel 7">
-        <div class="overlay">Militärpraktikum</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/7g5iTwK.jpeg" alt="Beispiel 8">
-        <div class="overlay">Mein zweiter Halbmarathon</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/Q5zDYBd.jpeg" alt="Beispiel 9">
-        <div class="overlay">Predator OCR Master Weekend</div>
-      </div>
-      <div class="gallery-item">
-        <img src="https://i.imgur.com/jLSE58G.jpeg" alt="Beispiel 10">
-        <div class="overlay">Rugbytraining an der Académie de Rugby Yves Perrot 2025</div>
+  <main>
+    <div class="gallery-wrap">
+      <div class="gallery">
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/k0N1tTc.jpeg">
+          <img src="https://i.imgur.com/k0N1tTc.jpeg" alt="Mein erster Triathlon" loading="lazy">
+          <figcaption>Mein erster Triathlon</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/gECqNYq.jpeg">
+          <img src="https://i.imgur.com/gECqNYq.jpeg" alt="Semester in Ohio, USA" loading="lazy">
+          <figcaption>Semester in Ohio, USA</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/phbQO4i.jpeg">
+          <img src="https://i.imgur.com/phbQO4i.jpeg" alt="Freiwilligenarbeit bei der IASE 2024" loading="lazy">
+          <figcaption>Freiwilligenarbeit bei der IASE 2024</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/3qTckOr.jpeg">
+          <img src="https://i.imgur.com/3qTckOr.jpeg" alt="Austauschprogramm in Aveiro, Portugal" loading="lazy">
+          <figcaption>Austauschprogramm in Aveiro, Portugal</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/43lO1pf.jpeg">
+          <img src="https://i.imgur.com/43lO1pf.jpeg" alt="Mein erstes Turnier als Trainer" loading="lazy">
+          <figcaption>Mein erstes Turnier als Trainer</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/BrPiljt.jpeg">
+          <img src="https://i.imgur.com/BrPiljt.jpeg" alt="Schulabschluss" loading="lazy">
+          <figcaption>Schulabschluss</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/GTKJ5c5.jpeg">
+          <img src="https://i.imgur.com/GTKJ5c5.jpeg" alt="Militärpraktikum" loading="lazy">
+          <figcaption>Militärpraktikum</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/7g5iTwK.jpeg">
+          <img src="https://i.imgur.com/7g5iTwK.jpeg" alt="Mein zweiter Halbmarathon" loading="lazy">
+          <figcaption>Mein zweiter Halbmarathon</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/Q5zDYBd.jpeg">
+          <img src="https://i.imgur.com/Q5zDYBd.jpeg" alt="Predator OCR Master Weekend" loading="lazy">
+          <figcaption>Predator OCR Master Weekend</figcaption>
+        </figure>
+        <figure class="gallery-item" tabindex="0" role="button" data-src="https://i.imgur.com/jLSE58G.jpeg">
+          <img src="https://i.imgur.com/jLSE58G.jpeg" alt="Rugbytraining an der Académie de Rugby Yves Perrot, 2025" loading="lazy">
+          <figcaption>Rugbytraining an der Académie de Rugby Yves Perrot, 2025</figcaption>
+        </figure>
       </div>
     </div>
-</main>
+  </main>
 
+  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
+
+  <script src="assets/site.js"></script>
   <script>
-    function toggleMenu() {
-      const sidebar = document.getElementById('sidebar');
-      const burger = document.querySelector('.hamburger');
-      sidebar.classList.toggle('open');
-      if (sidebar.classList.contains('open')) {
-        burger.classList.add('hidden');
-      } else {
-        burger.classList.remove('hidden');
-      }
+    // To add a photo, copy a <figure> block above and change the image link and caption.
+    function openPhoto(item) {
+      const caption = item.querySelector('figcaption').textContent;
+      Site.openModal('<img class="modal-img" src="' + item.dataset.src + '" alt="' + Site.escape(caption) + '"><div class="modal-content"><h2>' + Site.escape(caption) + '</h2></div>', { wide: true });
     }
-
-    // Mobile tap overlay toggle
     document.querySelectorAll('.gallery-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const img = item.querySelector('img');
-        const overlay = item.querySelector('.overlay');
-        img.classList.toggle('active');
-        overlay.classList.toggle('active');
-      });
+      item.addEventListener('click', () => openPhoto(item));
+      item.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPhoto(item); } });
     });
   </script>
-
 </body>
-
 </html>

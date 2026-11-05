@@ -1,419 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs" data-lang="cz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Růst a vzdělávání</title>
+  <title>Růst a vzdělávání | Benjamin Hejda</title>
+  <meta name="description" content="Růst a vzdělávání – portfolio Benjamina Hejdy, českého studenta, sportovce a dobrodruha." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #333;
-    }
-    header {
-      background: url('https://i.imgur.com/mpBgo3X.jpeg') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .intro {
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-      text-align: center;
-    }
-    .quote {
-      font-style: italic;
-      text-align: center;
-      margin: 20px 0;
-      color: #666;
-    }
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-    .filter-bar button {
-      padding: 10px 20px;
-      border: none;
-      background: #eee;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .filter-bar button.active {
-      background: #333;
-      color: #fff;
-    }
-    .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  transition: all 0.3s ease;
-    }
-    .card {
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      opacity: 1;
-      transition: all 0.4s ease-in-out;
-      position: relative;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-    }
-    .card.hide {
-      display: none;
-    }
-    .card h3 {
-      margin-bottom: 10px;
-    }
-    .card p {
-      font-size: 0.95rem;
-    }
-    .tags {
-      margin-top: 10px;
-      font-size: 0.85rem;
-      color: #888;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-    .expanded-card {
-      background: white;
-      padding: 30px;
-      max-width: 600px;
-      border-radius: 12px;
-      position: relative;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #666;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #aaa;
-    }
-  .tags span {
-    display: inline-block;
-    margin: 3px 5px;
-    padding: 4px 8px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #fff;
-  }
-  .tag-Sport {
-    background-color: #b03b3b;
-  }
-  .tag-Vymenny-pobyt {
-  background-color: #3b7a78;
-  }
-  .tag-Staz {
-    background-color: #c96f28;
-  }
-  .tag-Jazyk {
-    background-color: #2b4f81;
-  }
-  .tag-Self-Development {
-    background-color: #3b7737;
-  }
-  .tag-Vzdelani {
-    background-color: #6d3bb0;
-  }
-  .filter-bar button[data-tag="Sport"].active {
-    background-color: #b03b3b;
-  }
-  .filter-bar button[data-tag="Výměnný pobyt"].active {
-    background-color: #3b7a78;
-  }
-  .filter-bar button[data-tag="Stáž"].active {
-    background-color: #c96f28;
-  }
-  .filter-bar button[data-tag="Jazyk"].active {
-    background-color: #2b4f81;
-  }
-  .filter-bar button[data-tag="Self-Development"].active {
-    background-color: #3b7737;
-  }
-  .filter-bar button[data-tag="Vzdělání"].active {
-    background-color: #6d3bb0;
-  }
-</style>
+    .intro { text-align: center; font-size: 1.15rem; max-width: 760px; margin: 0 auto 20px; }
+    .quote { text-align: center; font-style: italic; color: var(--muted); margin: 0 auto 28px; max-width: 760px; min-height: 3em; }
+    .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 32px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+    .cards .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .cards .card p { color: #3a414a; font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .cards .card[hidden] { display: none; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .tag { padding: 3px 9px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: #fff; }
+    .tag-Sport { background: #b03b3b; }
+    .filter-bar .btn.active[data-tag="Sport"] { background: #b03b3b; border-color: #b03b3b; }
+    .tag-Exchange { background: #3b7a78; }
+    .filter-bar .btn.active[data-tag="Exchange"] { background: #3b7a78; border-color: #3b7a78; }
+    .tag-Internship { background: #c96f28; }
+    .filter-bar .btn.active[data-tag="Internship"] { background: #c96f28; border-color: #c96f28; }
+    .tag-Language { background: #2b4f81; }
+    .filter-bar .btn.active[data-tag="Language"] { background: #2b4f81; border-color: #2b4f81; }
+    .tag-SelfDev { background: #3b7737; }
+    .filter-bar .btn.active[data-tag="SelfDev"] { background: #3b7737; border-color: #3b7737; }
+    .tag-Education { background: #6d3bb0; }
+    .filter-bar .btn.active[data-tag="Education"] { background: #6d3bb0; border-color: #6d3bb0; }
+  </style>
 </head>
-<body>
-  <header>
-    <h1>Růst a vzdělávání</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-     <div class="flags">
-        <a href="growth-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
-        <a href="growth.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
-        <a href="growth-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
-        <a href="growth-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
-      </div>
-       <a href="home-cz.html">Domů</a>
-      <a href="blog-cz.html">Blog</a>
-      <a href="growth-cz.html">Růst a vzdělávání</a>
-      <a href="experience-cz.html">Zkušenosti</a>
-      <a href="gallery-cz.html">Galerie</a>
-      <a href="fun-cz.html">Zajímavosti</a>
-      <a href="contacts-cz.html">Kontakty</a>
+<body data-page="growth">
+  <!-- The burger menu is added automatically by assets/site.js -->
 
-    </nav>
+<header class="page-header has-image" style="--hero: url('https://i.imgur.com/mpBgo3X.jpeg')">
+    <h1>Růst a vzdělávání</h1>
   </header>
 
   <main>
-   <div class="intro">
-  <p><em>"Věřím, že žijeme život, který si sami vytváříme, a v tvrdou práci. Snažím se být každý den o něco lepší než ten předchozí, usiluji o to být lepší než ostatní a mířím k tomu stát se všeználkem."</em></p>
-</div>
+    <div class="wrap">
+      <p class="intro"><em>„Věřím, že žijeme život, který si sami vytvoříme, a věřím v tvrdou práci. Každý den se snažím být o kousek lepší než včera a mířím k tomu stát se polyhistorem.“</em></p>
+      <p class="quote" id="tagQuote">„Žij, jako bys měl zítra zemřít. Uč se, jako bys měl žít navždy.“ – Mahátma Gándhí</p>
 
-<div class="quote" id="tagQuote">
-  „Žij, jako bys měl zítra zemřít. Uč se, jako bys měl žít navždy.“ - Mahátma Gándhí
-</div>
+      <div class="filter-bar">
+        <button class="btn ghost active" type="button" data-tag="All">Vše</button>
+        <button class="btn ghost" type="button" data-tag="Sport">Sport</button>
+        <button class="btn ghost" type="button" data-tag="Exchange">Výměnný pobyt</button>
+        <button class="btn ghost" type="button" data-tag="Internship">Stáž</button>
+        <button class="btn ghost" type="button" data-tag="Language">Jazyky</button>
+        <button class="btn ghost" type="button" data-tag="SelfDev">Seberozvoj</button>
+        <button class="btn ghost" type="button" data-tag="Education">Vzdělání</button>
+      </div>
 
-<div class="filter-bar">
-  <button onclick="filterTag('All')" class="active">Vše</button>
-  <button onclick="filterTag('Sport')" data-tag="Sport">Sport</button>
-  <button onclick="filterTag('Výměnný pobyt')" data-tag="Výměnný pobyt">Výměnný pobyt</button>
-  <button onclick="filterTag('Stáž')" data-tag="Stáž">Stáž</button>
-  <button onclick="filterTag('Jazyk')" data-tag="Jazyk">Jazyk</button>
-  <button onclick="filterTag('Self-Development')" data-tag="Self-Development">Self-Development</button>
-  <button onclick="filterTag('Vzdělání')" data-tag="Vzdělání">Vzdělání</button>
-</div>
-
-    <div class="cards" id="cardContainer"></div>
+      <div class="cards" id="cardContainer"></div>
+    </div>
   </main>
 
-  <div class="overlay" id="overlay">
-    <div class="expanded-card" id="expandedCard">
-      <span class="close-btn" onclick="closeExpanded()">&times;</span>
-      <h3 id="expandedTitle"></h3>
-      <p id="expandedDescription"></p>
-      <div class="tags" id="expandedTags"></div>
-    </div>
-  </div>
+  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
 
-  <footer>
-    <p>© 2025 Benjamin Hejda</p>
-  </footer>
-
+  <script src="assets/site.js"></script>
   <script>
+    // To add a card, copy one line below. Tag keys: Sport, Exchange, Internship, Language, SelfDev, Education
     const cardsData = [
-      { title: "Semestr v Ohiu, USA", description: "Strávil půl roku ponořený do americké kultury a vzdělávání, zlepšil jazykové schopnosti a získal globální perspektivu.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
-      { title: "IBDP High School - Gymnázium a SOŠ Rokycany", description: "Studium náročného International Baccalaureate Diploma Programme se zaměřením na biologii, matematiku, historii a angličtinu.", tags: ["Vzdělání", "Self-Development"] },
-      { title: "Církevní Gymnázium (2. stupeň)", description: "Dokončení základního středního vzdělání, budování pevných akademických návyků a disciplíny.", tags: ["Vzdělání"] },
-      { title: "Program výměny - Portugalsko", description: "Účast na studentské výměně v Portugalsku, zlepšení jazykových schopností a kulturní adaptability.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
-      { title: "Program výměny - Slovensko", description: "Účast na slovenské výměně, rozšíření obzorů prostřednictvím ponoření a sociální spolupráce.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
-      { title: "Němčina", description: "Středně pokročilá znalost získaná formálním vzděláváním a konverzační praxí.", tags: ["Jazyk", "Self-Development"] },
-      { title: "Norština", description: "Momentálně se učím norštinu, přijímám nové výzvy a rozšiřuji kulturní povědomí.", tags: ["Jazyk", "Self-Development"] },
-      { title: "Angličtina", description: "Plynulá angličtina od dětství, klíčový jazyk pro akademický úspěch a mezinárodní komunikaci.", tags: ["Jazyk", "Self-Development"] },
-      { title: "Portugalština", description: "Střední úroveň, posílena zkušenostmi z výměny a průběžnou praxí.", tags: ["Jazyk", "Self-Development"] },
-      { title: "Stáž u armády", description: "Získání cenných dovedností a perspektiv spoluprací s armádou.", tags: ["Stáž", "Self-Development"] },
-      { title: "Rugby", description: "Jedenáct let hraní ragby, včetně působení v jednom z nejlepších českých klubů, rozvoj týmové práce, odolnosti a strategického myšlení.", tags: ["Sport", "Self-Development"] },
-      { title: "Běhání", description: "Vášeň pro běh, absolvováno několik půlmaratonů, důraz na výdrž a mentální odolnost.", tags: ["Sport", "Self-Development"] },
-      { title: "Překážkový beh (OCR)", description: "Pravidelná účast na OCR závodech, testování fyzické síly, obratnosti a řešení problémů pod tlakem.", tags: ["Sport", "Self-Development"] },
-      { title: "Plavání", description: "Aktivní plavec, zaměření na techniku a kondici, podporuje celkový atletický rozvoj.", tags: ["Sport", "Self-Development"] },
-      { title: "Kalistenika", description: "Oddaný tréninku s vlastní vahou, podporující funkční kondici a disciplínu.", tags: ["Sport", "Self-Development"] },
-      { title: "Americký fotbal", description: "Zkušenosti s americkým fotbalem, zlepšení týmové spolupráce, koordinace, soutěživého ducha a kulturního povědomí o USA.", tags: ["Sport", "Self-Development"] },
-      { title: "Wrestling", description: "Trénink zápasení pro rozvoj síly, strategie a vytrvalosti.", tags: ["Sport", "Self-Development"] },
-      { title: "Krav Maga", description: "Rok tréninku Krav Magy pro rozvoj sebeobranných schopností, sebevědomí a mentální odolnosti.", tags: ["Sport", "Self-Development"] },
-      { title: "Dobrovolník na IASE 2024", description: "Dobrovolnictví na konferenci International Association for Special Vzdělání, podpora globálních vzdělávacích iniciativ.", tags: ["Self-Development"] },
-      { title: "Návrat do USA na maturitní ples", description: "Návštěva USA, setkání s přáteli a účast na plese, posílení kulturních a osobních vazeb.", tags: ["Výměnný pobyt", "Self-Development"] },
-      { title: "Predator Weekend", description: "Účast na Predator OCR Master víkendu, překonávání fyzických a mentálních limitů v závodech vytrvalosti, uběhnuto 30 kilometrů (18,6 mil) s více než 75 překážkami.", tags: ["Sport", "Self-Development"] },
-      { title: "Půlmaraton", description: "Dokončen půlmaraton, ukázka vytrvalosti, přípravy a odhodlání.", tags: ["Sport", "Self-Development"] },
-      { title: "Pochod Praha-Prčice", description: "Dokončena slavná túra Praha-Prčice, prokázána vytrvalost a láska k venkovním výzvám, ujeto 80 km (50 mil).", tags: ["Sport", "Self-Development"] },
-      { title: "Jaderné dny v Praze", description: "Účast na Nuclear Days, zapojení se do vědeckých prezentací a rozšíření znalostí v oblasti energie a fyziky.", tags: ["Vzdělání", "Self-Development"] },
-      { title: "Komparz v televizních minisériích", description: "Práce jako komparzista ve dvou minisériích: jako ministrant a hráč ragby.", tags: ["Self-Development"] },
-      { title: "IT a jazyková podpora během DOD", description: "Poskytování IT podpory během DOD na gymnáziu v Rokycanech, asistence přednášejícím s technikou a překlad do angličtiny pro ty co to potřebují.", tags: ["Stáž", "Self-Development"] },
-      { title: "Trénink na triatlon", description: "Trénink ve plavání, cyklistice a běhu s cílem dokončit závod Ironman 70.3 v létě 2026.", tags: ["Sport", "Self-Development"] },
-      { title: "Raný rozvoj mezikulturní komunikace", description: "Od útlého věku jsem pomáhal zahraničním návštěvníkům s komunikací a rozvíjel tak sebejistotu v mezikulturních interakcích.", tags: ["Jazyk", "Self-Development"] },
-      { title: "Leadership prostřednictvím sportovního prostředí", description: "Rozvíjel jsem vůdčí návyky prostřednictvím dlouhodobé účasti v týmovém sportu.", tags: ["Sport", "Self-Development"] },
-      { title: "Adaptace na nové vzdělávací systémy", description: "Úspěšně jsem přešel mezi různými vzdělávacími systémy a vzdělávacími prostředími doma i v zahraničí.", tags: ["Výměnný pobyt", "Vzdělání", "Self-Development"] },
-      { title: "Samostatná mezinárodní cestovatelská zkušenost", description: "Cestoval jsem samostatně do zahraničí a zvládal logistiku, adaptaci i komunikaci v cizím prostředí.", tags: ["Self-Development"] },
-      { title: "Zapojení do komunity prostřednictvím dobrovolnictví", description: "Pravidelně jsem přispíval ke školním i komunitním iniciativám prostřednictvím dobrovolnictví a podpory akcí.", tags: ["Self-Development"] },
-      { title: "Výkon pod tlakem", description: "Zkušenosti s vystupováním a soutěžením v náročných fyzických i sociálních podmínkách vyžadujících odolnost a přizpůsobivost.", tags: ["Sport", "Self-Development"] },
-      { title: "Mentoring mladších studentů", description: "Podpora mladších sportovců a účastníků prostřednictvím trénování, vedení a strukturovaných aktivit.", tags: ["Self-Development", "Sport"] },
-      { title: "Cheerleading", description: "Nedávno jsem začal s cheerleadingem a rozvíjím koordinaci, týmovou spolupráci a prezentační dovednosti v novém sportovním prostředí.", tags: ["Sport", "Self-Development"] },
-      { title: "Mezinárodní program EuroWeek", description: "Zúčastnil jsem se programu EuroWeek, kde jsem spolupracoval s více než 180 studenty z celé Evropy prostřednictvím kulturní výměny, týmových aktivit a mezinárodní komunikace.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
-      { title: "Mezinárodní přátelství a kulturní výměna EuroWeek", description: "Pokračoval jsem v kontaktech z EuroWeeku prostřednictvím mezinárodního cestování, včetně novoroční návštěvy Francie s pobytem v hostitelské rodině a udržováním dlouhodobých evropských přátelství.", tags: ["Výměnný pobyt", "Jazyk", "Self-Development"] },
-      { title: "Trénování mládežnického rugby", description: "Vedl jsem mladé sportovce nejen ve sportu, ale také v disciplíně, odpovědnosti a rozvoji týmové spolupráce.", tags: ["Sport", "Self-Development"] },
-      { title: "Organizace outdoorového survival kempu", description: "Spoluorganizoval jsem survival kempy pro mladé ragbisty, kde jsem učil samostatnosti, spolupráci a praktickým dovednostem v přírodě.", tags: ["Sport", "Self-Development"] },
-      { title: "Rozhodčí na ragbyových turnajích", description: "Působil jsem jako rozhodčí na ragbyových turnajích a rozvíjel schopnost rozhodování, autoritu a řešení konfliktů.", tags: ["Sport", "Self-Development"] },
-      { title: "Tvorba programu táborových aktivit", description: "Navrhování her a strukturovaných aktivit pro děti různého věku a velikosti skupin.", tags: ["Stáž", "Self-Development"] },
-      { title: "Organizace portugalského výměnného programu", description: "Pomáhal jsem organizovat aktivity pro portugalské výměnné studenty, včetně plánování a vedení výletu do Vojenského muzea v Rokycanech.", tags: ["Výměnný pobyt", "Self-Development", "Vzdělání"] },
+      {"title":"Tetr College of Business","description":"Přijetí na Tetr College of Business – mezinárodní vysokoškolský program business studií, během kterého studenti studují v několika zemích. Momentálně studuji v Novém Dillí v Indii.","tags":["Education","Exchange","SelfDev"]},
+      {"title":"IB Diploma – Gymnázium a SOŠ Rokycany","description":"V létě 2026 jsem úspěšně dokončil program International Baccalaureate Diploma se zaměřením na biologii, matematiku, dějepis a angličtinu.","tags":["Education","SelfDev"]},
+      {"title":"Semestr v Ohiu, USA","description":"Půl roku jsem strávil na americké střední škole, ponořený do americké kultury a úplně jiného školního systému. Později jsem se vrátil za přáteli a na ples (prom).","tags":["Exchange","Language","SelfDev"]},
+      {"title":"Výměna s Portugalskem – Aveiro a Rokycany","description":"Zúčastnil jsem se studentské výměny v portugalském Aveiru a poté pomáhal s programem pro portugalské studenty v Rokycanech, včetně naplánování a vedení výletu do Vojenského muzea.","tags":["Exchange","Language","SelfDev"]},
+      {"title":"EuroWeek","description":"Spolupracoval jsem s více než 180 studenty z celé Evropy na kulturní výměně a týmových aktivitách. Přátelství vydržela – později jsem strávil Silvestr ve Francii u francouzské hostitelské rodiny.","tags":["Exchange","Language","SelfDev"]},
+      {"title":"Ragby","description":"Jedenáct let ragby, včetně působení v jednom z nejlepších českých klubů – týmová spolupráce, odolnost, strategické myšlení a vůdčí návyky.","tags":["Sport","SelfDev"]},
+      {"title":"Trénování mládeže v ragby","description":"Od roku 2022 dobrovolně trénuji mladé hráče – vedu je nejen v ragby, ale i k disciplíně, zodpovědnosti a týmové spolupráci.","tags":["Sport","SelfDev"]},
+      {"title":"Rozhodčí na ragbyových turnajích","description":"Pískal jsem ragbyové turnaje a rozvíjel tak rychlé rozhodování, autoritu a zvládání konfliktů.","tags":["Sport","SelfDev"]},
+      {"title":"Survival tábory a táborové programy","description":"Spoluorganizoval jsem survival tábory pro mladé ragbisty a vymýšlel hry a aktivity pro děti různého věku a různě velké skupiny – učili jsme samostatnost, spolupráci a praktické dovednosti v přírodě.","tags":["Internship","Sport","SelfDev"]},
+      {"title":"Triatlon","description":"Dokončil jsem svůj první triatlon a teď trénuji plavání, kolo a běh s cílem zvládnout Ironman 70.3.","tags":["Sport","SelfDev"]},
+      {"title":"Překážkové závody (OCR)","description":"Pravidelně závodím v OCR. Vrchol: Predator OCR Master Weekend – 30 km a více než 75 překážek.","tags":["Sport","SelfDev"]},
+      {"title":"Běh a půlmaratony","description":"Běh je pro mě restart – mám za sebou několik půlmaratonů, které mě naučily vytrvalosti a psychické odolnosti.","tags":["Sport","SelfDev"]},
+      {"title":"Jazyky","description":"Čeština (rodilý mluvčí), angličtina (plynně od dětství), němčina a portugalština (středně pokročilý), momentálně se učím norsky. Už od malička jsem pomáhal zahraničním návštěvníkům s komunikací, díky čemuž se cítím jistě v mezikulturním prostředí.","tags":["Language","SelfDev"]},
+      {"title":"Stáž v armádě","description":"Cenné dovednosti a nový pohled na věc díky stáži u armády.","tags":["Internship","SelfDev"]},
+      {"title":"Výměnný pobyt – Slovensko","description":"Účast na výměnném pobytu na Slovensku, kde jsem si rozšířil obzory díky spolupráci s místními studenty.","tags":["Exchange","Language","SelfDev"]},
+      {"title":"Samostatné cestování do zahraničí","description":"Cestoval jsem do zahraničí sám – zvládal jsem logistiku, rychle se přizpůsoboval a domlouval se v neznámém prostředí.","tags":["SelfDev"]},
+      {"title":"IT a jazyková podpora na dnech otevřených dveří","description":"Na dnech otevřených dveří gymnázia v Rokycanech jsem zajišťoval IT podporu, pomáhal přednášejícím s technikou a tlumočil do angličtiny pro ty, kdo to potřebovali.","tags":["Internship","Language","SelfDev"]},
+      {"title":"Dobrovolnictví a IASE 2024","description":"Dobrovolník na konferenci International Association of Special Education (IASE) 2024; pravidelně také pomáhám na školních a komunitních akcích.","tags":["SelfDev","Education"]},
+      {"title":"Jaderné dny v Praze","description":"Účast na Jaderných dnech (Nuclear Days) – vědecké přednášky, které prohloubily můj zájem o energetiku a fyziku.","tags":["Education"]},
+      {"title":"Pochod Praha–Prčice","description":"Ušel jsem slavnou 80km trasu Praha–Prčice – zkouška vytrvalosti a lásky k výzvám v přírodě.","tags":["Sport","SelfDev"]},
+      {"title":"Americký fotbal","description":"Hrál jsem americký fotbal – týmová spolupráce, koordinace, soutěživost a skutečný vhled do americké kultury.","tags":["Sport","Exchange","SelfDev"]},
+      {"title":"Cheerleading","description":"Nedávno jsem začal s cheerleadingem – koordinace, týmová spolupráce a vystupování v úplně novém sportu.","tags":["Sport","SelfDev"]},
+      {"title":"Kalistenika","description":"Silový trénink s vlastní vahou pro funkční kondici a disciplínu.","tags":["Sport","SelfDev"]},
+      {"title":"Zápas","description":"Trénink zápasu pro sílu, strategii a vytrvalost.","tags":["Sport","SelfDev"]},
+      {"title":"Krav Maga","description":"Rok Krav Magy pro sebeobranu, sebevědomí a psychickou odolnost.","tags":["Sport","SelfDev"]},
+      {"title":"Komparz v televizních minisériích","description":"Hrál jsem komparz ve dvou minisériích – jednou jako ministrant, jednou jako ragbista.","tags":["SelfDev"]},
+      {"title":"Církevní gymnázium","description":"Absolvování nižšího stupně gymnázia, kde jsem si vybudoval pevné studijní návyky a disciplínu.","tags":["Education"]}
     ];
-
-    const container = document.getElementById("cardContainer");
-    const overlay = document.getElementById("overlay");
-    const expandedCard = document.getElementById("expandedCard");
-    const expandedTitle = document.getElementById("expandedTitle");
-    const expandedDescription = document.getElementById("expandedDescription");
-    const expandedTags = document.getElementById("expandedTags");
-
-    function createCards() {
-  container.innerHTML = cardsData.map((card, index) =>
-    {const tagSpans = card.tags.map(tag => {
-      const safeTag = tag.replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      return `<span class="tag-${safeTag}">${tag}</span>`;
-    }).join(" ");
-    return `
-      <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
-        <h3>${card.title}</h3>
-        <p>${card.description}</p>
-        <div class="tags">${tagSpans}</div>
-      </div>
-    `;
-  }).join("");
-}
-
-    function expandCard(index) {
-      const card = cardsData[index];
-      expandedTitle.textContent = card.title;
-      expandedDescription.textContent = card.description;
-      expandedTags.innerHTML = card.tags.map(tag => {
-        const safeTag = tag.replace(/\s+/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        return `<span class="tag-${safeTag}">${tag}</span>`;
-      }).join(" ");
-      overlay.style.display = "flex";
-    }
-
-    function closeExpanded() {
-      overlay.style.display = "none";
-    }
-    overlay.addEventListener('click', function (e) {
-  if (e.target === overlay) {
-    closeExpanded();
-  }
+    
+    const TAG_LABELS = {"Sport":"Sport","Exchange":"Výměnný pobyt","Internship":"Stáž","Language":"Jazyky","SelfDev":"Seberozvoj","Education":"Vzdělání"};
+    const QUOTES = {
+      "Sport": "„Tělesná zdatnost není jen jedním z nejdůležitějších klíčů ke zdravému tělu, je základem dynamické a tvořivé duševní činnosti.“ – John F. Kennedy",
+      "Exchange": "„Cestování je smrtelné pro předsudky, bigotnost a úzkoprsost.“ – Mark Twain",
+      "Internship": "„Budoucnost nemůžeme předpovědět, ale můžeme ji vynalézt.“ – Dennis Gabor",
+      "Language": "„Naučit se jazyk znamená mít další okno, kterým se díváme na svět.“ – Čínské přísloví",
+      "SelfDev": "„Kdo zvítězí sám nad sebou, je nejmocnější válečník.“ – Konfucius",
+      "Education": "„Vzdělání není učení se faktům, ale výcvik mysli k myšlení.“ – Albert Einstein"
+    };
+    const DEFAULT_QUOTE = "„Žij, jako bys měl zítra zemřít. Uč se, jako bys měl žít navždy.“ – Mahátma Gándhí";
+    const MORE = "Více →";
+    const esc = Site.escape;
+    const tagHtml = tags => tags.map(t => '<span class="tag tag-' + t + '">' + TAG_LABELS[t] + '</span>').join('');
+    
+    const container = document.getElementById('cardContainer');
+    container.innerHTML = cardsData.map((c, i) =>
+      '<button class="card clickable" type="button" data-index="' + i + '" data-tags="' + c.tags.join(' ') + '">' +
+      '<h3>' + esc(c.title) + '</h3><p>' + esc(c.description) + '</p>' +
+      '<div class="tags">' + tagHtml(c.tags) + '</div><div class="more-hint">' + MORE + '</div></button>'
+    ).join('');
+    
+    container.addEventListener('click', e => {
+      const card = e.target.closest('.card');
+      if (!card) return;
+      const c = cardsData[card.dataset.index];
+      Site.openModal('<div class="modal-content"><h2>' + esc(c.title) + '</h2><p>' + esc(c.description) + '</p><div class="tags">' + tagHtml(c.tags) + '</div></div>');
     });
-    function filterTag(tag) {
-      document.querySelectorAll('.filter-bar button').forEach(btn => btn.classList.remove('active'));
-      document.querySelectorAll('.filter-bar button').forEach(btn => {
-  if (btn.dataset.tag === tag || (tag === "All" && btn.textContent.trim() === "Vše")) {
-    btn.classList.add('active');
-  }
-});
-      const quoteBox = document.getElementById('tagQuote');
-
-      document.querySelectorAll('.card').forEach(card => {
-        const tags = JSON.parse(card.getAttribute('data-tags'));
-        if (tag === 'All' || tags.includes(tag)) {
-          card.classList.remove('hide');
-        } else {
-          card.classList.add('hide');
-        }
+    
+    document.querySelectorAll('.filter-bar .btn').forEach(btn => btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag;
+      document.querySelectorAll('.filter-bar .btn').forEach(b => b.classList.toggle('active', b === btn));
+      container.querySelectorAll('.card').forEach(card => {
+        card.hidden = !(tag === 'All' || card.dataset.tags.split(' ').includes(tag));
       });
-
-      const quotes = {
-        Sport: "Tělesná kondice není jen jedním z nejdůležitějších klíčů ke zdravému tělu, je základem dynamické a tvořivé duševní činnosti. - John F. Kennedy",
-        "Výměnný pobyt": "Cestování je smrtelné pro předsudky, bigotnost a úzkoprsost. - Mark Twain",
-        Stáž: "Budoucnost nemůžeme předpovědět, ale můžeme ji vynalézt. - Dennis Gabor",
-        Jazyk: "Naučit se jazyk znamená mít další okno, kterým se díváme na svět. - Čínské přísloví",
-        "Self-Development": "Kdo zvítězí sám nad sebou, je nejmocnější válečník. - Konfucius",
-        Vzdělání: "Vzdělání není učení se faktům, ale výcvik mysli k myšlení. - Albert Einstein"
-      };
-
-      quoteBox.textContent = tag === 'All'
-        ? "„Žij, jako bys měl zítra zemřít. Uč se, jako bys měl žít navždy.“ - Mahátma Gándhí"
-        : quotes[tag] || "";
-    }
-
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
-
-    createCards();
+      document.getElementById('tagQuote').textContent = tag === 'All' ? DEFAULT_QUOTE : QUOTES[tag];
+    }));
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-

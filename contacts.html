@@ -1,168 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contacts</title>
+  <title>Contacts | Benjamin Hejda</title>
+  <meta name="description" content="Contacts – portfolio of Benjamin Hejda, a Czech student, athlete and explorer." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background-color: #0066cc;
-      color: white;
-      padding: 20px;
-      position: relative;
-    }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    main {
-  padding: 40px 20px;
-  display: flex;
-  justify-content: center; /* Horizontally center the wrapper */
-}
-
-.contact-wrapper {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  max-width: 800px;
-  width: 100%;
-}
-
-    .profile-pic {
-      flex: 1 1 200px;
-      max-width: 250px;
-      text-align: center;
-    }
-    .profile-pic img {
-      width: 100%;
-      max-width: 200px;
-      border-radius: 50%;
-    }
-    .contacts {
-      flex: 2 1 300px;
-    }
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-    }
-    .contact-item i {
-      font-size: 1.5rem;
-      color: #333;
-      width: 30px;
-      text-align: center;
-    }
-    .contact-item a {
-      color: #333;
-      text-decoration: none;
-    }
-    .contact-item a:hover {
-      text-decoration: underline;
-    }
+    .contact-card { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; }
+    .profile-pic img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; display: block; box-shadow: var(--shadow); }
+    .contacts { flex: 1 1 300px; }
+    .contact-item { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 1.1rem; }
+    .contact-item:last-child { border-bottom: none; }
+    .contact-item i { width: 28px; text-align: center; font-size: 1.35rem; color: var(--blue); }
+    .contact-item a { color: var(--ink); text-decoration: none; word-break: break-word; }
+    .contact-item a:hover { color: var(--blue); text-decoration: underline; }
   </style>
 </head>
-<body>
-  <header>
+<body data-page="contacts">
+  <!-- The burger menu is added automatically by assets/site.js -->
+
+<header class="page-header">
     <h1>Contacts</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-      <div class="flags">
-  <a href="contacts-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
-  <a href="contacts.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
-  <a href="contacts-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
-  <a href="contacts-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
-      </div>
-      <a href="home.html">Home</a>
-      <a href="blog.html">Blog</a>
-      <a href="growth.html">Growth & Learning</a>
-      <a href="experience.html">Experience</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="fun.html">Fun Facts</a>
-      <a href="contacts.html">Contacts</a>
-    </nav>
+    <p class="lead">The best way to reach me is by email or LinkedIn.</p>
   </header>
 
   <main>
-  <div class="contact-wrapper">
-    <div class="profile-pic">
-      <img src="https://i.imgur.com/M9ceOaE.jpeg" alt="Profile Picture">
+    <div class="wrap-narrow">
+      <div class="card contact-card">
+        <div class="profile-pic">
+          <img src="https://i.imgur.com/M9ceOaE.jpeg" alt="Benjamin Hejda">
+        </div>
+        <div class="contacts">
+          <div class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:ben.hejda@gmail.com">ben.hejda@gmail.com</a></div>
+          <div class="contact-item"><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/benjamin-hejda" target="_blank" rel="noopener">linkedin.com/in/benjamin-hejda</a></div>
+          <div class="contact-item"><i class="fab fa-instagram" aria-hidden="true"></i><a href="https://www.instagram.com/ben.hejda/" target="_blank" rel="noopener">@ben.hejda</a></div>
+          <div class="contact-item"><i class="fab fa-facebook" aria-hidden="true"></i><a href="https://www.facebook.com/benhejda/" target="_blank" rel="noopener">Benjamin Hejda</a></div>
+        </div>
+      </div>
     </div>
-    <div class="contacts">
-      <div class="contact-item"><i class="fas fa-phone"></i> <a href="tel:+420777078420">+420 777 078 420</a></div>
-      <div class="contact-item"><i class="fas fa-envelope"></i> <a href="mailto:ben.hejda@gmail.com">ben.hejda@gmail.com</a></div>
-      <div class="contact-item"><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ben.hejda/" target="_blank">@ben.hejda</a></div>
-      <div class="contact-item"><i class="fab fa-facebook"></i> <a href="https://www.facebook.com/benhejda/" target="_blank">Benjamin Hejda</a></div>
-      <div class="contact-item"><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/benjamin-hejda" target="_blank">linkedin.com/in/benjamin-hejda</a></div>
-    </div>
-  </div>
-</main>
+  </main>
 
+  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
 
-  <script>
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
-  </script>
+  <script src="assets/site.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

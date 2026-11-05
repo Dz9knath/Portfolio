@@ -1,231 +1,77 @@
-<!-- TEMPLATE SUBPAGE FILE -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs" data-lang="cz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zkušenosti</title>
+  <title>Zkušenosti | Benjamin Hejda</title>
+  <meta name="description" content="Zkušenosti – portfolio Benjamina Hejdy, českého studenta, sportovce a dobrodruha." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-    }
-    /* New header style exactly like your example */
-    header {
-      background: url('https://i.imgur.com/Tpt260a.jpeg') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-      z-index: 2;
-    }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 40px 20px;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .experience-container {
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
-    .experience-card {
-      background-color: #f9f9f9;
-      border-radius: 10px;
-      padding: 25px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .experience-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-    }
-    .experience-card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 5px;
-    }
-    .experience-card h3 {
-      font-size: 1rem;
-      color: #666;
-      margin-bottom: 15px;
-    }
-    .org-link {
-      color: inherit;
-      text-decoration: underline;
-    }
-    .org-link:hover {
-      text-decoration: underline dotted;
-    }
-    .experience-card p {
-      font-size: 1rem;
-      margin-bottom: 15px;
-      line-height: 1.5;
-    }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      list-style: none;
-      padding: 0;
-    }
-    .tags li {
-      background-color: #e0e0e0;
-      color: #333;
-      font-size: 0.85rem;
-      padding: 5px 10px;
-      border-radius: 20px;
-    }
+    .jobs { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .job .icon { font-size: 1.8rem; line-height: 1; margin-bottom: 12px; }
+    .job h2 { font-size: 1.2rem; margin-bottom: 4px; }
+    .job .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
+    .job p { color: #3a414a; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-top: 16px; }
+    .modal-content .meta a { color: inherit; }
   </style>
 </head>
-<body>
-  <header>
+<body data-page="experience">
+  <!-- The burger menu is added automatically by assets/site.js -->
+
+<header class="page-header has-image" style="--hero: url('https://i.imgur.com/Tpt260a.jpeg')">
     <h1>Zkušenosti</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-     <div class="flags">
-        <a href="experience-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
-        <a href="experience.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
-        <a href="experience-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
-        <a href="experience-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
-      </div>
-       <a href="home-cz.html">Domů</a>
-      <a href="blog-cz.html">Blog</a>
-      <a href="growth-cz.html">Růst a vzdělávání</a>
-      <a href="experience-cz.html">Zkušenosti</a>
-      <a href="gallery-cz.html">Galerie</a>
-      <a href="fun-cz.html">Zajímavosti</a>
-      <a href="contacts-cz.html">Kontakty</a>
-    </nav>
+    <p class="lead">Klikněte na kartu a zobrazí se celý příběh.</p>
   </header>
 
   <main>
-   <section class="experience-container">
-  <!-- Rugbz coach -->
-  <div class="experience-card">
-    <h2>🏉 Dobrovolný trenér ragby</h2>
-    <h3><a href="https://www.ragbyplzen.cz/" target="_blank" class="org-link">Rugby Club Plzeň</a> | 2022–současnost</h3>
-    <p>Trénoval tým 10–12letých dětí se zaměřením na rozvoj dovedností, disciplínu a týmového ducha. Zorganizoval dva tábory s tématikou přežití v lese, kde se děti zábavnou a náročnou formou naučily základní outdoorové a týmové dovednosti.</p>
-    <ul class="tags">
-      <li>Mentoring mládeže</li>
-      <li>Vedení týmu</li>
-      <li>Vymýšlení program</li>
-    </ul>
-  </div>
-
-  <!-- RAYP -->
-  <div class="experience-card">
-    <h2>🏕️ Trenér a táborový animátor</h2>
-    <h3><a href="https://www.sportbezpredsudku.cz/ragbyova-akademie-yvese-perrota/" target="_blank" class="org-link">Rugbyová akademie Yvese Perrota (RAYP)</a> | Sezónní</h3>
-    <p>Pomáhal vést trénink dětí různých věkových kategorií. Podporoval každodenní chod tábora a připravoval dynamické aktivity, které učily odolnosti a spolupráci.</p>
-    <ul class="tags">
-      <li>Koučink</li>
-      <li>Organizace táborů</li>
-      <li>Práce s dětmi</li>
-    </ul>
-  </div>
-
-  <!-- PPA-->
-  <div class="experience-card">
-    <h2>🎯 Člen personálu</h2>
-    <h3><a href="https://www.pparena.com/" target="_blank" class="org-link">Paintball Arena (PPA)</a> | 2023–současnost</h3>
-    <p>Spolupracoval se zákazníky během her, zajišťoval vybavení a bezpečnostní školení. Poskytoval přátelský servis a rychle řešil problémy v rychle se měnícím prostředí.</p>
-    <ul class="tags">
-      <li>Zákaznický servis</li>
-      <li>Manipulace s vybavením</li>
-      <li>Řešení problémů</li>
-    </ul>
-  </div>
-
-  <!-- 4PRO -->
-  <div class="experience-card">
-    <h2>🍴 Event marketing a catering</h2>
-    <h3><a href="https://www.4pro.cz/" target="_blank" class="org-link">4PRO</a> | 2024–současnost</h3>
-    <p>Pomáhal organizovat a provozovat stánky s jídlem a pitím na fotbalových zápasech, koncertech a dalších akcích. Zaměřoval se na rychlou a přátelskou obsluhu při vysoké poptávce, často obstarával několik věcí na jednou při přípravě nebo úklidu.</p>
-    <ul class="tags">
-      <li>Organizace akcí</li>
-      <li>Gastro služby</li>
-      <li>Týmová práce pod tlakem</li>
-    </ul>
-  </div>
-
-  <!-- Concert -->
-  <div class="experience-card">
-    <h2>🎸 Prodej/Podpora</h2>
-    <h3>Různé koncerty a festivaly | Příležitostně</h3>
-    <p>Prodával jídlo a nápoje, komunikoval s různými zákazníky, obsluhoval hotovostní i mobilní platby a pomáhal s instalací dočasné infrastruktury akcí.</p>
-    <ul class="tags">
-      <li>Prodej</li>
-      <li>Festivalová logistika</li>
-      <li>Přizpůsobivost</li>
-    </ul>
-  </div>
-</section>
-
+    <div class="wrap">
+      <div class="jobs" id="jobs"></div>
+    </div>
   </main>
 
+  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
+
+  <script src="assets/site.js"></script>
   <script>
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
+    // Each job: short "summary" shows on the card, "details" + "image" show when clicked.
+    const jobs = [
+      {"icon":"🏉","role":"Dobrovolný trenér ragby","org":"Ragby Plzeň","link":"https://www.ragbyplzen.cz/","period":"2022–současnost","summary":"Trénuji tým 10–12letých dětí v plzeňském ragbyovém klubu.","details":"Trénuji tým 10–12letých dětí se zaměřením na rozvoj dovedností, disciplínu a týmového ducha. Zorganizoval jsem také dva survival tábory, kde se děti zábavnou a náročnou formou naučily základní dovednosti v přírodě i v týmu. Fotka je z mého prvního turnaje v roli trenéra.","skills":["Mentoring mládeže","Vedení týmu","Tvorba programu"],"image":"https://i.imgur.com/43lO1pf.jpeg"},
+      {"icon":"🏕️","role":"Trenér a táborový animátor","org":"Rugby Academy Yves Perrot (RAYP)","link":"https://www.sportbezpredsudku.cz/ragbyova-akademie-yvese-perrota/","period":"Sezónně","summary":"Pomáhám s tréninky a chodem tábora na ragbyové akademii pro děti.","details":"Pomáhám vést tréninky dětí různých věkových kategorií a podílím se na každodenním chodu tábora – od ranních tréninků po večerní hry. Připravuji dynamické aktivity, které učí odolnosti a spolupráci.","skills":["Koučink","Organizace táborů","Práce s dětmi"],"image":"https://i.imgur.com/jLSE58G.jpeg"},
+      {"icon":"🎯","role":"Člen personálu","org":"Paintball Arena (PPA)","link":"https://www.pparena.com/","period":"2023–současnost","summary":"Hry, vybavení a bezpečnostní instruktáže v paintballové aréně.","details":"Starám se o zákazníky během her, vydávám vybavení a vedu bezpečnostní instruktáže. Je to rychlé prostředí, takže přátelský přístup a pohotové řešení problémů jsou základ.","skills":["Zákaznický servis","Práce s vybavením","Řešení problémů"],"image":null},
+      {"icon":"🍴","role":"Event marketing a catering","org":"4PRO","link":"https://www.4pro.cz/","period":"2024–současnost","summary":"Stánky s jídlem a pitím na fotbalových zápasech, koncertech a akcích.","details":"Pomáhám organizovat a provozovat stánky s jídlem a pitím na fotbalových zápasech, koncertech a dalších akcích. Důležitá je rychlá a přátelská obsluha i při velkém náporu – často u toho zvládám i přípravu nebo úklid.","skills":["Organizace akcí","Gastro služby","Týmová práce pod tlakem"],"image":null},
+      {"icon":"🎸","role":"Prodej / podpora","org":"Různé koncerty a festivaly","link":null,"period":"Příležitostně","summary":"Prodej jídla a pití a pomoc se stavbou na koncertech a festivalech.","details":"Na různých koncertech a festivalech prodávám jídlo a pití, obsluhuji velmi pestré publikum, přijímám hotovostní i mobilní platby a pomáhám se stavbou dočasného zázemí akcí.","skills":["Prodej","Festivalová logistika","Přizpůsobivost"],"image":null}
+    ];
+    const MORE = "Více →";
+    const esc = Site.escape;
+    const list = document.getElementById('jobs');
+    
+    list.innerHTML = jobs.map((j, i) =>
+      '<button class="card clickable job" type="button" data-index="' + i + '">' +
+      '<div class="icon">' + j.icon + '</div>' +
+      '<h2>' + esc(j.role) + '</h2>' +
+      '<div class="meta">' + esc(j.org) + ' · ' + esc(j.period) + '</div>' +
+      '<p>' + esc(j.summary) + '</p>' +
+      '<div class="more-hint">' + MORE + '</div></button>'
+    ).join('');
+    
+    list.addEventListener('click', e => {
+      const card = e.target.closest('.job');
+      if (!card) return;
+      const j = jobs[card.dataset.index];
+      const org = j.link ? '<a href="' + j.link + '" target="_blank" rel="noopener">' + esc(j.org) + ' ↗</a>' : esc(j.org);
+      Site.openModal(
+        (j.image ? '<img class="modal-img" src="' + j.image + '" alt="' + esc(j.role) + '">' : '') +
+        '<div class="modal-content"><h2>' + j.icon + ' ' + esc(j.role) + '</h2>' +
+        '<div class="sub meta">' + org + ' · ' + esc(j.period) + '</div>' +
+        '<p>' + esc(j.details) + '</p>' +
+        '<ul class="skill-list">' + j.skills.map(s => '<li class="pill">' + esc(s) + '</li>').join('') + '</ul></div>'
+      );
+    });
   </script>
 </body>
 </html>
-
-

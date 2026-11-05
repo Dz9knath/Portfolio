@@ -1,301 +1,89 @@
-<!-- TEMPLATE SUBPAGE FILE -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" data-lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interessante Fakten</title>
+  <title>Wissenswertes | Benjamin Hejda</title>
+  <meta name="description" content="Wissenswertes – Portfolio von Benjamin Hejda, tschechischer Student, Sportler und Entdecker." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 20px;
-      position: relative;
-    }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .buttons button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .fact-box {
-    margin: 20px auto;
-    padding: 20px;
-    background: #f5f5f5;
-    border-radius: 10px;
-    text-align: center;
-    width: 50%; /* about half the page width */
-    max-width: 700px; /* roughly A4 width */
-    min-height: 120px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
-    .source-link {
-      display: block;
-      margin-top: 10px;
-      color: #007BFF;
-      text-decoration: none;
-    }
-    .next-button {
-      margin-top: 20px;
-      padding: 8px 16px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
+    .intro { text-align: center; max-width: 720px; margin: 0 auto 28px; font-size: 1.05rem; }
+    .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
+    .buttons .btn.nsfw { border-color: #d24b4b; color: #b02a2a; }
+    .buttons .btn.nsfw.active { background: #b02a2a; border-color: #b02a2a; color: #fff; }
+    .fact-box { max-width: 700px; margin: 0 auto; min-height: 200px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+    .fact-text { font-size: 1.2rem; line-height: 1.55; }
+    .nsfw-note { color: #b02a2a; font-size: 0.9rem; font-weight: 600; }
+    .fact-footer { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .fact-count { color: var(--muted); font-size: 0.85rem; }
+    .source-link { font-weight: 500; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Interessante Fakten</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-       <div class="flags">
-        <a href="fun-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
-        <a href="fun.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
-        <a href="fun-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
-        <a href="fun-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
-      </div>
-		<a href="home-de.html">Startseite</a>
-		<a href="blog-de.html">Blog</a>
-		<a href="growth-de.html">Wachstum & Lernen</a>
-		<a href="experience-de.html">Erfahrung</a>
-     	<a href="gallery-de.html">Galerie</a>
-     	<a href="fun-de.html">Interessante Fakten</a>
- 		<a href="contacts-de.html">Kontakt</a>
-    </nav>
+<body data-page="fun">
+  <!-- The burger menu is added automatically by assets/site.js -->
+
+<header class="page-header">
+    <h1>Wissenswertes</h1>
   </header>
 
   <main>
-	  <p>Da viele meiner Freunde mich für mein umfangreiches Wissen über Trivia und skurrile Fakten kennen, habe ich beschlossen, einige davon in mein Portfolio aufzunehmen.</p>
-	  <div class="buttons">
-		  <button onclick="showFact('wellKnown')">Bekannte Interessante Fakten</button>
-		  <button onclick="showFact('unknown')">Interessante Fakten, die Sie wahrscheinlich noch nie gehört haben</button>
-		  <button onclick="showFact('aboutMe')">Interessante Fakten über mich</button>
-	  </div>
-	  <div class="fact-box" id="factBox">
-		  <p id="factText">Klicken Sie auf eine der obigen Schaltflächen, um einen Interessant Fakt zu sehen!</p>
-		  <a id="factSource" class="source-link" href="#" target="_blank" style="display:none;">🔍 Source</a>
-		  <button id="nextButton" class="next-button" onclick="nextFact()" style="display:none;">Weiter</button>
-	  </div>
+    <div class="wrap">
+      <p class="intro">Da viele meiner Freunde mich für mein Wissen über Trivia und skurrile Fakten kennen, habe ich beschlossen, einige davon in mein Portfolio aufzunehmen. Jeder Fakt hier wurde geprüft und hat eine Quelle.</p>
+      <div class="buttons">
+        <button class="btn ghost" type="button" data-cat="well">Bekanntes Wissenswertes</button>
+        <button class="btn ghost" type="button" data-cat="unknown">Fakten, die du wahrscheinlich noch nie gehört hast</button>
+        <button class="btn ghost" type="button" data-cat="me">Fakten über mich</button>
+        <button class="btn ghost nsfw" type="button" data-cat="nsfw">🔞 NSFW</button>
+      </div>
+      <div class="card fact-box" aria-live="polite">
+        <p class="nsfw-note" id="nsfwNote" hidden>Derb, nicht jugendfrei oder einfach nur seltsam. Du wurdest gewarnt.</p>
+        <p class="fact-text" id="factText">Klicke auf einen der Buttons oben, um einen Fakt zu sehen!</p>
+        <div class="fact-footer" id="factFooter" hidden>
+          <a id="factSource" class="source-link" href="#" target="_blank" rel="noopener">🔍 Quelle</a>
+          <span class="fact-count" id="factCount"></span>
+          <button id="nextButton" class="btn" type="button">Weiter →</button>
+        </div>
+      </div>
+    </div>
   </main>
 
+  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
+
+  <script src="assets/site.js"></script>
+  <script src="assets/facts.js"></script>
   <script>
-    const facts = {
-      wellKnown: [
-		{ text: "Wombats haben würfelförmigen Kot." },
-		{ text: "Haie bekommen ihr ganzes Leben lang neue Zähne." },
-		{ text: "Croissants stammen ursprünglich nicht aus Frankreich." },
-		{ text: "Im Vakuum fallen eine Kanonenkugel und eine Feder gleich schnell." },
-		{ text: "LEGO ist der größte Reifenhersteller der Welt.", source: "https://www.guinnessworldrecords.com/world-records/100909-largest-tyre-manufacture-per-annum" },
-		{ text: "Blutegel besitzen 32 Gehirne." },
-		{ text: "Man kann nicht summen, wenn man die Nase zuhält." },
-		{ text: "Das Osmanische Reich wurde 1299 gegründet und 1922 aufgelöst." },			
-		{ text: "Spiral­treppen sind meist im Uhrzeigersinn gebaut, damit Verteidiger im Kampf geschützt bleiben." },
-		{ text: "„Are you as bored as I am“ kann rückwärts gesagt werden und hat trotzdem dieselbe Bedeutung." },
-		{ text: "Tänzer zählen 5,6,7,8, weil Musiker bereits 1,2,3,4 verwenden." },
-		{ text: "Viermal so viele Menschen sprechen Englisch als Zweitsprache wie als Muttersprache." },
-		{ text: "US-Granaten im Zweiten Weltkrieg hatten Form und Gewicht eines Baseballs." },
-		{ text: "Die erste Bombe, die Berlin im Zweiten Weltkrieg traf, tötete einen Elefanten im Zoo." },
-		{ text: "Die 100 Falten in der Mütze eines Kochs stehen für 100 Arten, Eier zuzubereiten." },
-		{ text: "Das Nationaltier Schottlands ist das Einhorn." },
-		{ text: "Telefonnummern werden in Gruppen von 3–4 Ziffern unterteilt, weil man sie so leichter merkt." },
-		{ text: "König Heinrich VIII. hatte sechs Ehefrauen." },
-		{ text: "REM-Schlaf steht für „Rapid Eye Movement“ – in dieser Phase bewegen sich die Augen schnell." },
-		{ text: "Das Wort „goodbye“ stammt von „God be with you“." },
-		{ text: "Napoleon wurde einmal von Kaninchen angegriffen." },
-		{ text: "Alle britischen Panzer nach dem Zweiten Weltkrieg sind mit Wasserkochern ausgestattet." },	
-		{ text: "Alexander der Große benannte über 20 Städte nach sich selbst." },
-		{ text: "Als Liechtenstein zuletzt Krieg führte, zogen 80 Soldaten los und 81 kehrten zurück." },
-		{ text: "Jede menschliche Zelle enthält über zwei Meter DNA." },			
-		{ text: "Hitler hatte nur einen Hoden." },
-		{ text: "Charles Darwin heiratete seine Cousine." },
-		{ text: "Griechische Statuen waren einst bunt bemalt – die Farben sind über die Jahrhunderte verblasst." },
-		{ text: "Niesen kann Luft mit bis zu 160 km/h ausstoßen." },
-		{ text: "Heute sind wir zeitlich genauso weit vom Zweiten Weltkrieg entfernt, wie der Zweite Weltkrieg vom Amerikanischen Bürgerkrieg war." }
-      ],
-      unknown: [
-       	{ text: "Der After hat seinen eigenen Fingerabdruck." }, 
-		{ text: "Das Modell für Botticellis 'Die Geburt der Venus' war die Cousine von Amerigo Vespucci, nach dem Amerika benannt wurde." },
-		{ text: "Alle britischen Panzer, die nach dem Zweiten Weltkrieg entworfen wurden, haben Teekessel." },
-		{ text: "In Eswatini ist es Hexen verboten, über 150 m zu fliegen." },
-		{ text: "John Kellogg erfand Cornflakes und Graham-Cracker, um Jungen vom Masturbieren abzuhalten." },
-		{ text: "Die Kettensäge wurde für die Symphysiotomie erfunden — ein chirurgisches Geburtsverfahren." },
-		{ text: "Papst Gregor IX. erklärte den Katzen den Krieg." },
-		{ text: "Abraham Lincoln war lizenzierter Barkeeper." },
-		{ text: "Wenn Sie in einer Beziehung sind, schläft die Person, die statistisch am wahrscheinlichsten Sie töten würde, jede Nacht neben Ihnen." },
-		{ text: "Kleopatra lebte näher an der Erfindung von Bitcoin als am Bau der ersten Pyramiden." },
-		{ text: "Pinguine können bis zu 1,8 Meter hoch springen." },
-		{ text: "Die Römer benutzten menschlichen Urin als Mundwasser." },
-		{ text: "Während der Hexenprozesse von Salem wurde niemand verbrannt — alle wurden gehängt." },
-		{ text: "Das alte Ägypten dauerte so lange, dass die alten Ägypter schon die Geschichte des alten Ägypten studierten." },
-		{ text: "Die Spanische Grippe begann wahrscheinlich in Kansas, USA. Sie heißt 'Spanische Grippe', weil Spanien, ein neutrales Land im Ersten Weltkrieg, die Presse nicht zensierte." },
-		{ text: "Menschen leuchten im Dunkeln, aber unsere Augen können es nicht sehen." },
-		{ text: "Einige Delfine, Wale und Robben schlafen mit einem offenen Auge — nur die Hälfte ihres Gehirns schläft jeweils." },
-		{ text: "Das Wort 'Gehalt' stammt von 'Salz', weil römische Soldaten oft damit bezahlt wurden." },
-		{ text: "Manche Schildkröten können durch ihren After atmen." },
-		{ text: "Englische Betonung zeigt an, ob ein Wort ein Substantiv (erste Silbe) oder ein Verb (zweite Silbe) ist. Beispiel: récord vs. recórd." },
-		{ text: "Der Begriff 'Devil Dogs', bekannt vom US Marine Corps, hat viel seltsamere Ursprünge, als die meisten wissen. Sie dachten, sie benutzen 'Teufel Hunden', das grammatisch falsch ist. Richtig ist 'Teufelshunde'. \n Im spätmittelalterlichen polnischen und deutschen Volksglauben war 'Teufelshund' kein Kompliment — es war eine Beleidigung, benutzt von katholischen Priestern, um verstörende Fälle von Hundevergewaltigung zu erklären, die sie dem Teufel zuschrieben. Später wurde es als entmenschlichende Beleidigung gegen Feinde benutzt — zuerst von Polen, dann von Deutschen im Ersten Weltkrieg. Als amerikanische Truppen davon hörten, dachten sie, es bedeute 'Höllenhund' und nahmen es stolz an — ohne zu wissen, dass es ursprünglich 'Teufels Sex-Tier' bedeutete." },
-		{ text: "1989 wurde Pepsi kurzzeitig die sechstgrößte Militärmacht der Welt — nachdem die Sowjetunion 17 U-Boote, einen Kreuzer, eine Fregatte und einen Zerstörer gegen 3 Milliarden Dollar Cola getauscht hatte." },
-		{ text: "Bindestrich (-), Gedankenstrich (–) und Geviertstrich (—) haben unterschiedliche Funktionen: zusammengesetzte Wörter (well-known), Bereiche (Januar–März) und eingeschobene Gedanken (Er würde nicht — konnte nicht — nach Hause gehen)." },
-		{ text: "Norweger essen die zweitmeisten Tacos, trinken den zweitmeisten Kaffee und konsumieren 9 % des gesamten Pepsi Max — bei nur 5 Millionen Menschen." },
-		{ text: "Oscar Wilde war 1,90 m groß, was in den 1870er Jahren etwa 2,00–2,05 m entsprach. Er war so riesig und unbeholfen, dass ein Freund ihn als 'große weiße Raupe' beschrieb." },
-		{ text: "Als Napoleon Ägypten einnahm, schickten die Ägypter zwei Teenager-Mädchen, um ihn zu erfreuen. Napoleon, verliebt in Josephine, lehnte ab und schickte sie zurück. Die Minister missverstanden wohl — sie schickten zwei zehnjährige Jungen zurück." },
-		{ text: "1925, in seiner ersten bekannten Annäherung an eine Frau, machte Montgomery, damals fast 40, Betty Anderson (17) einen Antrag, indem er Diagramme in den Sand zeichnete, wie er Panzer und Infanterie im Krieg einsetzen würde. Sie lehnte ab." },
-		{ text: "In Biertan, Rumänien, mussten sich scheidende Paare zwei Wochen ein kleines Kirchenzimmer teilen — mit nur einem Bett, einem Stuhl, einem Tisch, einem Teller und einem Löffel. Angeblich hat sich in 300 Jahren nur ein Paar scheiden lassen." },
-		{ text: "1940 wurde Prinzessin Juliana der Niederlande nach Ottawa evakuiert. Als ihre Tochter Margriet 1943 geboren wurde, erklärte Kanada das Krankenhauszimmer zu extraterritorial, sodass das Kind nur die niederländische Staatsangehörigkeit erhielt. Zum Dank schickte Juliana 100.000 Tulpenzwiebeln nach Ottawa, eine Tradition, die bis heute anhält." },
-		{ text: "Clement Wragge begann, Zyklone und Hurrikane nach Politikern zu benennen, die er nicht mochte, um sagen zu können, sie verursachten 'großes Leid' oder 'irrten ziellos umher'." },
-		{ text: "Historisch trugen echte Ninjas kein komplett schwarzes Outfit — schlechte Tarnung. Sie trugen normale Kleidung oder gedeckte Farben. Der schwarze Ninja-Stereotyp stammt aus dem Kabuki-Theater, wo Bühnenhelfer (kuroko) schwarz trugen, um 'unsichtbar' zu sein. Ein Regisseur ließ einen 'unsichtbaren' Kuroko mitten in der Aufführung einen Charakter ermorden — das Publikum war begeistert und der Mythos war geboren." },
-		{ text: "Der Spitzname 'Caligula' bedeutet 'kleine Sandalen', da der Kaiser als Kind Mini-Soldatenausrüstung trug." },
-		{ text: "Jimmy Carter vergaß einmal versehentlich die nuklearen Startcodes in der Reinigung." },
-		{ text: "Die Wörter 'shit' und 'science' stammen aus derselben indoeuropäischen Wurzel — eines kam über Französisch ins Englische, das andere über Deutsch." },
-		{ text: "Deine Brustwarzen sind älter als deine Zähne." },
-		{ text: "Reverse Cowgirl ist statistisch die sexuell riskanteste Position." },
-		{ text: "Japanische Nutzer haben die längsten Duolingo-Serien; Südamerikaner die kürzesten." },
-		{ text: "Bäume entwickelten sich, bevor Bakterien Zellulose verdauen konnten, daher verrotteten Bäume lange nicht." },
-		{ text: "Im Durchschnitt feiert alle 6 Tage ein Land seine Unabhängigkeit von Großbritannien. Es ist der weltweit am meisten gefeierte Nationalfeiertag." },
-		{ text: "Das bei der Beschneidung entfernte Vorhautgewebe wird in Kosmetik und medizinischen Transplantaten verwendet." },
-		{ text: "Beschneidete Männer haben 60 % höhere Wahrscheinlichkeit für Alexithymie — Schwierigkeiten, Emotionen zu erkennen." },
-		{ text: "Burgtreppen waren absichtlich unregelmäßig — Bewohner kannten sie, Eindringlinge stolperten." },
-		{ text: "Kim Il-sung hatte einen tumor in der Größe eines Baseballs am Hinterkopf." },
-		{ text: "Selbstverbrennung bedeutet, sich selbst in Brand zu setzen, oft als politischer Protest." },
-		{ text: "Man kann den Herzschlag eines Blauwals aus 3 km Entfernung hören." },
-		{ text: "Menschen und Galaxien teilen 97 % derselben Atome." },
-		{ text: "Es gibt eine Studie, die untersucht, wie man Oreos isst und was das über einen aussagt." },
-		{ text: "Ein durchschnittliches Pferd wiegt 450 kg und hat einen 50 cm langen Penis — also 1 kg pro cm. Ein 90-kg-Mann bräuchte nur 10 cm, um 'pferdeähnlich bestückt' zu sein." },
-		{ text: "Nach dem Zweiten Weltkrieg hielten die Wodka-Reserven der Sowjets nur 22 Stunden." },
-		{ text: "Heinrich VIII. hatte vier 'Grooms of the Stool', deren Aufgabe es war, seinen Hintern zu säubern — sie wurden für ihren Dienst geadelt." },
-		{ text: "Wir wissen nicht, wer den Hydranten erfunden hat, weil das Patent verbrannte." },
-		{ text: "Der 11. April 1954 war der langweiligste Tag des 20. Jahrhunderts — nichts Bedeutendes geschah." },
-		{ text: "Das Wort 'witch' kommt aus dem Altenglischen 'wicce', was 'weise Frau' bedeutet, da Hexen einst als Heilerinnen und Hebammen galten." },
-		{ text: "Kaninchen können nicht erbrechen." },
-		{ text: "Jede Zahl teilt einen Buchstaben mit ihrer Vorgängerzahl." },
-		{ text: "Bluetooth ist nach einem Wikingerkönig, Harald Bluetooth, benannt." },
-		{ text: "Die Beatles versuchten, einen Herr-der-Ringe-Film mit sich selbst als Hauptfiguren zu machen." },
-		{ text: "Abraham Lincoln nannte seinen jüngsten Sohn 'Tad', weil er zappelig war und einen großen Kopf hatte." },
-		{ text: "Philip Diehl erfand den ersten Motor für Nähmaschinen — und später den Deckenventilator." },
-		{ text: "Pythagoras glaubte, dass Bohnen und Menschen aus derselben Quelle stammen. Um das zu beweisen, zerdrückte er eine Bohne und erklärte, sie rieche nach Samen." },
-		{ text: "Historisch galt Linkshändigkeit als teuflisch — 'sinister' ist Latein für 'linkshändig'." },
-		{ text: "Der 'Taper Fade'-Haarschnitt lässt sich linguistisch auf Shakespeare zurückführen, der 'taper' in Macbeth für Kerzen benutzte." },
-		{ text: "Kokosnüsse stammen nicht aus der Karibik — sie schwammen von Ozeanien dorthin." },
-		{ text: "Man wird statistisch eher von jemandem in New York gebissen als von einem Hai." },
-		{ text: "Tintenfische haben ringförmige Gehirne, durch die ihr Verdauungstrakt geht — sie können also Hirnschäden bekommen, wenn sie zu viel essen." },
-		{ text: "Arktis und Antarktis bedeuten 'mit Bären' und 'ohne Bären' — basierend auf Sternbildern, zufällig aber wahr." },
-		{ text: "Der Honda SMX ist ein Auto, das mit Sex im Hinterkopf entworfen wurde." },
-		{ text: "Mangrovenbäume sind die einzigen Bäume, die in Salzwasser wachsen." },
-		{ text: "Schleudersitze wurden an Bären getestet." },
-		{ text: "Im Durchschnitt ist der menschliche Körper dichter als einige Schwarze Löcher." },
-		{ text: "Während der Dreharbeiten zu American Psycho spielte Willem Dafoe jedes Treffen mit Bateman auf drei Arten — als wüsste er es, als hätte er eine Vermutung, und als wäre er ahnungslos. Die Szenen wurden zufällig zusammengeschnitten, um das Publikum zu verwirren." },
- 	],
-      aboutMe: [
-        { text: "Vorübergehend nicht verfügbar – Ich arbeite noch daran. Versuchen Sie eine andere Kategorie." }
-      ]
-    };
-
-    let currentCategory = null;
-    let currentIndex = 0;
-
-    function showFact(category) {
-      currentCategory = category;
-      facts[category] = facts[category].sort(() => Math.random() - 0.5);
-      currentIndex = 0;
-      displayFact();
+    // The facts themselves live in assets/facts.js (all languages in one file).
+    const LANG = Site.lang;
+    let list = [], index = 0;
+    
+    function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+    
+    function showCategory(cat, btn) {
+      document.querySelectorAll('.buttons .btn').forEach(b => b.classList.toggle('active', b === btn));
+      list = shuffle(FACTS.filter(f => f.cat === cat));
+      index = 0;
+      document.getElementById('nsfwNote').hidden = cat !== 'nsfw';
+      render();
     }
-
-    function nextFact() {
-      currentIndex = (currentIndex + 1) % facts[currentCategory].length;
-      displayFact();
+    
+    function render() {
+      const f = list[index];
+      document.getElementById('factText').textContent = f[LANG] || f.en;
+      const src = document.getElementById('factSource');
+      src.hidden = !f.src;
+      if (f.src) src.href = f.src;
+      document.getElementById('factCount').textContent = (index + 1) + ' / ' + list.length;
+      document.getElementById('nextButton').hidden = list.length < 2;
+      document.getElementById('factFooter').hidden = false;
     }
-
-    function displayFact() {
-  const fact = facts[currentCategory][currentIndex];
-  const factBox = document.getElementById("factBox");
-  const factText = document.getElementById("factText");
-  const factSource = document.getElementById("factSource");
-  const nextButton = document.getElementById("nextButton");
-
-  factText.textContent = fact.text;
-  if (fact.source) {
-    factSource.href = fact.source;
-    factSource.style.display = 'inline';
-  } else {
-    factSource.style.display = 'none';
-  }
-  
-  if (currentCategory === 'aboutMe') {
-    nextButton.style.display = 'none';
-  } else {
-    nextButton.style.display = 'inline-block';
-  }
-}
-
-
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
-   
+    
+    document.querySelectorAll('.buttons .btn').forEach(btn => btn.addEventListener('click', () => showCategory(btn.dataset.cat, btn)));
+    document.getElementById('nextButton').addEventListener('click', () => { index = (index + 1) % list.length; render(); });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-

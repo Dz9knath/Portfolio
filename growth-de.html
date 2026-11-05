@@ -1,405 +1,136 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de" data-lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wachstum & Lernen</title>
+  <title>Entwicklung &amp; Lernen | Benjamin Hejda</title>
+  <meta name="description" content="Entwicklung &amp; Lernen – Portfolio von Benjamin Hejda, tschechischer Student, Sportler und Entdecker." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #333;
-    }
-    header {
-      background: url('https://i.imgur.com/mpBgo3X.jpeg') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .intro {
-      margin-bottom: 20px;
-      font-size: 1.2rem;
-      text-align: center;
-    }
-    .quote {
-      font-style: italic;
-      text-align: center;
-      margin: 20px 0;
-      color: #666;
-    }
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-    .filter-bar button {
-      padding: 10px 20px;
-      border: none;
-      background: #eee;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    .filter-bar button.active {
-      background: #333;
-      color: #fff;
-    }
-    .cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  transition: all 0.3s ease;
-    }
-    .card {
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      opacity: 1;
-      transition: all 0.4s ease-in-out;
-      position: relative;
-      cursor: pointer;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-    }
-    .card.hide {
-      display: none;
-    }
-    .card h3 {
-      margin-bottom: 10px;
-    }
-    .card p {
-      font-size: 0.95rem;
-    }
-    .tags {
-      margin-top: 10px;
-      font-size: 0.85rem;
-      color: #888;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.5);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-    .expanded-card {
-      background: white;
-      padding: 30px;
-      max-width: 600px;
-      border-radius: 12px;
-      position: relative;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #666;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      color: #aaa;
-    }
-  .tags span {
-    display: inline-block;
-    margin: 3px 5px;
-    padding: 4px 8px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    color: #fff;
-  }
-  .tag-Sport {
-    background-color: #b03b3b;
-  }
-  .tag-Exchange {
-    background-color: #3b7a78;
-  }
-  .tag-Internship {
-    background-color: #c96f28;
-  }
-  .tag-Language {
-    background-color: #2b4f81;
-  }
-  .tag-Self-Development {
-    background-color: #3b7737;
-  }
-  .tag-Education {
-    background-color: #6d3bb0;
-  }
-  .filter-bar button[data-tag="Sport"].active {
-    background-color: #b03b3b;
-  }
-  .filter-bar button[data-tag="Exchange"].active {
-    background-color: #3b7a78;
-  }
-  .filter-bar button[data-tag="Internship"].active {
-    background-color: #c96f28;
-  }
-  .filter-bar button[data-tag="Language"].active {
-    background-color: #2b4f81;
-  }
-  .filter-bar button[data-tag="Self-Development"].active {
-    background-color: #3b7737;
-  }
-  .filter-bar button[data-tag="Education"].active {
-    background-color: #6d3bb0;
-  }
-</style>
+    .intro { text-align: center; font-size: 1.15rem; max-width: 760px; margin: 0 auto 20px; }
+    .quote { text-align: center; font-style: italic; color: var(--muted); margin: 0 auto 28px; max-width: 760px; min-height: 3em; }
+    .filter-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 32px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+    .cards .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .cards .card p { color: #3a414a; font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .cards .card[hidden] { display: none; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .tag { padding: 3px 9px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: #fff; }
+    .tag-Sport { background: #b03b3b; }
+    .filter-bar .btn.active[data-tag="Sport"] { background: #b03b3b; border-color: #b03b3b; }
+    .tag-Exchange { background: #3b7a78; }
+    .filter-bar .btn.active[data-tag="Exchange"] { background: #3b7a78; border-color: #3b7a78; }
+    .tag-Internship { background: #c96f28; }
+    .filter-bar .btn.active[data-tag="Internship"] { background: #c96f28; border-color: #c96f28; }
+    .tag-Language { background: #2b4f81; }
+    .filter-bar .btn.active[data-tag="Language"] { background: #2b4f81; border-color: #2b4f81; }
+    .tag-SelfDev { background: #3b7737; }
+    .filter-bar .btn.active[data-tag="SelfDev"] { background: #3b7737; border-color: #3b7737; }
+    .tag-Education { background: #6d3bb0; }
+    .filter-bar .btn.active[data-tag="Education"] { background: #6d3bb0; border-color: #6d3bb0; }
+  </style>
 </head>
-<body>
-  <header>
-    <h1>Wachstum & Lernen</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-     <div class="flags">
-        <a href="growth-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
-        <a href="growth.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
-        <a href="growth-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
-        <a href="growth-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
-      </div>
-      <a href="home-de.html">Startseite</a>
-      <a href="blog-de.html">Blog</a>
-      <a href="growth-de.html">Wachstum & Lernen</a>
-      <a href="experience-de.html">Erfahrung</a>
-      <a href="gallery-de.html">Galerie</a>
-      <a href="fun-de.html">Interessante Fakten</a>
-      <a href="contacts-de.html">Kontakt</a>
-    </nav>
+<body data-page="growth">
+  <!-- The burger menu is added automatically by assets/site.js -->
+
+<header class="page-header has-image" style="--hero: url('https://i.imgur.com/mpBgo3X.jpeg')">
+    <h1>Entwicklung & Lernen</h1>
   </header>
 
   <main>
-    <div class="intro">
-  <p><em>"Ich glaube, dass wir das Leben leben, das wir uns selbst erschaffen, und an harte Arbeit. Ich versuche, jeden Tag ein wenig besser zu sein als am Vortag, strebe danach, besser als alle anderen zu sein und ziele darauf ab, ein Universalgelehrter zu werden."</em></p>
-</div>
+    <div class="wrap">
+      <p class="intro"><em>„Ich glaube, dass wir das Leben leben, das wir uns selbst erschaffen – und an harte Arbeit. Jeden Tag versuche ich, ein wenig besser zu sein als am Vortag, mit dem Ziel, ein Universalgelehrter zu werden.“</em></p>
+      <p class="quote" id="tagQuote">„Lebe, als würdest du morgen sterben. Lerne, als würdest du ewig leben.“ – Mahatma Gandhi</p>
 
-<div class="quote" id="tagQuote">
-  „Lebe, als würdest du morgen sterben. Lerne, als würdest du ewig leben.“ - Mahatma Gandhi
-</div>
+      <div class="filter-bar">
+        <button class="btn ghost active" type="button" data-tag="All">Alle</button>
+        <button class="btn ghost" type="button" data-tag="Sport">Sport</button>
+        <button class="btn ghost" type="button" data-tag="Exchange">Austausch</button>
+        <button class="btn ghost" type="button" data-tag="Internship">Praktikum</button>
+        <button class="btn ghost" type="button" data-tag="Language">Sprachen</button>
+        <button class="btn ghost" type="button" data-tag="SelfDev">Persönliche Entwicklung</button>
+        <button class="btn ghost" type="button" data-tag="Education">Bildung</button>
+      </div>
 
-<div class="filter-bar">
-  <button onclick="filterTag('All')" class="active">Alle</button>
-  <button onclick="filterTag('Sport')" data-tag="Sport">Sport</button>
-  <button onclick="filterTag('Exchange')" data-tag="Exchange">Austausch</button>
-  <button onclick="filterTag('Internship')" data-tag="Internship">Praktikum</button>
-  <button onclick="filterTag('Language')" data-tag="Language">Sprache</button>
-  <button onclick="filterTag('Self-Development')" data-tag="Self-Development">Selbstentwicklung</button>
-  <button onclick="filterTag('Education')" data-tag="Education">Bildung</button>
-</div>
-
-    <div class="cards" id="cardContainer"></div>
+      <div class="cards" id="cardContainer"></div>
+    </div>
   </main>
 
-  <div class="overlay" id="overlay">
-    <div class="expanded-card" id="expandedCard">
-      <span class="close-btn" onclick="closeExpanded()">&times;</span>
-      <h3 id="expandedTitle"></h3>
-      <p id="expandedDescription"></p>
-      <div class="tags" id="expandedTags"></div>
-    </div>
-  </div>
+  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
 
-  <footer>
-    <p>© 2025 Benjamin Hejda</p>
-  </footer>
-
+  <script src="assets/site.js"></script>
   <script>
+    // To add a card, copy one line below. Tag keys: Sport, Exchange, Internship, Language, SelfDev, Education
     const cardsData = [
-      { title: "Semester in Ohio, USA", description: "Ein halbes Jahr in die amerikanische Kultur und Bildung eingetaucht, Sprachkenntnisse verbessert und eine globale Perspektive gewonnen.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "IBDP Gymnasium - Gymnázium a SOŠ Rokycany", description: "Im anspruchsvollen International Baccalaureate Diploma Programme, Schwerpunkt auf Biologie, Mathematik, Geschichte und Englisch.", tags: ["Education", "Self-Development"] },
-      { title: "Church Grammar School (Sekundarbildung)", description: "Grundlegende Sekundarbildung abgeschlossen, starke akademische Gewohnheiten und Disziplin aufgebaut.", tags: ["Education"] },
-      { title: "Austauschprogramm - Portugal", description: "Teilnahme an einem Schüleraustausch in Portugal, Sprachfähigkeiten verbessert und kulturelle Anpassungsfähigkeit gestärkt.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "Austauschprogramm - Slowakei", description: "Teilnahme an einem Austauschprogramm in der Slowakei, Horizonte durch Immersion und soziale Zusammenarbeit erweitert.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "Deutsch", description: "Mittleres Niveau durch formale Bildung und Konversationspraxis entwickelt.", tags: ["Language", "Self-Development"] },
-      { title: "Norwegisch", description: "Lernt derzeit Norwegisch, nimmt neue Herausforderungen an und erweitert das kulturelle Verständnis.", tags: ["Language", "Self-Development"] },
-      { title: "Englisch", description: "Seit der Kindheit fließend in Englisch, eine Schlüssel­sprache für akademischen Erfolg und internationale Kommunikation.", tags: ["Language", "Self-Development"] },
-      { title: "Portugiesisch", description: "Mittleres Niveau, gestärkt durch Austauscherfahrung und kontinuierliches Üben.", tags: ["Language", "Self-Development"] },
-      { title: "Militärisches Praktikum", description: "Wertvolle Fähigkeiten und Perspektiven durch Zusammenarbeit mit der Armee erworben.", tags: ["Internship", "Self-Development"] },
-      { title: "Rugby", description: "Elf Jahre Rugby gespielt, darunter bei einem der besten tschechischen Clubs, Teamarbeit, Belastbarkeit und strategisches Denken entwickelt.", tags: ["Sport", "Self-Development"] },
-      { title: "Laufen", description: "Leidenschaftlicher Läufer, mehrere Halbmarathons absolviert, mit Schwerpunkt auf Ausdauer und mentaler Stärke.", tags: ["Sport", "Self-Development"] },
-      { title: "Hindernislauf (OCR)", description: "Regelmäßige Teilnahme an OCR-Wettbewerben, Test von körperlicher Stärke, Beweglichkeit und Problemlösung unter Druck.", tags: ["Sport", "Self-Development"] },
-      { title: "Schwimmen", description: "Aktiver Schwimmer mit Fokus auf Technik und Fitness, unterstützt die allgemeine sportliche Entwicklung.", tags: ["Sport", "Self-Development"] },
-      { title: "Calisthenics", description: "Widmet sich dem Training mit dem eigenen Körpergewicht, fördert funktionale Fitness und Disziplin.", tags: ["Sport", "Self-Development"] },
-      { title: "American Football", description: "Erfahrung im American Football, förderte nicht nur Teamarbeit, Koordination und Wettkampfgeist, sondern auch das Verständnis der US-Kultur.", tags: ["Sport", "Self-Development"] },
-      { title: "Ringen", description: "Ringertraining zur Stärkung von Kraft, Strategie und Ausdauer.", tags: ["Sport", "Self-Development"] },
-      { title: "Krav Maga", description: "Ein Jahr Krav Maga praktiziert, um Selbstverteidigungsfähigkeiten, Selbstvertrauen und mentale Widerstandsfähigkeit zu entwickeln.", tags: ["Sport", "Self-Development"] },
-      { title: "Freiwilliger bei IASE 2024", description: "Freiwilligenarbeit bei der Konferenz der International Association for Special Education, Unterstützung globaler Bildungsinitiativen.", tags: ["Self-Development"] },
-      { title: "Rückkehr in die USA für den Abschlussball", description: "In die USA gereist, um Freunde wiederzutreffen und am Abschlussball teilzunehmen, kulturelle und persönliche Bindungen gestärkt.", tags: ["Exchange", "Self-Development"] },
-      { title: "Predator-Wochenende", description: "Teilnahme am Predator OCR Master Weekend, physische und mentale Grenzen beim Ausdauerrennen überschritten, insgesamt 30 km mit mehr als 75 Hindernissen gelaufen.", tags: ["Sport", "Self-Development"] },
-      { title: "Halbmarathon", description: "Einen Halbmarathon absolviert, Ausdauer, Vorbereitung und Entschlossenheit gezeigt.", tags: ["Sport", "Self-Development"] },
-      { title: "Wanderung Prag-Prčice", description: "Berühmte Wanderung Prag-Prčice absolviert, Ausdauer und Liebe zu Outdoor-Herausforderungen bewiesen, 80 km zu Fuß zurückgelegt.", tags: ["Sport", "Self-Development"] },
-      { title: "Nuclear Days in Prag", description: "Teilnahme an Nuclear Days, wissenschaftliche Präsentationen besucht und Wissen in Energie und Physik erweitert.", tags: ["Education", "Self-Development"] },
-      { title: "Schauspiel in TV-Miniserie", description: "Als Statist in zwei Miniserien mitgewirkt: als Ministrant und als Rugbyspieler.", tags: ["Self-Development"] },
-      { title: "IT- und Sprachsupport bei Tagen der offenen Tür", description: "Während der Tage der offenen Tür IT-Support geleistet, Präsentatoren technisch unterstützt und ins Englische übersetzt.", tags: ["Internship", "Self-Development"] },
-      { title: "Triathlon-Training", description: "Training in Schwimmen, Radfahren und Laufen mit dem Ziel, im Sommer 2026 einen Ironman 70.3 zu absolvieren.", tags: ["Sport", "Self-Development"] },
-      { title: "Frühe interkulturelle Kommunikation", description: "Bereits in jungen Jahren ausländische Besucher bei der Kommunikation unterstützt und Selbstvertrauen in interkulturellen Interaktionen entwickelt.", tags: ["Language", "Self-Development"] },
-      { title: "Führung durch das Sportumfeld", description: "Führungsgewohnheiten durch langfristige Teilnahme an wettbewerbsorientierten Teamsportumgebungen entwickelt.", tags: ["Sport", "Self-Development"] },
-      { title: "Anpassung an neue Bildungssysteme", description: "Erfolgreicher Wechsel zwischen unterschiedlichen Bildungssystemen und Lernumgebungen im In- und Ausland.", tags: ["Exchange", "Education", "Self-Development"] },
-      { title: "Internationale Alleinreise-Erfahrung", description: "Eigenständiges internationales Reisen mit Organisation von Logistik, Anpassung und Kommunikation in fremden Umgebungen.", tags: ["Self-Development"] },
-      { title: "Gemeinschaftliches Engagement durch Ehrenamt", description: "Regelmäßige Mitwirkung an schulischen und gesellschaftlichen Initiativen durch freiwilliges Engagement und Veranstaltungsunterstützung.", tags: ["Self-Development"] },
-      { title: "Leistung unter Druck", description: "Erfahrung im Auftreten und Wettkämpfen in anspruchsvollen physischen und sozialen Umgebungen, die Belastbarkeit und Anpassungsfähigkeit erfordern.", tags: ["Sport", "Self-Development"] },
-      { title: "Mentoring jüngerer Schüler", description: "Unterstützung jüngerer Athleten und Teilnehmer durch Coaching, Anleitung und strukturierte Aktivitäten.", tags: ["Self-Development", "Sport"] },
-      { title: "Cheerleading", description: "Kürzlich mit Cheerleading begonnen und Koordination, Teamarbeit sowie Auftrittskompetenz in einem neuen sportlichen Umfeld entwickelt.", tags: ["Sport", "Self-Development"] },
-      { title: "Internationales EuroWeek-Programm", description: "Teilnahme an EuroWeek mit über 180 Schülern aus ganz Europa durch kulturellen Austausch, Teamaktivitäten und internationale Kommunikation.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "EuroWeek Internationale Freundschaften & Kultureller Austausch", description: "Fortsetzung der EuroWeek-Kontakte durch internationale Reisen, einschließlich eines Neujahrsbesuchs in Frankreich mit Aufenthalt in einer Gastfamilie und Pflege langfristiger europäischer Freundschaften.", tags: ["Exchange", "Language", "Self-Development"] },
-      { title: "Jugend-Rugby-Coaching", description: "Führung junger Athleten nicht nur im Sport, sondern auch in Disziplin, Verantwortung und Teamarbeit.", tags: ["Sport", "Self-Development"] },
-      { title: "Organisation eines Outdoor-Survival-Camps", description: "Mitorganisation von Survival-Camps für junge Rugbyspieler mit Förderung von Selbstständigkeit, Kooperation und praktischen Outdoor-Fähigkeiten.", tags: ["Sport", "Self-Development"] },
-      { title: "Schiedsrichter bei Rugbyturnieren", description: "Als Schiedsrichter bei Rugbyturnieren tätig und Entscheidungsfähigkeit, Autorität sowie Konfliktmanagement entwickelt.", tags: ["Sport", "Self-Development"] },
-      { title: "Gestaltung von Camp-Aktivitätsprogrammen", description: "Entwicklung von Spielen und strukturierten Aktivitäten für Kinder verschiedener Altersgruppen und Gruppengrößen.", tags: ["Internship", "Self-Development"] },
-      { title: "Organisation eines portugiesischen Austauschprogramms", description: "Unterstützung bei der Organisation von Aktivitäten für portugiesische Austauschschüler, einschließlich Planung und Begleitung eines Besuchs im Militärmuseum in Rokycany.", tags: ["Exchange", "Self-Development", "Education"] },
+      {"title":"Tetr College of Business","description":"Zulassung zum Tetr College of Business, einem internationalen Bachelorprogramm in Business, bei dem man in mehreren Ländern studiert. Derzeit studiere ich in Neu-Delhi, Indien.","tags":["Education","Exchange","SelfDev"]},
+      {"title":"IB Diploma – Gymnázium a SOŠ Rokycany","description":"Im Sommer 2026 das International Baccalaureate Diploma abgeschlossen, mit Schwerpunkt auf Biologie, Mathematik, Geschichte und Englisch.","tags":["Education","SelfDev"]},
+      {"title":"Semester in Ohio, USA","description":"Ein halbes Jahr an einer amerikanischen High School verbracht, eingetaucht in die US-Kultur und ein völlig anderes Schulsystem. Später zurückgeflogen, um Freunde wiederzusehen und zum Abschlussball (Prom) zu gehen.","tags":["Exchange","Language","SelfDev"]},
+      {"title":"Austausch mit Portugal – Aveiro & Rokycany","description":"Teilnahme an einem Schüleraustausch in Aveiro, Portugal; anschließend Mitorganisation des Programms für die portugiesischen Gäste in Rokycany, einschließlich Planung und Führung eines Besuchs im Militärmuseum.","tags":["Exchange","Language","SelfDev"]},
+      {"title":"EuroWeek","description":"Mit über 180 Schülern aus ganz Europa an Kulturaustausch und Teamaktivitäten gearbeitet. Die Freundschaften sind geblieben – später habe ich Silvester in Frankreich bei einer Gastfamilie verbracht.","tags":["Exchange","Language","SelfDev"]},
+      {"title":"Rugby","description":"Elf Jahre Rugby, darunter bei einem der besten tschechischen Vereine – Teamarbeit, Belastbarkeit, strategisches Denken und Führungsqualitäten.","tags":["Sport","SelfDev"]},
+      {"title":"Jugend-Rugbytraining","description":"Seit 2022 ehrenamtlicher Trainer junger Spieler – ich begleite sie nicht nur im Rugby, sondern auch in Disziplin, Verantwortung und Teamarbeit.","tags":["Sport","SelfDev"]},
+      {"title":"Rugby-Schiedsrichter","description":"Als Schiedsrichter bei Rugbyturnieren im Einsatz – schnelle Entscheidungen, Autorität und Konfliktmanagement.","tags":["Sport","SelfDev"]},
+      {"title":"Survival-Camps & Camp-Programme","description":"Survival-Camps für junge Rugbyspieler mitorganisiert und Spiele und Aktivitäten für Kinder verschiedener Altersgruppen und Gruppengrößen entwickelt – mit Fokus auf Selbstständigkeit, Zusammenarbeit und praktische Outdoor-Fähigkeiten.","tags":["Internship","Sport","SelfDev"]},
+      {"title":"Triathlon","description":"Meinen ersten Triathlon gefinisht – jetzt trainiere ich Schwimmen, Radfahren und Laufen mit dem Ziel, einen Ironman 70.3 zu schaffen.","tags":["Sport","SelfDev"]},
+      {"title":"Hindernislauf (OCR)","description":"Regelmäßige Teilnahme an OCR-Rennen. Highlight: das Predator OCR Master Weekend – 30 km und mehr als 75 Hindernisse.","tags":["Sport","SelfDev"]},
+      {"title":"Laufen & Halbmarathons","description":"Laufen ist mein Reset-Knopf – mehrere Halbmarathons absolviert, mit viel Ausdauer und mentaler Stärke.","tags":["Sport","SelfDev"]},
+      {"title":"Sprachen","description":"Tschechisch (Muttersprache), Englisch (fließend seit der Kindheit), Deutsch und Portugiesisch (Mittelstufe), derzeit lerne ich Norwegisch. Schon als Kind habe ich ausländischen Besuchern bei der Verständigung geholfen – das hat mir Sicherheit im Umgang mit anderen Kulturen gegeben.","tags":["Language","SelfDev"]},
+      {"title":"Praktikum beim Militär","description":"Wertvolle Fähigkeiten und neue Perspektiven durch ein Praktikum bei der Armee.","tags":["Internship","SelfDev"]},
+      {"title":"Austauschprogramm – Slowakei","description":"Teilnahme an einem Austausch in der Slowakei – neue Perspektiven durch Eintauchen in den Alltag und Zusammenarbeit mit einheimischen Schülern.","tags":["Exchange","Language","SelfDev"]},
+      {"title":"Alleinreisen ins Ausland","description":"Allein ins Ausland gereist – Logistik selbst organisiert, schnell angepasst und in fremder Umgebung kommuniziert.","tags":["SelfDev"]},
+      {"title":"IT- und Sprachsupport am Tag der offenen Tür","description":"IT-Support an den Tagen der offenen Tür meiner Schule, technische Hilfe für Vortragende und Übersetzungen ins Englische für Besucher, die sie brauchten.","tags":["Internship","Language","SelfDev"]},
+      {"title":"Ehrenamt & IASE 2024","description":"Freiwilliger bei der Konferenz der International Association of Special Education (IASE) 2024; außerdem helfe ich regelmäßig bei Schul- und Gemeindeveranstaltungen.","tags":["SelfDev","Education"]},
+      {"title":"Nuclear Days in Prag","description":"Teilnahme an den Nuclear Days – wissenschaftliche Vorträge, die mein Interesse an Energie und Physik vertieft haben.","tags":["Education"]},
+      {"title":"Wanderung Prag–Prčice","description":"Die berühmte 80 km lange Strecke Prag–Prčice zu Fuß zurückgelegt – ein Test für Durchhaltevermögen und Liebe zu Outdoor-Herausforderungen.","tags":["Sport","SelfDev"]},
+      {"title":"American Football","description":"American Football gespielt – Teamarbeit, Koordination, Wettkampfgeist und ein echter Einblick in die US-Kultur.","tags":["Sport","Exchange","SelfDev"]},
+      {"title":"Cheerleading","description":"Vor Kurzem mit Cheerleading angefangen – Koordination, Teamarbeit und Bühnenpräsenz in einer völlig neuen Sportart.","tags":["Sport","SelfDev"]},
+      {"title":"Calisthenics","description":"Krafttraining mit dem eigenen Körpergewicht für funktionelle Fitness und Disziplin.","tags":["Sport","SelfDev"]},
+      {"title":"Ringen","description":"Ringertraining für Kraft, Strategie und Durchhaltevermögen.","tags":["Sport","SelfDev"]},
+      {"title":"Krav Maga","description":"Ein Jahr Krav Maga für Selbstverteidigung, Selbstvertrauen und mentale Stärke.","tags":["Sport","SelfDev"]},
+      {"title":"Statist in TV-Miniserien","description":"Als Statist in zwei Miniserien – einmal als Ministrant, einmal als Rugbyspieler.","tags":["SelfDev"]},
+      {"title":"Kirchliches Gymnasium","description":"Unterstufe des Gymnasiums abgeschlossen und dabei solide Lerngewohnheiten und Disziplin aufgebaut.","tags":["Education"]}
     ];
-
-    const container = document.getElementById("cardContainer");
-    const overlay = document.getElementById("overlay");
-    const expandedCard = document.getElementById("expandedCard");
-    const expandedTitle = document.getElementById("expandedTitle");
-    const expandedDescription = document.getElementById("expandedDescription");
-    const expandedTags = document.getElementById("expandedTags");
-
-    function createCards() {
-  container.innerHTML = cardsData.map((card, index) => {
-    const tagSpans = card.tags.map(tag => `<span class="tag-${tag.replace(/\s+/g, '-')}">${tag}</span>`).join(" ");
-    return `
-      <div class="card" data-tags='${JSON.stringify(card.tags)}' onclick="expandCard(${index})">
-        <h3>${card.title}</h3>
-        <p>${card.description}</p>
-        <div class="tags">${tagSpans}</div>
-      </div>
-    `;
-  }).join("");
-}
-
-    function expandCard(index) {
-      const card = cardsData[index];
-      expandedTitle.textContent = card.title;
-      expandedDescription.textContent = card.description;
-      expandedTags.textContent = card.tags.join(", ");
-      overlay.style.display = "flex";
-    }
-
-    function closeExpanded() {
-      overlay.style.display = "none";
-    }
-    overlay.addEventListener('click', function (e) {
-  if (e.target === overlay) {
-    closeExpanded();
-  }
+    
+    const TAG_LABELS = {"Sport":"Sport","Exchange":"Austausch","Internship":"Praktikum","Language":"Sprachen","SelfDev":"Persönliche Entwicklung","Education":"Bildung"};
+    const QUOTES = {
+      "Sport": "„Körperliche Fitness ist nicht nur einer der wichtigsten Schlüssel zu einem gesunden Körper, sie ist die Grundlage für dynamische und kreative geistige Aktivität.“ – John F. Kennedy",
+      "Exchange": "„Reisen ist tödlich für Vorurteile, Bigotterie und Engstirnigkeit.“ – Mark Twain",
+      "Internship": "„Wir können die Zukunft nicht vorhersagen, aber wir können sie erfinden.“ – Dennis Gabor",
+      "Language": "„Eine Sprache zu lernen bedeutet, ein weiteres Fenster zu haben, durch das man auf die Welt schaut.“ – Chinesisches Sprichwort",
+      "SelfDev": "„Wer sich selbst besiegt, ist der mächtigste Krieger.“ – Konfuzius",
+      "Education": "„Bildung ist nicht das Erlernen von Fakten, sondern die Schulung des Geistes zum Denken.“ – Albert Einstein"
+    };
+    const DEFAULT_QUOTE = "„Lebe, als würdest du morgen sterben. Lerne, als würdest du ewig leben.“ – Mahatma Gandhi";
+    const MORE = "Mehr →";
+    const esc = Site.escape;
+    const tagHtml = tags => tags.map(t => '<span class="tag tag-' + t + '">' + TAG_LABELS[t] + '</span>').join('');
+    
+    const container = document.getElementById('cardContainer');
+    container.innerHTML = cardsData.map((c, i) =>
+      '<button class="card clickable" type="button" data-index="' + i + '" data-tags="' + c.tags.join(' ') + '">' +
+      '<h3>' + esc(c.title) + '</h3><p>' + esc(c.description) + '</p>' +
+      '<div class="tags">' + tagHtml(c.tags) + '</div><div class="more-hint">' + MORE + '</div></button>'
+    ).join('');
+    
+    container.addEventListener('click', e => {
+      const card = e.target.closest('.card');
+      if (!card) return;
+      const c = cardsData[card.dataset.index];
+      Site.openModal('<div class="modal-content"><h2>' + esc(c.title) + '</h2><p>' + esc(c.description) + '</p><div class="tags">' + tagHtml(c.tags) + '</div></div>');
     });
-    function filterTag(tag) {
-      document.querySelectorAll('.filter-bar button').forEach(btn => btn.classList.remove('active'));
-      document.querySelector(`.filter-bar button[onclick*="'${tag}'"]`).classList.add('active');
-
-      const quoteBox = document.getElementById('tagQuote');
-
-      document.querySelectorAll('.card').forEach(card => {
-        const tags = JSON.parse(card.getAttribute('data-tags'));
-        if (tag === 'All' || tags.includes(tag)) {
-          card.classList.remove('hide');
-        } else {
-          card.classList.add('hide');
-        }
+    
+    document.querySelectorAll('.filter-bar .btn').forEach(btn => btn.addEventListener('click', () => {
+      const tag = btn.dataset.tag;
+      document.querySelectorAll('.filter-bar .btn').forEach(b => b.classList.toggle('active', b === btn));
+      container.querySelectorAll('.card').forEach(card => {
+        card.hidden = !(tag === 'All' || card.dataset.tags.split(' ').includes(tag));
       });
-
-      const quotes = {
-        Sport: "Körperliche Fitness ist nicht nur einer der wichtigsten Schlüssel zu einem gesunden Körper, sie ist die Grundlage für dynamische und kreative geistige Aktivität. – John F. Kennedy",
-        Exchange: "Reisen ist tödlich für Vorurteile, Bigotterie und Engstirnigkeit. - Mark Twain",
-        Internship: "Wir können die Zukunft nicht vorhersagen, aber wir können sie erfinden. - Dennis Gabor",
-        Language: "Eine Sprache zu lernen bedeutet, ein weiteres Fenster zu haben, durch das man auf die Welt schaut. - Chinesisches Sprichwort",
-        "Self-Development": "Wer sich selbst besiegt, ist der mächtigste Krieger. - Konfuzius",
-        Education: "Bildung ist nicht das Erlernen von Fakten, sondern die Schulung des Geistes zum Denken. - Albert Einstein"
-      };
-
-      quoteBox.textContent = tag === 'All'
-        ? "„Lebe, als würdest du morgen sterben. Lerne, als würdest du ewig leben.“ - Mahatma Gandhi"
-        : quotes[tag] || "";
-    }
-
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
-
-    createCards();
+      document.getElementById('tagQuote').textContent = tag === 'All' ? DEFAULT_QUOTE : QUOTES[tag];
+    }));
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-

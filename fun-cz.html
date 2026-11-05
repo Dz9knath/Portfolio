@@ -1,301 +1,89 @@
-<!-- TEMPLATE SUBPAGE FILE -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs" data-lang="cz">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zajímavosti</title>
+  <title>Zajímavosti | Benjamin Hejda</title>
+  <meta name="description" content="Zajímavosti – portfolio Benjamina Hejdy, českého studenta, sportovce a dobrodruha." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/site.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: Arial, sans-serif;
-    }
-    header {
-      background-color: #111;
-      color: white;
-      padding: 20px;
-      position: relative;
-    }
-    .hamburger {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 1001;
-    }
-    .sidebar {
-      position: fixed;
-      top: 0;
-      right: -300px;
-      width: 300px;
-      height: 100%;
-      background-color: white;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-      padding: 40px 20px;
-      transition: right 0.3s ease;
-      z-index: 1000;
-    }
-    .sidebar.open {
-      right: 0;
-    }
-    .sidebar .flags {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .sidebar .flags img {
-      width: 30px;
-      height: 20px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .sidebar a {
-      display: block;
-      margin: 20px 0;
-      color: #333;
-      text-decoration: none;
-      font-size: 1.2rem;
-    }
-    main {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .buttons button {
-      margin: 10px;
-      padding: 10px 20px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    .fact-box {
-    margin: 20px auto;
-    padding: 20px;
-    background: #f5f5f5;
-    border-radius: 10px;
-    text-align: center;
-    width: 50%; /* about half the page width */
-    max-width: 700px; /* roughly A4 width */
-    min-height: 120px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    }
-    .source-link {
-      display: block;
-      margin-top: 10px;
-      color: #007BFF;
-      text-decoration: none;
-    }
-    .next-button {
-      margin-top: 20px;
-      padding: 8px 16px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
+    .intro { text-align: center; max-width: 720px; margin: 0 auto 28px; font-size: 1.05rem; }
+    .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 28px; }
+    .buttons .btn.nsfw { border-color: #d24b4b; color: #b02a2a; }
+    .buttons .btn.nsfw.active { background: #b02a2a; border-color: #b02a2a; color: #fff; }
+    .fact-box { max-width: 700px; margin: 0 auto; min-height: 200px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
+    .fact-text { font-size: 1.2rem; line-height: 1.55; }
+    .nsfw-note { color: #b02a2a; font-size: 0.9rem; font-weight: 600; }
+    .fact-footer { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .fact-count { color: var(--muted); font-size: 0.85rem; }
+    .source-link { font-weight: 500; text-decoration: none; }
+    .source-link:hover { text-decoration: underline; }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Fun Facts</h1>
-    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
-    <nav class="sidebar" id="sidebar">
-       <div class="flags">
-        <a href="fun-cz.html"><img src="https://flagcdn.com/w40/cz.png" alt="Czech" title="Czech"></a>
-        <a href="fun.html"><img src="https://flagcdn.com/w40/gb.png" alt="English" title="English"></a>
-        <a href="fun-de.html"><img src="https://flagcdn.com/w40/de.png" alt="German" title="German"></a>
-        <a href="fun-pt.html"><img src="https://flagcdn.com/w40/pt.png" alt="Portuguese" title="Portuguese"></a>
-      </div>
-	 <a href="home-cz.html">Domů</a>
-	<a href="blog-cz.html">Blog</a>
-      <a href="growth-cz.html">Růst a vzdělávání</a>
-      <a href="experience-cz.html">Zkušenosti</a>
-      <a href="gallery-cz.html">Galerie</a>
-      <a href="fun-cz.html">Zajímavosti</a>
-      <a href="contacts-cz.html">Kontakty</a>
-    </nav>
+<body data-page="fun">
+  <!-- The burger menu is added automatically by assets/site.js -->
+
+<header class="page-header">
+    <h1>Zajímavosti</h1>
   </header>
 
   <main>
-    <p>Protože si mě mnoho mých přátel pamatuje pro mé rozsáhlé znalosti podivností a zajímavých faktů, rozhodl jsem se některé z nich přidat do svého portfolia.</p>
-<div class="buttons">
-  <button onclick="showFact('wellKnown')">Známé zajímavosti</button>
-  <button onclick="showFact('unknown')">Zajímavosti, o kterých jste pravděpodobně nikdy neslyšeli</button>
-  <button onclick="showFact('aboutMe')">Zajímavosti o mně</button>
-</div>
-<div class="fact-box" id="factBox">
-  <p id="factText">Klikněte na jedno z tlačítek výše k zobrazení zajímavosti</p>
-      <a id="factSource" class="source-link" href="#" target="_blank" style="display:none;">🔍 Source</a>
-      <button id="nextButton" class="next-button" onclick="nextFact()" style="display:none;">Další</button>
+    <div class="wrap">
+      <p class="intro">Protože mě spousta kamarádů zná díky mým rozsáhlým znalostem kuriozit a zajímavostí, rozhodl jsem se některé z nich přidat do portfolia. Každá zajímavost je ověřená a má uvedený zdroj.</p>
+      <div class="buttons">
+        <button class="btn ghost" type="button" data-cat="well">Známé zajímavosti</button>
+        <button class="btn ghost" type="button" data-cat="unknown">Zajímavosti, o kterých jste asi neslyšeli</button>
+        <button class="btn ghost" type="button" data-cat="me">Zajímavosti o mně</button>
+        <button class="btn ghost nsfw" type="button" data-cat="nsfw">🔞 NSFW</button>
+      </div>
+      <div class="card fact-box" aria-live="polite">
+        <p class="nsfw-note" id="nsfwNote" hidden>Hrubé, pro dospělé nebo prostě divné. Byli jste varováni.</p>
+        <p class="fact-text" id="factText">Klikněte na jedno z tlačítek výše a zobrazí se zajímavost!</p>
+        <div class="fact-footer" id="factFooter" hidden>
+          <a id="factSource" class="source-link" href="#" target="_blank" rel="noopener">🔍 Zdroj</a>
+          <span class="fact-count" id="factCount"></span>
+          <button id="nextButton" class="btn" type="button">Další →</button>
+        </div>
+      </div>
     </div>
-  
   </main>
 
+  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
+
+  <script src="assets/site.js"></script>
+  <script src="assets/facts.js"></script>
   <script>
-    const facts = {
-      wellKnown: [
-        { text: "Vombati mají krychlové bobky." },
-		{ text: "Žralokům nikdy nevypadají všechny zuby." },
-		{ text: "Croissanty nepocházejí původně z Francie." },
-		{ text: "Ve vakuu padá dělová koule i pírko stejnou rychlostí." },
-		{ text: "LEGO je největší výrobce pneumatik na světě.", source: "https://www.guinnessworldrecords.com/world-records/100909-largest-tyre-manufacture-per-annum" },
-		{ text: "Pijavice mají 32 mozků." },
-		{ text: "Když si zacpete nos, nedokážete mručet." },
-		{ text: "Osmanská říše vznikla roku 1299 a zanikla v roce 1922." },
-		{ text: "Točité schodiště se většinou staví ve směru hodinových ručiček, aby se obránci mohli lépe bránit." },
-		{ text: "Větu „Are you as bored as I am“ lze říct pozpátku se stejným významem." },
-		{ text: "Tanečníci říkají 5,6,7,8, protože hudebníci už používají 1,2,3,4." },
-		{ text: "Čtyřikrát více lidí mluví anglicky jako druhým jazykem než jako mateřským." },
-		{ text: "Americké granáty za druhé světové války byly vyráběny tak aby měly tvar a hmotnost baseballového míčku." },
-		{ text: "První bomba, která dopadla na Berlín během druhé světové války, zabila slona v zoo." },
-		{ text: "Sto záhybů na kuchařské čepici symbolizuje sto způsobů, jak uvařit vejce." },
-		{ text: "Národním zvířetem Skotska je jednorožec." },
-		{ text: "Telefonní čísla se dělí na skupiny po 3–4 číslicích, aby se lépe pamatovala." },
-		{ text: "Král Jindřich VIII. měl šest manželek." },
-		{ text: "REM spánek znamená „Rapid Eye Movement“ – oči se během této fáze rychle pohybují." },
-		{ text: "Anlgické Slovo „goodbye“ pochází z fráze „God be with you“." },
-		{ text: "Napoleona jednou napadlo hejno králíků." },
-		{ text: "Všechny britské tanky po druhé světové válce mají konvici na čaj." },
-		{ text: "Alexandr Veliký po sobě pojmenoval přes 20 měst." },
-		{ text: "Když Lichtenštejnsko naposledy vyrazilo do války, odešlo 80 vojáků a vrátilo se jich 81." },
-		{ text: "Každá lidská buňka obsahuje přes dva metry DNA." },
-		{ text: "Hitler měl pouze jedno varle." },
-		{ text: "Charles Darwin si vzal svou sestřenici." },
-		{ text: "Starověké řecké sochy byly původně barevné – barvy se však časem ztratily." },
-		{ text: "Při kýchnutí může vzduch letět rychlostí až 160 km/h." },
-		{ text: "Dnes jsme od druhé světové války časově stejně daleko, jako byla druhá světová válka od americké občanské války." }
-      ],
-      unknown: [
-      	{ text: "Konečník má vlastní otisk prstu." },
-		{ text: "Model Botticelliho obrazu 'Zrození Venuše' byla sestřenice Ameriga Vespucciho, podle kterého bylo pojmenováno Amerika." },
-		{ text: "Všechny britské tanky navržené po druhé světové válce mají čajové konvice." },
-		{ text: "V Esvatini je čarodějkám zakázáno létat nad 150 m." },
-		{ text: "John Kellogg vynalezl kukuřičné lupínky a Grahamovy sušenky, aby zabránil chlapcům v masturbaci." },
-		{ text: "Motorová pila byla vynalezena pro symfyziótomii — chirurgický porodní zákrok." },
-		{ text: "Papež Řehoř IX. vyhlásil válku kočkám." },
-		{ text: "Abraham Lincoln byl licencovaný barman." },
-		{ text: "Pokud jste v partnerském vztahu, osoba, která je statisticky nejpravděpodobnější vás zabít, spí každou noc vedle vás." },
-		{ text: "Kleopatra žila blíže vzniku Bitcoinu než stavbě prvních pyramid." },
-		{ text: "Tučňáci dokážou skočit až 1,8 metru vysoko." },
-		{ text: "Římané používali lidskou moč jako ústní vodu." },
-		{ text: "Během čarodějnických procesů v Salemu nebyl nikdo upálen — všichni byli oběšeni." },
-		{ text: "Starověký Egypt trval tak dlouho, že Egypťané už studovali historii starověkého Egypta." },
-		{ text: "Španělská chřipka pravděpodobně začala v Kansasu, USA. Jmenuje se 'španělská', protože Španělsko, neutrální země v první světové válce, necenzurovalo tisk." },
-		{ text: "Lidé svítí ve tmě, ale naše oči to nedokáží vidět." },
-		{ text: "Některé delfíni, velryby a tuleni spí s jedním otevřeným okem — vždy spí jen polovina jejich mozku." },
-		{ text: "Anlgické slovo 'salary' pochází ze slova 'sůl', protože římským vojákům byla často vyplácena právě solí." },
-		{ text: "Některé želvy mohou dýchat zadkem." },
-		{ text: "Anglické přízvuky ukazují, zda je slovo podstatné jméno (první slabika) nebo sloveso (druhá slabika). Např. récord vs. recórd." },
-		{ text: "Termín 'Devil Dogs', známý jako motto US Marine Corps, má podivný původ. Američané měli za to, že používají 'Teufel Hunden', což je gramaticky špatně. Správně je 'Teufelshunde'. \n Ve středověkém polském a německém folklóru nebylo 'Teufelshund' kompliment — byl to urážka, používaná katolickými kněžími, aby vysvětlili případy znásilnění psů, přičítaných ďáblu. Později se termín stal dehumanizační urážkou pro cizince — nejdříve od Poláků, pak od Němců během první světové války. Americké jednotky to pochopily jako 'pekelný pes' a hrdě to přijaly — aniž by věděly, že původněí význam je 'sexuální mazlíček ďábla'." },
-		{ text: "V roce 1989 se Pepsi krátce stala šestým největším namořnictvem světa — po výměně 17 ponorek, křižníku, fregaty a torpédoborce se Sovětským svazem za 3 miliardy dolarů coly." },
-		{ text: "Norové jsou druzí v množoství snězených tacos na světě, druhý v množství vypité kávy na světe a spotřebují 9 % veškeré Pepsi Max — to vše při pouhých 5 milionech obyvatel." },
-		{ text: "Oscar Wilde měřil 1,90 m, což by v 70. letech 19. století odpovídalo dnešním 2,00–2,05 m. Byl tak obrovský a neohrabaný, že ho jeden přítel popsal jako 'velkou bílou housenku'." },
-		{ text: "Když Napoleon napadl Egypt, Egypťané mu poslali dvě dospívající dívky, aby ho potěšily. Napoleon, zamilovaný do Josephiny, je odmítl a poslal zpět. Ministři zřejmě špatně pochopili — poslali zpět dva desetileté chlapce." },
-		{ text: "1925, při svých prvních známých námluvách ženě , Montgomery, tehdy téměř 40ti letý, požádal 17letou Betty Anderson o ruku tím, že do písku nakreslil, jak by rozmístil tanky a pěchotu v budoucí válce. Ona odmítla." },
-		{ text: "V Biertanu v Rumunsku musely rozvádějící se páry na dva týdny sdílet malou místnost v kostele — jen s jednou postelí, jedním stolem, jedním talířem a jednou lžící. Prý se během 300 let rozvedl jen jeden pár." },
-		{ text: "V roce 1940 byla princezna Juliana Nizozemská evakuována do Ottawy. Když se její dcera Margriet narodila v roce 1943, Kanada prohlásila nemocniční pokoj za extraterritoriální, aby dítě mělo pouze nizozemské občanství. Na oplátku poslala Juliana 100 000 tulipánů do Ottawy, čímž zahájila tradici, která pokračuje dodnes." },
-		{ text: "Clement Wragge začal pojmenovávat cyklony a hurikány po politicích, které neměl rád, aby mohl říct, že způsobují 'velké utrpení' nebo 'bloudí bez cíle'." },
-		{ text: "Historicky nosili skuteční ninjové žádné černé oblečení — to je velice špatné maskování. Nosili obyčejné civiílní oblečení nebo tlumené barvy. Stereotyp o ninjovi v černém pochází z kabuki divadla, kde pomocníci scény (kuroko) nosili černou, aby byli 'neviditelní'. Jednoho dne nechal Režisér jednoho 'neviditelného' kuroka uprostřed představení zabít postavu — publikum bylo nadšené a tak vznikl mýtus." },
-		{ text: "Přezdívka 'Caligula' znamená 'malé sandály', protože císař jako dítě nosil malé vybavení vojáka." },
-		{ text: "Jimmy Carter jednou omylem nechal jaderné kódy v čistírně." },
-		{ text: "Slova 'shit' a 'science' pocházejí ze stejného indoevropského kořene — jedno přišlo do angličtiny přes francouzštinu, druhé přes němčinu." },
-		{ text: "Vaše bradavky jsou starší než vaše zuby." },
-		{ text: "Reverse cowgirl je statisticky nejrizikovější sexuální pozice." },
-		{ text: "Japonští uživatelé mají nejdelší streaky na Duolingu; Jihoameričané nejkratší." },
-		{ text: "Stromy se vyvinuly dříve, než bakterie dokázaly trávit celulózu, takže po dlouhou dobu se stromy nerozkládaly." },
-		{ text: "Průměrně každých 6 dní slaví nějaká země nezávislost na Británii. Je to nejvíce slavený státní svátek na světě." },
-		{ text: "Odstraněná předkožka při obřízce se používá v kosmetice a lékařských štěpech." },
-		{ text: "Obřezaní muži mají o 60 % vyšší pravděpodobnost alexithymie — nemociy která způsobuje potíže s rozpoznáváním emocí." },
-		{ text: "Zámecké schody byly úmyslně nerovné — obyvatelé je znali, vetřelci o ně zakopávali." },
-		{ text: "Kim Il-sung měl nádor velikosti baseballového míčku na zátylku." },
-		{ text: "Srdeční tep plejtváka modrého je slyšet ze vzdálenosti 3 km." },
-		{ text: "Lidé a galaxie sdílejí 97 % stejných atomů." },
-		{ text: "Existuje studie, která analyzuje, jak jíte Oreo a co to o vás říká." },
-		{ text: "Průměrný kůň váží 450 kg a má penis dlouhý 50 cm — tedy 9 kg na cm. Muž o váze 90 kg by potřeboval jen 10 cm, aby byl 'vybaven jako kůň'." },
-		{ text: "Po druhé světové válce vydržely sovětské zásoby vodky jen 22 hodin." },
-		{ text: "Jindřich VIII. měl čtyři 'Grooms of the Stool', jejich úkolem bylo utírat mu zadek — byli za to povýšeni do šlechtického stavu." },
-		{ text: "Nevíme, kdo vynalezl požární hydrant, protože patent shořel." },
-		{ text: "11. duben 1954 byl nejnudnějším dnem 20. století — nic významného se nestalo." },
-		{ text: "Slovo 'witch' pochází ze staroanglického 'wicce', což znamená 'moudrá žena', protože čarodějnice byly kdysi považovány za léčitelky a porodní asistentky." },
-		{ text: "Králíci nemohou zvracet." },
-		{ text: "Každé číslo sdílí písmeno se svým předchůdcem." },
-		{ text: "Bluetooth je pojmenován po vikingském králi Haraldovi Bluetoothovi." },
-		{ text: "The Beatles se pokusili natočit Pána prstenů s nimi jako hlavními postavami." },
-		{ text: "Abraham Lincoln pojmenoval svého nejmladšího syna 'Tad' (česky pulec), protože byl kroutivý a měl velkou hlavu." },
-		{ text: "Philip Diehl vynalezl první motor pro šicí stroj — a později stropní ventilátor." },
-		{ text: "Pythagoras věřil, že fazole a lidé pocházejí ze stejného zdroje. Aby to dokázal, provedl experiment, který spočíval v tom, že rozmačkal fazoli a prohlásil, že voní jako semeno." },
-		{ text: "Historicky byla levorukost spojována s ďáblem — 'sinister' je latinsky 'levoruký'." },
-		{ text: "Účes 'taper fade' lze lingvisticky vysledovat ke Shakespearovi, který použil 'taper' v Macbethovi pro svíčky." },
-		{ text: "Kokosové palmy nejsou v Karibiku původní — tam dopluly z Oceánie." },
-		{ text: "Statisticky je větší pravděpodobnost, že vás kousne někdo v New Yorku než žralok." },
-		{ text: "Chobotnice mají mozek ve tvaru koblihy, trávicí trakt vede skrz jeho otvor — mohou si poškodit mozek, pokud se přejí." },
-		{ text: "Arktida a Antarktida znamenají 's medvědy' a 'bez medvědů' — podle souhvězdí, náhodou ale pravda." },
-		{ text: "Honda SMX je auto navržené s ohledem na sex." },
-		{ text: "Mangrovníky jsou jedinými stromy, které rostou v slané vodě." },
-		{ text: "Katapultovací sedadla byla testována na medvědech." },
-		{ text: "Průměrně je lidské tělo hustší než některé černé díry." },
-		{ text: "Během natáčení American Psycho Willem Dafoe zahrál každou scénu setkání s Batemanem třemi způsoby — jako by věděl, jako by tušil, a jako by nevěděl. Scény byly náhodně sestříhány, aby diváka zmátli." },
-
-
-      ],
-      aboutMe: [
-        { text: "Dočasně nedostupné – stále na tom pracuji. Zkuste jinou kategorii." }
-      ]
-    };
-
-    let currentCategory = null;
-    let currentIndex = 0;
-
-    function showFact(category) {
-      currentCategory = category;
-      facts[category] = facts[category].sort(() => Math.random() - 0.5);
-      currentIndex = 0;
-      displayFact();
+    // The facts themselves live in assets/facts.js (all languages in one file).
+    const LANG = Site.lang;
+    let list = [], index = 0;
+    
+    function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+    
+    function showCategory(cat, btn) {
+      document.querySelectorAll('.buttons .btn').forEach(b => b.classList.toggle('active', b === btn));
+      list = shuffle(FACTS.filter(f => f.cat === cat));
+      index = 0;
+      document.getElementById('nsfwNote').hidden = cat !== 'nsfw';
+      render();
     }
-
-    function nextFact() {
-      currentIndex = (currentIndex + 1) % facts[currentCategory].length;
-      displayFact();
+    
+    function render() {
+      const f = list[index];
+      document.getElementById('factText').textContent = f[LANG] || f.en;
+      const src = document.getElementById('factSource');
+      src.hidden = !f.src;
+      if (f.src) src.href = f.src;
+      document.getElementById('factCount').textContent = (index + 1) + ' / ' + list.length;
+      document.getElementById('nextButton').hidden = list.length < 2;
+      document.getElementById('factFooter').hidden = false;
     }
-
-    function displayFact() {
-  const fact = facts[currentCategory][currentIndex];
-  const factBox = document.getElementById("factBox");
-  const factText = document.getElementById("factText");
-  const factSource = document.getElementById("factSource");
-  const nextButton = document.getElementById("nextButton");
-
-  factText.textContent = fact.text;
-  if (fact.source) {
-    factSource.href = fact.source;
-    factSource.style.display = 'inline';
-  } else {
-    factSource.style.display = 'none';
-  }
-  
-  if (currentCategory === 'aboutMe') {
-    nextButton.style.display = 'none';
-  } else {
-    nextButton.style.display = 'inline-block';
-  }
-}
-
-
-    function toggleMenu() {
-      document.getElementById('sidebar').classList.toggle('open');
-    }
-   
+    
+    document.querySelectorAll('.buttons .btn').forEach(btn => btn.addEventListener('click', () => showCategory(btn.dataset.cat, btn)));
+    document.getElementById('nextButton').addEventListener('click', () => { index = (index + 1) % list.length; render(); });
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
-

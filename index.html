@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Benjamin Hejda – Portfolio</title>
+  <meta http-equiv="refresh" content="0; url=home.html" />
+  <link rel="canonical" href="home.html" />
+  <script>
+    // Send visitors to their language if we have it, otherwise English.
+    (function () {
+      var l = (navigator.language || 'en').slice(0, 2).toLowerCase();
+      var map = { cs: 'home-cz.html', sk: 'home-cz.html', de: 'home-de.html', pt: 'home-pt.html' };
+      location.replace(map[l] || 'home.html');
+    })();
+  </script>
+</head>
+<body>
+  <p><a href="home.html">Benjamin Hejda – Portfolio</a></p>
+</body>
+</html>
