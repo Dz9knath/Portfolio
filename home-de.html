@@ -39,9 +39,25 @@
     .changelog-nav .count { color: var(--muted); font-size: 0.9rem; }
     
     @media (max-width: 768px) {
-      .hero { flex-direction: column; }
-      .hero-left { min-height: 45vh; flex: none; }
-      .hero-right { padding: 2rem 1.25rem 2.5rem; }
+      .hero { flex-direction: column; min-height: 0; }
+      .hero-left { min-height: 48vh; flex: none; }
+      .hero-right { padding: 1.75rem 1.25rem 2.25rem; flex: none; }
+    }
+    @media (max-width: 600px) {
+      .hero-right h1 { margin-bottom: 0.4rem; }
+      .hero-right h2 { font-size: 1rem; margin-bottom: 1.25rem; }
+      .hero-right blockquote { font-size: 1.2rem; margin-bottom: 1rem; }
+      .hero-right p { margin-bottom: 1.5rem; }
+      .hero-right .btn { align-self: stretch; text-align: center; }
+      .now { margin-bottom: 36px; }
+      .now h2 { font-size: 1.25rem; }
+      .section-title { font-size: 1.35rem; margin-bottom: 14px; }
+      .tiles { grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
+      .tile { padding: 14px; }
+      .tile h3 { font-size: 0.98rem; display: flex; flex-direction: column; gap: 6px; }
+      .tile h3 span { font-size: 1.5rem; margin: 0; }
+      .tile p { font-size: 0.82rem; line-height: 1.45; }
+      .changelog-nav .btn { padding: 10px 14px; }
     }
   </style>
 </head>
@@ -83,12 +99,12 @@
       <section class="card changelog">
         <h2 class="section-title">Änderungsprotokoll</h2>
         <div class="version-item" aria-live="polite">
-          <small>2026-11-05 — v2.0 — #7</small>
-          <span>Großes Redesign: einheitliches Design und Schrift auf allen Seiten, ein neues Menü, das zum ✕ wird und sich richtig schließen lässt, aufklappbare Erfahrungskarten, geprüfte Fakten mit Quellen (plus NSFW-Button), zusammengefasste Entwicklungskarten, ein Tetr-Abschnitt und korrigierte Übersetzungen.</span>
+          <small>2026-11-07 — v2.1 — #8</small>
+          <span>Für Smartphones optimiert: wischbare Filter bei Entwicklung & Lernen, zweispaltige Kacheln und Galerie, Pop-ups von unten, größere Tippflächen und ein Fehler bei Wissenswertes behoben, durch den Buttons zu früh erschienen.</span>
         </div>
         <div class="changelog-nav">
           <button class="btn ghost" id="prevLog" type="button">← Neuer</button>
-          <span class="count" id="logCount">1 / 7</span>
+          <span class="count" id="logCount">1 / 8</span>
           <button class="btn ghost" id="nextLog" type="button">Älter →</button>
         </div>
       </section>
@@ -101,6 +117,12 @@
   <script>
     // Changelog – newest first. Add new entries at the TOP of this list.
     const changelogEntries = [
+      {
+        "date": "2026-11-07",
+        "version": "v2.1",
+        "number": "#8",
+        "text": "Für Smartphones optimiert: wischbare Filter bei Entwicklung & Lernen, zweispaltige Kacheln und Galerie, Pop-ups von unten, größere Tippflächen und ein Fehler bei Wissenswertes behoben, durch den Buttons zu früh erschienen."
+      },
       {
         "date": "2026-11-05",
         "version": "v2.0",

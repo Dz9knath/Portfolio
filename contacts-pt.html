@@ -15,11 +15,16 @@
     .contact-card { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: center; }
     .profile-pic img { width: 200px; height: 200px; object-fit: cover; border-radius: 50%; display: block; box-shadow: var(--shadow); }
     .contacts { flex: 1 1 300px; }
-    .contact-item { display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 1.1rem; }
+    .contact-item { display: flex; align-items: center; gap: 14px; padding: 14px 4px; min-height: 52px; border-bottom: 1px solid var(--line); font-size: 1.1rem; color: var(--ink); text-decoration: none; border-radius: 8px; }
+    .contact-item:hover { background: var(--bg); color: var(--blue); }
     .contact-item:last-child { border-bottom: none; }
     .contact-item i { width: 28px; text-align: center; font-size: 1.35rem; color: var(--blue); }
-    .contact-item a { color: var(--ink); text-decoration: none; word-break: break-word; }
-    .contact-item a:hover { color: var(--blue); text-decoration: underline; }
+    .contact-item span { word-break: break-word; }
+    @media (max-width: 600px) {
+      .contact-card { gap: 20px; }
+      .profile-pic img { width: 140px; height: 140px; }
+      .contact-item { font-size: 1rem; }
+    }
   </style>
 </head>
 <body data-page="contacts">
@@ -37,10 +42,10 @@
           <img src="https://i.imgur.com/M9ceOaE.jpeg" alt="Benjamin Hejda">
         </div>
         <div class="contacts">
-          <div class="contact-item"><i class="fas fa-envelope" aria-hidden="true"></i><a href="mailto:ben.hejda@gmail.com">ben.hejda@gmail.com</a></div>
-          <div class="contact-item"><i class="fab fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/benjamin-hejda" target="_blank" rel="noopener">linkedin.com/in/benjamin-hejda</a></div>
-          <div class="contact-item"><i class="fab fa-instagram" aria-hidden="true"></i><a href="https://www.instagram.com/ben.hejda/" target="_blank" rel="noopener">@ben.hejda</a></div>
-          <div class="contact-item"><i class="fab fa-facebook" aria-hidden="true"></i><a href="https://www.facebook.com/benhejda/" target="_blank" rel="noopener">Benjamin Hejda</a></div>
+          <a class="contact-item" href="mailto:ben.hejda@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i><span>ben.hejda@gmail.com</span></a>
+          <a class="contact-item" href="https://www.linkedin.com/in/benjamin-hejda" target="_blank" rel="noopener"><i class="fab fa-linkedin" aria-hidden="true"></i><span>linkedin.com/in/benjamin-hejda</span></a>
+          <a class="contact-item" href="https://www.instagram.com/ben.hejda/" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i><span>@ben.hejda</span></a>
+          <a class="contact-item" href="https://www.facebook.com/benhejda/" target="_blank" rel="noopener"><i class="fab fa-facebook" aria-hidden="true"></i><span>Benjamin Hejda</span></a>
         </div>
       </div>
     </div>

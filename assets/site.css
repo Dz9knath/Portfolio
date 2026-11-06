@@ -20,7 +20,9 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+[hidden] { display: none !important; }
 
 body {
   font-family: var(--font-body);
@@ -36,6 +38,7 @@ h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; }
 a { color: var(--blue); }
 img { max-width: 100%; }
 button { font: inherit; }
+a, button, [role="button"] { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 
 :focus-visible { outline: 3px solid #7fb3ff; outline-offset: 2px; }
 
@@ -56,7 +59,7 @@ button { font: inherit; }
   place-items: center;
   transition: transform 0.2s ease;
 }
-.burger:hover { transform: scale(1.06); }
+@media (hover: hover) { .burger:hover { transform: scale(1.06); } }
 .burger span {
   position: absolute;
   left: 13px;
@@ -204,7 +207,10 @@ button.card {
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.card.clickable:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+.card.clickable:active { transform: scale(0.98); }
+@media (hover: hover) {
+  .card.clickable:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+}
 
 .btn {
   display: inline-block;
@@ -297,11 +303,30 @@ button.card {
   background: #fff;
 }
 
+/* ---------- Phones ---------- */
 @media (max-width: 600px) {
-  main { padding: 32px 16px 48px; }
-  .card { padding: 20px; }
-  .modal-content { padding: 22px; }
+  main { padding: 28px 16px 44px; }
+  .card { padding: 18px; }
+  .burger { top: 12px; right: 12px; }
+
+  .page-header { min-height: 220px; padding: 80px 20px 36px; }
+  .page-header.has-image { min-height: 260px; }
+  .page-header .lead { font-size: 1rem; }
+
+  .btn { padding: 12px 18px; min-height: 44px; }
+
+  .sidebar .nav-links a { padding: 13px 14px; }
+
+  /* Pop-ups slide up from the bottom like a phone sheet */
+  .modal { align-items: flex-end; padding: 0; }
+  .modal-box { max-width: none; max-height: 88vh; border-radius: 18px 18px 0 0; animation: sheet-up 0.25s ease; }
+  .modal-box::before { content: ''; display: block; width: 40px; height: 4px; border-radius: 2px; background: #d0d4d9; margin: 8px auto 0; position: absolute; left: 0; right: 0; z-index: 3; }
+  .modal-box img.modal-img { max-height: 38vh; }
+  .modal-box.wide img.modal-img { max-height: 60vh; }
+  .modal-content { padding: 20px 20px calc(24px + env(safe-area-inset-bottom)); }
+  .modal-content h2 { font-size: 1.3rem; }
 }
+@keyframes sheet-up { from { transform: translateY(40px); opacity: 0.6; } to { transform: none; opacity: 1; } }
 
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }

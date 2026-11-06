@@ -19,6 +19,18 @@
     .cards .card p { color: #3a414a; font-size: 0.95rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
     .cards .card[hidden] { display: none; }
     .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    @media (max-width: 600px) {
+      .intro { font-size: 1rem; }
+      .quote { font-size: 0.9rem; margin-bottom: 18px; }
+      .filter-bar { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; margin: 0 -16px 18px; padding: 4px 16px 8px; scrollbar-width: none; -webkit-overflow-scrolling: touch; scroll-snap-type: x proximity; -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+      .filter-bar::-webkit-scrollbar { display: none; }
+      .filter-bar .btn { flex: 0 0 auto; white-space: nowrap; padding: 8px 16px; min-height: 40px; border-radius: 999px; scroll-snap-align: start; }
+      .cards { gap: 12px; }
+      .cards .card h3 { font-size: 1.02rem; }
+      .cards .card p { -webkit-line-clamp: 2; font-size: 0.9rem; }
+      .cards .more-hint { display: none; }
+      .tags { margin-top: 10px; }
+    }
     .tag { padding: 3px 9px; border-radius: 999px; font-size: 0.75rem; font-weight: 600; color: #fff; }
     .tag-Sport { background: #b03b3b; }
     .filter-bar .btn.active[data-tag="Sport"] { background: #b03b3b; border-color: #b03b3b; }

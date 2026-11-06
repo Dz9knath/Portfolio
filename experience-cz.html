@@ -17,6 +17,15 @@
     .job .meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
     .job p { color: #3a414a; }
     .skill-list { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin-top: 16px; }
+    @media (max-width: 600px) {
+      .jobs { grid-template-columns: 1fr; gap: 12px; }
+      .job { display: grid; grid-template-columns: 40px 1fr; column-gap: 12px; }
+      .job .icon { grid-row: span 4; font-size: 1.6rem; margin: 2px 0 0; }
+      .job h2 { font-size: 1.08rem; }
+      .job .meta { margin-bottom: 8px; font-size: 0.85rem; }
+      .job p { font-size: 0.93rem; }
+      .job .more-hint { margin-top: 8px; }
+    }
     .modal-content .meta a { color: inherit; }
   </style>
 </head>

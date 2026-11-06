@@ -27,6 +27,12 @@
     .nav-arrows { display: flex; justify-content: space-between; gap: 12px; margin-top: 28px; }
     .back-row { margin-top: 16px; }
     .empty { text-align: center; color: var(--muted); }
+    @media (max-width: 600px) {
+      .post-title { font-size: 1.2rem; }
+      .single-post h1 { font-size: 1.5rem; }
+      .single-post .content { font-size: 1rem; }
+      .nav-arrows .btn { flex: 1; }
+    }
   </style>
 </head>
 <body data-page="blog">
