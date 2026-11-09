@@ -7,13 +7,13 @@
   var LANGS = ['cz', 'en', 'de', 'pt'];
   var FLAG = { cz: 'cz', en: 'gb', de: 'de', pt: 'pt' };
   var LANG_NAME = { cz: 'Čeština', en: 'English', de: 'Deutsch', pt: 'Português' };
-  var PAGES = ['home', 'blog', 'growth', 'experience', 'gallery', 'fun', 'contacts'];
+  var PAGES = ['home', 'blog', 'growth', 'experience', 'gallery', 'fun', 'chess', 'contacts'];
 
   var LABELS = {
-    en: { home: 'Home', blog: 'Blog', growth: 'Growth & Learning', experience: 'Experience', gallery: 'Gallery', fun: 'Fun Facts', contacts: 'Contacts', open: 'Open menu', close: 'Close menu', closeModal: 'Close' },
-    cz: { home: 'Domů', blog: 'Blog', growth: 'Růst a vzdělávání', experience: 'Zkušenosti', gallery: 'Galerie', fun: 'Zajímavosti', contacts: 'Kontakty', open: 'Otevřít menu', close: 'Zavřít menu', closeModal: 'Zavřít' },
-    de: { home: 'Startseite', blog: 'Blog', growth: 'Entwicklung & Lernen', experience: 'Berufserfahrung', gallery: 'Galerie', fun: 'Wissenswertes', contacts: 'Kontakt', open: 'Menü öffnen', close: 'Menü schließen', closeModal: 'Schließen' },
-    pt: { home: 'Início', blog: 'Blog', growth: 'Crescimento & Aprendizagem', experience: 'Experiência', gallery: 'Galeria', fun: 'Curiosidades', contacts: 'Contactos', open: 'Abrir menu', close: 'Fechar menu', closeModal: 'Fechar' }
+    en: { home: 'Home', blog: 'Blog', growth: 'Growth & Learning', experience: 'Experience', gallery: 'Gallery', fun: 'Fun Facts', chess: 'Beat Ben at Chess', contacts: 'Contacts', open: 'Open menu', close: 'Close menu', closeModal: 'Close' },
+    cz: { home: 'Domů', blog: 'Blog', growth: 'Růst a vzdělávání', experience: 'Zkušenosti', gallery: 'Galerie', fun: 'Zajímavosti', chess: 'Porazte Bena v šachu', contacts: 'Kontakty', open: 'Otevřít menu', close: 'Zavřít menu', closeModal: 'Zavřít' },
+    de: { home: 'Startseite', blog: 'Blog', growth: 'Entwicklung & Lernen', experience: 'Berufserfahrung', gallery: 'Galerie', fun: 'Wissenswertes', chess: 'Schlag Ben im Schach', contacts: 'Kontakt', open: 'Menü öffnen', close: 'Menü schließen', closeModal: 'Schließen' },
+    pt: { home: 'Início', blog: 'Blog', growth: 'Crescimento & Aprendizagem', experience: 'Experiência', gallery: 'Galeria', fun: 'Curiosidades', chess: 'Ganhe ao Ben no xadrez', contacts: 'Contactos', open: 'Abrir menu', close: 'Fechar menu', closeModal: 'Fechar' }
   };
 
   var lang = document.documentElement.getAttribute('data-lang') || 'en';

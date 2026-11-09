@@ -92,6 +92,7 @@
           <a class="card clickable tile" href="gallery.html"><h3><span>📸</span>Gallery</h3><p>Moments from races, exchanges and camps.</p></a>
           <a class="card clickable tile" href="blog.html"><h3><span>✍️</span>Blog</h3><p>Thoughts on growth, sport and school.</p></a>
           <a class="card clickable tile" href="fun.html"><h3><span>🧠</span>Fun Facts</h3><p>The trivia I can’t stop telling people.</p></a>
+          <a class="card clickable tile" href="chess.html"><h3><span>♟️</span>Beat Ben at Chess</h3><p>A bot that plays like me – 1, 3 or 10 minutes. Can you beat it?</p></a>
           <a class="card clickable tile" href="contacts.html"><h3><span>✉️</span>Contacts</h3><p>Get in touch.</p></a>
         </div>
       </section>
@@ -99,12 +100,12 @@
       <section class="card changelog">
         <h2 class="section-title">Changelog</h2>
         <div class="version-item" aria-live="polite">
-          <small>2026-11-08 — v2.2 — #9</small>
-          <span>Fun Facts: every fact now has its own number, comes up in random order without repeats, and adult facts sit behind an NSFW switch instead of a separate category.</span>
+          <small>2026-11-09 — v2.3 — #10</small>
+          <span>Chess: play a bot built from my own chess.com games, with 1, 3 or 10 minute clocks, my openings and a Visitors vs Ben score.</span>
         </div>
         <div class="changelog-nav">
           <button class="btn ghost" id="prevLog" type="button">← Newer</button>
-          <span class="count" id="logCount">1 / 9</span>
+          <span class="count" id="logCount">1 / 10</span>
           <button class="btn ghost" id="nextLog" type="button">Older →</button>
         </div>
       </section>
@@ -117,6 +118,12 @@
   <script>
     // Changelog – newest first. Add new entries at the TOP of this list.
     const changelogEntries = [
+      {
+        "date": "2026-11-09",
+        "version": "v2.3",
+        "number": "#10",
+        "text": "Chess: play a bot built from my own chess.com games, with 1, 3 or 10 minute clocks, my openings and a Visitors vs Ben score."
+      },
       {
         "date": "2026-11-08",
         "version": "v2.2",

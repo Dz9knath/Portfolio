@@ -1,0 +1,4 @@
+{"note":"Chosen with chess/calibrate.mjs: the Maia Elo setting and temperature that best predict Ben's real moves per time control.",
+ "1":{"elo":800,"temp":1.25,"floor":0.004},
+ "3":{"elo":600,"temp":1.5,"floor":0.004},
+ "10":{"elo":800,"temp":1.0,"floor":0.004}}
