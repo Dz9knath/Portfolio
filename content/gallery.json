@@ -1,0 +1,70 @@
+{
+  "photos": [
+    "assets/photos/k0N1tTc.jpg",
+    "assets/photos/gECqNYq.jpg",
+    "assets/photos/phbQO4i.jpg",
+    "assets/photos/3qTckOr.jpg",
+    "assets/photos/43lO1pf.jpg",
+    "assets/photos/BrPiljt.jpg",
+    "assets/photos/GTKJ5c5.jpg",
+    "assets/photos/7g5iTwK.jpg",
+    "assets/photos/Q5zDYBd.jpg",
+    "assets/photos/jLSE58G.jpg"
+  ],
+  "captions": {
+    "en": [
+      "My first triathlon",
+      "Semester in Ohio, USA",
+      "Volunteering at IASE 2024",
+      "Exchange programme in Aveiro, Portugal",
+      "My first tournament as a coach",
+      "High school graduation",
+      "Military internship",
+      "My 2nd half marathon",
+      "Predator OCR Master Weekend",
+      "Coaching rugby at the Académie de Rugby Yves Perrot, 2025"
+    ],
+    "cz": [
+      "Můj první triatlon",
+      "Semestr v Ohiu, USA",
+      "Dobrovolnictví na IASE 2024",
+      "Výměnný pobyt v Aveiru, Portugalsko",
+      "Můj první turnaj v roli trenéra",
+      "Maturita",
+      "Stáž v armádě",
+      "Můj 2. půlmaraton",
+      "Predator OCR Master Weekend",
+      "Trénování ragby na Akademii Yvese Perrota, 2025"
+    ],
+    "de": [
+      "Mein erster Triathlon",
+      "Semester in Ohio, USA",
+      "Freiwilligenarbeit bei der IASE 2024",
+      "Austauschprogramm in Aveiro, Portugal",
+      "Mein erstes Turnier als Trainer",
+      "Schulabschluss",
+      "Militärpraktikum",
+      "Mein zweiter Halbmarathon",
+      "Predator OCR Master Weekend",
+      "Rugbytraining an der Académie de Rugby Yves Perrot, 2025"
+    ],
+    "pt": [
+      "O meu primeiro triatlo",
+      "Semestre em Ohio, EUA",
+      "Voluntariado na IASE 2024",
+      "Programa de intercâmbio em Aveiro, Portugal",
+      "O meu primeiro torneio como treinador",
+      "Conclusão do Ensino Secundário",
+      "Estágio Militar",
+      "A minha segunda meia maratona",
+      "Predator OCR Master Weekend",
+      "Treinar rugby na Académie de Rugby Yves Perrot, 2025"
+    ]
+  },
+  "lead": {
+    "en": "Click a photo to see it bigger.",
+    "cz": "Kliknutím na fotku ji zvětšíte.",
+    "de": "Klicke auf ein Foto, um es zu vergrößern.",
+    "pt": "Clique numa foto para a ver maior."
+  }
+}

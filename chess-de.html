@@ -4,121 +4,89 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Schlag Ben im Schach | Benjamin Hejda</title>
-  <meta name="description" content="Schlag Ben im Schach – Portfolio von Benjamin Hejda, tschechischer Student, Sportler und Entdecker." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <meta name="description" content="Schlag Ben im Schach – Portfolio von Benjamin Hejda, tschechischer Business-Student, Rugbytrainer und Ausdauersportler." />
+  <meta name="theme-color" content="#1e1b4b" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231e1b4b'/%3E%3Ccircle cx='20' cy='44' r='7' fill='%23ff5470'/%3E%3Ccircle cx='32' cy='44' r='7' fill='%23ffc83d'/%3E%3Ccircle cx='44' cy='44' r='7' fill='%2319c2a0'/%3E%3Ctext x='32' y='30' text-anchor='middle' font-family='Arial,sans-serif' font-weight='bold' font-size='22' fill='%23fff'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preload" href="assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/site.css" />
-  <style>
-    .chess-wrap { max-width: 640px; margin: 0 auto; }
-    .intro { text-align: center; margin-bottom: 22px; font-size: 1.05rem; }
-    .setup h3 { font-size: 0.95rem; margin: 14px 0 8px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
-    .setup h3:first-child { margin-top: 0; }
-    .opts { display: flex; flex-wrap: wrap; gap: 8px; }
-    .opts .btn { flex: 1 1 0; min-width: 90px; text-align: center; }
-    .opts.tcs .btn { display: flex; flex-direction: column; gap: 2px; padding: 12px 10px; }
-    .opts.tcs small { font-size: 0.78rem; opacity: 0.75; font-weight: 500; }
-    .play-row { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
-    .play-row .btn { padding: 14px; font-size: 1.05rem; }
-    .fine { color: var(--muted); font-size: 0.85rem; text-align: center; margin-top: 4px; }
-    .player { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 6px 2px; font-weight: 600; font-size: 0.95rem; }
-    .clock { font-family: var(--font-head); font-variant-numeric: tabular-nums; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 4px 12px; min-width: 84px; text-align: center; font-size: 1.15rem; color: var(--muted); }
-    .clock.on { background: var(--ink); color: #fff; border-color: var(--ink); }
-    .clock.low.on { background: #b02a2a; border-color: #b02a2a; }
-    .board-box { position: relative; }
-    .board { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: repeat(8, minmax(0, 1fr)); width: 100%; aspect-ratio: 1; border-radius: 6px; overflow: hidden; box-shadow: var(--shadow); user-select: none; -webkit-user-select: none; }
-    .sq { position: relative; border: 0; padding: 0; margin: 0; cursor: pointer; display: grid; place-items: center; font: inherit; min-width: 0; min-height: 0; overflow: hidden; }
-    .sq.light { background: #e6edf6; } .sq.dark { background: #7b9cc4; }
-    .sq.last.light { background: #f1e9a6; } .sq.last.dark { background: #d3c76a; }
-    .sq.sel { background: #7fd1a0 !important; }
-    .sq.check { background: radial-gradient(circle, #ff6b6b 25%, transparent 75%), inherit; }
-    .sq.target::after { content: ''; position: absolute; width: 28%; height: 28%; border-radius: 50%; background: rgba(0, 60, 120, 0.35); }
-    .sq.target.capture::after { width: 86%; height: 86%; background: transparent; border: 4px solid rgba(0, 60, 120, 0.35); }
-    .sq[data-rank]::before { content: attr(data-rank); position: absolute; top: 2px; left: 3px; font-size: 0.6rem; font-weight: 600; opacity: 0.55; }
-    .sq[data-file]::before { content: attr(data-file); position: absolute; bottom: 1px; right: 3px; font-size: 0.6rem; font-weight: 600; opacity: 0.55; }
-    .sq[data-rank][data-file]::before { content: attr(data-rank); }
-    .pc { font-size: min(10.5vw, 62px); line-height: 1; pointer-events: none; font-family: 'Segoe UI Symbol', 'Noto Sans Symbols 2', 'DejaVu Sans', sans-serif; }
-    .pc.w { color: #fff; text-shadow: 0 0 2px #000, 0 0 2px #000, 0 1px 1px #000; }
-    .pc.b { color: #1c1c1c; text-shadow: 0 0 1px #fff; }
-    .status { text-align: center; font-weight: 600; margin: 10px 0 4px; min-height: 1.6em; }
-    .moves { color: var(--muted); font-size: 0.85rem; white-space: nowrap; overflow-x: auto; padding: 4px 0; font-variant-numeric: tabular-nums; }
-    .game-actions { display: flex; justify-content: center; margin-top: 8px; }
-    .load-msg { text-align: center; font-weight: 600; color: var(--muted); margin-bottom: 8px; }
-    .result { position: absolute; inset: 0; background: rgba(255, 255, 255, 0.93); display: grid; place-content: center; text-align: center; gap: 12px; padding: 16px; border-radius: 6px; }
-    .result h2 { font-size: 1.5rem; }
-    .result p { color: var(--muted); }
-    .result .row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 6px; }
-    .result a { font-weight: 500; }
-    .score { text-align: center; margin-top: 22px; font-size: 1.05rem; }
-    .muted { color: var(--muted); font-size: 0.85em; }
-    .credit { margin-top: 22px; color: var(--muted); font-size: 0.82rem; text-align: center; }
-    @media (max-width: 600px) { .intro { font-size: 0.98rem; } .sq[data-rank]::before, .sq[data-file]::before { font-size: 0.5rem; } }
-  </style>
+  <link rel="alternate" hreflang="en" href="chess.html" />
+  <link rel="alternate" hreflang="cs" href="chess-cz.html" />
+  <link rel="alternate" hreflang="de" href="chess-de.html" />
+  <link rel="alternate" hreflang="pt" href="chess-pt.html" />
 </head>
-<body data-page="chess">
-  <!-- The burger menu is added automatically by assets/site.js -->
-
-<header class="page-header">
-    <h1>Schlag Ben im Schach</h1>
-    <p class="lead">Ein Bot, gebaut aus meinen eigenen chess.com-Partien</p>
+<body data-page="chess" data-close="Schließen">
+  <!-- Generated by build/build.mjs from content/*.json – edit those, not this file. -->
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="topbar">
+    <div class="wrap">
+      <a class="wordmark" href="home-de.html"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Ben Hejda</a>
+      <ul class="nav"><li><a href="home-de.html">Start</a></li><li><a href="growth-de.html">Entwicklung</a></li><li><a href="experience-de.html">Erfahrung</a></li><li><a href="gallery-de.html">Galerie</a></li><li><a href="blog-de.html">Blog</a></li><li><a href="fun-de.html">Wissenswertes</a></li><li><a href="chess-de.html" aria-current="page">Schach</a></li><li><a href="contacts-de.html">Kontakt</a></li></ul>
+      <nav class="langs" aria-label="Sprache"><a href="chess.html" hreflang="en" lang="en" title="English">EN</a><a href="chess-cz.html" hreflang="cs" lang="cs" title="Čeština">CZ</a><a href="chess-de.html" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a><a href="chess-pt.html" hreflang="pt" lang="pt" title="Português">PT</a></nav>
+      <button id="menuOpen" class="btn small light menu-btn" type="button" aria-controls="mobileMenu" aria-expanded="false">Menü</button>
+    </div>
   </header>
-
-  <main>
-    <div class="wrap chess-wrap">
-      <p class="intro">Dieser Bot hat aus meinen öffentlichen chess.com-Partien gelernt: Er eröffnet wie ich, spielt auf meinem Niveau, macht meine typischen Fehler und denkt so schnell (oder langsam) wie ich. Wähle eine Bedenkzeit und versuche, mich zu schlagen.</p>
-
-      <section id="setup" class="card setup">
-        <h3>Bedenkzeit</h3>
-        <div class="opts tcs">
-          <button class="btn ghost" type="button" data-tc="1">1 Min.<small>Meine chess.com-Wertung: <span id="rating-1">…</span></small></button>
-          <button class="btn ghost active" type="button" data-tc="3">3 Min.<small>Meine chess.com-Wertung: <span id="rating-3">…</span></small></button>
-          <button class="btn ghost" type="button" data-tc="10">10 Min.<small>Meine chess.com-Wertung: <span id="rating-10">…</span></small></button>
-        </div>
-        <h3>Deine Farbe</h3>
-        <div class="opts">
-          <button class="btn ghost active" type="button" data-color="w">Weiß</button>
-          <button class="btn ghost" type="button" data-color="b">Schwarz</button>
-          <button class="btn ghost" type="button" data-color="r">Zufällig</button>
-        </div>
-        <div class="play-row">
-          <button id="play" class="btn" type="button">♟ Spielen</button>
-          <p class="fine">Der Bot läuft in deinem Browser. Die erste Partie lädt etwa 46 MB herunter.</p>
-        </div>
-      </section>
-
-      <section id="game" hidden>
-        <p id="loadMsg" class="load-msg" hidden></p>
-        <div class="player"><span id="name-bot"></span><span id="clock-bot" class="clock">0:00</span></div>
-        <div class="board-box">
-          <div id="board" class="board" role="group" aria-label="Chess board"></div>
-          <div id="result" class="result" hidden>
-            <h2 id="resultTitle"></h2>
-            <p id="resultReason"></p>
-            <div class="row">
-              <button id="rematch" class="btn" type="button">Revanche</button>
-              <button id="change" class="btn ghost" type="button">Einstellungen ändern</button>
+  <div id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menü">
+    <div class="top"><a class="wordmark" href="home-de.html"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Ben Hejda</a><button id="menuClose" class="btn small" type="button">Menü schließen</button></div>
+    <ul><li><a href="home-de.html">Start</a></li><li><a href="growth-de.html">Entwicklung</a></li><li><a href="experience-de.html">Erfahrung</a></li><li><a href="gallery-de.html">Galerie</a></li><li><a href="blog-de.html">Blog</a></li><li><a href="fun-de.html">Wissenswertes</a></li><li><a href="chess-de.html" aria-current="page">Schach</a></li><li><a href="contacts-de.html">Kontakt</a></li></ul>
+    <nav class="langs" aria-label="Sprache"><a href="chess.html" hreflang="en" lang="en" title="English">EN</a><a href="chess-cz.html" hreflang="cs" lang="cs" title="Čeština">CZ</a><a href="chess-de.html" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a><a href="chess-pt.html" hreflang="pt" lang="pt" title="Português">PT</a></nav>
+  </div>
+  <main id="main">
+<div class="page-head"><div class="wrap"><h1>Schlag Ben im Schach</h1><p class="lead">Dieser Bot hat aus meinen öffentlichen chess.com-Partien gelernt: Er eröffnet wie ich, spielt auf meinem Niveau, macht meine typischen Fehler und denkt so schnell (oder langsam) wie ich. Wähle eine Bedenkzeit und versuche, mich zu schlagen.</p></div></div>
+    <div class="wrap">
+      <div class="chess-layout">
+        <div>
+          <div class="player"><span id="name-bot"></span><span id="clock-bot" class="clock">–:––</span></div>
+          <div class="board-box">
+            <div id="board" class="board" role="group" aria-label="Chess board"></div>
+            <div id="result" class="result" hidden>
+              <h2 id="resultTitle"></h2>
+              <p id="resultReason"></p>
+              <div class="row">
+                <button id="rematch" class="btn" type="button">Revanche</button>
+                <button id="change" class="btn light" type="button">Einstellungen ändern</button>
+              </div>
+              <a id="profile" class="text-link" href="https://www.chess.com/member/dz9knath" target="_blank" rel="noopener">Meine echten Partien auf chess.com ↗</a>
             </div>
-            <a id="profile" href="https://www.chess.com/member/dz9knath" target="_blank" rel="noopener">Meine echten Partien auf chess.com ↗</a>
           </div>
+          <div class="player"><span id="name-you"></span><span id="clock-you" class="clock">–:––</span></div>
         </div>
-        <div class="player"><span id="name-you"></span><span id="clock-you" class="clock">0:00</span></div>
-        <p id="status" class="status" aria-live="polite"></p>
-        <div id="moves" class="moves"></div>
-        <div class="game-actions"><button id="resign" class="btn ghost" type="button">Aufgeben</button></div>
-      </section>
-
-      <p id="score" class="score"></p>
-      <p class="credit">Züge außerhalb meiner Eröffnungsgewohnheiten kommen von <a href="https://www.maiachess.com/" target="_blank" rel="noopener">Maia</a>, einer menschenähnlichen Schach-KI (GPL-3.0), abgestimmt auf meine Partien. Bauern werden immer zur Dame.</p>
+        <div class="chess-side">
+          <section id="setup" class="setup">
+            <h2>Bedenkzeit</h2>
+            <div class="opts">
+              <button type="button" data-tc="1">1 Min.<small>Ben <span id="rating-1">…</span></small></button>
+              <button type="button" data-tc="3" class="active">3 Min.<small>Ben <span id="rating-3">…</span></small></button>
+              <button type="button" data-tc="10">10 Min.<small>Ben <span id="rating-10">…</span></small></button>
+            </div>
+            <h2>Deine Farbe</h2>
+            <div class="opts">
+              <button type="button" data-color="w" class="active">Weiß</button>
+              <button type="button" data-color="b">Schwarz</button>
+              <button type="button" data-color="r">Zufällig</button>
+            </div>
+            <button id="play" class="btn" type="button">Spielen</button>
+            <p class="fine">Der Bot läuft in deinem Browser. Die erste Partie lädt etwa 46 MB herunter.</p>
+          </section>
+          <section id="game" hidden>
+            <p id="loadMsg" class="load-msg" hidden></p>
+            <p id="status" class="status" aria-live="polite"></p>
+            <div id="moves" class="moves"></div>
+            <p style="margin-top:12px"><button id="resign" class="btn small light" type="button">Aufgeben</button></p>
+          </section>
+          <div class="score-card" id="score"></div>
+          <p class="credit">Züge außerhalb meiner Eröffnungsgewohnheiten kommen von <a href="https://www.maiachess.com/" target="_blank" rel="noopener">Maia</a>, einer menschenähnlichen Schach-KI (GPL-3.0), abgestimmt auf meine Partien. Bauern werden immer zur Dame.</p>
+        </div>
+      </div>
     </div>
   </main>
-  <script type="module" src="assets/chess.js"></script>
-
-  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
-
+  <footer class="site-footer">
+    <div class="wrap">
+      <details class="news"><summary>Neu auf dieser Website</summary><ol><li><span class="ver">v3.0<small>2026-11-09</small></span><span>Komplettes Redesign: ein fröhlicheres, farbigeres Design mit einer selbst gehosteten Schrift, eine neue Startseite, die mit meinen Erfahrungen beginnt, Fotos direkt auf der Website (kein imgur mehr), ein neues Schach-Layout und Fakten über mich pausiert, bis sie fertig sind.</span></li><li><span class="ver">v2.3<small>2026-11-09</small></span><span>Schach: Spiel gegen einen Bot, der aus meinen chess.com-Partien gebaut ist, mit 1, 3 oder 10 Minuten, meinen Eröffnungen und einem Stand Besucher vs. Ben.</span></li><li><span class="ver">v2.2<small>2026-11-08</small></span><span>Wissenswertes: Jeder Fakt hat jetzt seine eigene Nummer, erscheint in zufälliger Reihenfolge ohne Wiederholungen, und nicht jugendfreie Fakten liegen hinter einem NSFW-Schalter statt in einer eigenen Kategorie.</span></li><li><span class="ver">v2.1<small>2026-11-07</small></span><span>Für Smartphones optimiert: wischbare Filter bei Entwicklung &amp; Lernen, zweispaltige Kacheln und Galerie, Pop-ups von unten, größere Tippflächen und ein Fehler bei Wissenswertes behoben, durch den Buttons zu früh erschienen.</span></li><li><span class="ver">v2.0<small>2026-11-05</small></span><span>Großes Redesign: einheitliches Design und Schrift auf allen Seiten, ein neues Menü, das zum ✕ wird und sich richtig schließen lässt, aufklappbare Erfahrungskarten, geprüfte Fakten mit Quellen (plus NSFW-Button), zusammengefasste Entwicklungskarten, ein Tetr-Abschnitt und korrigierte Übersetzungen.</span></li><li><span class="ver">v1.5<small>2026-08-04</small></span><span>Galerie mit 10 echten Fotos und Bildunterschriften statt Platzhaltern, in allen Sprachen.</span></li><li><span class="ver">v1.4<small>2026-03-06</small></span><span>Entwicklung &amp; Lernen von 27 auf 43 Karten erweitert (EuroWeek, Training, Schiedsrichter, Cheerleading und mehr), neue Kopfzeilenfarben und aktualisierte Übersetzungen.</span></li><li><span class="ver">v1.3<small>2025-10-10</small></span><span>Neues Titelbild auf der Startseite.</span></li><li><span class="ver">v1.2<small>2025-08-13</small></span><span>Tschechisch und Portugiesisch hinzugefügt. Deutsche, tschechische und portugiesische Version jetzt vollständig funktionsfähig und verfügbar.</span></li><li><span class="ver">v1.1<small>2025-08-12</small></span><span>Deutsch zur Website hinzugefügt, Vorbereitungen für Tschechisch und Portugiesisch getroffen.</span></li><li><span class="ver">v1.0<small>2025-08-10</small></span><span>Website fast fertig, es fehlen noch Inhalte und Übersetzungen.</span></li></ol></details>
+      <div class="row"><span>© 2026 Benjamin Hejda. Gebaut und gepflegt von Ben. In vier Sprachen.</span><nav class="langs" aria-label="Sprache"><a href="chess.html" hreflang="en" lang="en" title="English">EN</a><a href="chess-cz.html" hreflang="cs" lang="cs" title="Čeština">CZ</a><a href="chess-de.html" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a><a href="chess-pt.html" hreflang="pt" lang="pt" title="Português">PT</a></nav></div>
+    </div>
+  </footer>
   <script src="assets/site.js"></script>
-  <script>
-    window.CHESS_I18N = {"time":"Bedenkzeit","min":"Min.","rating":"Meine chess.com-Wertung:","color":"Deine Farbe","white":"Weiß","black":"Schwarz","random":"Zufällig","play":"Spielen","note":"Der Bot läuft in deinem Browser. Die erste Partie lädt etwa 46 MB herunter.","ben":"Ben","bot":"Bot","you":"Du","loading":"Bot wird geladen…","loadError":"Der Bot konnte nicht geladen werden. Bitte lade die Seite neu.","yourTurn":"Du bist am Zug","botThinking":"Ben überlegt…","check":"Schach! Du bist am Zug","resign":"Aufgeben","youWon":"Du hast Ben geschlagen! 🎉","benWon":"Diesmal gewinnt Ben.","drawn":"Unentschieden.","rematch":"Revanche","change":"Einstellungen ändern","profile":"Meine echten Partien auf chess.com ↗","scoreTitle":"Besucher vs. Ben","draws":"Remis","scoreLocal":"nur in diesem Browser","reasons":{"checkmate":"Schachmatt.","timeout":"Zeit abgelaufen.","resign":"Du hast aufgegeben.","stalemate":"Patt.","repetition":"Dreifache Stellungswiederholung.","insufficient":"Zu wenig Material für ein Matt.","fifty":"Fünfzig-Züge-Regel."},"pieces":{"p":"Bauer","n":"Springer","b":"Läufer","r":"Turm","q":"Dame","k":"König"}};
-  </script>
+  <script>window.CHESS_I18N = {"time":"Bedenkzeit","min":"Min.","rating":"Meine chess.com-Wertung:","color":"Deine Farbe","white":"Weiß","black":"Schwarz","random":"Zufällig","play":"Spielen","note":"Der Bot läuft in deinem Browser. Die erste Partie lädt etwa 46 MB herunter.","ben":"Ben","bot":"Bot","you":"Du","loading":"Bot wird geladen…","loadError":"Der Bot konnte nicht geladen werden. Bitte lade die Seite neu.","yourTurn":"Du bist am Zug","botThinking":"Ben überlegt…","check":"Schach! Du bist am Zug","resign":"Aufgeben","youWon":"Du hast Ben geschlagen! 🎉","benWon":"Diesmal gewinnt Ben.","drawn":"Unentschieden.","rematch":"Revanche","change":"Einstellungen ändern","profile":"Meine echten Partien auf chess.com ↗","scoreTitle":"Besucher vs. Ben","draws":"Remis","scoreLocal":"nur in diesem Browser","reasons":{"checkmate":"Schachmatt.","timeout":"Zeit abgelaufen.","resign":"Du hast aufgegeben.","stalemate":"Patt.","repetition":"Dreifache Stellungswiederholung.","insufficient":"Zu wenig Material für ein Matt.","fifty":"Fünfzig-Züge-Regel."},"pieces":{"p":"Bauer","n":"Springer","b":"Läufer","r":"Turm","q":"Dame","k":"König"}};</script>
+  <script type="module" src="assets/chess.js"></script>
 </body>
 </html>

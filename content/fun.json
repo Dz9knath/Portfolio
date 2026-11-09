@@ -1,0 +1,54 @@
+{
+  "en": {
+    "intro": "Since many of my friends know me for my extensive knowledge of trivia and quirky facts, I decided to include some in my portfolio. Most of them come with a source link, so you can check them yourself.",
+    "well": "Well-Known Fun Facts",
+    "unknown": "Facts You’ve Probably Never Heard",
+    "me": "Fun Facts About Me",
+    "start": "Click one of the buttons above to see a fun fact!",
+    "source": "🔍 Source",
+    "next": "Next",
+    "num": "Fun fact #",
+    "meNum": "About me #",
+    "toggle": "Show NSFW facts 🔞",
+    "nsfwNote": "Crude, adult or just plain weird facts are now mixed in. You’ve been warned."
+  },
+  "cz": {
+    "intro": "Protože mě spousta kamarádů zná díky mým rozsáhlým znalostem kuriozit a zajímavostí, rozhodl jsem se některé z nich přidat do portfolia. U většiny najdete odkaz na zdroj, takže si je můžete ověřit sami.",
+    "well": "Známé zajímavosti",
+    "unknown": "Zajímavosti, o kterých jste asi neslyšeli",
+    "me": "Zajímavosti o mně",
+    "start": "Klikněte na jedno z tlačítek výše a zobrazí se zajímavost!",
+    "source": "🔍 Zdroj",
+    "next": "Další",
+    "num": "Zajímavost č. ",
+    "meNum": "O mně č. ",
+    "toggle": "Zobrazit NSFW zajímavosti 🔞",
+    "nsfwNote": "Mezi zajímavostmi jsou teď i hrubé, lechtivé nebo prostě divné. Byli jste varováni."
+  },
+  "de": {
+    "intro": "Da viele meiner Freunde mich für mein Wissen über Trivia und skurrile Fakten kennen, habe ich beschlossen, einige davon in mein Portfolio aufzunehmen. Bei den meisten findest du einen Link zur Quelle, damit du sie selbst überprüfen kannst.",
+    "well": "Bekanntes Wissenswertes",
+    "unknown": "Fakten, die du wahrscheinlich noch nie gehört hast",
+    "me": "Fakten über mich",
+    "start": "Klicke auf einen der Buttons oben, um einen Fakt zu sehen!",
+    "source": "🔍 Quelle",
+    "next": "Weiter",
+    "num": "Fakt Nr. ",
+    "meNum": "Über mich Nr. ",
+    "toggle": "NSFW-Fakten anzeigen 🔞",
+    "nsfwNote": "Jetzt sind auch derbe, nicht jugendfreie oder einfach seltsame Fakten dabei. Du wurdest gewarnt."
+  },
+  "pt": {
+    "intro": "Como muitos dos meus amigos me conhecem pelo meu vasto conhecimento de curiosidades e factos peculiares, decidi incluir alguns no meu portfólio. A maioria tem um link para a fonte, para que possa verificá-los.",
+    "well": "Curiosidades Conhecidas",
+    "unknown": "Curiosidades que Provavelmente Nunca Ouviu",
+    "me": "Curiosidades Sobre Mim",
+    "start": "Clique num dos botões acima para ver uma curiosidade!",
+    "source": "🔍 Fonte",
+    "next": "Próxima",
+    "num": "Curiosidade n.º ",
+    "meNum": "Sobre mim n.º ",
+    "toggle": "Mostrar curiosidades NSFW 🔞",
+    "nsfwNote": "Agora também aparecem curiosidades grosseiras, para adultos ou simplesmente estranhas. Está avisado."
+  }
+}

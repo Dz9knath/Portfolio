@@ -1,0 +1,27 @@
+{
+  "lead": {
+    "en": "The best way to reach me is by email or LinkedIn.",
+    "cz": "Nejlépe mě zastihnete e-mailem nebo na LinkedInu.",
+    "de": "Am besten erreichst du mich per E-Mail oder über LinkedIn.",
+    "pt": "A melhor forma de me contactar é por e-mail ou LinkedIn."
+  },
+  "photo": "assets/photos/M9ceOaE.jpg",
+  "email": "ben.hejda@gmail.com",
+  "links": [
+    [
+      "linkedin",
+      "https://www.linkedin.com/in/benjamin-hejda",
+      "linkedin.com/in/benjamin-hejda"
+    ],
+    [
+      "instagram",
+      "https://www.instagram.com/ben.hejda/",
+      "@ben.hejda"
+    ],
+    [
+      "facebook",
+      "https://www.facebook.com/benhejda/",
+      "Benjamin Hejda"
+    ]
+  ]
+}

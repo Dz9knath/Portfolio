@@ -1,0 +1,273 @@
+{
+  "ui": {
+    "en": {
+      "more": "Read more →",
+      "lead": "Click a card to see the full story."
+    },
+    "cz": {
+      "more": "Více →",
+      "lead": "Klikněte na kartu a zobrazí se celý příběh."
+    },
+    "de": {
+      "more": "Mehr →",
+      "lead": "Klicke auf eine Karte, um alles zu lesen."
+    },
+    "pt": {
+      "more": "Ler mais →",
+      "lead": "Clique num cartão para ver a história completa."
+    }
+  },
+  "jobs": [
+    {
+      "icon": "🏉",
+      "org": "Ragby Plzeň",
+      "link": "https://www.ragbyplzen.cz/",
+      "image": "assets/photos/43lO1pf.jpg",
+      "en": [
+        "Volunteer Rugby Coach",
+        "2022–Present",
+        "Coaching a team of 10–12-year-olds at my rugby club in Pilsen.",
+        "I train a team of 10–12-year-olds, focusing on skill development, discipline and team spirit. I also organised two survival camps where the kids learned essential outdoor and teamwork skills through fun challenges. The photo is from my first tournament as their coach.",
+        [
+          "Youth mentoring",
+          "Team leadership",
+          "Programme design"
+        ]
+      ],
+      "cz": [
+        "Dobrovolný trenér ragby",
+        "2022–současnost",
+        "Trénuji tým 10–12letých dětí v plzeňském ragbyovém klubu.",
+        "Trénuji tým 10–12letých dětí se zaměřením na rozvoj dovedností, disciplínu a týmového ducha. Zorganizoval jsem také dva survival tábory, kde se děti zábavnou a náročnou formou naučily základní dovednosti v přírodě i v týmu. Fotka je z mého prvního turnaje v roli trenéra.",
+        [
+          "Mentoring mládeže",
+          "Vedení týmu",
+          "Tvorba programu"
+        ]
+      ],
+      "de": [
+        "Ehrenamtlicher Rugby-Trainer",
+        "2022–heute",
+        "Ich trainiere eine Mannschaft von 10- bis 12-Jährigen in meinem Rugbyverein in Pilsen.",
+        "Ich trainiere eine Mannschaft von 10- bis 12-Jährigen mit Schwerpunkt auf Technik, Disziplin und Teamgeist. Außerdem habe ich zwei Survival-Camps organisiert, in denen die Kinder spielerisch wichtige Outdoor- und Teamfähigkeiten gelernt haben. Das Foto stammt von meinem ersten Turnier als Trainer.",
+        [
+          "Jugendbetreuung",
+          "Teamführung",
+          "Programmentwicklung"
+        ]
+      ],
+      "pt": [
+        "Treinador Voluntário de Rugby",
+        "2022–Presente",
+        "Treino uma equipa de crianças dos 10 aos 12 anos no meu clube de rugby em Pilsen.",
+        "Treino uma equipa de crianças entre os 10 e os 12 anos, com foco no desenvolvimento de competências, disciplina e espírito de equipa. Organizei também dois acampamentos de sobrevivência onde as crianças aprenderam competências essenciais ao ar livre e de trabalho em equipa através de desafios divertidos. A foto é do meu primeiro torneio como treinador.",
+        [
+          "Mentoria juvenil",
+          "Liderança de equipa",
+          "Planeamento de programas"
+        ]
+      ]
+    },
+    {
+      "icon": "🏕️",
+      "org": "Rugby Academy Yves Perrot (RAYP)",
+      "link": "https://www.sportbezpredsudku.cz/ragbyova-akademie-yvese-perrota/",
+      "image": "assets/photos/jLSE58G.jpg",
+      "en": [
+        "Coach & Camp Animator",
+        "Seasonal",
+        "Helping run training and daily camp life at a youth rugby academy.",
+        "I help lead physical training for kids of different age groups and support everyday camp life – from morning sessions to evening games. I create dynamic activities that teach resilience and collaboration.",
+        [
+          "Coaching",
+          "Camp facilitation",
+          "Working with children"
+        ]
+      ],
+      "cz": [
+        "Trenér a táborový animátor",
+        "Sezónně",
+        "Pomáhám s tréninky a chodem tábora na ragbyové akademii pro děti.",
+        "Pomáhám vést tréninky dětí různých věkových kategorií a podílím se na každodenním chodu tábora – od ranních tréninků po večerní hry. Připravuji dynamické aktivity, které učí odolnosti a spolupráci.",
+        [
+          "Koučink",
+          "Organizace táborů",
+          "Práce s dětmi"
+        ]
+      ],
+      "de": [
+        "Trainer & Camp-Animator",
+        "Saisonal",
+        "Ich unterstütze Training und Camp-Alltag an einer Rugby-Akademie für Kinder.",
+        "Ich leite das Training von Kindern verschiedener Altersgruppen mit und begleite den Camp-Alltag – vom Morgentraining bis zu den Abendspielen. Dabei entwickle ich abwechslungsreiche Aktivitäten, die Belastbarkeit und Zusammenarbeit fördern.",
+        [
+          "Training",
+          "Camp-Organisation",
+          "Kinderbetreuung"
+        ]
+      ],
+      "pt": [
+        "Treinador & Animador de Campo",
+        "Sazonal",
+        "Ajudo nos treinos e no dia a dia de um campo de uma academia de rugby juvenil.",
+        "Apoio no treino físico de crianças de várias idades e participo no dia a dia do campo – desde os treinos da manhã aos jogos da noite. Crio atividades dinâmicas que incentivam a resiliência e a colaboração.",
+        [
+          "Treino",
+          "Organização de campos",
+          "Trabalho com crianças"
+        ]
+      ]
+    },
+    {
+      "icon": "🎯",
+      "org": "Paintball Arena (PPA)",
+      "link": "https://www.pparena.com/",
+      "en": [
+        "Staff Member",
+        "2023–Present",
+        "Running games, gear and safety briefings at a paintball arena.",
+        "I work with customers during games, handle equipment and give safety briefings. The job is fast-paced, so friendly service and solving problems quickly are everything.",
+        [
+          "Customer service",
+          "Equipment handling",
+          "Problem-solving"
+        ]
+      ],
+      "cz": [
+        "Člen personálu",
+        "2023–současnost",
+        "Hry, vybavení a bezpečnostní instruktáže v paintballové aréně.",
+        "Starám se o zákazníky během her, vydávám vybavení a vedu bezpečnostní instruktáže. Je to rychlé prostředí, takže přátelský přístup a pohotové řešení problémů jsou základ.",
+        [
+          "Zákaznický servis",
+          "Práce s vybavením",
+          "Řešení problémů"
+        ]
+      ],
+      "de": [
+        "Mitarbeiter",
+        "2023–heute",
+        "Spiele, Ausrüstung und Sicherheitseinweisungen in einer Paintball-Arena.",
+        "Ich betreue Kunden während der Spiele, kümmere mich um die Ausrüstung und gebe Sicherheitseinweisungen. In dem schnellen Umfeld kommt es auf freundlichen Service und schnelle Lösungen an.",
+        [
+          "Kundenservice",
+          "Ausrüstungsmanagement",
+          "Problemlösung"
+        ]
+      ],
+      "pt": [
+        "Funcionário",
+        "2023–Presente",
+        "Jogos, equipamento e instruções de segurança numa arena de paintball.",
+        "Atendo clientes durante os jogos, giro o equipamento e dou as instruções de segurança. É um ambiente dinâmico, por isso um serviço simpático e resolver problemas rapidamente é essencial.",
+        [
+          "Atendimento ao cliente",
+          "Gestão de equipamento",
+          "Resolução de problemas"
+        ]
+      ]
+    },
+    {
+      "icon": "🍴",
+      "org": "4PRO",
+      "link": "https://www.4pro.cz/",
+      "en": [
+        "Event Marketing & Catering",
+        "2024–Present",
+        "Running food and drink stalls at football matches, concerts and events.",
+        "I help organise and run food and drink stalls at football matches, concerts and other events. The focus is quick, friendly service under high demand – often while juggling setup or cleanup at the same time.",
+        [
+          "Event operations",
+          "Food service",
+          "Teamwork under pressure"
+        ]
+      ],
+      "cz": [
+        "Event marketing a catering",
+        "2024–současnost",
+        "Stánky s jídlem a pitím na fotbalových zápasech, koncertech a akcích.",
+        "Pomáhám organizovat a provozovat stánky s jídlem a pitím na fotbalových zápasech, koncertech a dalších akcích. Důležitá je rychlá a přátelská obsluha i při velkém náporu – často u toho zvládám i přípravu nebo úklid.",
+        [
+          "Organizace akcí",
+          "Gastro služby",
+          "Týmová práce pod tlakem"
+        ]
+      ],
+      "de": [
+        "Eventmarketing & Catering",
+        "2024–heute",
+        "Essens- und Getränkestände bei Fußballspielen, Konzerten und Events.",
+        "Ich helfe bei der Organisation und dem Betrieb von Essens- und Getränkeständen bei Fußballspielen, Konzerten und anderen Veranstaltungen. Im Mittelpunkt steht schneller, freundlicher Service bei großem Andrang – oft parallel zu Auf- und Abbau.",
+        [
+          "Eventorganisation",
+          "Gastronomie",
+          "Teamarbeit unter Druck"
+        ]
+      ],
+      "pt": [
+        "Marketing de Eventos & Catering",
+        "2024–Presente",
+        "Bancas de comida e bebida em jogos de futebol, concertos e eventos.",
+        "Ajudo a organizar e gerir bancas de comida e bebida em jogos de futebol, concertos e outros eventos. O foco é um atendimento rápido e cordial mesmo em momentos de grande procura, muitas vezes acumulando a montagem ou a limpeza.",
+        [
+          "Operações de eventos",
+          "Serviço de restauração",
+          "Trabalho em equipa sob pressão"
+        ]
+      ]
+    },
+    {
+      "icon": "🎸",
+      "org": null,
+      "link": null,
+      "en": [
+        "Vendor / Support",
+        "Occasional",
+        "Selling food and drinks and helping set up at concerts and festivals.",
+        "At various concerts and festivals I sell food and drinks, serve a very diverse crowd, handle cash and mobile payments, and help build the temporary event infrastructure.",
+        [
+          "Sales",
+          "Festival logistics",
+          "Adaptability"
+        ],
+        "Various concerts & festivals"
+      ],
+      "cz": [
+        "Prodej / podpora",
+        "Příležitostně",
+        "Prodej jídla a pití a pomoc se stavbou na koncertech a festivalech.",
+        "Na různých koncertech a festivalech prodávám jídlo a pití, obsluhuji velmi pestré publikum, přijímám hotovostní i mobilní platby a pomáhám se stavbou dočasného zázemí akcí.",
+        [
+          "Prodej",
+          "Festivalová logistika",
+          "Přizpůsobivost"
+        ],
+        "Různé koncerty a festivaly"
+      ],
+      "de": [
+        "Verkauf / Support",
+        "Gelegentlich",
+        "Verkauf von Essen und Getränken und Aufbauhilfe bei Konzerten und Festivals.",
+        "Bei verschiedenen Konzerten und Festivals verkaufe ich Speisen und Getränke, bediene ein sehr gemischtes Publikum, wickle Bar- und Kartenzahlungen ab und helfe beim Aufbau der temporären Infrastruktur.",
+        [
+          "Verkauf",
+          "Festival-Logistik",
+          "Anpassungsfähigkeit"
+        ],
+        "Verschiedene Konzerte & Festivals"
+      ],
+      "pt": [
+        "Vendedor / Apoio",
+        "Ocasional",
+        "Venda de comida e bebidas e apoio na montagem em concertos e festivais.",
+        "Em vários concertos e festivais vendo comida e bebidas, atendo um público muito diverso, faço pagamentos em dinheiro e digitais e ajudo a montar as estruturas temporárias dos eventos.",
+        [
+          "Vendas",
+          "Logística de festivais",
+          "Adaptabilidade"
+        ],
+        "Vários concertos & festivais"
+      ]
+    }
+  ]
+}

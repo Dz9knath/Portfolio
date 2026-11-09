@@ -1,0 +1,700 @@
+{
+  "tags": [
+    "Sport",
+    "Exchange",
+    "Internship",
+    "Language",
+    "SelfDev",
+    "Education"
+  ],
+  "ui": {
+    "en": {
+      "all": "All",
+      "more": "Read more →",
+      "tags": {
+        "Sport": "Sport",
+        "Exchange": "Exchange",
+        "Internship": "Internship",
+        "Language": "Language",
+        "SelfDev": "Self-Development",
+        "Education": "Education"
+      },
+      "intro": "“I believe that we live the life we create for ourselves, and in hard work. Every day I try to be a little better than the day before, aiming to become a polymath.”",
+      "defaultQuote": "“Live as if you were to die tomorrow. Learn as if you were to live forever.” – Mahatma Gandhi",
+      "quotes": {
+        "Sport": "“Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity.” – John F. Kennedy",
+        "Exchange": "“Travel is fatal to prejudice, bigotry, and narrow-mindedness.” – Mark Twain",
+        "Internship": "“We cannot predict the future, but we can invent it.” – Dennis Gabor",
+        "Language": "“To learn a language is to have one more window from which to look at the world.” – Chinese proverb",
+        "SelfDev": "“He who conquers himself is the mightiest warrior.” – Confucius",
+        "Education": "“Education is not the learning of facts, but the training of the mind to think.” – Albert Einstein"
+      }
+    },
+    "cz": {
+      "all": "Vše",
+      "more": "Více →",
+      "tags": {
+        "Sport": "Sport",
+        "Exchange": "Výměnný pobyt",
+        "Internship": "Stáž",
+        "Language": "Jazyky",
+        "SelfDev": "Seberozvoj",
+        "Education": "Vzdělání"
+      },
+      "intro": "„Věřím, že žijeme život, který si sami vytvoříme, a věřím v tvrdou práci. Každý den se snažím být o kousek lepší než včera a mířím k tomu stát se polyhistorem.“",
+      "defaultQuote": "„Žij, jako bys měl zítra zemřít. Uč se, jako bys měl žít navždy.“ – Mahátma Gándhí",
+      "quotes": {
+        "Sport": "„Tělesná zdatnost není jen jedním z nejdůležitějších klíčů ke zdravému tělu, je základem dynamické a tvořivé duševní činnosti.“ – John F. Kennedy",
+        "Exchange": "„Cestování je smrtelné pro předsudky, bigotnost a úzkoprsost.“ – Mark Twain",
+        "Internship": "„Budoucnost nemůžeme předpovědět, ale můžeme ji vynalézt.“ – Dennis Gabor",
+        "Language": "„Naučit se jazyk znamená mít další okno, kterým se díváme na svět.“ – Čínské přísloví",
+        "SelfDev": "„Kdo zvítězí sám nad sebou, je nejmocnější válečník.“ – Konfucius",
+        "Education": "„Vzdělání není učení se faktům, ale výcvik mysli k myšlení.“ – Albert Einstein"
+      }
+    },
+    "de": {
+      "all": "Alle",
+      "more": "Mehr →",
+      "tags": {
+        "Sport": "Sport",
+        "Exchange": "Austausch",
+        "Internship": "Praktikum",
+        "Language": "Sprachen",
+        "SelfDev": "Persönliche Entwicklung",
+        "Education": "Bildung"
+      },
+      "intro": "„Ich glaube, dass wir das Leben leben, das wir uns selbst erschaffen – und an harte Arbeit. Jeden Tag versuche ich, ein wenig besser zu sein als am Vortag, mit dem Ziel, ein Universalgelehrter zu werden.“",
+      "defaultQuote": "„Lebe, als würdest du morgen sterben. Lerne, als würdest du ewig leben.“ – Mahatma Gandhi",
+      "quotes": {
+        "Sport": "„Körperliche Fitness ist nicht nur einer der wichtigsten Schlüssel zu einem gesunden Körper, sie ist die Grundlage für dynamische und kreative geistige Aktivität.“ – John F. Kennedy",
+        "Exchange": "„Reisen ist tödlich für Vorurteile, Bigotterie und Engstirnigkeit.“ – Mark Twain",
+        "Internship": "„Wir können die Zukunft nicht vorhersagen, aber wir können sie erfinden.“ – Dennis Gabor",
+        "Language": "„Eine Sprache zu lernen bedeutet, ein weiteres Fenster zu haben, durch das man auf die Welt schaut.“ – Chinesisches Sprichwort",
+        "SelfDev": "„Wer sich selbst besiegt, ist der mächtigste Krieger.“ – Konfuzius",
+        "Education": "„Bildung ist nicht das Erlernen von Fakten, sondern die Schulung des Geistes zum Denken.“ – Albert Einstein"
+      }
+    },
+    "pt": {
+      "all": "Todos",
+      "more": "Ler mais →",
+      "tags": {
+        "Sport": "Desporto",
+        "Exchange": "Intercâmbio",
+        "Internship": "Estágio",
+        "Language": "Idiomas",
+        "SelfDev": "Autodesenvolvimento",
+        "Education": "Educação"
+      },
+      "intro": "“Acredito que vivemos a vida que criamos para nós mesmos e no valor do trabalho árduo. Tento ser, a cada dia, um pouco melhor do que no dia anterior, com o objetivo de me tornar um polímata.”",
+      "defaultQuote": "“Viva como se fosse morrer amanhã. Aprenda como se fosse viver para sempre.” – Mahatma Gandhi",
+      "quotes": {
+        "Sport": "“A aptidão física não é apenas uma das chaves mais importantes para um corpo saudável, é a base de uma atividade intelectual dinâmica e criativa.” – John F. Kennedy",
+        "Exchange": "“Viajar é fatal para o preconceito, a intolerância e a mente estreita.” – Mark Twain",
+        "Internship": "“Não podemos prever o futuro, mas podemos inventá-lo.” – Dennis Gabor",
+        "Language": "“Aprender uma língua é ganhar mais uma janela pela qual olhar o mundo.” – Provérbio chinês",
+        "SelfDev": "“Aquele que conquista a si mesmo é o mais poderoso guerreiro.” – Confúcio",
+        "Education": "“Educação não é o aprendizado de fatos, mas o treino da mente para pensar.” – Albert Einstein"
+      }
+    }
+  },
+  "cards": [
+    {
+      "tags": [
+        "Education",
+        "Exchange",
+        "SelfDev"
+      ],
+      "en": [
+        "Tetr College of Business",
+        "Accepted into Tetr College of Business, a global undergraduate business programme that takes students across several countries. Currently studying in New Delhi, India."
+      ],
+      "cz": [
+        "Tetr College of Business",
+        "Přijetí na Tetr College of Business – mezinárodní vysokoškolský program business studií, během kterého studenti studují v několika zemích. Momentálně studuji v Novém Dillí v Indii."
+      ],
+      "de": [
+        "Tetr College of Business",
+        "Zulassung zum Tetr College of Business, einem internationalen Bachelorprogramm in Business, bei dem man in mehreren Ländern studiert. Derzeit studiere ich in Neu-Delhi, Indien."
+      ],
+      "pt": [
+        "Tetr College of Business",
+        "Admitido no Tetr College of Business, um programa internacional de licenciatura em gestão que leva os estudantes a estudar em vários países. Atualmente a estudar em Nova Deli, Índia."
+      ]
+    },
+    {
+      "tags": [
+        "Education",
+        "SelfDev"
+      ],
+      "en": [
+        "IB Diploma – Gymnázium a SOŠ Rokycany",
+        "Graduated with the International Baccalaureate Diploma in summer 2026, with a focus on biology, maths, history and English."
+      ],
+      "cz": [
+        "IB Diploma – Gymnázium a SOŠ Rokycany",
+        "V létě 2026 jsem úspěšně dokončil program International Baccalaureate Diploma se zaměřením na biologii, matematiku, dějepis a angličtinu."
+      ],
+      "de": [
+        "IB Diploma – Gymnázium a SOŠ Rokycany",
+        "Im Sommer 2026 das International Baccalaureate Diploma abgeschlossen, mit Schwerpunkt auf Biologie, Mathematik, Geschichte und Englisch."
+      ],
+      "pt": [
+        "IB Diploma – Gymnázium a SOŠ Rokycany",
+        "Concluí o International Baccalaureate Diploma no verão de 2026, com foco em biologia, matemática, história e inglês."
+      ]
+    },
+    {
+      "tags": [
+        "Exchange",
+        "Language",
+        "SelfDev"
+      ],
+      "en": [
+        "Semester in Ohio, USA",
+        "Spent half a year at an American high school, immersed in US culture and a completely different school system. Later flew back to reconnect with friends and attend prom."
+      ],
+      "cz": [
+        "Semestr v Ohiu, USA",
+        "Půl roku jsem strávil na americké střední škole, ponořený do americké kultury a úplně jiného školního systému. Později jsem se vrátil za přáteli a na ples (prom)."
+      ],
+      "de": [
+        "Semester in Ohio, USA",
+        "Ein halbes Jahr an einer amerikanischen High School verbracht, eingetaucht in die US-Kultur und ein völlig anderes Schulsystem. Später zurückgeflogen, um Freunde wiederzusehen und zum Abschlussball (Prom) zu gehen."
+      ],
+      "pt": [
+        "Semestre em Ohio, EUA",
+        "Passei meio ano numa escola secundária americana, imerso na cultura dos EUA e num sistema escolar completamente diferente. Mais tarde voltei para rever amigos e ir ao baile de finalistas (prom)."
+      ]
+    },
+    {
+      "tags": [
+        "Exchange",
+        "Language",
+        "SelfDev"
+      ],
+      "en": [
+        "Portuguese Exchange – Aveiro & Rokycany",
+        "Took part in a student exchange in Aveiro, Portugal, then helped host the Portuguese students in Rokycany – including planning and guiding a trip to the Military Museum."
+      ],
+      "cz": [
+        "Výměna s Portugalskem – Aveiro a Rokycany",
+        "Zúčastnil jsem se studentské výměny v portugalském Aveiru a poté pomáhal s programem pro portugalské studenty v Rokycanech, včetně naplánování a vedení výletu do Vojenského muzea."
+      ],
+      "de": [
+        "Austausch mit Portugal – Aveiro & Rokycany",
+        "Teilnahme an einem Schüleraustausch in Aveiro, Portugal; anschließend Mitorganisation des Programms für die portugiesischen Gäste in Rokycany, einschließlich Planung und Führung eines Besuchs im Militärmuseum."
+      ],
+      "pt": [
+        "Intercâmbio com Portugal – Aveiro & Rokycany",
+        "Participei num intercâmbio estudantil em Aveiro, Portugal, e depois ajudei a receber os estudantes portugueses em Rokycany, incluindo o planeamento e a orientação de uma visita ao Museu Militar."
+      ]
+    },
+    {
+      "tags": [
+        "Exchange",
+        "Language",
+        "SelfDev"
+      ],
+      "en": [
+        "EuroWeek",
+        "Worked with more than 180 students from across Europe on cultural exchange and team activities. The friendships stuck – I later spent New Year in France with a French host family."
+      ],
+      "cz": [
+        "EuroWeek",
+        "Spolupracoval jsem s více než 180 studenty z celé Evropy na kulturní výměně a týmových aktivitách. Přátelství vydržela – později jsem strávil Silvestr ve Francii u francouzské hostitelské rodiny."
+      ],
+      "de": [
+        "EuroWeek",
+        "Mit über 180 Schülern aus ganz Europa an Kulturaustausch und Teamaktivitäten gearbeitet. Die Freundschaften sind geblieben – später habe ich Silvester in Frankreich bei einer Gastfamilie verbracht."
+      ],
+      "pt": [
+        "EuroWeek",
+        "Colaborei com mais de 180 estudantes de toda a Europa em intercâmbio cultural e atividades de equipa. As amizades ficaram – mais tarde passei o Ano Novo em França com uma família de acolhimento francesa."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Rugby",
+        "Eleven years of rugby, including time at one of the top Czech clubs – building teamwork, resilience, strategic thinking and leadership habits."
+      ],
+      "cz": [
+        "Ragby",
+        "Jedenáct let ragby, včetně působení v jednom z nejlepších českých klubů – týmová spolupráce, odolnost, strategické myšlení a vůdčí návyky."
+      ],
+      "de": [
+        "Rugby",
+        "Elf Jahre Rugby, darunter bei einem der besten tschechischen Vereine – Teamarbeit, Belastbarkeit, strategisches Denken und Führungsqualitäten."
+      ],
+      "pt": [
+        "Rugby",
+        "Onze anos a jogar rugby, incluindo num dos principais clubes checos, desenvolvendo trabalho em equipa, resiliência, pensamento estratégico e liderança."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Youth Rugby Coaching",
+        "Volunteer coach for young players since 2022 – leading them not only in rugby but in discipline, responsibility and teamwork."
+      ],
+      "cz": [
+        "Trénování mládeže v ragby",
+        "Od roku 2022 dobrovolně trénuji mladé hráče – vedu je nejen v ragby, ale i k disciplíně, zodpovědnosti a týmové spolupráci."
+      ],
+      "de": [
+        "Jugend-Rugbytraining",
+        "Seit 2022 ehrenamtlicher Trainer junger Spieler – ich begleite sie nicht nur im Rugby, sondern auch in Disziplin, Verantwortung und Teamarbeit."
+      ],
+      "pt": [
+        "Treino de Rugby Juvenil",
+        "Treinador voluntário de jovens jogadores desde 2022 – orientando-os não só no rugby, mas também na disciplina, responsabilidade e trabalho em equipa."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Rugby Referee",
+        "Refereed at rugby tournaments, developing quick decision-making, authority and conflict management."
+      ],
+      "cz": [
+        "Rozhodčí na ragbyových turnajích",
+        "Pískal jsem ragbyové turnaje a rozvíjel tak rychlé rozhodování, autoritu a zvládání konfliktů."
+      ],
+      "de": [
+        "Rugby-Schiedsrichter",
+        "Als Schiedsrichter bei Rugbyturnieren im Einsatz – schnelle Entscheidungen, Autorität und Konfliktmanagement."
+      ],
+      "pt": [
+        "Árbitro de Rugby",
+        "Arbitrei torneios de rugby, desenvolvendo capacidade de decisão rápida, autoridade e gestão de conflitos."
+      ]
+    },
+    {
+      "tags": [
+        "Internship",
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Survival Camps & Camp Programmes",
+        "Co-organised survival camps for young rugby players and designed games and activities for children of different ages and group sizes – teaching independence, cooperation and practical outdoor skills."
+      ],
+      "cz": [
+        "Survival tábory a táborové programy",
+        "Spoluorganizoval jsem survival tábory pro mladé ragbisty a vymýšlel hry a aktivity pro děti různého věku a různě velké skupiny – učili jsme samostatnost, spolupráci a praktické dovednosti v přírodě."
+      ],
+      "de": [
+        "Survival-Camps & Camp-Programme",
+        "Survival-Camps für junge Rugbyspieler mitorganisiert und Spiele und Aktivitäten für Kinder verschiedener Altersgruppen und Gruppengrößen entwickelt – mit Fokus auf Selbstständigkeit, Zusammenarbeit und praktische Outdoor-Fähigkeiten."
+      ],
+      "pt": [
+        "Campos de Sobrevivência e Programas de Campo",
+        "Coorganizei campos de sobrevivência para jovens jogadores de rugby e criei jogos e atividades para crianças de várias idades e grupos, promovendo independência, cooperação e competências práticas ao ar livre."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Triathlon",
+        "Completed my first triathlon and now training swimming, cycling and running with the goal of finishing an Ironman 70.3."
+      ],
+      "cz": [
+        "Triatlon",
+        "Dokončil jsem svůj první triatlon a teď trénuji plavání, kolo a běh s cílem zvládnout Ironman 70.3."
+      ],
+      "de": [
+        "Triathlon",
+        "Meinen ersten Triathlon gefinisht – jetzt trainiere ich Schwimmen, Radfahren und Laufen mit dem Ziel, einen Ironman 70.3 zu schaffen."
+      ],
+      "pt": [
+        "Triatlo",
+        "Completei o meu primeiro triatlo e agora treino natação, ciclismo e corrida com o objetivo de terminar um Ironman 70.3."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Obstacle Course Racing (OCR)",
+        "Regular OCR competitor. Highlight: the Predator OCR Master Weekend – 30 km (18.6 miles) and more than 75 obstacles."
+      ],
+      "cz": [
+        "Překážkové závody (OCR)",
+        "Pravidelně závodím v OCR. Vrchol: Predator OCR Master Weekend – 30 km a více než 75 překážek."
+      ],
+      "de": [
+        "Hindernislauf (OCR)",
+        "Regelmäßige Teilnahme an OCR-Rennen. Highlight: das Predator OCR Master Weekend – 30 km und mehr als 75 Hindernisse."
+      ],
+      "pt": [
+        "Corrida de Obstáculos (OCR)",
+        "Participo regularmente em provas de OCR. Destaque: o Predator OCR Master Weekend – 30 km e mais de 75 obstáculos."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Running & Half Marathons",
+        "Running is my reset button – I’ve completed multiple half marathons, building endurance and mental toughness."
+      ],
+      "cz": [
+        "Běh a půlmaratony",
+        "Běh je pro mě restart – mám za sebou několik půlmaratonů, které mě naučily vytrvalosti a psychické odolnosti."
+      ],
+      "de": [
+        "Laufen & Halbmarathons",
+        "Laufen ist mein Reset-Knopf – mehrere Halbmarathons absolviert, mit viel Ausdauer und mentaler Stärke."
+      ],
+      "pt": [
+        "Corrida e Meias Maratonas",
+        "Correr é o meu botão de reset – completei várias meias maratonas, desenvolvendo resistência e força mental."
+      ]
+    },
+    {
+      "tags": [
+        "Language",
+        "SelfDev"
+      ],
+      "en": [
+        "Languages",
+        "Czech (native), English (fluent since childhood), German and Portuguese (intermediate), currently learning Norwegian. From a young age I helped foreign visitors communicate, which made me confident across cultures."
+      ],
+      "cz": [
+        "Jazyky",
+        "Čeština (rodilý mluvčí), angličtina (plynně od dětství), němčina a portugalština (středně pokročilý), momentálně se učím norsky. Už od malička jsem pomáhal zahraničním návštěvníkům s komunikací, díky čemuž se cítím jistě v mezikulturním prostředí."
+      ],
+      "de": [
+        "Sprachen",
+        "Tschechisch (Muttersprache), Englisch (fließend seit der Kindheit), Deutsch und Portugiesisch (Mittelstufe), derzeit lerne ich Norwegisch. Schon als Kind habe ich ausländischen Besuchern bei der Verständigung geholfen – das hat mir Sicherheit im Umgang mit anderen Kulturen gegeben."
+      ],
+      "pt": [
+        "Idiomas",
+        "Checo (nativo), inglês (fluente desde a infância), alemão e português (intermédio) e atualmente a aprender norueguês. Desde pequeno ajudei visitantes estrangeiros a comunicar, o que me deu confiança em ambientes interculturais."
+      ]
+    },
+    {
+      "tags": [
+        "Internship",
+        "SelfDev"
+      ],
+      "en": [
+        "Military Internship",
+        "Gained valuable skills and perspective through an internship with the army."
+      ],
+      "cz": [
+        "Stáž v armádě",
+        "Cenné dovednosti a nový pohled na věc díky stáži u armády."
+      ],
+      "de": [
+        "Praktikum beim Militär",
+        "Wertvolle Fähigkeiten und neue Perspektiven durch ein Praktikum bei der Armee."
+      ],
+      "pt": [
+        "Estágio Militar",
+        "Adquiri competências e perspetivas valiosas através de um estágio no exército."
+      ]
+    },
+    {
+      "tags": [
+        "Exchange",
+        "Language",
+        "SelfDev"
+      ],
+      "en": [
+        "Exchange Programme – Slovakia",
+        "Took part in an exchange in Slovakia, broadening my horizons through immersion and teamwork with local students."
+      ],
+      "cz": [
+        "Výměnný pobyt – Slovensko",
+        "Účast na výměnném pobytu na Slovensku, kde jsem si rozšířil obzory díky spolupráci s místními studenty."
+      ],
+      "de": [
+        "Austauschprogramm – Slowakei",
+        "Teilnahme an einem Austausch in der Slowakei – neue Perspektiven durch Eintauchen in den Alltag und Zusammenarbeit mit einheimischen Schülern."
+      ],
+      "pt": [
+        "Programa de Intercâmbio – Eslováquia",
+        "Participei num programa de intercâmbio na Eslováquia, ampliando horizontes através da imersão e da colaboração com estudantes locais."
+      ]
+    },
+    {
+      "tags": [
+        "SelfDev"
+      ],
+      "en": [
+        "Solo International Travel",
+        "Travelled abroad on my own, handling logistics, adapting quickly and communicating in unfamiliar places."
+      ],
+      "cz": [
+        "Samostatné cestování do zahraničí",
+        "Cestoval jsem do zahraničí sám – zvládal jsem logistiku, rychle se přizpůsoboval a domlouval se v neznámém prostředí."
+      ],
+      "de": [
+        "Alleinreisen ins Ausland",
+        "Allein ins Ausland gereist – Logistik selbst organisiert, schnell angepasst und in fremder Umgebung kommuniziert."
+      ],
+      "pt": [
+        "Viagens Internacionais a Solo",
+        "Viajei sozinho para o estrangeiro, gerindo a logística, adaptando-me rapidamente e comunicando em ambientes desconhecidos."
+      ]
+    },
+    {
+      "tags": [
+        "Internship",
+        "Language",
+        "SelfDev"
+      ],
+      "en": [
+        "IT & Language Support at Open Days",
+        "Ran IT support at my school’s open days, helped presenters with tech and translated into English for visitors who needed it."
+      ],
+      "cz": [
+        "IT a jazyková podpora na dnech otevřených dveří",
+        "Na dnech otevřených dveří gymnázia v Rokycanech jsem zajišťoval IT podporu, pomáhal přednášejícím s technikou a tlumočil do angličtiny pro ty, kdo to potřebovali."
+      ],
+      "de": [
+        "IT- und Sprachsupport am Tag der offenen Tür",
+        "IT-Support an den Tagen der offenen Tür meiner Schule, technische Hilfe für Vortragende und Übersetzungen ins Englische für Besucher, die sie brauchten."
+      ],
+      "pt": [
+        "Suporte de TI e Idiomas nos Dias Abertos",
+        "Dei suporte de TI nos dias abertos da escola, ajudei os apresentadores com a parte técnica e traduzi para inglês para quem precisava."
+      ]
+    },
+    {
+      "tags": [
+        "SelfDev",
+        "Education"
+      ],
+      "en": [
+        "Volunteering & IASE 2024",
+        "Volunteered at the International Association of Special Education (IASE) 2024 conference, and regularly help out at school and community events."
+      ],
+      "cz": [
+        "Dobrovolnictví a IASE 2024",
+        "Dobrovolník na konferenci International Association of Special Education (IASE) 2024; pravidelně také pomáhám na školních a komunitních akcích."
+      ],
+      "de": [
+        "Ehrenamt & IASE 2024",
+        "Freiwilliger bei der Konferenz der International Association of Special Education (IASE) 2024; außerdem helfe ich regelmäßig bei Schul- und Gemeindeveranstaltungen."
+      ],
+      "pt": [
+        "Voluntariado e IASE 2024",
+        "Voluntário na conferência da International Association of Special Education (IASE) 2024 e ajudo regularmente em eventos escolares e comunitários."
+      ]
+    },
+    {
+      "tags": [
+        "Education"
+      ],
+      "en": [
+        "Nuclear Days in Prague",
+        "Attended Nuclear Days – scientific talks that deepened my interest in energy and physics."
+      ],
+      "cz": [
+        "Jaderné dny v Praze",
+        "Účast na Jaderných dnech (Nuclear Days) – vědecké přednášky, které prohloubily můj zájem o energetiku a fyziku."
+      ],
+      "de": [
+        "Nuclear Days in Prag",
+        "Teilnahme an den Nuclear Days – wissenschaftliche Vorträge, die mein Interesse an Energie und Physik vertieft haben."
+      ],
+      "pt": [
+        "Nuclear Days em Praga",
+        "Participei nos Nuclear Days – palestras científicas que aprofundaram o meu interesse por energia e física."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Prague–Prčice Hike",
+        "Walked the famous 80 km (50 mile) Prague–Prčice route – a test of persistence and a love of outdoor challenges."
+      ],
+      "cz": [
+        "Pochod Praha–Prčice",
+        "Ušel jsem slavnou 80km trasu Praha–Prčice – zkouška vytrvalosti a lásky k výzvám v přírodě."
+      ],
+      "de": [
+        "Wanderung Prag–Prčice",
+        "Die berühmte 80 km lange Strecke Prag–Prčice zu Fuß zurückgelegt – ein Test für Durchhaltevermögen und Liebe zu Outdoor-Herausforderungen."
+      ],
+      "pt": [
+        "Caminhada Praga–Prčice",
+        "Percorri a pé o famoso percurso de 80 km Praga–Prčice – um teste de persistência e de amor pelos desafios ao ar livre."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "Exchange",
+        "SelfDev"
+      ],
+      "en": [
+        "American Football",
+        "Played American football – teamwork, coordination, competitive spirit and a real insight into US culture."
+      ],
+      "cz": [
+        "Americký fotbal",
+        "Hrál jsem americký fotbal – týmová spolupráce, koordinace, soutěživost a skutečný vhled do americké kultury."
+      ],
+      "de": [
+        "American Football",
+        "American Football gespielt – Teamarbeit, Koordination, Wettkampfgeist und ein echter Einblick in die US-Kultur."
+      ],
+      "pt": [
+        "Futebol Americano",
+        "Joguei futebol americano – trabalho em equipa, coordenação, espírito competitivo e uma verdadeira imersão na cultura dos EUA."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Cheerleading",
+        "Recently started cheerleading – coordination, teamwork and performance skills in a completely new sport."
+      ],
+      "cz": [
+        "Cheerleading",
+        "Nedávno jsem začal s cheerleadingem – koordinace, týmová spolupráce a vystupování v úplně novém sportu."
+      ],
+      "de": [
+        "Cheerleading",
+        "Vor Kurzem mit Cheerleading angefangen – Koordination, Teamarbeit und Bühnenpräsenz in einer völlig neuen Sportart."
+      ],
+      "pt": [
+        "Cheerleading",
+        "Comecei recentemente cheerleading – coordenação, trabalho em equipa e performance num desporto completamente novo."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Calisthenics",
+        "Bodyweight strength training for functional fitness and discipline."
+      ],
+      "cz": [
+        "Kalistenika",
+        "Silový trénink s vlastní vahou pro funkční kondici a disciplínu."
+      ],
+      "de": [
+        "Calisthenics",
+        "Krafttraining mit dem eigenen Körpergewicht für funktionelle Fitness und Disziplin."
+      ],
+      "pt": [
+        "Calistenia",
+        "Treino de força com o peso do corpo, promovendo condição física funcional e disciplina."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Wrestling",
+        "Wrestling training to build strength, strategy and perseverance."
+      ],
+      "cz": [
+        "Zápas",
+        "Trénink zápasu pro sílu, strategii a vytrvalost."
+      ],
+      "de": [
+        "Ringen",
+        "Ringertraining für Kraft, Strategie und Durchhaltevermögen."
+      ],
+      "pt": [
+        "Luta Livre",
+        "Treino de luta livre para desenvolver força, estratégia e perseverança."
+      ]
+    },
+    {
+      "tags": [
+        "Sport",
+        "SelfDev"
+      ],
+      "en": [
+        "Krav Maga",
+        "A year of Krav Maga for self-defence skills, confidence and mental resilience."
+      ],
+      "cz": [
+        "Krav Maga",
+        "Rok Krav Magy pro sebeobranu, sebevědomí a psychickou odolnost."
+      ],
+      "de": [
+        "Krav Maga",
+        "Ein Jahr Krav Maga für Selbstverteidigung, Selbstvertrauen und mentale Stärke."
+      ],
+      "pt": [
+        "Krav Maga",
+        "Um ano de Krav Maga para desenvolver autodefesa, confiança e resiliência mental."
+      ]
+    },
+    {
+      "tags": [
+        "SelfDev"
+      ],
+      "en": [
+        "Background Actor in TV Miniseries",
+        "Appeared as an extra in two miniseries – once as an altar boy, once as a rugby player."
+      ],
+      "cz": [
+        "Komparz v televizních minisériích",
+        "Hrál jsem komparz ve dvou minisériích – jednou jako ministrant, jednou jako ragbista."
+      ],
+      "de": [
+        "Statist in TV-Miniserien",
+        "Als Statist in zwei Miniserien – einmal als Ministrant, einmal als Rugbyspieler."
+      ],
+      "pt": [
+        "Figurante em Minisséries de TV",
+        "Participei como figurante em duas minisséries – uma vez como coroinha e outra como jogador de rugby."
+      ]
+    },
+    {
+      "tags": [
+        "Education"
+      ],
+      "en": [
+        "Church Grammar School",
+        "Completed lower secondary education, building strong academic habits and discipline."
+      ],
+      "cz": [
+        "Církevní gymnázium",
+        "Absolvování nižšího stupně gymnázia, kde jsem si vybudoval pevné studijní návyky a disciplínu."
+      ],
+      "de": [
+        "Kirchliches Gymnasium",
+        "Unterstufe des Gymnasiums abgeschlossen und dabei solide Lerngewohnheiten und Disziplin aufgebaut."
+      ],
+      "pt": [
+        "Church Grammar School",
+        "Concluí o ensino secundário inferior, construindo hábitos académicos sólidos e disciplina."
+      ]
+    }
+  ]
+}

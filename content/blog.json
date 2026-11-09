@@ -1,0 +1,102 @@
+{
+  "en": {
+    "h": "My Blog",
+    "intro": "Hey, welcome to my blog! Here you’ll find my latest posts, thoughts and updates.",
+    "search": "Search posts…",
+    "related": "Related Posts",
+    "prev": "← Previous",
+    "next": "Next →",
+    "back": "Back to Blog",
+    "none": "No posts found.",
+    "posts": [
+      {
+        "title": "Welcome to My Blog",
+        "date": "13.8.2025",
+        "readTime": "2 min",
+        "image": "",
+        "tags": [
+          "Introduction",
+          "Self-Development",
+          "Education",
+          "Life"
+        ],
+        "content": "Welcome! This blog will be my space to share what’s happening in my life, especially when it comes to self-development and sport. I’ll talk about how I’m growing, what I’m changing, my goals, how they evolve and the steps I’m taking to achieve them. You can also expect posts about school – whether my current high school journey or potentially college in the future – as well as interesting thoughts and things I notice along the way. I hope you’ll enjoy reading about my journey and maybe even find some inspiration for your own."
+      }
+    ]
+  },
+  "cz": {
+    "h": "Můj blog",
+    "intro": "Ahoj, vítejte na mém blogu! Najdete tu mé nejnovější příspěvky, myšlenky a novinky.",
+    "search": "Hledat příspěvky…",
+    "related": "Související příspěvky",
+    "prev": "← Předchozí",
+    "next": "Další →",
+    "back": "Zpět na blog",
+    "none": "Žádné příspěvky nenalezeny.",
+    "posts": [
+      {
+        "title": "Vítejte na mém blogu",
+        "date": "13. 8. 2025",
+        "readTime": "2 min",
+        "image": "",
+        "tags": [
+          "Úvod",
+          "Seberozvoj",
+          "Vzdělávání",
+          "Život"
+        ],
+        "content": "Vítejte! Na tomto blogu budu sdílet, co se děje v mém životě, hlavně pokud jde o seberozvoj a sport. Budu psát o tom, jak rostu, co měním, jaké mám cíle, jak se vyvíjejí a jaké kroky dělám, abych jich dosáhl. Můžete se těšit i na příspěvky o škole – ať už o mé současné cestě střední školou, nebo možná o vysoké škole v budoucnu – a také na zajímavé myšlenky a věci, kterých si cestou všimnu. Doufám, že vás bude bavit sledovat mou cestu a třeba najdete inspiraci i pro tu svou."
+      }
+    ]
+  },
+  "de": {
+    "h": "Mein Blog",
+    "intro": "Hallo und willkommen auf meinem Blog! Hier findest du meine neuesten Beiträge, Gedanken und Updates.",
+    "search": "Beiträge suchen…",
+    "related": "Ähnliche Beiträge",
+    "prev": "← Zurück",
+    "next": "Weiter →",
+    "back": "Zurück zum Blog",
+    "none": "Keine Beiträge gefunden.",
+    "posts": [
+      {
+        "title": "Willkommen auf meinem Blog",
+        "date": "13.8.2025",
+        "readTime": "2 Min.",
+        "image": "",
+        "tags": [
+          "Einführung",
+          "Persönliche Entwicklung",
+          "Bildung",
+          "Leben"
+        ],
+        "content": "Willkommen! Dieser Blog wird mein Ort sein, um zu teilen, was in meinem Leben passiert – vor allem rund um persönliche Entwicklung und Sport. Ich schreibe darüber, wie ich mich weiterentwickle, was ich verändere, welche Ziele ich habe, wie sie sich verändern und welche Schritte ich unternehme, um sie zu erreichen. Du kannst auch Beiträge über die Schule erwarten – über meine aktuelle Zeit auf dem Gymnasium oder vielleicht später an der Universität – sowie interessante Gedanken und Dinge, die mir unterwegs auffallen. Ich hoffe, du hast Freude daran, meine Reise zu verfolgen, und findest vielleicht Inspiration für deine eigene."
+      }
+    ]
+  },
+  "pt": {
+    "h": "O Meu Blog",
+    "intro": "Olá e bem-vindo ao meu blog! Aqui encontrará as minhas publicações mais recentes, pensamentos e atualizações.",
+    "search": "Pesquisar publicações…",
+    "related": "Publicações relacionadas",
+    "prev": "← Anterior",
+    "next": "Seguinte →",
+    "back": "Voltar ao Blog",
+    "none": "Nenhuma publicação encontrada.",
+    "posts": [
+      {
+        "title": "Bem-vindo ao Meu Blog",
+        "date": "13.8.2025",
+        "readTime": "2 min",
+        "image": "",
+        "tags": [
+          "Introdução",
+          "Autodesenvolvimento",
+          "Educação",
+          "Vida"
+        ],
+        "content": "Bem-vindo! Este blog será o meu espaço para partilhar o que está a acontecer na minha vida, especialmente no que diz respeito ao autodesenvolvimento e ao desporto. Vou falar sobre como estou a crescer, o que estou a mudar, os meus objetivos, como evoluem e os passos que estou a dar para os alcançar. Também pode esperar publicações sobre a escola – seja sobre o meu percurso atual no secundário ou, possivelmente, a universidade no futuro – bem como pensamentos interessantes e coisas que vou notando pelo caminho. Espero que goste de acompanhar a minha jornada e talvez encontre inspiração para a sua."
+      }
+    ]
+  }
+}

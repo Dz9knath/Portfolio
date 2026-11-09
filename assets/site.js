@@ -1,115 +1,56 @@
 /* ==========================================================
-   Benjamin Hejda – shared site script
-   Builds the burger menu on every page and provides a modal.
-   To add/rename a page or language, edit PAGES / LABELS below.
+   Benjamin Hejda – shared site script (v3)
+   Mobile menu, pop-up dialogs and a few helpers.
+   The menu and language links are written into each page
+   by build/build.mjs, so nothing here needs editing for new pages.
    ========================================================== */
 (function () {
-  var LANGS = ['cz', 'en', 'de', 'pt'];
-  var FLAG = { cz: 'cz', en: 'gb', de: 'de', pt: 'pt' };
-  var LANG_NAME = { cz: 'Čeština', en: 'English', de: 'Deutsch', pt: 'Português' };
-  var PAGES = ['home', 'blog', 'growth', 'experience', 'gallery', 'fun', 'chess', 'contacts'];
-
-  var LABELS = {
-    en: { home: 'Home', blog: 'Blog', growth: 'Growth & Learning', experience: 'Experience', gallery: 'Gallery', fun: 'Fun Facts', chess: 'Beat Ben at Chess', contacts: 'Contacts', open: 'Open menu', close: 'Close menu', closeModal: 'Close' },
-    cz: { home: 'Domů', blog: 'Blog', growth: 'Růst a vzdělávání', experience: 'Zkušenosti', gallery: 'Galerie', fun: 'Zajímavosti', chess: 'Porazte Bena v šachu', contacts: 'Kontakty', open: 'Otevřít menu', close: 'Zavřít menu', closeModal: 'Zavřít' },
-    de: { home: 'Startseite', blog: 'Blog', growth: 'Entwicklung & Lernen', experience: 'Berufserfahrung', gallery: 'Galerie', fun: 'Wissenswertes', chess: 'Schlag Ben im Schach', contacts: 'Kontakt', open: 'Menü öffnen', close: 'Menü schließen', closeModal: 'Schließen' },
-    pt: { home: 'Início', blog: 'Blog', growth: 'Crescimento & Aprendizagem', experience: 'Experiência', gallery: 'Galeria', fun: 'Curiosidades', chess: 'Ganhe ao Ben no xadrez', contacts: 'Contactos', open: 'Abrir menu', close: 'Fechar menu', closeModal: 'Fechar' }
-  };
-
   var lang = document.documentElement.getAttribute('data-lang') || 'en';
-  var page = document.body.getAttribute('data-page') || 'home';
-  var T = LABELS[lang] || LABELS.en;
 
-  function fileFor(p, l) { return p + (l === 'en' ? '' : '-' + l) + '.html'; }
-
-  /* ---------- Build menu ---------- */
-  var burger = document.createElement('button');
-  burger.className = 'burger';
-  burger.type = 'button';
-  burger.setAttribute('aria-controls', 'sidebar');
-  burger.setAttribute('aria-expanded', 'false');
-  burger.setAttribute('aria-label', T.open);
-  burger.innerHTML = '<span></span><span></span><span></span>';
-
-  var backdrop = document.createElement('div');
-  backdrop.className = 'menu-backdrop';
-
-  var nav = document.createElement('nav');
-  nav.className = 'sidebar';
-  nav.id = 'sidebar';
-  nav.setAttribute('aria-label', 'Menu');
-
-  var flags = '<div class="flags">' + LANGS.map(function (l) {
-    return '<a href="' + fileFor(page, l) + '" hreflang="' + (l === 'cz' ? 'cs' : l) + '" title="' + LANG_NAME[l] + '"' +
-      (l === lang ? ' aria-current="true"' : '') + '><img src="https://flagcdn.com/w80/' + FLAG[l] + '.png" alt="' + LANG_NAME[l] + '" width="48" height="32"></a>';
-  }).join('') + '</div>';
-
-  var links = '<ul class="nav-links">' + PAGES.map(function (p) {
-    return '<li><a href="' + fileFor(p, lang) + '"' + (p === page ? ' aria-current="page"' : '') + '>' + T[p] + '</a></li>';
-  }).join('') + '</ul>';
-
-  nav.innerHTML = flags + links;
-  document.body.prepend(nav);
-  document.body.prepend(backdrop);
-  document.body.prepend(burger);
-
+  /* ---------- Mobile menu ---------- */
+  var menu = document.getElementById('mobileMenu');
+  var openBtn = document.getElementById('menuOpen');
+  var closeBtn = document.getElementById('menuClose');
   function setMenu(open) {
-    nav.classList.toggle('open', open);
-    backdrop.classList.toggle('show', open);
+    if (!menu) return;
+    menu.classList.toggle('open', open);
     document.body.classList.toggle('menu-open', open);
-    burger.setAttribute('aria-expanded', String(open));
-    burger.setAttribute('aria-label', open ? T.close : T.open);
-    if (open) { var first = nav.querySelector('.nav-links a'); if (first) first.focus({ preventScroll: true }); }
+    openBtn.setAttribute('aria-expanded', String(open));
+    if (open) closeBtn.focus(); else openBtn.focus();
   }
-  function isOpen() { return nav.classList.contains('open'); }
-
-  burger.addEventListener('click', function () { setMenu(!isOpen()); });
-  backdrop.addEventListener('click', function () { setMenu(false); });
-  nav.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
-
-  /* ---------- Modal ---------- */
-  var modal = document.createElement('div');
-  modal.className = 'modal';
-  modal.setAttribute('role', 'dialog');
-  modal.setAttribute('aria-modal', 'true');
-  modal.innerHTML = '<div class="modal-box"><button class="modal-close" type="button" aria-label="' + T.closeModal + '">&times;</button><div class="modal-inner"></div></div>';
-  document.body.appendChild(modal);
-  var modalBox = modal.querySelector('.modal-box');
-  var modalInner = modal.querySelector('.modal-inner');
-  var lastFocus = null;
-
-  function closeModal() {
-    modal.classList.remove('show');
-    document.body.classList.remove('menu-open');
-    if (lastFocus) lastFocus.focus({ preventScroll: true });
+  if (menu) {
+    openBtn.addEventListener('click', function () { setMenu(true); });
+    closeBtn.addEventListener('click', function () { setMenu(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && menu.classList.contains('open')) setMenu(false); });
   }
-  modal.querySelector('.modal-close').addEventListener('click', closeModal);
-  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
 
-  document.addEventListener('keydown', function (e) {
-    if (e.key !== 'Escape') return;
-    if (modal.classList.contains('show')) closeModal();
-    else if (isOpen()) { setMenu(false); burger.focus(); }
-  });
+  /* ---------- Pop-up dialog ---------- */
+  var dialog = document.createElement('dialog');
+  dialog.className = 'pop';
+  dialog.innerHTML = '<div class="pop-body"><button class="pop-close" type="button" aria-label="' +
+    (document.body.getAttribute('data-close') || 'Close') + '">✕</button><div class="pop-content"></div></div>';
+  document.body.appendChild(dialog);
+  dialog.querySelector('.pop-close').addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
+  dialog.addEventListener('close', function () { document.body.style.overflow = ''; });
 
-  /* Site.openModal(htmlString, { wide: bool }) */
+  function escape(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
   window.Site = {
     lang: lang,
-    page: page,
+    escape: escape,
+    /* Site.openModal(htmlString, { wide: bool }) */
     openModal: function (html, opts) {
-      lastFocus = document.activeElement;
-      modalBox.classList.toggle('wide', !!(opts && opts.wide));
-      modalInner.innerHTML = html;
-      modal.classList.add('show');
-      document.body.classList.add('menu-open');
-      modalBox.scrollTop = 0;
-      modal.querySelector('.modal-close').focus({ preventScroll: true });
+      dialog.classList.toggle('wide', !!(opts && opts.wide));
+      dialog.querySelector('.pop-content').innerHTML = html;
+      document.body.style.overflow = 'hidden';
+      dialog.showModal();
+      dialog.querySelector('.pop-body').scrollTop = 0;
     },
-    closeModal: closeModal,
-    escape: function (s) {
-      return String(s).replace(/[&<>"']/g, function (c) {
-        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-      });
-    }
+    closeModal: function () { dialog.close(); }
   };
 })();

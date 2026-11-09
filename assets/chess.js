@@ -259,9 +259,8 @@ async function recordResult(who) {
 }
 
 function renderScore() {
-  $('score').innerHTML = '<strong>' + T.scoreTitle + '</strong> ' + score.visitors + ' – ' + score.ben +
-    (score.draws ? ' <span class="muted">(' + score.draws + ' ' + T.draws + ')</span>' : '') +
-    (scoreRemote ? '' : ' <span class="muted">(' + T.scoreLocal + ')</span>');
+  $('score').innerHTML = '<div class="label">' + T.scoreTitle + '</div><div class="nums">' + score.visitors + ' – ' + score.ben + '</div>' +
+    '<div class="muted">' + (score.draws ? score.draws + ' ' + T.draws : '') + (scoreRemote ? '' : (score.draws ? ' · ' : '') + T.scoreLocal) + '</div>';
 }
 
 /* ---------- game flow ---------- */
@@ -300,22 +299,35 @@ async function play() {
 function toSetup() {
   clearInterval(timer); over = true;
   $('game').hidden = true; $('setup').hidden = false; $('result').hidden = true;
+  preview();
+}
+
+// Before a game: show the starting position from the chosen side and the clock length.
+function preview() {
+  userColor = pickedColor === 'b' ? 'b' : 'w';
+  game = new Chess(); selected = targets = lastMove = null; over = true;
+  clocks = { w: +tc * 60000, b: +tc * 60000 };
+  buildBoard(); renderBoard(); renderClocks();
+  $('name-bot').textContent = T.ben + ' (' + T.bot + ')';
+  $('name-you').textContent = T.you;
 }
 
 function init() {
   $('profile').href = PROFILE;
   for (const b of document.querySelectorAll('[data-tc]')) b.addEventListener('click', () => {
     tc = b.dataset.tc; document.querySelectorAll('[data-tc]').forEach(x => x.classList.toggle('active', x === b));
+    preview();
   });
   for (const b of document.querySelectorAll('[data-color]')) b.addEventListener('click', () => {
     pickedColor = b.dataset.color; document.querySelectorAll('[data-color]').forEach(x => x.classList.toggle('active', x === b));
+    preview();
   });
   $('play').addEventListener('click', play);
   $('resign').addEventListener('click', () => finish('bot', 'resign'));
-  $('rematch').addEventListener('click', () => { if (pickedColor === 'r') { /* new random colour */ } play(); });
+  $('rematch').addEventListener('click', play);
   $('change').addEventListener('click', toSetup);
   $('board').addEventListener('click', e => { const b = e.target.closest('.sq'); if (b) onSquare(b.dataset.sq); });
-  loadData(); loadScore();
+  preview(); loadData(); loadScore();
 }
 
 init();

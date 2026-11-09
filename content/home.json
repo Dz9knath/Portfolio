@@ -1,0 +1,90 @@
+{
+  "en": {
+    "tagline": "Student | Athlete | Explorer | Polymath in Progress",
+    "quote": "“We live the life we create for ourselves.”",
+    "intro": "I’m Benjamin – a Czech student with a passion for movement, learning and real-world experience. From exchange semesters in the US and Portugal to rugby pitches, I aim to get a little better every day.",
+    "nowLabel": "Right now",
+    "nowTitle": "Studying at Tetr College of Business",
+    "nowText": "After graduating with the IB Diploma in summer 2026, I was accepted into Tetr College of Business – a global undergraduate business programme that takes students across several countries. I’m currently studying in New Delhi, India.",
+    "pills": [
+      "📍 New Delhi, India",
+      "🎓 IB Diploma 2026",
+      "🏉 11 years of rugby"
+    ],
+    "tiles": {
+      "growth": "Sports, languages, exchanges and everything that shaped me.",
+      "experience": "Coaching, events and the jobs I’ve done.",
+      "gallery": "Moments from races, exchanges and camps.",
+      "blog": "Thoughts on growth, sport and school.",
+      "fun": "The trivia I can’t stop telling people.",
+      "chess": "A bot that plays like me – 1, 3 or 10 minutes. Can you beat it?",
+      "contacts": "Get in touch."
+    }
+  },
+  "cz": {
+    "tagline": "Student | Sportovec | Dobrodruh | Polyhistor v procesu",
+    "quote": "„Žijeme život, který si sami vytvoříme.“",
+    "intro": "Jsem Benjamin – český student s vášní pro pohyb, učení a skutečné zážitky. Od výměnných pobytů v USA a Portugalsku až po ragbyová hřiště se snažím být každý den o kousek lepší.",
+    "nowLabel": "Právě teď",
+    "nowTitle": "Studuji na Tetr College of Business",
+    "nowText": "Po dokončení IB Diploma v létě 2026 jsem byl přijat na Tetr College of Business – mezinárodní vysokoškolský program business studií, během kterého studenti studují v několika zemích. Momentálně studuji v Novém Dillí v Indii.",
+    "pills": [
+      "📍 Nové Dillí, Indie",
+      "🎓 IB Diploma 2026",
+      "🏉 11 let ragby"
+    ],
+    "tiles": {
+      "growth": "Sport, jazyky, výměnné pobyty a vše, co mě formovalo.",
+      "experience": "Trénování, akce a práce, které jsem dělal.",
+      "gallery": "Momenty ze závodů, výměn a táborů.",
+      "blog": "Myšlenky o růstu, sportu a škole.",
+      "fun": "Zajímavosti, které musím všem vyprávět.",
+      "chess": "Bot, který hraje jako já – 1, 3 nebo 10 minut. Porazíte ho?",
+      "contacts": "Ozvěte se mi."
+    }
+  },
+  "de": {
+    "tagline": "Student | Sportler | Entdecker | Angehender Universalgelehrter",
+    "quote": "„Wir leben das Leben, das wir uns selbst erschaffen.“",
+    "intro": "Ich bin Benjamin – ein tschechischer Student mit einer Leidenschaft für Bewegung, Lernen und echte Erfahrungen. Von Austauschsemestern in den USA und Portugal bis zum Rugbyplatz versuche ich, jeden Tag ein bisschen besser zu werden.",
+    "nowLabel": "Gerade jetzt",
+    "nowTitle": "Studium am Tetr College of Business",
+    "nowText": "Nach meinem IB Diploma im Sommer 2026 wurde ich am Tetr College of Business angenommen – einem internationalen Bachelorprogramm in Business, bei dem man in mehreren Ländern studiert. Derzeit studiere ich in Neu-Delhi, Indien.",
+    "pills": [
+      "📍 Neu-Delhi, Indien",
+      "🎓 IB Diploma 2026",
+      "🏉 11 Jahre Rugby"
+    ],
+    "tiles": {
+      "growth": "Sport, Sprachen, Austausche und alles, was mich geprägt hat.",
+      "experience": "Training, Events und meine bisherigen Jobs.",
+      "gallery": "Momente aus Rennen, Austauschen und Camps.",
+      "blog": "Gedanken über Entwicklung, Sport und Schule.",
+      "fun": "Trivia, die ich einfach jedem erzählen muss.",
+      "chess": "Ein Bot, der spielt wie ich – 1, 3 oder 10 Minuten. Schaffst du es?",
+      "contacts": "Schreib mir."
+    }
+  },
+  "pt": {
+    "tagline": "Estudante | Atleta | Explorador | Polímata em Formação",
+    "quote": "“Vivemos a vida que criamos para nós mesmos.”",
+    "intro": "Sou o Benjamin – um estudante checo apaixonado por movimento, aprendizagem e experiências reais. Desde semestres de intercâmbio nos EUA e em Portugal até aos campos de rugby, procuro ser um pouco melhor a cada dia.",
+    "nowLabel": "Neste momento",
+    "nowTitle": "A estudar no Tetr College of Business",
+    "nowText": "Depois de concluir o IB Diploma no verão de 2026, fui admitido no Tetr College of Business – um programa internacional de licenciatura em gestão que leva os estudantes a estudar em vários países. Atualmente estou a estudar em Nova Deli, na Índia.",
+    "pills": [
+      "📍 Nova Deli, Índia",
+      "🎓 IB Diploma 2026",
+      "🏉 11 anos de rugby"
+    ],
+    "tiles": {
+      "growth": "Desporto, idiomas, intercâmbios e tudo o que me formou.",
+      "experience": "Treino, eventos e os trabalhos que fiz.",
+      "gallery": "Momentos de provas, intercâmbios e campos.",
+      "blog": "Pensamentos sobre crescimento, desporto e escola.",
+      "fun": "As curiosidades que não paro de contar.",
+      "chess": "Um bot que joga como eu – 1, 3 ou 10 minutos. Consegues vencê-lo?",
+      "contacts": "Entre em contacto."
+    }
+  }
+}

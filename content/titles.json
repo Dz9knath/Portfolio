@@ -1,0 +1,42 @@
+{
+  "en": {
+    "home": "Portfolio",
+    "blog": "Blog",
+    "growth": "Growth & Learning",
+    "experience": "Experience",
+    "gallery": "Gallery",
+    "fun": "Fun Facts",
+    "chess": "Beat Ben at Chess",
+    "contacts": "Contacts"
+  },
+  "cz": {
+    "home": "Portfolio",
+    "blog": "Blog",
+    "growth": "Růst a vzdělávání",
+    "experience": "Zkušenosti",
+    "gallery": "Galerie",
+    "fun": "Zajímavosti",
+    "chess": "Porazte Bena v šachu",
+    "contacts": "Kontakty"
+  },
+  "de": {
+    "home": "Portfolio",
+    "blog": "Blog",
+    "growth": "Entwicklung & Lernen",
+    "experience": "Berufserfahrung",
+    "gallery": "Galerie",
+    "fun": "Wissenswertes",
+    "chess": "Schlag Ben im Schach",
+    "contacts": "Kontakt"
+  },
+  "pt": {
+    "home": "Portfólio",
+    "blog": "Blog",
+    "growth": "Crescimento & Aprendizagem",
+    "experience": "Experiência",
+    "gallery": "Galeria",
+    "fun": "Curiosidades",
+    "chess": "Ganhe ao Ben no xadrez",
+    "contacts": "Contactos"
+  }
+}

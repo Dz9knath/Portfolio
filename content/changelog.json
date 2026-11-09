@@ -1,0 +1,230 @@
+{
+  "en": [
+    [
+      "2026-11-09",
+      "v3.0",
+      "Complete redesign: a brighter, more playful look with one self-hosted font, a new home page that starts with what I have done, photos stored on the site itself (no more imgur), a new chess layout, and About Me facts paused until they are ready."
+    ],
+    [
+      "2026-11-09",
+      "v2.3",
+      "Chess: play a bot built from my own chess.com games, with 1, 3 or 10 minute clocks, my openings and a Visitors vs Ben score."
+    ],
+    [
+      "2026-11-08",
+      "v2.2",
+      "Fun Facts: every fact now has its own number, comes up in random order without repeats, and adult facts sit behind an NSFW switch instead of a separate category."
+    ],
+    [
+      "2026-11-07",
+      "v2.1",
+      "Optimised for phones: swipeable Growth filters, two-column home tiles and gallery, bottom-sheet pop-ups, bigger tap targets and fixed buttons showing too early on Fun Facts."
+    ],
+    [
+      "2026-11-05",
+      "v2.0",
+      "Big redesign: one shared look and font on every page, a new menu that turns into a ✕ and closes properly, click-to-open Experience cards, fact-checked Fun Facts with sources (plus an NSFW button), merged Growth cards, a Tetr section and translation fixes."
+    ],
+    [
+      "2026-08-04",
+      "v1.5",
+      "Gallery filled with 10 real photos and captions, replacing the placeholder images, in all languages."
+    ],
+    [
+      "2026-03-06",
+      "v1.4",
+      "Growth & Learning expanded from 27 to 43 cards (EuroWeek, coaching, refereeing, cheerleading and more), refreshed header colours and updated translations."
+    ],
+    [
+      "2025-10-10",
+      "v1.3",
+      "New homepage hero photo."
+    ],
+    [
+      "2025-08-13",
+      "v1.2",
+      "Added Czech and Portuguese. German, Czech and Portuguese versions now fully functional and available."
+    ],
+    [
+      "2025-08-12",
+      "v1.1",
+      "Added German to the website and prepared Czech and Portuguese."
+    ],
+    [
+      "2025-08-10",
+      "v1.0",
+      "Website almost complete, missing content and translations."
+    ]
+  ],
+  "cz": [
+    [
+      "2026-11-09",
+      "v3.0",
+      "Kompletní redesign: veselejší a barevnější vzhled s jedním vlastním písmem, nová domovská stránka začínající tím, co jsem dokázal, fotky uložené přímo na webu (už žádný imgur), nové rozložení šachů a zajímavosti o mně pozastavené, dokud nebudou hotové."
+    ],
+    [
+      "2026-11-09",
+      "v2.3",
+      "Šachy: zahrajte si proti botovi vytvořenému z mých partií na chess.com, s časem 1, 3 nebo 10 minut, mými zahájeními a skóre Návštěvníci vs Ben."
+    ],
+    [
+      "2026-11-08",
+      "v2.2",
+      "Zajímavosti: každá má teď své číslo, zobrazují se v náhodném pořadí bez opakování a ty pro dospělé jsou místo samostatné kategorie za přepínačem NSFW."
+    ],
+    [
+      "2026-11-07",
+      "v2.1",
+      "Optimalizace pro telefony: posuvné filtry v sekci Růst, dlaždice a galerie ve dvou sloupcích, vyskakovací okna zespodu, větší tlačítka a opravené tlačítko, které se v Zajímavostech zobrazovalo předčasně."
+    ],
+    [
+      "2026-11-05",
+      "v2.0",
+      "Velký redesign: jednotný vzhled a písmo na všech stránkách, nové menu, které se mění v ✕ a dá se zavřít, rozklikávací karty zkušeností, ověřené zajímavosti se zdroji (a tlačítko NSFW), sloučené karty v sekci Růst, sekce o Tetru a opravy překladů."
+    ],
+    [
+      "2026-08-04",
+      "v1.5",
+      "Galerie naplněna 10 skutečnými fotkami s popisky místo zástupných obrázků, ve všech jazycích."
+    ],
+    [
+      "2026-03-06",
+      "v1.4",
+      "Sekce Růst a vzdělávání rozšířena z 27 na 43 karet (EuroWeek, trénování, rozhodčí, cheerleading a další), nové barvy záhlaví a aktualizované překlady."
+    ],
+    [
+      "2025-10-10",
+      "v1.3",
+      "Nová úvodní fotka na domovské stránce."
+    ],
+    [
+      "2025-08-13",
+      "v1.2",
+      "Přidána čeština a portugalština. Německá, česká a portugalská verze jsou plně funkční a dostupné."
+    ],
+    [
+      "2025-08-12",
+      "v1.1",
+      "Přidána němčina, příprava na češtinu a portugalštinu."
+    ],
+    [
+      "2025-08-10",
+      "v1.0",
+      "Stránky jsou téměř hotové, chybí obsah a překlady."
+    ]
+  ],
+  "de": [
+    [
+      "2026-11-09",
+      "v3.0",
+      "Komplettes Redesign: ein fröhlicheres, farbigeres Design mit einer selbst gehosteten Schrift, eine neue Startseite, die mit meinen Erfahrungen beginnt, Fotos direkt auf der Website (kein imgur mehr), ein neues Schach-Layout und Fakten über mich pausiert, bis sie fertig sind."
+    ],
+    [
+      "2026-11-09",
+      "v2.3",
+      "Schach: Spiel gegen einen Bot, der aus meinen chess.com-Partien gebaut ist, mit 1, 3 oder 10 Minuten, meinen Eröffnungen und einem Stand Besucher vs. Ben."
+    ],
+    [
+      "2026-11-08",
+      "v2.2",
+      "Wissenswertes: Jeder Fakt hat jetzt seine eigene Nummer, erscheint in zufälliger Reihenfolge ohne Wiederholungen, und nicht jugendfreie Fakten liegen hinter einem NSFW-Schalter statt in einer eigenen Kategorie."
+    ],
+    [
+      "2026-11-07",
+      "v2.1",
+      "Für Smartphones optimiert: wischbare Filter bei Entwicklung & Lernen, zweispaltige Kacheln und Galerie, Pop-ups von unten, größere Tippflächen und ein Fehler bei Wissenswertes behoben, durch den Buttons zu früh erschienen."
+    ],
+    [
+      "2026-11-05",
+      "v2.0",
+      "Großes Redesign: einheitliches Design und Schrift auf allen Seiten, ein neues Menü, das zum ✕ wird und sich richtig schließen lässt, aufklappbare Erfahrungskarten, geprüfte Fakten mit Quellen (plus NSFW-Button), zusammengefasste Entwicklungskarten, ein Tetr-Abschnitt und korrigierte Übersetzungen."
+    ],
+    [
+      "2026-08-04",
+      "v1.5",
+      "Galerie mit 10 echten Fotos und Bildunterschriften statt Platzhaltern, in allen Sprachen."
+    ],
+    [
+      "2026-03-06",
+      "v1.4",
+      "Entwicklung & Lernen von 27 auf 43 Karten erweitert (EuroWeek, Training, Schiedsrichter, Cheerleading und mehr), neue Kopfzeilenfarben und aktualisierte Übersetzungen."
+    ],
+    [
+      "2025-10-10",
+      "v1.3",
+      "Neues Titelbild auf der Startseite."
+    ],
+    [
+      "2025-08-13",
+      "v1.2",
+      "Tschechisch und Portugiesisch hinzugefügt. Deutsche, tschechische und portugiesische Version jetzt vollständig funktionsfähig und verfügbar."
+    ],
+    [
+      "2025-08-12",
+      "v1.1",
+      "Deutsch zur Website hinzugefügt, Vorbereitungen für Tschechisch und Portugiesisch getroffen."
+    ],
+    [
+      "2025-08-10",
+      "v1.0",
+      "Website fast fertig, es fehlen noch Inhalte und Übersetzungen."
+    ]
+  ],
+  "pt": [
+    [
+      "2026-11-09",
+      "v3.0",
+      "Redesign completo: um visual mais alegre e colorido com uma única fonte própria, uma nova página inicial que começa pelo que já fiz, fotos guardadas no próprio site (adeus imgur), um novo layout do xadrez e as curiosidades sobre mim em pausa até estarem prontas."
+    ],
+    [
+      "2026-11-09",
+      "v2.3",
+      "Xadrez: joga contra um bot criado a partir dos meus jogos do chess.com, com 1, 3 ou 10 minutos, as minhas aberturas e um marcador Visitantes vs Ben."
+    ],
+    [
+      "2026-11-08",
+      "v2.2",
+      "Curiosidades: cada uma tem agora o seu próprio número, aparecem por ordem aleatória sem repetições e as de conteúdo adulto ficam atrás de um interruptor NSFW em vez de numa categoria à parte."
+    ],
+    [
+      "2026-11-07",
+      "v2.1",
+      "Otimizado para telemóveis: filtros deslizáveis em Crescimento, mosaicos e galeria em duas colunas, janelas que sobem de baixo, botões maiores e correção de botões que apareciam cedo demais nas Curiosidades."
+    ],
+    [
+      "2026-11-05",
+      "v2.0",
+      "Grande redesign: um visual e uma fonte únicos em todas as páginas, novo menu que se transforma num ✕ e fecha corretamente, cartões de Experiência que se abrem ao clicar, curiosidades verificadas com fontes (e um botão NSFW), cartões de Crescimento agrupados, secção sobre a Tetr e correções de tradução."
+    ],
+    [
+      "2026-08-04",
+      "v1.5",
+      "Galeria preenchida com 10 fotos reais e legendas, em vez das imagens provisórias, em todos os idiomas."
+    ],
+    [
+      "2026-03-06",
+      "v1.4",
+      "Crescimento & Aprendizagem expandido de 27 para 43 cartões (EuroWeek, treino, arbitragem, cheerleading e mais), novas cores de cabeçalho e traduções atualizadas."
+    ],
+    [
+      "2025-10-10",
+      "v1.3",
+      "Nova foto principal na página inicial."
+    ],
+    [
+      "2025-08-13",
+      "v1.2",
+      "Adicionados o checo e o português. Versões em alemão, checo e português agora totalmente funcionais e disponíveis."
+    ],
+    [
+      "2025-08-12",
+      "v1.1",
+      "Adicionado o alemão ao site, preparativos para adicionar checo e português."
+    ],
+    [
+      "2025-08-10",
+      "v1.0",
+      "Site quase completo, faltando conteúdo e traduções."
+    ]
+  ]
+}

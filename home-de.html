@@ -4,197 +4,112 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Benjamin Hejda – Portfolio</title>
-  <meta name="description" content="Portfolio – Portfolio von Benjamin Hejda, tschechischer Student, Sportler und Entdecker." />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230066cc'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='white' text-anchor='middle'%3EBH%3C/text%3E%3C/svg%3E" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <meta name="description" content="Portfolio – Portfolio von Benjamin Hejda, tschechischer Business-Student, Rugbytrainer und Ausdauersportler." />
+  <meta name="theme-color" content="#1e1b4b" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231e1b4b'/%3E%3Ccircle cx='20' cy='44' r='7' fill='%23ff5470'/%3E%3Ccircle cx='32' cy='44' r='7' fill='%23ffc83d'/%3E%3Ccircle cx='44' cy='44' r='7' fill='%2319c2a0'/%3E%3Ctext x='32' y='30' text-anchor='middle' font-family='Arial,sans-serif' font-weight='bold' font-size='22' fill='%23fff'%3EBH%3C/text%3E%3C/svg%3E" />
+  <link rel="preload" href="assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/site.css" />
-  <style>
-    .hero { display: flex; min-height: 100vh; flex-wrap: wrap; }
-    .hero-left { flex: 1 1 420px; min-height: 50vh; background: url('https://i.imgur.com/t1spQG4.jpeg') center / cover no-repeat; }
-    .hero-right { flex: 1 1 420px; padding: 4rem; display: flex; flex-direction: column; justify-content: center; background: #fff; }
-    .hero-right h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 0.75rem; }
-    .hero-right h2 { font-family: var(--font-body); font-weight: 500; font-size: 1.15rem; color: var(--muted); margin-bottom: 2rem; }
-    .hero-right blockquote { font-size: 1.4rem; font-style: italic; color: var(--blue); margin-bottom: 1.25rem; }
-    .hero-right p { margin-bottom: 2rem; max-width: 560px; }
-    .hero-right .btn { align-self: flex-start; font-size: 1.05rem; padding: 13px 26px; }
-    
-    .section-title { font-size: 1.6rem; margin-bottom: 20px; }
-    .now { border-left: 5px solid var(--blue); margin-bottom: 56px; }
-    .now .label { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8rem; font-weight: 600; color: var(--blue); }
-    .now h2 { font-size: 1.5rem; margin: 6px 0 10px; }
-    .now .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    
-    .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; margin-bottom: 56px; }
-    .tile { display: block; text-decoration: none; color: inherit; }
-    .tile h3 { font-size: 1.15rem; margin-bottom: 6px; }
-    .tile h3 span { margin-right: 6px; }
-    .tile p { color: var(--muted); font-size: 0.95rem; }
-    
-    .changelog { text-align: left; }
-    .version-item { border-left: 4px solid var(--blue); padding-left: 16px; min-height: 80px; }
-    .version-item small { display: block; color: var(--muted); margin-bottom: 6px; }
-    .changelog-nav { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; gap: 12px; }
-    .changelog-nav .count { color: var(--muted); font-size: 0.9rem; }
-    
-    @media (max-width: 768px) {
-      .hero { flex-direction: column; min-height: 0; }
-      .hero-left { min-height: 48vh; flex: none; }
-      .hero-right { padding: 1.75rem 1.25rem 2.25rem; flex: none; }
-    }
-    @media (max-width: 600px) {
-      .hero-right h1 { margin-bottom: 0.4rem; }
-      .hero-right h2 { font-size: 1rem; margin-bottom: 1.25rem; }
-      .hero-right blockquote { font-size: 1.2rem; margin-bottom: 1rem; }
-      .hero-right p { margin-bottom: 1.5rem; }
-      .hero-right .btn { align-self: stretch; text-align: center; }
-      .now { margin-bottom: 36px; }
-      .now h2 { font-size: 1.25rem; }
-      .section-title { font-size: 1.35rem; margin-bottom: 14px; }
-      .tiles { grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 36px; }
-      .tile { padding: 14px; }
-      .tile h3 { font-size: 0.98rem; display: flex; flex-direction: column; gap: 6px; }
-      .tile h3 span { font-size: 1.5rem; margin: 0; }
-      .tile p { font-size: 0.82rem; line-height: 1.45; }
-      .changelog-nav .btn { padding: 10px 14px; }
-    }
-  </style>
+  <link rel="alternate" hreflang="en" href="home.html" />
+  <link rel="alternate" hreflang="cs" href="home-cz.html" />
+  <link rel="alternate" hreflang="de" href="home-de.html" />
+  <link rel="alternate" hreflang="pt" href="home-pt.html" />
 </head>
-<body data-page="home">
-  <!-- The burger menu is added automatically by assets/site.js -->
-
-<section class="hero">
-    <div class="hero-left" role="img" aria-label="Benjamin Hejda"></div>
-    <div class="hero-right">
-      <h1>Benjamin Hejda</h1>
-      <h2>Student | Sportler | Entdecker | Angehender Universalgelehrter</h2>
-      <blockquote>„Wir leben das Leben, das wir uns selbst erschaffen.“</blockquote>
-      <p>Ich bin Benjamin – ein tschechischer Student mit einer Leidenschaft für Bewegung, Lernen und echte Erfahrungen. Von Austauschsemestern in den USA und Portugal bis zum Rugbyplatz versuche ich, jeden Tag ein bisschen besser zu werden.</p>
-      <a class="btn" href="#explore">Entdecke mein Portfolio</a>
-    </div>
-  </section>
-
-  <main>
+<body data-page="home" data-close="Schließen">
+  <!-- Generated by build/build.mjs from content/*.json – edit those, not this file. -->
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+  <header class="topbar">
     <div class="wrap">
-      <section class="card now">
-        <div class="label">Gerade jetzt</div>
-        <h2>Studium am Tetr College of Business</h2>
-        <p>Nach meinem IB Diploma im Sommer 2026 wurde ich am Tetr College of Business angenommen – einem internationalen Bachelorprogramm in Business, bei dem man in mehreren Ländern studiert. Derzeit studiere ich in Neu-Delhi, Indien.</p>
-        <div class="pills"><span class="pill">📍 Neu-Delhi, Indien</span><span class="pill">🎓 IB Diploma 2026</span><span class="pill">🏉 11 Jahre Rugby</span></div>
-      </section>
-
-      <section id="explore">
-        <h2 class="section-title">Entdecken</h2>
-        <div class="tiles">
-          <a class="card clickable tile" href="growth-de.html"><h3><span>🌱</span>Entwicklung & Lernen</h3><p>Sport, Sprachen, Austausche und alles, was mich geprägt hat.</p></a>
-          <a class="card clickable tile" href="experience-de.html"><h3><span>💼</span>Berufserfahrung</h3><p>Training, Events und meine bisherigen Jobs.</p></a>
-          <a class="card clickable tile" href="gallery-de.html"><h3><span>📸</span>Galerie</h3><p>Momente aus Rennen, Austauschen und Camps.</p></a>
-          <a class="card clickable tile" href="blog-de.html"><h3><span>✍️</span>Blog</h3><p>Gedanken über Entwicklung, Sport und Schule.</p></a>
-          <a class="card clickable tile" href="fun-de.html"><h3><span>🧠</span>Wissenswertes</h3><p>Trivia, die ich einfach jedem erzählen muss.</p></a>
-          <a class="card clickable tile" href="chess-de.html"><h3><span>♟️</span>Schlag Ben im Schach</h3><p>Ein Bot, der spielt wie ich – 1, 3 oder 10 Minuten. Schaffst du es?</p></a>
-          <a class="card clickable tile" href="contacts-de.html"><h3><span>✉️</span>Kontakt</h3><p>Schreib mir.</p></a>
-        </div>
-      </section>
-
-      <section class="card changelog">
-        <h2 class="section-title">Änderungsprotokoll</h2>
-        <div class="version-item" aria-live="polite">
-          <small>2026-11-09 — v2.3 — #10</small>
-          <span>Schach: Spiel gegen einen Bot, der aus meinen chess.com-Partien gebaut ist, mit 1, 3 oder 10 Minuten, meinen Eröffnungen und einem Stand Besucher vs. Ben.</span>
-        </div>
-        <div class="changelog-nav">
-          <button class="btn ghost" id="prevLog" type="button">← Neuer</button>
-          <span class="count" id="logCount">1 / 10</span>
-          <button class="btn ghost" id="nextLog" type="button">Älter →</button>
-        </div>
-      </section>
+      <a class="wordmark" href="home-de.html"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Ben Hejda</a>
+      <ul class="nav"><li><a href="home-de.html" aria-current="page">Start</a></li><li><a href="growth-de.html">Entwicklung</a></li><li><a href="experience-de.html">Erfahrung</a></li><li><a href="gallery-de.html">Galerie</a></li><li><a href="blog-de.html">Blog</a></li><li><a href="fun-de.html">Wissenswertes</a></li><li><a href="chess-de.html">Schach</a></li><li><a href="contacts-de.html">Kontakt</a></li></ul>
+      <nav class="langs" aria-label="Sprache"><a href="home.html" hreflang="en" lang="en" title="English">EN</a><a href="home-cz.html" hreflang="cs" lang="cs" title="Čeština">CZ</a><a href="home-de.html" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a><a href="home-pt.html" hreflang="pt" lang="pt" title="Português">PT</a></nav>
+      <button id="menuOpen" class="btn small light menu-btn" type="button" aria-controls="mobileMenu" aria-expanded="false">Menü</button>
     </div>
+  </header>
+  <div id="mobileMenu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menü">
+    <div class="top"><a class="wordmark" href="home-de.html"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Ben Hejda</a><button id="menuClose" class="btn small" type="button">Menü schließen</button></div>
+    <ul><li><a href="home-de.html" aria-current="page">Start</a></li><li><a href="growth-de.html">Entwicklung</a></li><li><a href="experience-de.html">Erfahrung</a></li><li><a href="gallery-de.html">Galerie</a></li><li><a href="blog-de.html">Blog</a></li><li><a href="fun-de.html">Wissenswertes</a></li><li><a href="chess-de.html">Schach</a></li><li><a href="contacts-de.html">Kontakt</a></li></ul>
+    <nav class="langs" aria-label="Sprache"><a href="home.html" hreflang="en" lang="en" title="English">EN</a><a href="home-cz.html" hreflang="cs" lang="cs" title="Čeština">CZ</a><a href="home-de.html" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a><a href="home-pt.html" hreflang="pt" lang="pt" title="Português">PT</a></nav>
+  </div>
+  <main id="main">
+<section class="hero">
+      <div class="wrap">
+        <div>
+          <h1>Hallo, ich bin Ben.</h1>
+          <p class="role">Business-Student am Tetr College, Rugby-Jugendtrainer und Ausdauersportler aus Tschechien. Ich lerne durch Tun: Austausche auf drei Kontinenten, elf Jahre Rugby und bisher vier Sprachen.</p>
+          <div class="ctas">
+            <a class="btn" href="experience-de.html">Meine Erfahrung</a>
+            <a class="btn light" href="contacts-de.html">Kontakt aufnehmen</a>
+          </div>
+        </div>
+        <div class="portrait">
+          <img src="assets/photos/t1spQG4.jpg" alt="Benjamin Hejda mit einem Rugbyball im Wald" width="1067" height="1600" fetchpriority="high" />
+          <ul class="stamps"><li class="stamp">Neu-Delhi 2026</li><li class="stamp">IB Diploma 2026</li><li class="stamp">11 Jahre Rugby</li><li class="stamp">4 Sprachen</li><li class="stamp">Austausch in Ohio</li><li class="stamp">Triathlet</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="band now">
+      <div class="wrap">
+        <p class="label">Gerade jetzt</p>
+        <div><h2>Studium am Tetr College of Business</h2><p>Nach meinem IB Diploma im Sommer 2026 wurde ich am Tetr College of Business angenommen – einem internationalen Bachelorprogramm in Business, bei dem man in mehreren Ländern studiert. Derzeit studiere ich in Neu-Delhi, Indien.</p></div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <div class="section-head"><h2>Was ich bisher gemacht habe</h2><a class="text-link" href="growth-de.html">Alles unter Entwicklung &amp; Lernen</a></div>
+        <ul class="highlights">
+          <li class="t-Education"><a href="growth-de.html#card-0"><span class="chip">Bildung</span><h3>Tetr College of Business</h3><p>Zulassung zum Tetr College of Business, einem internationalen Bachelorprogramm in Business, bei dem man in mehreren Ländern studiert. Derzeit studiere ich in Neu-Delhi, Indien.</p></a></li>
+          <li class="t-Education"><a href="growth-de.html#card-1"><span class="chip">Bildung</span><h3>IB Diploma – Gymnázium a SOŠ Rokycany</h3><p>Im Sommer 2026 das International Baccalaureate Diploma abgeschlossen, mit Schwerpunkt auf Biologie, Mathematik, Geschichte und Englisch.</p></a></li>
+          <li class="t-Exchange"><a href="growth-de.html#card-2"><span class="chip">Austausch</span><h3>Semester in Ohio, USA</h3><p>Ein halbes Jahr an einer amerikanischen High School verbracht, eingetaucht in die US-Kultur und ein völlig anderes Schulsystem. Später zurückgeflogen, um Freunde wiederzusehen und zum Abschlussball (Prom) zu gehen.</p></a></li>
+          <li class="t-Sport"><a href="growth-de.html#card-5"><span class="chip">Sport</span><h3>Rugby</h3><p>Elf Jahre Rugby, darunter bei einem der besten tschechischen Vereine – Teamarbeit, Belastbarkeit, strategisches Denken und Führungsqualitäten.</p></a></li>
+          <li class="t-Sport"><a href="growth-de.html#card-6"><span class="chip">Sport</span><h3>Jugend-Rugbytraining</h3><p>Seit 2022 ehrenamtlicher Trainer junger Spieler – ich begleite sie nicht nur im Rugby, sondern auch in Disziplin, Verantwortung und Teamarbeit.</p></a></li>
+          <li class="t-Sport"><a href="growth-de.html#card-9"><span class="chip">Sport</span><h3>Triathlon</h3><p>Meinen ersten Triathlon gefinisht – jetzt trainiere ich Schwimmen, Radfahren und Laufen mit dem Ziel, einen Ironman 70.3 zu schaffen.</p></a></li>
+          <li class="t-Language"><a href="growth-de.html#card-12"><span class="chip">Sprachen</span><h3>Sprachen</h3><p>Tschechisch (Muttersprache), Englisch (fließend seit der Kindheit), Deutsch und Portugiesisch (Mittelstufe), derzeit lerne ich Norwegisch. Schon als Kind habe ich ausländischen Besuchern bei der Verständigung geholfen – das hat mir Sicherheit im Umgang mit anderen Kulturen gegeben.</p></a></li>
+          <li class="t-Internship"><a href="growth-de.html#card-13"><span class="chip">Praktikum</span><h3>Praktikum beim Militär</h3><p>Wertvolle Fähigkeiten und neue Perspektiven durch ein Praktikum bei der Armee.</p></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head"><h2>Wo ich gearbeitet habe</h2><a class="text-link" href="experience-de.html">Alle Erfahrungen</a></div>
+        <ul class="work-list">
+          <li><a href="experience-de.html#job-0"><span class="ico" aria-hidden="true">🏉</span><span><strong>Ehrenamtlicher Rugby-Trainer</strong><span>Ragby Plzeň</span></span><span class="when">2022–heute</span></a></li>
+          <li><a href="experience-de.html#job-1"><span class="ico" aria-hidden="true">🏕️</span><span><strong>Trainer &amp; Camp-Animator</strong><span>Rugby Academy Yves Perrot (RAYP)</span></span><span class="when">Saisonal</span></a></li>
+          <li><a href="experience-de.html#job-2"><span class="ico" aria-hidden="true">🎯</span><span><strong>Mitarbeiter</strong><span>Paintball Arena (PPA)</span></span><span class="when">2023–heute</span></a></li>
+          <li><a href="experience-de.html#job-3"><span class="ico" aria-hidden="true">🍴</span><span><strong>Eventmarketing &amp; Catering</strong><span>4PRO</span></span><span class="when">2024–heute</span></a></li>
+          <li><a href="experience-de.html#job-4"><span class="ico" aria-hidden="true">🎸</span><span><strong>Verkauf / Support</strong><span>Verschiedene Konzerte &amp; Festivals</span></span><span class="when">Gelegentlich</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="band" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head"><h2>Mach eine Pause</h2></div>
+        <div class="play-grid">
+          <a class="play-tile chess" href="chess-de.html"><span class="glyph" aria-hidden="true">♞</span><h3>Spiel gegen meinen Schach-Bot</h3><p>Ein Bot, der spielt wie ich – 1, 3 oder 10 Minuten. Schaffst du es?</p></a>
+          <a class="play-tile fun" href="fun-de.html"><span class="glyph" aria-hidden="true">?</span><h3>Zufälliger Fakt</h3><p>Trivia, die ich einfach jedem erzählen muss.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="band talk">
+      <div class="wrap">
+        <h2>Lass uns reden</h2>
+        <div class="ctas">
+          <a class="btn" href="mailto:ben.hejda@gmail.com">E-Mail schreiben</a>
+          <a class="btn light" href="https://www.linkedin.com/in/benjamin-hejda" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
   </main>
-
-  <footer class="site-footer">© 2026 Benjamin Hejda</footer>
-
+  <footer class="site-footer">
+    <div class="wrap">
+      <details class="news"><summary>Neu auf dieser Website</summary><ol><li><span class="ver">v3.0<small>2026-11-09</small></span><span>Komplettes Redesign: ein fröhlicheres, farbigeres Design mit einer selbst gehosteten Schrift, eine neue Startseite, die mit meinen Erfahrungen beginnt, Fotos direkt auf der Website (kein imgur mehr), ein neues Schach-Layout und Fakten über mich pausiert, bis sie fertig sind.</span></li><li><span class="ver">v2.3<small>2026-11-09</small></span><span>Schach: Spiel gegen einen Bot, der aus meinen chess.com-Partien gebaut ist, mit 1, 3 oder 10 Minuten, meinen Eröffnungen und einem Stand Besucher vs. Ben.</span></li><li><span class="ver">v2.2<small>2026-11-08</small></span><span>Wissenswertes: Jeder Fakt hat jetzt seine eigene Nummer, erscheint in zufälliger Reihenfolge ohne Wiederholungen, und nicht jugendfreie Fakten liegen hinter einem NSFW-Schalter statt in einer eigenen Kategorie.</span></li><li><span class="ver">v2.1<small>2026-11-07</small></span><span>Für Smartphones optimiert: wischbare Filter bei Entwicklung &amp; Lernen, zweispaltige Kacheln und Galerie, Pop-ups von unten, größere Tippflächen und ein Fehler bei Wissenswertes behoben, durch den Buttons zu früh erschienen.</span></li><li><span class="ver">v2.0<small>2026-11-05</small></span><span>Großes Redesign: einheitliches Design und Schrift auf allen Seiten, ein neues Menü, das zum ✕ wird und sich richtig schließen lässt, aufklappbare Erfahrungskarten, geprüfte Fakten mit Quellen (plus NSFW-Button), zusammengefasste Entwicklungskarten, ein Tetr-Abschnitt und korrigierte Übersetzungen.</span></li><li><span class="ver">v1.5<small>2026-08-04</small></span><span>Galerie mit 10 echten Fotos und Bildunterschriften statt Platzhaltern, in allen Sprachen.</span></li><li><span class="ver">v1.4<small>2026-03-06</small></span><span>Entwicklung &amp; Lernen von 27 auf 43 Karten erweitert (EuroWeek, Training, Schiedsrichter, Cheerleading und mehr), neue Kopfzeilenfarben und aktualisierte Übersetzungen.</span></li><li><span class="ver">v1.3<small>2025-10-10</small></span><span>Neues Titelbild auf der Startseite.</span></li><li><span class="ver">v1.2<small>2025-08-13</small></span><span>Tschechisch und Portugiesisch hinzugefügt. Deutsche, tschechische und portugiesische Version jetzt vollständig funktionsfähig und verfügbar.</span></li><li><span class="ver">v1.1<small>2025-08-12</small></span><span>Deutsch zur Website hinzugefügt, Vorbereitungen für Tschechisch und Portugiesisch getroffen.</span></li><li><span class="ver">v1.0<small>2025-08-10</small></span><span>Website fast fertig, es fehlen noch Inhalte und Übersetzungen.</span></li></ol></details>
+      <div class="row"><span>© 2026 Benjamin Hejda. Gebaut und gepflegt von Ben. In vier Sprachen.</span><nav class="langs" aria-label="Sprache"><a href="home.html" hreflang="en" lang="en" title="English">EN</a><a href="home-cz.html" hreflang="cs" lang="cs" title="Čeština">CZ</a><a href="home-de.html" hreflang="de" lang="de" title="Deutsch" aria-current="true">DE</a><a href="home-pt.html" hreflang="pt" lang="pt" title="Português">PT</a></nav></div>
+    </div>
+  </footer>
   <script src="assets/site.js"></script>
-  <script>
-    // Changelog – newest first. Add new entries at the TOP of this list.
-    const changelogEntries = [
-      {
-        "date": "2026-11-09",
-        "version": "v2.3",
-        "number": "#10",
-        "text": "Schach: Spiel gegen einen Bot, der aus meinen chess.com-Partien gebaut ist, mit 1, 3 oder 10 Minuten, meinen Eröffnungen und einem Stand Besucher vs. Ben."
-      },
-      {
-        "date": "2026-11-08",
-        "version": "v2.2",
-        "number": "#9",
-        "text": "Wissenswertes: Jeder Fakt hat jetzt seine eigene Nummer, erscheint in zufälliger Reihenfolge ohne Wiederholungen, und nicht jugendfreie Fakten liegen hinter einem NSFW-Schalter statt in einer eigenen Kategorie."
-      },
-      {
-        "date": "2026-11-07",
-        "version": "v2.1",
-        "number": "#8",
-        "text": "Für Smartphones optimiert: wischbare Filter bei Entwicklung & Lernen, zweispaltige Kacheln und Galerie, Pop-ups von unten, größere Tippflächen und ein Fehler bei Wissenswertes behoben, durch den Buttons zu früh erschienen."
-      },
-      {
-        "date": "2026-11-05",
-        "version": "v2.0",
-        "number": "#7",
-        "text": "Großes Redesign: einheitliches Design und Schrift auf allen Seiten, ein neues Menü, das zum ✕ wird und sich richtig schließen lässt, aufklappbare Erfahrungskarten, geprüfte Fakten mit Quellen (plus NSFW-Button), zusammengefasste Entwicklungskarten, ein Tetr-Abschnitt und korrigierte Übersetzungen."
-      },
-      {
-        "date": "2026-08-04",
-        "version": "v1.5",
-        "number": "#6",
-        "text": "Galerie mit 10 echten Fotos und Bildunterschriften statt Platzhaltern, in allen Sprachen."
-      },
-      {
-        "date": "2026-03-06",
-        "version": "v1.4",
-        "number": "#5",
-        "text": "Entwicklung & Lernen von 27 auf 43 Karten erweitert (EuroWeek, Training, Schiedsrichter, Cheerleading und mehr), neue Kopfzeilenfarben und aktualisierte Übersetzungen."
-      },
-      {
-        "date": "2025-10-10",
-        "version": "v1.3",
-        "number": "#4",
-        "text": "Neues Titelbild auf der Startseite."
-      },
-      {
-        "date": "2025-08-13",
-        "version": "v1.2",
-        "number": "#3",
-        "text": "Tschechisch und Portugiesisch hinzugefügt. Deutsche, tschechische und portugiesische Version jetzt vollständig funktionsfähig und verfügbar."
-      },
-      {
-        "date": "2025-08-12",
-        "version": "v1.1",
-        "number": "#2",
-        "text": "Deutsch zur Website hinzugefügt, Vorbereitungen für Tschechisch und Portugiesisch getroffen."
-      },
-      {
-        "date": "2025-08-10",
-        "version": "v1.0",
-        "number": "#1",
-        "text": "Website fast fertig, es fehlen noch Inhalte und Übersetzungen."
-      }
-    ];
-    let currentLogIndex = 0;
-    const prevBtn = document.getElementById('prevLog');
-    const nextBtn = document.getElementById('nextLog');
-    
-    function renderLog() {
-      const log = changelogEntries[currentLogIndex];
-      const item = document.querySelector('.version-item');
-      item.querySelector('small').textContent = log.date + ' — ' + log.version + ' — ' + log.number;
-      item.querySelector('span').textContent = log.text;
-      document.getElementById('logCount').textContent = (currentLogIndex + 1) + ' / ' + changelogEntries.length;
-      prevBtn.disabled = currentLogIndex === 0;
-      nextBtn.disabled = currentLogIndex === changelogEntries.length - 1;
-    }
-    prevBtn.addEventListener('click', () => { if (currentLogIndex > 0) { currentLogIndex--; renderLog(); } });
-    nextBtn.addEventListener('click', () => { if (currentLogIndex < changelogEntries.length - 1) { currentLogIndex++; renderLog(); } });
-    renderLog();
-  </script>
 </body>
 </html>
