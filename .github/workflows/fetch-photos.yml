@@ -1,0 +1,29 @@
+name: Copy photos into the repo
+
+# One-off helper: downloads the site's photos from imgur into assets/photos/
+# (imgur is blocked in the UK, so the site now serves its own copies).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download photos
+        run: |
+          mkdir -p assets/photos
+          for id in t1spQG4 M9ceOaE mpBgo3X jLSE58G Tpt260a 43lO1pf k0N1tTc gECqNYq phbQO4i 3qTckOr BrPiljt GTKJ5c5 7g5iTwK Q5zDYBd; do
+            curl -fsSL -A "Mozilla/5.0" -o "assets/photos/$id.jpg" "https://i.imgur.com/$id.jpeg"
+          done
+          ls -la assets/photos
+      - name: Commit
+        run: |
+          git config user.name "photo-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/photos
+          git diff --cached --quiet || git commit -m "Copy site photos from imgur into the repo"
+          git push
