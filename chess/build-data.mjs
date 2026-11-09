@@ -98,6 +98,17 @@ for (const [cls, minutes] of Object.entries(CLASSES)) {
 }
 
 writeFileSync(new URL('./ben.json', import.meta.url), JSON.stringify(data));
+
+// Compact move lists of the last 300 games per time control, used to calibrate
+// the bot's strength against Ben's real moves (see chess/calibrate.mjs).
+const recent = {};
+for (const [cls, minutes] of Object.entries(CLASSES)) {
+  recent[minutes] = games.filter(g => g.time_class === cls && g.rules === 'chess' && g.pgn).slice(-300).map(g => {
+    const white = g.white.username.toLowerCase() === USER;
+    return { c: white ? 'w' : 'b', r: (white ? g.white : g.black).rating, o: (white ? g.black : g.white).rating, m: parseMoves(g.pgn).map(x => x.san).join(' ') };
+  });
+}
+writeFileSync(new URL('./ben-games.json', import.meta.url), JSON.stringify(recent));
 for (const [m, tc] of Object.entries(data.timeControls)) {
   console.log(`${m} min: ${tc.games} games, rating ${tc.rating}, book positions W ${Object.keys(tc.book.white).length} / B ${Object.keys(tc.book.black).length}`);
 }

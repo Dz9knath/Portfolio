@@ -24,6 +24,6 @@ jobs:
         run: |
           git config user.name "chess-data-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add chess/ben.json
+          git add chess/ben.json chess/ben-games.json
           git diff --cached --quiet || git commit -m "Update chess bot data"
           git push
