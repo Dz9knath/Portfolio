@@ -13,15 +13,14 @@
   <style>
     .intro { text-align: center; max-width: 720px; margin: 0 auto 28px; font-size: 1.05rem; }
     .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 18px; }
-    .nsfw-switch { display: flex; justify-content: center; margin-bottom: 8px; }
-    .nsfw-switch label { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; font-weight: 500; user-select: none; padding: 6px 4px; }
+    .nsfw-switch { display: flex; justify-content: center; margin-top: 14px; font-size: 0.82rem; opacity: 0.85; }
+    .nsfw-switch label { display: inline-flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; user-select: none; padding: 6px 4px; }
     .nsfw-switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-    .nsfw-switch .track { width: 46px; height: 26px; border-radius: 13px; background: #c9ced6; position: relative; transition: background 0.2s; flex: none; }
-    .nsfw-switch .track::after { content: ''; position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.25); transition: transform 0.2s; }
+    .nsfw-switch .track { width: 34px; height: 19px; border-radius: 10px; background: #c9ced6; position: relative; transition: background 0.2s; flex: none; }
+    .nsfw-switch .track::after { content: ''; position: absolute; top: 2px; left: 2px; width: 15px; height: 15px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.25); transition: transform 0.2s; }
     .nsfw-switch input:checked + .track { background: #b02a2a; }
-    .nsfw-switch input:checked + .track::after { transform: translateX(20px); }
+    .nsfw-switch input:checked + .track::after { transform: translateX(15px); }
     .nsfw-switch input:focus-visible + .track { outline: 3px solid #7fb3ff; outline-offset: 2px; }
-    .nsfw-note { text-align: center; color: #b02a2a; font-size: 0.9rem; font-weight: 600; margin-bottom: 18px; }
     .fact-box { max-width: 700px; margin: 18px auto 0; min-height: 200px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
     .fact-num { font-family: var(--font-head); font-weight: 700; color: var(--blue); letter-spacing: 0.02em; }
     .fact-num .tag18 { margin-left: 8px; font-size: 0.75rem; color: #b02a2a; border: 1px solid #b02a2a; border-radius: 999px; padding: 1px 8px; vertical-align: 2px; }
@@ -53,14 +52,6 @@
         <button class="btn ghost" type="button" data-cat="unknown">Fakten, die du wahrscheinlich noch nie gehört hast</button>
         <button class="btn ghost" type="button" data-cat="me">Fakten über mich</button>
       </div>
-      <div class="nsfw-switch">
-        <label for="nsfwToggle">
-          <input type="checkbox" id="nsfwToggle" role="switch">
-          <span class="track" aria-hidden="true"></span>
-          <span>NSFW-Fakten anzeigen 🔞</span>
-        </label>
-      </div>
-      <p class="nsfw-note" id="nsfwNote" hidden>Jetzt sind auch derbe, nicht jugendfreie oder einfach seltsame Fakten dabei. Du wurdest gewarnt.</p>
       <div class="card fact-box" aria-live="polite">
         <div class="fact-num" id="factNum" hidden></div>
         <p class="fact-text" id="factText">Klicke auf einen der Buttons oben, um einen Fakt zu sehen!</p>
@@ -68,6 +59,13 @@
           <a id="factSource" class="source-link" href="#" target="_blank" rel="noopener">🔍 Quelle</a>
           <button id="nextButton" class="btn" type="button">Weiter →</button>
         </div>
+      </div>
+      <div class="nsfw-switch">
+        <label for="nsfwToggle">
+          <input type="checkbox" id="nsfwToggle" role="switch">
+          <span class="track" aria-hidden="true"></span>
+          <span>NSFW-Fakten anzeigen 🔞</span>
+        </label>
       </div>
     </div>
   </main>
@@ -84,7 +82,6 @@
     let category = null, deck = [], current = null;
     
     try { toggle.checked = localStorage.getItem('showNsfw') === '1'; } catch (e) {}
-    document.getElementById('nsfwNote').hidden = !toggle.checked;
     
     function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
     
@@ -123,8 +120,7 @@
     
     toggle.addEventListener('change', () => {
       try { localStorage.setItem('showNsfw', toggle.checked ? '1' : '0'); } catch (e) {}
-      document.getElementById('nsfwNote').hidden = !toggle.checked;
-      if (!category) return;
+        if (!category) return;
       newDeck();
       if (!toggle.checked && current && current.nsfw) next();
     });
