@@ -1,0 +1,29 @@
+name: Update chess bot data
+
+# Pulls Ben's public chess.com games once a month and rebuilds chess/ben.json
+# (ratings, opening book and thinking times the "Beat Ben" bot uses).
+on:
+  schedule:
+    - cron: '17 3 1 * *'   # 03:17 UTC on the 1st of every month
+  workflow_dispatch:        # "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build chess/ben.json
+        run: node chess/build-data.mjs
+      - name: Commit if changed
+        run: |
+          git config user.name "chess-data-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add chess/ben.json
+          git diff --cached --quiet || git commit -m "Update chess bot data"
+          git push
