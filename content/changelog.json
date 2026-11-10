@@ -1,6 +1,11 @@
 {
   "en": [
     [
+      "2026-11-10",
+      "v3.1",
+      "Chess: pieces can be dragged and the board no longer shrinks. The gallery is now a photo wall, languages are flags again, Contact is always in the top bar, and my past jobs have end dates."
+    ],
+    [
       "2026-11-09",
       "v3.0",
       "Complete redesign: a brighter, more playful look with one self-hosted font, a new home page that starts with what I have done, photos stored on the site itself (no more imgur), a new chess layout, and About Me facts paused until they are ready."
@@ -8,7 +13,7 @@
     [
       "2026-11-09",
       "v2.3",
-      "Chess: play a bot built from my own chess.com games, with 1, 3 or 10 minute clocks, my openings and a Visitors vs Ben score."
+      "Chess: play a bot built from my own chess.com games, with 1, 3 or 10-minute clocks, my openings and a Visitors vs Ben score."
     ],
     [
       "2026-11-08",
@@ -57,6 +62,11 @@
     ]
   ],
   "cz": [
+    [
+      "2026-11-10",
+      "v3.1",
+      "Šachy: figurky lze přetahovat a šachovnice se už nezmenšuje. Galerie je nově fotostěna, jazyky jsou opět vlajky, Kontakt je vždy v horní liště a moje minulé práce mají datum ukončení."
+    ],
     [
       "2026-11-09",
       "v3.0",
@@ -115,9 +125,14 @@
   ],
   "de": [
     [
+      "2026-11-10",
+      "v3.1",
+      "Schach: Figuren lassen sich ziehen und das Brett schrumpft nicht mehr. Die Galerie ist jetzt eine Fotowand, Sprachen sind wieder Flaggen, Kontakt steht immer in der oberen Leiste und meine früheren Jobs haben ein Enddatum."
+    ],
+    [
       "2026-11-09",
       "v3.0",
-      "Komplettes Redesign: ein fröhlicheres, farbigeres Design mit einer selbst gehosteten Schrift, eine neue Startseite, die mit meinen Erfahrungen beginnt, Fotos direkt auf der Website (kein imgur mehr), ein neues Schach-Layout und Fakten über mich pausiert, bis sie fertig sind."
+      "Komplettes Redesign: ein fröhlicheres, farbigeres Design mit einer selbst gehosteten Schrift, eine neue Startseite, die mit dem beginnt, was ich bisher gemacht habe, Fotos direkt auf der Website (kein imgur mehr), ein neues Schach-Layout und Fakten über mich pausiert, bis sie fertig sind."
     ],
     [
       "2026-11-09",
@@ -171,6 +186,11 @@
     ]
   ],
   "pt": [
+    [
+      "2026-11-10",
+      "v3.1",
+      "Xadrez: as peças podem ser arrastadas e o tabuleiro já não encolhe. A galeria é agora um mural de fotos, os idiomas voltaram a ser bandeiras, o Contacto está sempre na barra superior e os meus trabalhos anteriores têm data de fim."
+    ],
     [
       "2026-11-09",
       "v3.0",

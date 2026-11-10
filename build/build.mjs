@@ -29,21 +29,30 @@ const DESC = {
 };
 const FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%231e1b4b'/%3E%3Ccircle cx='20' cy='44' r='7' fill='%23ff5470'/%3E%3Ccircle cx='32' cy='44' r='7' fill='%23ffc83d'/%3E%3Ccircle cx='44' cy='44' r='7' fill='%2319c2a0'/%3E%3Ctext x='32' y='30' text-anchor='middle' font-family='Arial,sans-serif' font-weight='bold' font-size='22' fill='%23fff'%3EBH%3C/text%3E%3C/svg%3E";
 
+const FLAGS = {
+  en: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#1f3a8a"/><path d="M0 0l30 20M30 0L0 20" stroke="#fff" stroke-width="4"/><path d="M0 0l30 20M30 0L0 20" stroke="#d6263a" stroke-width="1.6"/><path d="M15 0v20M0 10h30" stroke="#fff" stroke-width="6.4"/><path d="M15 0v20M0 10h30" stroke="#d6263a" stroke-width="3.6"/></svg>',
+  cz: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#fff"/><rect y="10" width="30" height="10" fill="#d7141a"/><path d="M0 0l15 10L0 20z" fill="#11457e"/></svg>',
+  de: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="6.67" fill="#111"/><rect y="6.67" width="30" height="6.67" fill="#dd0000"/><rect y="13.33" width="30" height="6.67" fill="#ffce00"/></svg>',
+  pt: '<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="12" height="20" fill="#046a38"/><rect x="12" width="18" height="20" fill="#da291c"/><circle cx="12" cy="10" r="4.2" fill="#ffe900"/><circle cx="12" cy="10" r="2.2" fill="#fff" stroke="#da291c" stroke-width="0.8"/></svg>'
+};
 function langLinks(page, lang) {
   return `<nav class="langs" aria-label="${esc(UI[lang].language)}">` + LANGS.map(l =>
-    `<a href="${file(page, l)}" hreflang="${HTML_LANG[l]}" lang="${HTML_LANG[l]}" title="${LANG_NAME[l]}"${l === lang ? ' aria-current="true"' : ''}>${LANG_CODE[l]}</a>`).join('') + '</nav>';
+    `<a href="${file(page, l)}" hreflang="${HTML_LANG[l]}" lang="${HTML_LANG[l]}" title="${LANG_NAME[l]}" aria-label="${LANG_NAME[l]}"${l === lang ? ' aria-current="true"' : ''}>${FLAGS[l]}</a>`).join('') + '</nav>';
 }
-const wordmark = (lang) => `<a class="wordmark" href="${file('home', lang)}"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>Ben Hejda</a>`;
+const wordmark = (lang) => `<a class="wordmark" href="${file('home', lang)}">Ben Hejda</a>`;
 
 function topbar(page, lang) {
   const u = UI[lang];
-  const links = PAGES.map(p => `<li><a href="${file(p, lang)}"${p === page ? ' aria-current="page"' : ''}>${esc(u.nav[p])}</a></li>`).join('');
+  const link = p => `<li><a href="${file(p, lang)}"${p === page ? ' aria-current="page"' : ''}>${esc(u.nav[p])}</a></li>`;
+  const links = PAGES.map(link).join('');
+  const barLinks = PAGES.filter(p => p !== 'contacts').map(link).join(''); // Contact is the always-visible button
   return `<a class="skip" href="#main">${esc(u.skip)}</a>
   <header class="topbar">
     <div class="wrap">
       ${wordmark(lang)}
-      <ul class="nav">${links}</ul>
+      <ul class="nav">${barLinks}</ul>
       ${langLinks(page, lang)}
+      <a class="btn small color contact-btn" href="${file('contacts', lang)}"${page === 'contacts' ? ' aria-current="page"' : ''}>${esc(u.nav.contacts)}</a>
       <button id="menuOpen" class="btn small light menu-btn" type="button" aria-controls="mobileMenu" aria-expanded="false">${esc(u.menu)}</button>
     </div>
   </header>
@@ -94,6 +103,8 @@ ${body.trim()}
 `);
 }
 
+// "“Quote.” – Author"  ->  quote text with the author on a line of its own
+const quoteHTML = q => { const i = q.lastIndexOf(' – '); return i < 0 ? esc(q) : `${esc(q.slice(0, i))}<cite>– ${esc(q.slice(i + 3))}</cite>`; };
 const pageHead = (title, lead) => `<div class="page-head"><div class="wrap"><h1>${esc(title)}</h1>${lead ? `<p class="lead">${esc(lead)}</p>` : ''}</div></div>`;
 
 /* ======================= HOME ======================= */
@@ -185,7 +196,7 @@ for (const lang of LANGS) {
   const body = `
     ${pageHead(TITLES[lang].growth, g.intro)}
     <div class="wrap">
-      <p class="quote" id="quote" aria-live="polite">${esc(g.defaultQuote)}</p>
+      <blockquote class="quote" id="quote" aria-live="polite">${quoteHTML(g.defaultQuote)}</blockquote>
       <div class="filters" role="group">${filters}</div>
       <ul class="cards" id="cards">
         ${cards}
@@ -194,7 +205,7 @@ for (const lang of LANGS) {
   const scripts = `
   <script>
   (function () {
-    var CARDS = ${json(data)}, TAGS = ${json(g.tags)}, QUOTES = ${json(g.quotes)}, DEFAULT_QUOTE = ${json(g.defaultQuote)};
+    var CARDS = ${json(data)}, TAGS = ${json(g.tags)}, QUOTES = ${json(Object.fromEntries(Object.entries(g.quotes).map(([k, v]) => [k, quoteHTML(v)])))}, DEFAULT_QUOTE = ${json(quoteHTML(g.defaultQuote))};
     var esc = Site.escape;
     function open(i) {
       var c = CARDS[i];
@@ -206,7 +217,7 @@ for (const lang of LANGS) {
         var tag = btn.dataset.tag;
         document.querySelectorAll('.filters button').forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
         document.querySelectorAll('#cards li').forEach(function (li) { li.hidden = tag !== 'all' && li.dataset.tags.split(' ').indexOf(tag) < 0; });
-        document.getElementById('quote').textContent = tag === 'all' ? DEFAULT_QUOTE : QUOTES[tag];
+        document.getElementById('quote').innerHTML = tag === 'all' ? DEFAULT_QUOTE : QUOTES[tag];
       });
     });
     var m = location.hash.match(/^#card-(\\d+)$/);
@@ -250,22 +261,39 @@ for (const lang of LANGS) {
 }
 
 /* ======================= GALLERY ======================= */
+const OPEN = { en: 'Click to enlarge', cz: 'Kliknutím zvětšíte', de: 'Zum Vergrößern klicken', pt: 'Clica para ampliar' };
+const PREV = { en: 'Previous photo', cz: 'Předchozí fotka', de: 'Vorheriges Foto', pt: 'Foto anterior' };
+const NEXT = { en: 'Next photo', cz: 'Další fotka', de: 'Nächstes Foto', pt: 'Foto seguinte' };
 for (const lang of LANGS) {
-  const items = GAL.photos.map((src, i) => `<button type="button" data-i="${i}"><img src="${src}" alt="${esc(GAL.captions[lang][i])}" loading="lazy" /><span>${esc(GAL.captions[lang][i])}</span></button>`).join('\n        ');
+  const items = GAL.photos.map((src, i) => `<button class="pin" type="button" data-i="${i}"><img src="${src}" alt="${esc(GAL.captions[lang][i])}" loading="lazy" /><span class="cap">${esc(GAL.captions[lang][i])}<small>${esc(OPEN[lang])}</small></span></button>`).join('\n      ');
   const body = `
     ${pageHead(TITLES[lang].gallery, GAL.lead[lang])}
-    <div class="wrap">
-      <div class="gallery" id="gallery">
-        ${items}
-      </div>
+    <div class="wall" id="gallery">
+      ${items}
     </div>`;
   const scripts = `
   <script>
-    document.getElementById('gallery').addEventListener('click', function (e) {
-      var b = e.target.closest('button'); if (!b) return;
-      var img = b.querySelector('img');
-      Site.openModal('<figure><img src="' + img.getAttribute('src') + '" alt="' + Site.escape(img.alt) + '"><figcaption>' + Site.escape(img.alt) + '</figcaption></figure>', { wide: true });
+  (function () {
+    var pins = [].slice.call(document.querySelectorAll('.pin')), at = 0, esc = Site.escape;
+    function show(i) {
+      at = (i + pins.length) % pins.length;
+      var img = pins[at].querySelector('img');
+      Site.openModal('<div class="viewer"><button class="nav-btn" type="button" data-step="-1" aria-label="${esc(PREV[lang])}">←</button>' +
+        '<figure><img src="' + img.getAttribute('src') + '" alt="' + esc(img.alt) + '"><figcaption>' + esc(img.alt) + '</figcaption></figure>' +
+        '<button class="nav-btn" type="button" data-step="1" aria-label="${esc(NEXT[lang])}">→</button></div>', { wide: true });
+    }
+    document.getElementById('gallery').addEventListener('click', function (e) { var b = e.target.closest('.pin'); if (b) show(+b.dataset.i); });
+    document.addEventListener('click', function (e) { var b = e.target.closest('.viewer .nav-btn'); if (b) show(at + +b.dataset.step); });
+    document.addEventListener('keydown', function (e) {
+      if (!document.querySelector('dialog.pop[open] .viewer')) return;
+      if (e.key === 'ArrowLeft') show(at - 1); if (e.key === 'ArrowRight') show(at + 1);
     });
+    // On touch screens there is no hover, so the photo nearest the middle of the screen shows its caption.
+    if (window.matchMedia('(hover: none)').matches && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (es) { es.forEach(function (x) { x.target.classList.toggle('in-view', x.isIntersecting); }); }, { rootMargin: '-35% 0px -35% 0px' });
+      pins.forEach(function (p) { io.observe(p); });
+    }
+  })();
   </script>`;
   render({ page: 'gallery', lang, title: TITLES[lang].gallery, body, scripts });
 }
@@ -416,7 +444,6 @@ for (const lang of LANGS) {
               <button type="button" data-color="r">${esc(c.random)}</button>
             </div>
             <button id="play" class="btn" type="button">${esc(c.play)}</button>
-            <p class="fine">${esc(c.note)}</p>
           </section>
           <section id="game" hidden>
             <p id="loadMsg" class="load-msg" hidden></p>

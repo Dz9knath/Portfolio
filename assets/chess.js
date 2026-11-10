@@ -263,6 +263,62 @@ function renderScore() {
     '<div class="muted">' + (score.draws ? score.draws + ' ' + T.draws : '') + (scoreRemote ? '' : (score.draws ? ' · ' : '') + T.scoreLocal) + '</div>';
 }
 
+
+/* ---------- dragging ----------
+   Any piece can be picked up at any time (even when it is not your move), it just
+   snaps back unless the drop is a legal move for you. Tapping squares still works. */
+let drag = null, justDragged = false;
+
+function sqAt(x, y) {
+  const el = document.elementFromPoint(x, y);
+  const sq = el && el.closest && el.closest('.sq');
+  return sq && $('board').contains(sq) ? sq : null;
+}
+
+function initDrag() {
+  const board = $('board');
+  board.addEventListener('pointerdown', e => {
+    if (e.button) return;
+    const el = e.target.closest('.sq'); const pc = el && el.querySelector('.pc');
+    if (!pc) return;
+    drag = { from: el.dataset.sq, el, pc, x: e.clientX, y: e.clientY, ghost: null, id: e.pointerId };
+  });
+  window.addEventListener('pointermove', e => {
+    if (!drag || e.pointerId !== drag.id) return;
+    if (!drag.ghost) {
+      if (Math.hypot(e.clientX - drag.x, e.clientY - drag.y) < 5) return;
+      const r = drag.el.getBoundingClientRect();
+      const g = drag.pc.cloneNode(true);
+      g.classList.add('ghost'); g.style.fontSize = getComputedStyle(drag.pc).fontSize;
+      g.style.width = r.width + 'px'; g.style.height = r.height + 'px';
+      document.body.appendChild(g); drag.ghost = g; drag.size = r.width;
+      // if it is a piece you may move right now, show where it can go
+      const p = game.get(drag.from);
+      if (!over && started && !botBusy && game.turn() === userColor && p && p.color === userColor) {
+        selected = drag.from; targets = {};
+        for (const m of game.moves({ square: drag.from, verbose: true })) targets[m.to] = true;
+        renderBoard();
+        drag.el = board.querySelector('[data-sq="' + drag.from + '"]'); drag.pc = drag.el.querySelector('.pc');
+      }
+      if (drag.pc) drag.pc.style.opacity = '0.25';
+    }
+    drag.ghost.style.transform = 'translate(' + (e.clientX - drag.size / 2) + 'px,' + (e.clientY - drag.size / 2) + 'px) scale(1.15)';
+    e.preventDefault();
+  }, { passive: false });
+  const end = e => {
+    if (!drag || e.pointerId !== drag.id) return;
+    const d = drag; drag = null;
+    if (!d.ghost) return; // it was a tap: the click handler deals with it
+    d.ghost.remove(); if (d.pc) d.pc.style.opacity = '';
+    justDragged = true; setTimeout(() => { justDragged = false; }, 50);
+    const to = e.type === 'pointerup' && sqAt(e.clientX, e.clientY);
+    if (to && selected === d.from && targets && targets[to.dataset.sq]) onSquare(to.dataset.sq);
+    else { selected = null; targets = null; renderBoard(); }
+  };
+  window.addEventListener('pointerup', end);
+  window.addEventListener('pointercancel', end);
+}
+
 /* ---------- game flow ---------- */
 function finish(who, reason) {
   if (over) return;
@@ -326,7 +382,11 @@ function init() {
   $('resign').addEventListener('click', () => finish('bot', 'resign'));
   $('rematch').addEventListener('click', play);
   $('change').addEventListener('click', toSetup);
-  $('board').addEventListener('click', e => { const b = e.target.closest('.sq'); if (b) onSquare(b.dataset.sq); });
+  $('board').addEventListener('click', e => {
+    if (justDragged) { justDragged = false; return; }
+    const b = e.target.closest('.sq'); if (b) onSquare(b.dataset.sq);
+  });
+  initDrag();
   preview(); loadData(); loadScore();
 }
 
