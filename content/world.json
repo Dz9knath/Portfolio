@@ -1,0 +1,170 @@
+{
+  "order": ["rokycany", "pilsen", "ohio", "aveiro", "pier", "yard", "chess", "facts", "delhi", "dubai"],
+  "cards": {
+    "rokycany": [1, 26, 13, 16, 17, 18, 19, 25],
+    "pilsen": [5, 6, 7, 8, 9, 10, 11, 22, 23, 24],
+    "ohio": [2, 20, 21, 15],
+    "aveiro": [3, 4, 14, 12],
+    "delhi": [0]
+  },
+  "en": {
+    "tagline": "Finance and AI student. This is my route so far.",
+    "scroll": "Scroll to drive the train",
+    "skipCv": "Skip to CV", "contact": "Contact", "getOff": "Get off here", "close": "Back to the train",
+    "next": "Next stop", "prev": "Previous stop", "line": "The line", "sound": "Sound", "soundOn": "Sound on", "soundOff": "Sound off",
+    "blogBtn": "Read my blog", "ticketClass": "One way", "you": "You are here",
+    "nowebgl": "Your browser can’t draw the 3D world, but every stop still works from the line below.",
+    "stations": {
+      "rokycany": ["Rokycany", "Where it starts: school, the IB and a lot of side quests."],
+      "pilsen": ["Pilsen", "Eleven years of rugby, then every sport that hurts."],
+      "ohio": ["Ohio", "Half a year at an American high school."],
+      "aveiro": ["Aveiro", "Exchanges, EuroWeek and four languages."],
+      "pier": ["Photo Pier", "Pictures from along the way."],
+      "yard": ["Work Yard", "Every job I’ve had so far."],
+      "chess": ["Chess Park", "A bot that plays like me. Try to beat it."],
+      "facts": ["Fact Factory", "The trivia I can’t stop telling people."],
+      "delhi": ["New Delhi", "Right now: finance and AI at Tetr."],
+      "dubai": ["Dubai", "Next stop. Still being built. Say hi."]
+    },
+    "intros": {
+      "rokycany": "I grew up here. School, the IB Diploma, and a lot of things I said yes to on the side.",
+      "pilsen": "Rugby took eleven years of my life and gave most of it back as discipline. Then came coaching, refereeing and every endurance sport I could find.",
+      "ohio": "Half a year at an American high school, on my own, in a school system nothing like mine.",
+      "aveiro": "Exchanges are where the languages came from: Portugal, Slovakia, EuroWeek, and now four languages with a fifth on the way.",
+      "pier": "Photos from along the line. Click one to see it bigger.",
+      "yard": "Every job I’ve had so far. Most were fast, loud and full of people, which is how I like it.",
+      "dubai": "Dubai is where my programme takes me next, so this station is still being built. If you’d like to talk before I get there, here’s how."
+    },
+    "secrets": {
+      "label": "Secrets", "found": "Secret found", "hint": "Seven things along the line do something when you click them. Find them all.",
+      "all": "You found all seven. You explore the way I do, so let’s talk.",
+      "names": { "horn": "The engine’s horn", "cow": "The jumping cow", "try": "A kick between the posts", "plane": "The looping plane", "king": "The fallen king", "night": "The big switch", "gold": "The golden block" }
+    },
+    "cv": {
+      "title": "CV", "back": "Take the train instead", "print": "Print or save as PDF", "about": "About", "education": "Education", "experience": "Experience",
+      "highlights": "Highlights", "languages": "Languages", "contact": "Contact",
+      "langs": "Czech (native), English (fluent), German and Portuguese (intermediate), learning Norwegian",
+      "edu": [["Tetr College of Business", "2026–now", "Global undergraduate programme, finance and AI. Currently in New Delhi, next Dubai."], ["Gymnázium a SOŠ Rokycany", "until 2026", "International Baccalaureate Diploma: biology, maths, history and English."]]
+    }
+  },
+  "cz": {
+    "tagline": "Student financí a AI. Tohle je moje dosavadní trasa.",
+    "scroll": "Scrollováním řídíte vlak",
+    "skipCv": "Přejít na životopis", "contact": "Kontakt", "getOff": "Vystoupit zde", "close": "Zpět do vlaku",
+    "next": "Další zastávka", "prev": "Předchozí zastávka", "line": "Trať", "sound": "Zvuk", "soundOn": "Zvuk zapnut", "soundOff": "Zvuk vypnut",
+    "blogBtn": "Přečíst můj blog", "ticketClass": "Jednosměrná", "you": "Jste zde",
+    "nowebgl": "Váš prohlížeč neumí vykreslit 3D svět, ale všechny zastávky fungují z trati níže.",
+    "stations": {
+      "rokycany": ["Rokycany", "Tady to začíná: škola, IB a spousta vedlejších úkolů."],
+      "pilsen": ["Plzeň", "Jedenáct let ragby a pak každý sport, který bolí."],
+      "ohio": ["Ohio", "Půl roku na americké střední škole."],
+      "aveiro": ["Aveiro", "Výměny, EuroWeek a čtyři jazyky."],
+      "pier": ["Fotomolo", "Fotky z cesty."],
+      "yard": ["Pracovní dvůr", "Všechny práce, které jsem zatím dělal."],
+      "chess": ["Šachový park", "Bot, který hraje jako já. Zkuste ho porazit."],
+      "facts": ["Továrna na fakta", "Zajímavosti, které nedokážu přestat vyprávět."],
+      "delhi": ["Nové Dillí", "Právě teď: finance a AI na Tetr."],
+      "dubai": ["Dubaj", "Příští zastávka. Ještě se staví. Ozvěte se."]
+    },
+    "intros": {
+      "rokycany": "Tady jsem vyrostl. Škola, IB Diploma a spousta věcí, na které jsem k tomu řekl ano.",
+      "pilsen": "Ragby mi vzalo jedenáct let života a většinu z nich vrátilo jako disciplínu. Pak přišlo trénování, pískání a každý vytrvalostní sport, který jsem našel.",
+      "ohio": "Půl roku na americké střední škole, sám, ve školním systému úplně jiném než ten můj.",
+      "aveiro": "Z výměn pocházejí moje jazyky: Portugalsko, Slovensko, EuroWeek a dnes čtyři jazyky a pátý na cestě.",
+      "pier": "Fotky z trati. Kliknutím fotku zvětšíte.",
+      "yard": "Všechny práce, které jsem zatím dělal. Většina byla rychlá, hlučná a plná lidí, a tak to mám rád.",
+      "dubai": "Do Dubaje mě můj program zavede příště, takže se tahle stanice teprve staví. Pokud si chcete promluvit dřív, než tam dojedu, tady je jak."
+    },
+    "secrets": {
+      "label": "Tajemství", "found": "Tajemství nalezeno", "hint": "Sedm věcí podél trati něco udělá, když na ně kliknete. Najděte je všechny.",
+      "all": "Našli jste všech sedm. Objevujete stejně jako já, tak si pojďme promluvit.",
+      "names": { "horn": "Houkačka lokomotivy", "cow": "Skákající kráva", "try": "Kop mezi tyče", "plane": "Letadlo s loopingem", "king": "Padlý král", "night": "Velký vypínač", "gold": "Zlatá kostka" }
+    },
+    "cv": {
+      "title": "Životopis", "back": "Raději jet vlakem", "print": "Vytisknout nebo uložit jako PDF", "about": "O mně", "education": "Vzdělání", "experience": "Zkušenosti",
+      "highlights": "To hlavní", "languages": "Jazyky", "contact": "Kontakt",
+      "langs": "Čeština (rodný jazyk), angličtina (plynně), němčina a portugalština (středně pokročilý), učím se norsky",
+      "edu": [["Tetr College of Business", "2026–dosud", "Mezinárodní bakalářský program, finance a AI. Nyní v Novém Dillí, poté Dubaj."], ["Gymnázium a SOŠ Rokycany", "do 2026", "International Baccalaureate Diploma: biologie, matematika, dějepis a angličtina."]]
+    }
+  },
+  "de": {
+    "tagline": "Student für Finance und KI. Das ist meine bisherige Strecke.",
+    "scroll": "Scrolle, um den Zug zu fahren",
+    "skipCv": "Direkt zum Lebenslauf", "contact": "Kontakt", "getOff": "Hier aussteigen", "close": "Zurück zum Zug",
+    "next": "Nächster Halt", "prev": "Vorheriger Halt", "line": "Die Strecke", "sound": "Ton", "soundOn": "Ton an", "soundOff": "Ton aus",
+    "blogBtn": "Meinen Blog lesen", "ticketClass": "Einfache Fahrt", "you": "Du bist hier",
+    "nowebgl": "Dein Browser kann die 3D-Welt nicht darstellen, aber alle Halte funktionieren über die Strecke unten.",
+    "stations": {
+      "rokycany": ["Rokycany", "Hier fängt es an: Schule, das IB und viele Nebenaufgaben."],
+      "pilsen": ["Pilsen", "Elf Jahre Rugby und dann jeder Sport, der wehtut."],
+      "ohio": ["Ohio", "Ein halbes Jahr an einer amerikanischen High School."],
+      "aveiro": ["Aveiro", "Austausche, EuroWeek und vier Sprachen."],
+      "pier": ["Foto-Pier", "Bilder von unterwegs."],
+      "yard": ["Arbeitshof", "Alle Jobs, die ich bisher hatte."],
+      "chess": ["Schachpark", "Ein Bot, der spielt wie ich. Versuch, ihn zu schlagen."],
+      "facts": ["Faktenfabrik", "Das Wissen, das ich einfach erzählen muss."],
+      "delhi": ["Neu-Delhi", "Gerade jetzt: Finance und KI bei Tetr."],
+      "dubai": ["Dubai", "Nächster Halt. Noch im Bau. Sag hallo."]
+    },
+    "intros": {
+      "rokycany": "Hier bin ich aufgewachsen. Schule, das IB Diploma und vieles, zu dem ich nebenbei Ja gesagt habe.",
+      "pilsen": "Rugby hat elf Jahre meines Lebens genommen und das meiste davon als Disziplin zurückgegeben. Dann kamen Training, Schiedsrichtern und jeder Ausdauersport, den ich finden konnte.",
+      "ohio": "Ein halbes Jahr an einer amerikanischen High School, allein, in einem Schulsystem ganz anders als meines.",
+      "aveiro": "Aus den Austauschen kommen meine Sprachen: Portugal, die Slowakei, EuroWeek und heute vier Sprachen, die fünfte ist unterwegs.",
+      "pier": "Fotos von der Strecke. Klicke auf eines, um es größer zu sehen.",
+      "yard": "Alle Jobs, die ich bisher hatte. Die meisten waren schnell, laut und voller Menschen, und genau so mag ich es.",
+      "dubai": "Nach Dubai bringt mich mein Programm als Nächstes, deshalb wird dieser Bahnhof noch gebaut. Wenn du vorher reden möchtest, geht das so."
+    },
+    "secrets": {
+      "label": "Geheimnisse", "found": "Geheimnis gefunden", "hint": "Sieben Dinge entlang der Strecke tun etwas, wenn du sie anklickst. Finde sie alle.",
+      "all": "Du hast alle sieben gefunden. Du entdeckst wie ich, also lass uns reden.",
+      "names": { "horn": "Das Horn der Lok", "cow": "Die springende Kuh", "try": "Ein Kick zwischen die Stangen", "plane": "Das Flugzeug mit Looping", "king": "Der gefallene König", "night": "Der große Schalter", "gold": "Der goldene Block" }
+    },
+    "cv": {
+      "title": "Lebenslauf", "back": "Lieber den Zug nehmen", "print": "Drucken oder als PDF speichern", "about": "Über mich", "education": "Ausbildung", "experience": "Erfahrung",
+      "highlights": "Highlights", "languages": "Sprachen", "contact": "Kontakt",
+      "langs": "Tschechisch (Muttersprache), Englisch (fließend), Deutsch und Portugiesisch (Mittelstufe), lerne Norwegisch",
+      "edu": [["Tetr College of Business", "2026–heute", "Internationales Bachelorprogramm, Finance und KI. Derzeit in Neu-Delhi, danach Dubai."], ["Gymnázium a SOŠ Rokycany", "bis 2026", "International Baccalaureate Diploma: Biologie, Mathematik, Geschichte und Englisch."]]
+    }
+  },
+  "pt": {
+    "tagline": "Estudante de finanças e IA. Este é o meu percurso até agora.",
+    "scroll": "Faz scroll para conduzir o comboio",
+    "skipCv": "Ir direto ao CV", "contact": "Contacto", "getOff": "Sair aqui", "close": "Voltar ao comboio",
+    "next": "Próxima paragem", "prev": "Paragem anterior", "line": "A linha", "sound": "Som", "soundOn": "Som ligado", "soundOff": "Som desligado",
+    "blogBtn": "Ler o meu blog", "ticketClass": "Só ida", "you": "Estás aqui",
+    "nowebgl": "O teu navegador não consegue desenhar o mundo 3D, mas todas as paragens funcionam a partir da linha abaixo.",
+    "stations": {
+      "rokycany": ["Rokycany", "Onde tudo começa: escola, o IB e muitas missões secundárias."],
+      "pilsen": ["Pilsen", "Onze anos de rugby e depois todos os desportos que doem."],
+      "ohio": ["Ohio", "Meio ano numa escola secundária americana."],
+      "aveiro": ["Aveiro", "Intercâmbios, EuroWeek e quatro idiomas."],
+      "pier": ["Cais das Fotos", "Imagens do caminho."],
+      "yard": ["Estaleiro", "Todos os trabalhos que já tive."],
+      "chess": ["Parque do Xadrez", "Um bot que joga como eu. Tenta vencê-lo."],
+      "facts": ["Fábrica de Factos", "As curiosidades que não consigo deixar de contar."],
+      "delhi": ["Nova Deli", "Agora: finanças e IA no Tetr."],
+      "dubai": ["Dubai", "Próxima paragem. Ainda em construção. Diz olá."]
+    },
+    "intros": {
+      "rokycany": "Cresci aqui. Escola, o IB Diploma e muitas coisas a que disse sim pelo caminho.",
+      "pilsen": "O rugby levou onze anos da minha vida e devolveu a maior parte em disciplina. Depois vieram o treino, a arbitragem e todos os desportos de resistência que encontrei.",
+      "ohio": "Meio ano numa escola secundária americana, sozinho, num sistema escolar nada parecido com o meu.",
+      "aveiro": "Foi dos intercâmbios que vieram os idiomas: Portugal, Eslováquia, EuroWeek e hoje quatro idiomas, com o quinto a caminho.",
+      "pier": "Fotos ao longo da linha. Clica numa para a ver maior.",
+      "yard": "Todos os trabalhos que já tive. A maioria foi rápida, barulhenta e cheia de gente, que é como eu gosto.",
+      "dubai": "O Dubai é para onde o meu programa me leva a seguir, por isso esta estação ainda está a ser construída. Se quiseres falar antes de eu lá chegar, é assim."
+    },
+    "secrets": {
+      "label": "Segredos", "found": "Segredo encontrado", "hint": "Sete coisas ao longo da linha fazem algo quando clicas nelas. Encontra todas.",
+      "all": "Encontraste os sete. Exploras como eu, por isso vamos falar.",
+      "names": { "horn": "A buzina da locomotiva", "cow": "A vaca saltitante", "try": "Um pontapé entre os postes", "plane": "O avião em looping", "king": "O rei caído", "night": "O grande interruptor", "gold": "O bloco dourado" }
+    },
+    "cv": {
+      "title": "CV", "back": "Prefiro ir de comboio", "print": "Imprimir ou guardar em PDF", "about": "Sobre mim", "education": "Formação", "experience": "Experiência",
+      "highlights": "Destaques", "languages": "Idiomas", "contact": "Contacto",
+      "langs": "Checo (nativo), inglês (fluente), alemão e português (intermédio), a aprender norueguês",
+      "edu": [["Tetr College of Business", "2026–presente", "Programa internacional de licenciatura, finanças e IA. Atualmente em Nova Deli, a seguir Dubai."], ["Gymnázium a SOŠ Rokycany", "até 2026", "International Baccalaureate Diploma: biologia, matemática, história e inglês."]]
+    }
+  }
+}
